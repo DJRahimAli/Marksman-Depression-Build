@@ -2,10 +2,6 @@
 key_left = keyboard_check(ord("A"));
 key_right = keyboard_check(ord("D"));
 key_jump = keyboard_check_pressed(vk_space);
-#region //Sprinting
-//key_walk = keyboard_check_released(vk_shift);
-//key_sprint = keyboard_check_pressed(vk_shift);
-#endregion
 
 //Calculate Movement
 var move = key_right - key_left;
@@ -17,7 +13,6 @@ vsp = vsp + grv;
 if (place_meeting(x,y+1,oWall)) && (key_jump)
 {
 	vsp = -7;
-	audio_play_sound(snd_PlayerJump,10,false)
 }
 
 //Horizontal Collision 
@@ -42,23 +37,24 @@ if (place_meeting(x,y+vsp,oWall))
 }
 y = y + vsp;
 
-//
+//Animation
+if (!place_meeting(x,y+1,oWall))
+{
+	sprite_index = sPlayerA;
+	image_speed = 0;
+	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
+}
+else
+{
+	image_speed = 1;
+	if (hsp == 0)
+	{
+		sprite_index = sPlayer;
+	}
+	else
+	{
+		sprite_index = sPlayerR;
+	}
+}
 
-#region //Sprinting
-//var sprint = key_sprint - key_walk;
-
-//if (!place_meeting(x,y+1,oWall))
-//{
-//	sprint = 0;
-//}
-
-//if sprint = 1
-//{
-//	wlksp += 1;
-//	audio_play_sound(snd_PlayerSprint,10,false)
-//}
-//if sprint = -1
-//{
-//	wlksp -= 1;
-//}
-#endregion
+if (hsp != 0) image_xscale = sign(hsp);
