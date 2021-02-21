@@ -1,6 +1,6 @@
 //Get Player Input
-key_left = keyboard_check(ord("A"));
-key_right = keyboard_check(ord("D"));
+key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
+key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
 
 //Calculate Movement
@@ -57,4 +57,4 @@ else
 	}
 }
 
-if (hsp != 0) image_xscale = sign(hsp);
+//if (hsp != 0) image_xscale = sign(hsp);
