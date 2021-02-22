@@ -45,6 +45,8 @@ if (place_meeting(x,y+vsp,oWall))
 y = y + vsp;
 
 //Animation
+hspstr = string_format(hsp, 0, 0);
+
 if (!place_meeting(x,y+1,oWall))
 {
 	sprite_index = sPlayerA;
@@ -54,7 +56,7 @@ if (!place_meeting(x,y+1,oWall))
 else
 {
 	image_speed = 1;
-	if (hsp == 0)
+	if (hspstr == 0)
 	{
 		sprite_index = sPlayer;
 	}
