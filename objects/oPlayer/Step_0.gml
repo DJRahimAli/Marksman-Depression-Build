@@ -2,11 +2,18 @@
 key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
 key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
+key_debug = keyboard_check_pressed(vk_f1);
+
+//Debug UI Toggle
+if (key_debug)
+{
+	if (debug) debug = 0 else debug = 1;
+}
 
 //Calculate Movement
-var move = key_right - key_left;
+var move = (key_right - key_left) * wlksp;
 
-hsp = move * wlksp;
+hsp = lerp(hsp, move, accel);
 
 vsp = vsp + grv;
 
