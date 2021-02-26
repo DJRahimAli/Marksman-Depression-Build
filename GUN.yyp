@@ -10,6 +10,8 @@
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":1,},
     {"id":{"name":"sGun","path":"sprites/sGun/sGun.yy",},"order":5,},
     {"id":{"name":"sPlayerR","path":"sprites/sPlayerR/sPlayerR.yy",},"order":2,},
+    {"id":{"name":"oManager","path":"objects/oManager/oManager.yy",},"order":4,},
+    {"id":{"name":"sManager","path":"sprites/sManager/sManager.yy",},"order":8,},
     {"id":{"name":"sPlayerF","path":"sprites/sPlayerF/sPlayerF.yy",},"order":7,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
     {"id":{"name":"sPlayerA","path":"sprites/sPlayerA/sPlayerA.yy",},"order":3,},
