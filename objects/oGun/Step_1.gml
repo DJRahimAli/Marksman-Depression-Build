@@ -6,7 +6,7 @@ image_angle = point_direction(x,y,mouse_x,mouse_y);
 firingdelay = firingdelay - 1;
 recoil = max(0,recoil -1);
 
-if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0) && (!place_meeting(x,y,oWall))
+if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0) && (!stopshooting)
 {
 	recoil = 4;
 	firingdelay = 5;
@@ -20,10 +20,12 @@ if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0) && (!place_meeting
 
 if (place_meeting(x,y,oWall))
 {
+	stopshooting = 1;
 	image_alpha = 0.5;
 }
 else
 {
+	stopshooting = 0;
 	image_alpha = 1;
 }
 
