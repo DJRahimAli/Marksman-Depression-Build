@@ -6,7 +6,7 @@ image_angle = point_direction(x,y,mouse_x,mouse_y);
 firingdelay = firingdelay - 1;
 recoil = max(0,recoil -1);
 
-if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0)
+if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0) && (!place_meeting(x,y,oWall))
 {
 	recoil = 4;
 	firingdelay = 5;
@@ -16,6 +16,15 @@ if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0)
 		direction = other.image_angle + random_range(-3,3);
 		image_angle = direction;
 	}
+}
+
+if (place_meeting(x,y,oWall))
+{
+	image_alpha = 0.5;
+}
+else
+{
+	image_alpha = 1;
 }
 
 x = x - lengthdir_x(recoil,image_angle);
