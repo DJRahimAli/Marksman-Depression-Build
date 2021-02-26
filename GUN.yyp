@@ -10,6 +10,7 @@
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":1,},
     {"id":{"name":"sGun","path":"sprites/sGun/sGun.yy",},"order":5,},
     {"id":{"name":"sPlayerR","path":"sprites/sPlayerR/sPlayerR.yy",},"order":2,},
+    {"id":{"name":"sPlayerF","path":"sprites/sPlayerF/sPlayerF.yy",},"order":7,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
     {"id":{"name":"sPlayerA","path":"sprites/sPlayerA/sPlayerA.yy",},"order":3,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
