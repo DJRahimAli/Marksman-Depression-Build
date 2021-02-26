@@ -1,8 +1,12 @@
 //Get Player Input
 key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
 key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
+key_up = keyboard_check(ord("W"));// || keyboard_check(vk_left);
+key_down = keyboard_check(ord("S"));// || keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
 key_debug = keyboard_check_pressed(vk_f1);
+key_cheat = keyboard_check_pressed(vk_f2);
+key_fly = keyboard_check_pressed(ord("V"));
 
 //Debug UI Toggle
 if (key_debug)
@@ -10,14 +14,41 @@ if (key_debug)
 	if (debug) debug = 0 else debug = 1;
 }
 
+//Cheat Toggle
+if (key_cheat)
+{
+	if (cheat) cheat = 0 else cheat = 1;
+}
+
+//Disable Cheats
+if (!cheat)
+{
+	fly = 0
+}
+
+//Cheat Toggles
+if (key_fly)
+{
+	if (fly) || (!cheat) fly = 0 else fly = 1;
+}
+
 //Calculate Movement
 var move = (key_right - key_left) * wlksp;
 
 hsp = lerp(hsp, move, accel);
 
-vsp = vsp + grv;
+if (fly)
+{
+var movefly = (key_down - key_up) * wlksp;
 
-if (place_meeting(x,y+1,oWall)) && (key_jump)
+vsp = lerp(vsp, movefly, accel);
+}
+else
+{
+vsp = vsp + grv;
+}
+
+if (place_meeting(x,y+1,oWall)) && (key_jump) && (!fly)
 {
 	vsp = -7;
 }
