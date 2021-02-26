@@ -40,6 +40,7 @@ if (image_angle > 90) && (image_angle < 270)
 	with (oPlayer)
 	{
 	image_xscale = -1;
+	part_type_scale(oManager.particleType_Player_Fade,-1,1)
 	}
 }
 else
@@ -52,5 +53,6 @@ else
 	with (oPlayer)
 	{
 	image_xscale = 1;
+	part_type_scale(oManager.particleType_Player_Fade,1,1)
 	}
 }
