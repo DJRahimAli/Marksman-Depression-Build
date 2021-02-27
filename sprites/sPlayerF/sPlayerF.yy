@@ -72,7 +72,7 @@
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 25.0,
-    "playbackSpeedType": 1,
+    "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
     "length": 14.0,
