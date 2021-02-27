@@ -4,7 +4,7 @@
   "option_windows_version": "1.0.0.0",
   "option_windows_company_info": "YoYo Games Ltd",
   "option_windows_product_info": "GUN: a 2D Shooter",
-  "option_windows_copyright_info": "",
+  "option_windows_copyright_info": "Rahim Ali",
   "option_windows_description_info": "A GameMaker Studio 2 Game",
   "option_windows_display_cursor": true,
   "option_windows_icon": "icons/icon.ico",
