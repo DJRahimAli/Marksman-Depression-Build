@@ -24,7 +24,7 @@
       ],"constants":[],"ProxyFiles":[],"copyToTargets":192,"order":[
         {"name":"np_get_avatar_url","path":"extensions/NekoPresence/NekoPresence.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
-    {"filename":"NekoPresence.x64.dll","origname":"","init":"__np_initdll","final":"__np_shutdown","kind":1,"uncompress":false,"functions":[
+    {"filename":"NekoPresence.dll","origname":"","init":"__np_initdll","final":"__np_shutdown","kind":1,"uncompress":false,"functions":[
         {"externalName":"np_initdll","kind":1,"help":"__np_initdll()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"__np_initdll","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"np_shutdown","kind":1,"help":"__np_shutdown()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"__np_shutdown","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"np_initdiscord","kind":1,"help":"np_initdiscord(client_id,autoRegister,steam_id)","hidden":false,"returnType":2,"argCount":0,"args":[
