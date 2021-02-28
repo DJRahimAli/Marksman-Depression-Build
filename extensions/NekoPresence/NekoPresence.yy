@@ -105,6 +105,7 @@
         {"name":"np_respond","path":"extensions/NekoPresence/NekoPresence.yy",},
         {"name":"np_setpresence_timestamps","path":"extensions/NekoPresence/NekoPresence.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
+    {"filename":"NekoPresence.x32.dll","origname":"","init":"","final":"","kind":1,"uncompress":false,"functions":[],"constants":[],"ProxyFiles":[],"copyToTargets":192,"order":[],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",
   "tvosclassname": null,
