@@ -76,4 +76,8 @@ else
 	}
 }
 
-//if (hsp != 0) image_xscale = sign(hsp);
+if (hsp != 0) && !instance_exists(oGun)
+{
+	image_xscale = sign(hsp);
+	part_type_scale(oManager.particleType_Player_Fade,sign(hsp),1)
+}
