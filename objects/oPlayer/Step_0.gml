@@ -26,6 +26,11 @@ var move = (key_right - key_left) * wlksp;
 
 hsp = lerp(hsp, move, accel);
 
+/*
+//awful smb1 type movement
+if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
+*/
+
 if (global.fly)
 {
 var movefly = (key_flydown - key_flyup) * wlksp;
