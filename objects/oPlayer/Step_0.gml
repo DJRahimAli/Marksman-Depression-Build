@@ -5,8 +5,21 @@ key_up = keyboard_check(ord("W"));
 key_down = keyboard_check(ord("S"));
 key_jump = keyboard_check_pressed(vk_space);
 key_crouch = keyboard_check(vk_control);
+key_holster = keyboard_check_pressed(ord("H"));
+key_gun = keyboard_check_pressed(ord("2"));
 key_flyup = key_up || keyboard_check(vk_space);
 key_flydown = key_down || key_crouch;
+
+//Stupid Ass Holstering (Gross!) (Disgiusting!) (This will get fucking changed bro!)
+if (key_holster) && instance_number(oGun) = 1
+{
+	instance_destroy(oGun);
+}
+
+if (key_gun) && instance_number(oGun) = 0
+{
+	instance_create_layer(x,y,"Gun",oGun);
+}
 
 //Calculate Movement
 var move = (key_right - key_left) * wlksp;
