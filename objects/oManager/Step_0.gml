@@ -27,5 +27,4 @@ if (key_fly)
 }
 
 //Update NekoPresence so async events will execute.
-
 np_update();
