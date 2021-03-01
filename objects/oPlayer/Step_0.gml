@@ -4,9 +4,9 @@ key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
 key_up = keyboard_check(ord("W"));
 key_down = keyboard_check(ord("S"));
 key_jump = keyboard_check_pressed(vk_space);
-key_crouch = keyboard_check(vk_control) || key_down;
+key_crouch = keyboard_check(vk_control);
 key_flyup = key_up || keyboard_check(vk_space);
-key_flydown = key_crouch
+key_flydown = key_down || key_crouch;
 
 //Calculate Movement
 var move = (key_right - key_left) * wlksp;
