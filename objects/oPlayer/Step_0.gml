@@ -11,14 +11,14 @@ key_flyup = key_up || keyboard_check(vk_space);
 key_flydown = key_down || key_crouch;
 
 //Stupid Ass Holstering (Gross!) (Disgiusting!) (This will get fucking changed bro!)
-if (key_holster) && instance_number(oGun) = 1
+if (key_holster) && instance_number(oWeapon) = 1
 {
-	instance_destroy(oGun);
+	instance_destroy(oWeapon);
 }
 
-if (key_gun) && instance_number(oGun) = 0
+if (key_gun) && instance_number(oWeapon) = 0
 {
-	instance_create_layer(x,y,"Gun",oGun);
+	instance_create_layer(x,y,"Weapon",oWeapon);
 }
 
 //Calculate Movement
@@ -89,7 +89,7 @@ else
 	}
 }
 
-if (hsp != 0) && !instance_exists(oGun)
+if (hsp != 0) && !instance_exists(oWeapon)
 {
 	image_xscale = sign(hsp);
 	part_type_scale(oManager.particleType_Player_Fade,sign(hsp),1)

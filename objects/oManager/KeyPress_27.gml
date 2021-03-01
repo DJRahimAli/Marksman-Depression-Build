@@ -1,3 +1,2 @@
-// @description quit
-
+///@description Quit.
 game_end();
