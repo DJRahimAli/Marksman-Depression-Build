@@ -1,6 +1,18 @@
 key_debug = keyboard_check_pressed(vk_f1);
 key_cheat = keyboard_check_pressed(vk_f2);
+
 key_fly = keyboard_check_pressed(ord("V"));
+
+if (key_fly)
+{
+	oPlayer.controller = 0;
+}
+
+if (gamepad_button_check_pressed(0,gp_padd))
+{
+	key_fly = 1
+	oPlayer.controller = 1;
+}
 
 //Debug UI Toggle
 if (key_debug)
