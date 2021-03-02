@@ -22,7 +22,7 @@ if (key_gun) && instance_number(oWeapon) = 0
 }
 
 //Calculate Movement
-var move = (key_right - key_left) * wlksp;
+var move = (key_right - key_left) * walksp;
 
 hsp = lerp(hsp, move, accel);
 
@@ -33,7 +33,7 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 
 if (global.fly)
 {
-var movefly = (key_flydown - key_flyup) * wlksp;
+var movefly = (key_flydown - key_flyup) * walksp;
 
 vsp = lerp(vsp, movefly, accel);
 }
@@ -45,7 +45,6 @@ if (place_meeting(x,y+1,oWall)) && (key_jump)
 {
 	vsp = -7;
 }
-
 }
 
 //Horizontal Collision
