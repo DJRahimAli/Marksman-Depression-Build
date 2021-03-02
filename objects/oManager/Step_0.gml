@@ -1,3 +1,4 @@
+//Get Player Input
 key_debug = keyboard_check_pressed(vk_f1);
 key_cheat = keyboard_check_pressed(vk_f2);
 
