@@ -1,5 +1,3 @@
-draw_self();
-
 //Debug UI
 if global.debug
 {

@@ -1,10 +1,7 @@
 {
-  "spriteId": {
-    "name": "sManager",
-    "path": "sprites/sManager/sManager.yy",
-  },
+  "spriteId": null,
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": true,
   "parentObjectId": null,
@@ -25,8 +22,6 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oManager","path":"objects/oManager/oManager.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"oManager","path":"objects/oManager/oManager.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":27,"eventType":9,"collisionObjectId":null,"parent":{"name":"oManager","path":"objects/oManager/oManager.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":60,"eventType":7,"collisionObjectId":null,"parent":{"name":"oManager","path":"objects/oManager/oManager.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":70,"eventType":7,"collisionObjectId":null,"parent":{"name":"oManager","path":"objects/oManager/oManager.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":82,"eventType":9,"collisionObjectId":null,"parent":{"name":"oManager","path":"objects/oManager/oManager.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
