@@ -103,7 +103,8 @@ if (place_meeting(x,y-8,oWall))
 	crouch = 1;
 	crouchstuck = 1;
 }
-else
+
+if (!place_meeting(x,y-16,oWall))
 {
 	if (!key_crouched)
 	{
