@@ -1,6 +1,6 @@
 {
   "resources": [
-    {"id":{"name":"sNekoPresence","path":"sprites/sNekoPresence/sNekoPresence.yy",},"order":8,},
+    {"id":{"name":"sBlank","path":"sprites/sBlank/sBlank.yy",},"order":8,},
     {"id":{"name":"sPlayerTrailA","path":"sprites/sPlayerTrailA/sPlayerTrailA.yy",},"order":15,},
     {"id":{"name":"oNekoPresence","path":"objects/oNekoPresence/oNekoPresence.yy",},"order":7,},
     {"id":{"name":"sEnemyR","path":"sprites/sEnemyR/sEnemyR.yy",},"order":10,},

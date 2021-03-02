@@ -109,8 +109,6 @@ if (place_meeting(x,y+vsp,oWall))
 y = y + vsp;
 
 //Animation
-part_particles_create(oManager.particleSystem,x,y,oManager.particleType_Player_Fade,1)
-
 hspstr = string_format(hsp, 0, 0);
 
 if (!place_meeting(x,y+1,oWall))

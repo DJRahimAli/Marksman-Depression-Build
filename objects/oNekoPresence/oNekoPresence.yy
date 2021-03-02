@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sNekoPresence",
-    "path": "sprites/sNekoPresence/sNekoPresence.yy",
+    "name": "sBlank",
+    "path": "sprites/sBlank/sBlank.yy",
   },
   "solid": false,
   "visible": true,
