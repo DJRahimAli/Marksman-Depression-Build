@@ -25,6 +25,3 @@ if (key_fly)
 {
 	if (global.fly) || (!global.cheat) global.fly = 0 else global.fly = 1;
 }
-
-//Update NekoPresence so async events will execute.
-np_update();
