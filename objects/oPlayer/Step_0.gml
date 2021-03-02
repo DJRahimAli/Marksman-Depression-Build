@@ -2,8 +2,11 @@
 key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
 key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
 key_up = keyboard_check(ord("W"));
-key_down = keyboard_check(ord("S")) || keyboard_check(vk_control);
+key_down = keyboard_check(ord("S"))
 key_jump = keyboard_check_pressed(vk_space);
+key_crouch = keyboard_check_pressed(vk_control);
+key_crouched = keyboard_check(vk_control);
+key_uncrouch = keyboard_check_released(vk_control);
 
 key_flyup = key_up || keyboard_check(vk_space);
 key_flydown = key_down
@@ -65,10 +68,50 @@ var move = (key_right - key_left) * walksp;
 
 hsp = lerp(hsp, move, accel);
 
+#region //awful smb1 type movement
 /*
-//awful smb1 type movement
 if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 */
+#endregion
+
+#region //Crouching (Unfinished and Buggy!)
+if (key_crouch)
+{
+	if (place_meeting(x,y+1,oWall)) 
+	{
+		crouch = 1;
+		walksp --;
+	}
+}
+
+if (key_crouched)
+{
+	if (!crouch) notactuallycrouching = 1;
+}
+
+if (key_uncrouch)
+{
+	if (!notactuallycrouching)
+	{
+		crouch = 0;
+		walksp ++;
+	}
+}
+
+if (place_meeting(x,y-8,oWall))
+{
+	crouch = 1;
+	crouchstuck = 1;
+}
+else
+{
+	if (!key_crouched)
+	{
+		crouch = 0;
+		crouchstuck = 0;
+	}
+}
+#endregion
 
 if (global.fly)
 {
@@ -113,7 +156,8 @@ hspstr = string_format(hsp, 0, 0);
 
 if (!place_meeting(x,y+1,oWall))
 {
-	sprite_index = sPlayerA;
+	if (!crouch) sprite_index = sPlayerA;
+	if (crouch) sprite_index = sPlayerAC;
 	image_speed = 0;
 	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
 }
@@ -122,11 +166,13 @@ else
 	image_speed = 1;
 	if (hspstr == 0)
 	{
-		sprite_index = sPlayer;
+		if (!crouch) sprite_index = sPlayer;
+		if (crouch) sprite_index = sPlayerC;
 	}
 	else
 	{
-		sprite_index = sPlayerR;
+		if (!crouch) sprite_index = sPlayerR;
+		if (crouch) sprite_index = sPlayerRC;
 	}
 }
 
@@ -154,6 +200,33 @@ if sprite_index = sPlayerR && image_index = 0
 if sprite_index = sPlayerR && image_index = 1
 {
 	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
+}
+#endregion
+
+#region //Animated Trail Particle Crouching
+if sprite_index = sPlayerC
+{
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
+}
+
+if sprite_index = sPlayerAC && image_index = 0
+{
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerAC,0,0,0);
+}
+
+if sprite_index = sPlayerAC && image_index = 1
+{
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailAC,0,0,0);
+}
+
+if sprite_index = sPlayerRC && image_index = 0
+{
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerRC,0,0,0);
+}
+
+if sprite_index = sPlayerRC && image_index = 1
+{
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
 }
 #endregion
 

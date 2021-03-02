@@ -13,3 +13,6 @@ draw_text(0,90,"Gravity                      | " + string(grv));
 draw_text(0,105,"Walk Speed                   | " + string(walksp));
 draw_text(0,120,"Acceleration                 | " + string(accel));
 }
+
+draw_text(x,y+15,crouchstuck);
+draw_text(x,y+30,notactuallycrouching);

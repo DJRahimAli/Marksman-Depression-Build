@@ -4,6 +4,9 @@ vsp = 0;
 grv = 0.3;
 walksp = 4.5;
 accel = 0.2;
+crouch = 0;
+crouchstuck = 0;
+notactuallycrouching = 0;
 
 controller = 0;
 deadzone = 0.2;
