@@ -10,7 +10,7 @@ if (key_fly)
 
 if (gamepad_button_check_pressed(0,gp_padd))
 {
-	key_fly = 1
+	key_fly = 1;
 	oPlayer.controller = 1;
 }
 
