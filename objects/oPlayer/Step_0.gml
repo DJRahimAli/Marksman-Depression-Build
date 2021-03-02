@@ -135,32 +135,32 @@ else
 #region //Animated Trail Particle
 if sprite_index = sPlayer
 {
-	part_type_sprite(oManager.particleType_Player_Fade,sPlayer,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
 }
 
 if sprite_index = sPlayerA && image_index = 0
 {
-	part_type_sprite(oManager.particleType_Player_Fade,sPlayerA,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerA,0,0,0);
 }
 
 if sprite_index = sPlayerA && image_index = 1
 {
-	part_type_sprite(oManager.particleType_Player_Fade,sPlayerTrailA,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailA,0,0,0);
 }
 
 if sprite_index = sPlayerR && image_index = 0
 {
-	part_type_sprite(oManager.particleType_Player_Fade,sPlayerR,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerR,0,0,0);
 }
 
 if sprite_index = sPlayerR && image_index = 1
 {
-	part_type_sprite(oManager.particleType_Player_Fade,sPlayer,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
 }
 #endregion
 
 if (hsp != 0) && !instance_exists(oWeapon)
 {
 	image_xscale = sign(hsp);
-	part_type_scale(oManager.particleType_Player_Fade,sign(hsp),1)
+	with (oManager) part_type_scale(particleType_Player_Fade,sign(hsp),1);
 }
