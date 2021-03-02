@@ -98,13 +98,13 @@ if (key_uncrouch)
 	}
 }
 
-if (place_meeting(x,y-8,oWall))
+if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+1,oWall))
 {
 	crouch = 1;
 	crouchstuck = 1;
 }
 
-if (!place_meeting(x,y-16,oWall))
+if (!place_meeting(x,y-16,oWall)) && (place_meeting(x,y+1,oWall))
 {
 	if (!key_crouched)
 	{
@@ -124,7 +124,7 @@ else
 {
 	vsp = vsp + grv;
 	
-	if (place_meeting(x,y+1,oWall)) && (key_jump)
+	if (place_meeting(x,y+1,oWall)) && (key_jump) && (!crouchstuck)
 	{
 		vsp = -7;
 	}
