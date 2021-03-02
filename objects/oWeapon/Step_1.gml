@@ -1,20 +1,43 @@
 x = oPlayer.x;
 y = oPlayer.y+10;
 
-image_angle = point_direction(x,y,mouse_x,mouse_y);
-
 firingdelay = firingdelay - 1;
 recoil = max(0,recoil -1);
 
-if (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting)
+if (oPlayer.controller == 0)
 {
-	recoil = 4;
-	firingdelay = 5;
-	with (instance_create_layer(x,y,"Bullets",oBullet))
+	image_angle = point_direction(x,y,mouse_x,mouse_y);
+	if (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting)
 	{
-		speed = 25;
-		direction = other.image_angle + random_range(-3,3);
-		image_angle = direction;
+		recoil = 4;
+		firingdelay = 5;
+		with (instance_create_layer(x,y,"Bullets",oBullet))
+		{
+			speed = 25;
+			direction = other.image_angle + random_range(-3,3);
+			image_angle = direction;
+		}
+	}
+}
+else
+{
+	var controllerh = gamepad_axis_value(0,gp_axisrh);
+	var controllerv = gamepad_axis_value(0,gp_axisrv);
+	if (abs(controllerh) > oPlayer.deadzone) || (abs(controllerv) > oPlayer.deadzone)
+	{
+		controllerangle = point_direction(0,0,controllerh,controllerv)
+	}
+	image_angle = controllerangle;
+	if (gamepad_button_check(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting)
+	{
+		recoil = 4;
+		firingdelay = 5;
+		with (instance_create_layer(x,y,"Bullets",oBullet))
+		{
+			speed = 25;
+			direction = other.image_angle + random_range(-3,3);
+			image_angle = direction;
+		}
 	}
 }
 
