@@ -10,6 +10,6 @@ draw_text(0,45,"Horizontal Speed             | " + string(hsp));
 draw_text(0,60,"Horizontal Speed No Decimals | " + string(hspstr));
 draw_text(0,75,"Vertical Speed               | " + string(vsp));
 draw_text(0,90,"Gravity                      | " + string(grv));
-draw_text(0,105,"Walk Speed                   | " + string(wlksp));
+draw_text(0,105,"Walk Speed                   | " + string(walksp));
 draw_text(0,120,"Acceleration                 | " + string(accel));
 }
