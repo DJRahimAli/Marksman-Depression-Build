@@ -109,8 +109,8 @@ if (!place_meeting(x,y-16,oWall)) && (place_meeting(x,y+1,oWall))
 	if (!key_crouched)
 	{
 		crouch = 0;
-		crouchstuck = 0;
 	}
+	crouchstuck = 0;
 }
 #endregion
 
