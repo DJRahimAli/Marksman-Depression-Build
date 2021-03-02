@@ -7,7 +7,6 @@ particleSystem = part_system_create();
 
 particleType_Player_Fade = part_type_create();
 
-part_type_sprite(particleType_Player_Fade,sPlayer,1,0,1);
 part_type_size(particleType_Player_Fade,1,1,0,0);
 
 part_type_life(particleType_Player_Fade,5,5);

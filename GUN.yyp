@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"sManager","path":"sprites/sManager/sManager.yy",},"order":8,},
+    {"id":{"name":"sPlayerTrailA","path":"sprites/sPlayerTrailA/sPlayerTrailA.yy",},"order":15,},
     {"id":{"name":"sEnemyR","path":"sprites/sEnemyR/sEnemyR.yy",},"order":10,},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"order":5,},
     {"id":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},"order":3,},
