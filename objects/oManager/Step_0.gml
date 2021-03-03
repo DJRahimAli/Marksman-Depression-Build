@@ -38,6 +38,3 @@ if (key_fly)
 {
 	if (global.fly) || (!global.cheat) global.fly = 0 else global.fly = 1;
 }
-
-//Create Particles
-part_particles_create(particleSystem,oPlayer.x,oPlayer.y,particleType_Player_Fade,1)

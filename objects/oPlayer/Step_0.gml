@@ -204,6 +204,11 @@ else
 }
 
 #region //Animated Trail Particle
+if !(sprite_index = sPlayer || sprite_index = sPlayerC)
+{
+	with (oManager) part_particles_create(particleSystem,oPlayer.x,oPlayer.y,particleType_Player_Fade,1);
+}
+
 if sprite_index = sPlayer
 {
 	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
@@ -226,11 +231,10 @@ if sprite_index = sPlayerR && image_index = 0
 
 if sprite_index = sPlayerR && image_index = 1
 {
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailR,0,0,0);
 }
-#endregion
 
-#region //Animated Trail Particle Crouching
+//Crouching
 if sprite_index = sPlayerC
 {
 	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
@@ -253,7 +257,7 @@ if sprite_index = sPlayerRC && image_index = 0
 
 if sprite_index = sPlayerRC && image_index = 1
 {
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
+	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailRC,0,0,0);
 }
 #endregion
 
