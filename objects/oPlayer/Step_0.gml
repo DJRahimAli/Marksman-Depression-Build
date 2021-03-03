@@ -111,7 +111,11 @@ if (key_uncrouch)
 	}
 }
 
-if (!place_meeting(x,y+1,oWall))
+if (crouch) && (place_meeting(x,y+1,oWall))
+{
+	walksp = 3.5;
+}
+else
 {
 	walksp = 4.5;
 }
