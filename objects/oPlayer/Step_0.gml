@@ -123,6 +123,12 @@ if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
 	walksp = 3.5;
 }
 
+if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
+{
+	crouchstuck = 1;
+	crouch = 1;
+}
+
 if (!place_meeting(x,y-16,oWall))
 {
 	crouchstuck = 0;
