@@ -10,3 +10,5 @@ deadzone = 0.2;
 
 crouch = 0;
 crouchstuck = 0;
+
+//test = 0;

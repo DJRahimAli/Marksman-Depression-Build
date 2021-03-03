@@ -19,3 +19,5 @@ draw_text(0,12*15,"Controller Variables:        | ");
 draw_text(0,13*15,"Controller                   | " + string(controller));
 draw_text(0,14*15,"Deadzone                     | " + string(deadzone));
 }
+
+//draw_text(x,y,test);
