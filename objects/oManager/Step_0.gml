@@ -79,7 +79,7 @@ if oPlayer.sprite_index = sPlayerC
 
 if oPlayer.sprite_index = sPlayerAC && oPlayer.image_index = 0
 {
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerAC,0,0,0);
+	part_type_sprite(particleType_Player_Fade,sPlayerAC,0,0,0);
 }
 
 if oPlayer.sprite_index = sPlayerAC && oPlayer.image_index = 1
