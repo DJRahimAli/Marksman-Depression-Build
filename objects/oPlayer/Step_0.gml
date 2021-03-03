@@ -193,13 +193,25 @@ else
 	image_speed = 1;
 	if (hspstr == 0)
 	{
-		if (!crouch) sprite_index = sPlayer;
-		if (crouch) sprite_index = sPlayerC;
+		if (!crouch)
+		{
+			sprite_index = sPlayer;
+		}
+		else
+		{
+			sprite_index = sPlayerC;
+		}
 	}
 	else
 	{
-		if (!crouch) sprite_index = sPlayerR;
-		if (crouch) sprite_index = sPlayerRC;
+		if (!crouch)
+		{
+			sprite_index = sPlayerR;
+		}
+		else
+		{
+			sprite_index = sPlayerRC;
+		}
 	}
 }
 
