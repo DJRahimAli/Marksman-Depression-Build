@@ -10,3 +10,5 @@ draw_text(0,18*15,"Firing Delay                 | " + string(firingdelay));
 draw_text(0,19*15,"Recoil                       | " + string(recoil));
 draw_text(0,20*15,"Stop Shooting                | " + string(stopshooting));
 }
+
+//draw_text(x,y,test);

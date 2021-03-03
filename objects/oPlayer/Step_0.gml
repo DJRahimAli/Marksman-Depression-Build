@@ -203,64 +203,6 @@ else
 	}
 }
 
-#region //Animated Trail Particle
-if !(sprite_index = sPlayer || sprite_index = sPlayerC)
-{
-	with (oManager) part_particles_create(particleSystem,oPlayer.x,oPlayer.y,particleType_Player_Fade,1);
-}
-
-if sprite_index = sPlayer
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
-}
-
-if sprite_index = sPlayerA && image_index = 0
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerA,0,0,0);
-}
-
-if sprite_index = sPlayerA && image_index = 1
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailA,0,0,0);
-}
-
-if sprite_index = sPlayerR && image_index = 0
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerR,0,0,0);
-}
-
-if sprite_index = sPlayerR && image_index = 1
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailR,0,0,0);
-}
-
-//Crouching
-if sprite_index = sPlayerC
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
-}
-
-if sprite_index = sPlayerAC && image_index = 0
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerAC,0,0,0);
-}
-
-if sprite_index = sPlayerAC && image_index = 1
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailAC,0,0,0);
-}
-
-if sprite_index = sPlayerRC && image_index = 0
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerRC,0,0,0);
-}
-
-if sprite_index = sPlayerRC && image_index = 1
-{
-	with (oManager) part_type_sprite(particleType_Player_Fade,sPlayerTrailRC,0,0,0);
-}
-#endregion
-
 if (hsp != 0) && !instance_exists(oWeapon)
 {
 	image_xscale = sign(hsp);
