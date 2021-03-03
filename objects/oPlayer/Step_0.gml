@@ -5,13 +5,13 @@ key_up = keyboard_check(ord("W"));
 key_down = keyboard_check(ord("S"))
 key_jump = keyboard_check_pressed(vk_space);
 key_crouch = keyboard_check_pressed(vk_control);
-key_crouched = keyboard_check(vk_control);
+key_crouching = keyboard_check(vk_control);
 key_uncrouch = keyboard_check_released(vk_control);
 
 key_flyup = key_up || keyboard_check(vk_space);
 key_flydown = key_down
 
-if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
+if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_crouch) || (key_crouching) || (key_uncrouch) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
 {
 	controller = 0;
 }
@@ -41,6 +41,24 @@ if (gamepad_button_check_pressed(0,gp_shoulderl))
 if (gamepad_button_check(0,gp_shoulderl))
 {
 	key_flyup = 1;
+	controller = 1;
+}
+
+if (gamepad_button_check_pressed(0,gp_shoulderr))
+{
+	key_crouch = 1;
+	controller = 1;
+}
+
+if (gamepad_button_check(0,gp_shoulderr))
+{
+	key_crouching = 1;
+	controller = 1;
+}
+
+if (gamepad_button_check_released(0,gp_shoulderr))
+{
+	key_uncrouch = 1;
 	controller = 1;
 }
 
@@ -74,43 +92,45 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 */
 #endregion
 
-#region //Crouching (Unfinished and Buggy!)
+#region //Crouching
 if (key_crouch)
 {
-	if (place_meeting(x,y+1,oWall)) 
+	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
 		crouch = 1;
-		walksp --;
+		walksp = 3.5;
 	}
-}
-
-if (key_crouched)
-{
-	if (!crouch) notactuallycrouching = 1;
 }
 
 if (key_uncrouch)
 {
-	if (!notactuallycrouching)
+	if (!crouchstuck)
 	{
 		crouch = 0;
-		walksp ++;
+		walksp = 4.5;
 	}
 }
 
-if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+1,oWall))
+if (!place_meeting(x,y+1,oWall))
 {
-	crouch = 1;
+	walksp = 4.5;
+}
+
+if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
+{
 	crouchstuck = 1;
+	crouch = 1;
+	walksp = 3.5;
 }
 
-if (!place_meeting(x,y-16,oWall)) && (place_meeting(x,y+1,oWall))
+if (!place_meeting(x,y-16,oWall))
 {
-	if (!key_crouched)
+	crouchstuck = 0;
+	if (!key_crouching)
 	{
 		crouch = 0;
+		walksp = 4.5;
 	}
-	crouchstuck = 0;
 }
 #endregion
 
