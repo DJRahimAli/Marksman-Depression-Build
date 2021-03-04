@@ -149,6 +149,8 @@ if (global.fly)
 	var movefly = (key_flydown - key_flyup) * walksp;
 	
 	vsp = lerp(vsp, movefly, accel);
+	
+	oCamera.clampcam = 0;
 }
 else
 {
@@ -158,6 +160,8 @@ else
 	{
 		vsp = -7;
 	}
+	
+	oCamera.clampcam = 1;
 }
 
 //Horizontal Collision
