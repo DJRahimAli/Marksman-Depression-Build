@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","path":"sprites/sSkyscraper/sSkyscraper.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","path":"sprites/sSkyscraper/sSkyscraper.yy",},"LayerId":{"name":"1a35761e-e005-4e77-9d71-e81e92d57547","path":"sprites/sSkyscraper/sSkyscraper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sSkyscraper","path":"sprites/sSkyscraper/sSkyscraper.yy",},"resourceVersion":"1.0","name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"LayerId":{"name":"1a35761e-e005-4e77-9d71-e81e92d57547","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sSkyscrapers","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"resourceVersion":"1.0","name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sSkyscraper","path":"sprites/sSkyscraper/sSkyscraper.yy",},
+    "spriteId": {"name":"sSkyscrapers","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c798aa01-ca7c-40b7-8873-d95798d22e80","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","path":"sprites/sSkyscraper/sSkyscraper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c798aa01-ca7c-40b7-8873-d95798d22e80","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f9bbbf9f-fcd4-42ab-a211-566f860658b1","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 240,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sSkyscraper","path":"sprites/sSkyscraper/sSkyscraper.yy",},
+    "parent": {"name":"sSkyscrapers","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},
     "resourceVersion": "1.3",
-    "name": "sSkyscraper",
+    "name": "sSkyscrapers",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -72,7 +72,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sSkyscraper",
+  "name": "sSkyscrapers",
   "tags": [],
   "resourceType": "GMSprite",
 }

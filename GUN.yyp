@@ -33,7 +33,7 @@
     {"id":{"name":"ScreenShake","path":"scripts/ScreenShake/ScreenShake.yy",},"order":1,},
     {"id":{"name":"oManager","path":"objects/oManager/oManager.yy",},"order":4,},
     {"id":{"name":"sPlayerC","path":"sprites/sPlayerC/sPlayerC.yy",},"order":16,},
-    {"id":{"name":"sSkyscraper","path":"sprites/sSkyscraper/sSkyscraper.yy",},"order":25,},
+    {"id":{"name":"sSkyscrapers","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"order":25,},
     {"id":{"name":"sEnemyD","path":"sprites/sEnemyD/sEnemyD.yy",},"order":13,},
     {"id":{"name":"sPlayerS","path":"sprites/sPlayerS/sPlayerS.yy",},"order":7,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
