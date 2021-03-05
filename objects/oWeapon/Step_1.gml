@@ -9,10 +9,11 @@ if (oPlayer.controller == false)
 	if (oPlayer.hascontrol)
 	{
 		image_angle = point_direction(x,y,mouse_x,mouse_y);
-		if (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting)
+		if (mouse_check_button_pressed(mb_left)) && (firingdelay < 0) && (!stopshooting)
 		{
 			recoil = 4;
 			firingdelay = 5;
+			ScreenShake(1,5);
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
@@ -33,10 +34,11 @@ else
 			controllerangle = point_direction(0,0,controllerh,controllerv)
 		}
 		image_angle = controllerangle;
-		if (gamepad_button_check(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting)
+		if (gamepad_button_check_pressed(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting)
 		{
 			recoil = 4;
 			firingdelay = 5;
+			ScreenShake(1,5);
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
