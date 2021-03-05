@@ -1,2 +1,2 @@
 ///@description Quit
-game_end();
+SlideTransition(TRANS_MODE.QUIT);
