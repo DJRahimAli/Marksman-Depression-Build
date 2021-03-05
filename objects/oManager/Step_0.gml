@@ -32,18 +32,33 @@ if (key_cheat)
 //Cheat Toggles
 if (key_fly)
 {
-	if (global.fly) || (!global.cheat) global.fly = 0 else global.fly = 1;
+	if (global.fly) || (!global.cheat)
+	{
+		global.fly = 0
+	}
+	else
+	{
+		global.fly = 1;
+	}
 }
 
 if (key_camclamp)
 {
-	if (oCamera.camclamp) || (!global.cheat) oCamera.camclamp = 0 else oCamera.camclamp = 1;
+	if (oCamera.camclamp) || (!global.cheat)
+	{
+		oCamera.camclamp = 0;
+	}
+	else
+	{
+		oCamera.camclamp = 1;
+	}
 }
 
 //Disable Cheats
 if (!global.cheat)
 {
-	global.fly = 0
+	global.fly = 0;
+	oCamera.camclamp = 1;
 }
 
 //Create Particles

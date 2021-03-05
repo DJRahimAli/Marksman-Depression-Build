@@ -1,5 +1,4 @@
 #region //Get Player Input
-
 if (hascontrol)
 {
 	key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
@@ -168,8 +167,6 @@ if (global.fly)
 	var movefly = (key_flydown - key_flyup) * walksp;
 	
 	vsp = lerp(vsp, movefly, accel);
-	
-	oCamera.camclamp = 0;
 }
 else
 {
@@ -179,8 +176,6 @@ else
 	{
 		vsp = -7;
 	}
-	
-	oCamera.camclamp = 1;
 }
 
 //Horizontal Collision
