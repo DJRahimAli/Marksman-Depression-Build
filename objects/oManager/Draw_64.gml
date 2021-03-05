@@ -1,6 +1,7 @@
 //Debug UI
 if global.debug
 {
+draw_set_color(c_white);
 draw_text(0,0,   "Player Variables:              | ");
 draw_text(0,1*15,"| X Coordinates                | " + string(oPlayer.x));
 draw_text(0,2*15,"| Y Coordinates                | " + string(oPlayer.y));
