@@ -1,0 +1,1 @@
+bulletlife = 500;
