@@ -8,13 +8,13 @@ key_camclamp = keyboard_check_pressed(vk_f3);
 
 if (key_fly)
 {
-	oPlayer.controller = 0;
+	oPlayer.controller = false;
 }
 
 if (gamepad_button_check_pressed(0,gp_padd))
 {
 	key_fly = 1;
-	oPlayer.controller = 1;
+	oPlayer.controller = true;
 }
 
 //Debug UI Toggle
