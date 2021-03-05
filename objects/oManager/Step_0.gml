@@ -46,7 +46,7 @@ if !(oPlayer.sprite_index = sPlayer || oPlayer.sprite_index = sPlayerC)
 }
 
 #region //Animated Trail Particle
-if oPlayer.sprite_index = sPlayer
+if oPlayer.sprite_index = sPlayer && oPlayer.image_index = 0
 {
 	part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
 }
@@ -72,7 +72,7 @@ if oPlayer.sprite_index = sPlayerR && oPlayer.image_index = 1
 }
 
 #region //Crouching
-if oPlayer.sprite_index = sPlayerC
+if oPlayer.sprite_index = sPlayerC && oPlayer.image_index = 0
 {
 	part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
 }

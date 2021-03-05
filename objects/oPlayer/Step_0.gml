@@ -191,8 +191,14 @@ hspstr = string_format(hsp, 0, 0);
 
 if (!place_meeting(x,y+1,oWall))
 {
-	if (!crouch) sprite_index = sPlayerA;
-	if (crouch) sprite_index = sPlayerAC;
+	if (!crouch)
+	{
+		sprite_index = sPlayerA;
+	}
+	else
+	{
+		sprite_index = sPlayerAC;
+	}
 	image_speed = 0;
 	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
 }
