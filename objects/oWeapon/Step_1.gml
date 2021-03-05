@@ -13,12 +13,20 @@ if (oPlayer.controller == false)
 		{
 			recoil = 4;
 			firingdelay = 5;
-			ScreenShake(1,5);
+			ScreenShake(2,10);
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
 				direction = other.image_angle + random_range(-3,3);
 				image_angle = direction;
+				if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
+				{
+					image_yscale = -1;
+				}
+				else
+				{
+					image_yscale = 1;
+				}
 			}
 		}
 	}
@@ -38,12 +46,20 @@ else
 		{
 			recoil = 4;
 			firingdelay = 5;
-			ScreenShake(1,5);
+			ScreenShake(2,10);
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
 				direction = other.image_angle + random_range(-3,3);
 				image_angle = direction;
+				if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
+				{
+					image_yscale = -1;
+				}
+				else
+				{
+					image_yscale = 1;
+				}
 			}
 		}
 	}
@@ -66,7 +82,6 @@ y = y - lengthdir_y(recoil,image_angle);
 if (image_angle > 90) && (image_angle < 270)
 {
 	image_yscale = -1;
-	with (oBullet) image_yscale = -1;
 	with (oPlayer)
 	{
 	image_xscale = -1;
@@ -76,7 +91,6 @@ if (image_angle > 90) && (image_angle < 270)
 else
 {
 	image_yscale = 1;
-	with (oBullet) image_yscale = 1;
 	with (oPlayer)
 	{
 	image_xscale = 1;

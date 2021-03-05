@@ -11,3 +11,6 @@ shake_length = 0;
 shake_magnitude = 0;
 shake_remain = 0;
 buff = 32;
+
+skyscraperslayer = layer_get_id("Skyscrapers");
+buildingslayer = layer_get_id("Buildings");
