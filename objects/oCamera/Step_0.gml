@@ -26,3 +26,13 @@ shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
 
 //Update camera view
 camera_set_view_pos(cam,x-view_w_half,y-view_h_half);
+
+if (layer_exists(skyscraperslayer))
+{
+	layer_x(skyscraperslayer,x/2);
+}
+
+if (layer_exists(buildingslayer))
+{
+	layer_x(buildingslayer,x/4);
+}
