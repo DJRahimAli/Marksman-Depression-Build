@@ -1,2 +1,2 @@
-///@description Restart.
-game_restart();
+///@description Restart
+SlideTransition(TRANS_MODE.RESTART);

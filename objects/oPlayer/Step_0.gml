@@ -1,85 +1,104 @@
-//Get Player Input
-key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
-key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
-key_up = keyboard_check(ord("W"));
-key_down = keyboard_check(ord("S"))
-key_jump = keyboard_check_pressed(vk_space);
-key_crouch = keyboard_check_pressed(vk_control);
-key_crouching = keyboard_check(vk_control);
-key_uncrouch = keyboard_check_released(vk_control);
+#region //Get Player Input
 
-key_flyup = key_up || keyboard_check(vk_space);
-key_flydown = key_down
-
-if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_crouch) || (key_crouching) || (key_uncrouch) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
+if (hascontrol)
 {
-	controller = 0;
+	key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
+	key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
+	key_up = keyboard_check(ord("W"));
+	key_down = keyboard_check(ord("S"))
+	key_jump = keyboard_check_pressed(vk_space);
+	key_crouch = keyboard_check_pressed(vk_control);
+	key_crouching = keyboard_check(vk_control);
+	key_uncrouch = keyboard_check_released(vk_control);
+
+	key_flyup = key_up || keyboard_check(vk_space);
+	key_flydown = key_down
+
+	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_crouch) || (key_crouching) || (key_uncrouch) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
+	{
+		controller = false;
+	}
+
+	if (abs(gamepad_axis_value(0,gp_axislh)) > deadzone)
+	{
+		key_left = abs(min(gamepad_axis_value(0,gp_axislh),0));
+		key_right = max(gamepad_axis_value(0,gp_axislh),0);
+		controller = true;
+	}
+
+	if (abs(gamepad_axis_value(0,gp_axislv)) > deadzone)
+	{
+		key_up = abs(min(gamepad_axis_value(0,gp_axislv),0));
+		key_down = max(gamepad_axis_value(0,gp_axislv),0);
+		key_flyup = key_up;
+		key_flydown = key_down;
+		controller = true;
+	}
+
+	if (gamepad_button_check_pressed(0,gp_shoulderl))
+	{
+		key_jump = 1;
+		controller = true;
+	}
+
+	if (gamepad_button_check(0,gp_shoulderl))
+	{
+		key_flyup = 1;
+		controller = true;
+	}
+
+	if (gamepad_button_check_pressed(0,gp_shoulderr))
+	{
+		key_crouch = 1;
+		controller = true;
+	}
+
+	if (gamepad_button_check(0,gp_shoulderr))
+	{
+		key_crouching = 1;
+		controller = true;
+	}
+
+	if (gamepad_button_check_released(0,gp_shoulderr))
+	{
+		key_uncrouch = 1;
+		controller = true;
+	}
+
+	if (gamepad_button_check(0,gp_shoulderrb))
+	{
+		controller = true;
+	}
+
+	#region //Stupid Ass Holstering (Gross!) (Disgiusting!) (This will get fucking changed bro!)
+	key_holster = keyboard_check_pressed(ord("H"));
+	key_gun = keyboard_check_pressed(ord("2"));
+	if (key_holster) && instance_number(oWeapon) = 1
+	{
+		instance_destroy(oWeapon);
+	}
+	#endregion
+
+	if (key_gun) && instance_number(oWeapon) = 0
+	{
+		instance_create_layer(x,y,"Weapon",oWeapon);
+	}
 }
-
-if (abs(gamepad_axis_value(0,gp_axislh)) > deadzone)
+else
 {
-	key_left = abs(min(gamepad_axis_value(0,gp_axislh),0));
-	key_right = max(gamepad_axis_value(0,gp_axislh),0);
-	controller = 1;
-}
+	key_left = 0;
+	key_right = 0;
+	key_up = 0;
+	key_down = 0;
+	key_jump = 0;
+	key_crouch = 0;
+	key_crouching = 0;
+	key_uncrouch = 0;
 
-if (abs(gamepad_axis_value(0,gp_axislv)) > deadzone)
-{
-	key_up = abs(min(gamepad_axis_value(0,gp_axislv),0));
-	key_down = max(gamepad_axis_value(0,gp_axislv),0);
-	key_flyup = key_up;
-	key_flydown = key_down;
-	controller = 1;
-}
-
-if (gamepad_button_check_pressed(0,gp_shoulderl))
-{
-	key_jump = 1;
-	controller = 1;
-}
-
-if (gamepad_button_check(0,gp_shoulderl))
-{
-	key_flyup = 1;
-	controller = 1;
-}
-
-if (gamepad_button_check_pressed(0,gp_shoulderr))
-{
-	key_crouch = 1;
-	controller = 1;
-}
-
-if (gamepad_button_check(0,gp_shoulderr))
-{
-	key_crouching = 1;
-	controller = 1;
-}
-
-if (gamepad_button_check_released(0,gp_shoulderr))
-{
-	key_uncrouch = 1;
-	controller = 1;
-}
-
-if (gamepad_button_check(0,gp_shoulderrb))
-{
-	controller = 1;
-}
-
-#region //Stupid Ass Holstering (Gross!) (Disgiusting!) (This will get fucking changed bro!)
-key_holster = keyboard_check_pressed(ord("H"));
-key_gun = keyboard_check_pressed(ord("2"));
-if (key_holster) && instance_number(oWeapon) = 1
-{
-	instance_destroy(oWeapon);
+	key_flyup = 0;
+	key_flydown = 0;
 }
 #endregion
-
-if (key_gun) && instance_number(oWeapon) = 0
-{
-	instance_create_layer(x,y,"Weapon",oWeapon);
-}
 
 //Calculate Movement
 var move = (key_right - key_left) * walksp;
@@ -232,5 +251,5 @@ else
 if (hsp != 0) && !instance_exists(oWeapon)
 {
 	image_xscale = sign(hsp);
-	with (oManager) part_type_scale(particleType_Player_Fade,sign(hsp),1);
+	with (oManager) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp),1);
 }

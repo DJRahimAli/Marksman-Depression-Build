@@ -5,10 +5,12 @@ grv = 0.3;
 walksp = 4.5;
 accel = 0.2;
 
-controller = 0;
+controller = false;
 deadzone = 0.2;
 
 crouch = 0;
 crouchstuck = 0;
+
+hascontrol = true;
 
 //test = 0;

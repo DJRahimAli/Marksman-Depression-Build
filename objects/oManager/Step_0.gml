@@ -2,7 +2,9 @@
 key_debug = keyboard_check_pressed(vk_f1);
 key_cheat = keyboard_check_pressed(vk_f2);
 
+//Cheat Keys
 key_fly = keyboard_check_pressed(ord("V"));
+key_camclamp = keyboard_check_pressed(vk_f3);
 
 if (key_fly)
 {
@@ -27,16 +29,21 @@ if (key_cheat)
 	if (global.cheat) global.cheat = 0 else global.cheat = 1;
 }
 
-//Disable Cheats
-if (!global.cheat)
-{
-	global.fly = 0
-}
-
 //Cheat Toggles
 if (key_fly)
 {
 	if (global.fly) || (!global.cheat) global.fly = 0 else global.fly = 1;
+}
+
+if (key_camclamp)
+{
+	if (oCamera.camclamp) || (!global.cheat) oCamera.camclamp = 0 else oCamera.camclamp = 1;
+}
+
+//Disable Cheats
+if (!global.cheat)
+{
+	global.fly = 0
 }
 
 //Create Particles
