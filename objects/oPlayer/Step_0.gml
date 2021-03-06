@@ -36,31 +36,31 @@ if (hascontrol)
 
 	if (gamepad_button_check_pressed(0,gp_shoulderl))
 	{
-		key_jump = 1;
+		key_jump = true;
 		controller = true;
 	}
 
 	if (gamepad_button_check(0,gp_shoulderl))
 	{
-		key_flyup = 1;
+		key_flyup = true;
 		controller = true;
 	}
 
 	if (gamepad_button_check_pressed(0,gp_shoulderr))
 	{
-		key_crouch = 1;
+		key_crouch = true;
 		controller = true;
 	}
 
 	if (gamepad_button_check(0,gp_shoulderr))
 	{
-		key_crouching = 1;
+		key_crouching = true;
 		controller = true;
 	}
 
 	if (gamepad_button_check_released(0,gp_shoulderr))
 	{
-		key_uncrouch = 1;
+		key_uncrouch = true;
 		controller = true;
 	}
 
@@ -85,17 +85,17 @@ if (hascontrol)
 }
 else
 {
-	key_left = 0;
-	key_right = 0;
-	key_up = 0;
-	key_down = 0;
-	key_jump = 0;
-	key_crouch = 0;
-	key_crouching = 0;
-	key_uncrouch = 0;
+	key_left = false;
+	key_right = false;
+	key_up = false;
+	key_down = false;
+	key_jump = false;
+	key_crouch = false;
+	key_crouching = false;
+	key_uncrouch = false;
 
-	key_flyup = 0;
-	key_flydown = 0;
+	key_flyup = false;
+	key_flydown = false;
 }
 #endregion
 
@@ -115,7 +115,7 @@ if (key_crouch)
 {
 	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
-		crouch = 1;
+		crouch = true;
 		walksp = 3.5;
 	}
 }
@@ -124,7 +124,7 @@ if (key_uncrouch)
 {
 	if (!crouchstuck)
 	{
-		crouch = 0;
+		crouch = false;
 		walksp = 4.5;
 	}
 }
@@ -140,23 +140,23 @@ else
 
 if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
 {
-	crouchstuck = 1;
-	crouch = 1;
+	crouchstuck = true;
+	crouch = true;
 	walksp = 3.5;
 }
 
 if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
 {
-	crouchstuck = 1;
-	crouch = 1;
+	crouchstuck = true;
+	crouch = true;
 }
 
 if (!place_meeting(x,y-16,oWall))
 {
-	crouchstuck = 0;
+	crouchstuck = false;
 	if (!key_crouching)
 	{
-		crouch = 0;
+		crouch = false;
 		walksp = 4.5;
 	}
 }

@@ -13,20 +13,34 @@ if (key_fly)
 
 if (gamepad_button_check_pressed(0,gp_padd))
 {
-	key_fly = 1;
+	key_fly = true;
 	oPlayer.controller = true;
 }
 
 //Debug UI Toggle
 if (key_debug)
 {
-	if (global.debug) global.debug = 0 else global.debug = 1;
+	if (global.debug)
+	{
+		global.debug = false;
+	}
+	else
+	{
+		global.debug = true;
+	}
 }
 
 //Cheat Toggle
 if (key_cheat)
 {
-	if (global.cheat) global.cheat = 0 else global.cheat = 1;
+	if (global.cheat)
+	{
+		global.cheat = false;
+	}
+	else
+	{
+		global.cheat = true;
+	}
 }
 
 //Cheat Toggles
@@ -34,11 +48,11 @@ if (key_fly)
 {
 	if (global.fly) || (!global.cheat)
 	{
-		global.fly = 0
+		global.fly = false;
 	}
 	else
 	{
-		global.fly = 1;
+		global.fly = true;
 	}
 }
 
@@ -46,19 +60,19 @@ if (key_camclamp)
 {
 	if (oCamera.camclamp) || (!global.cheat)
 	{
-		oCamera.camclamp = 0;
+		oCamera.camclamp = false;
 	}
 	else
 	{
-		oCamera.camclamp = 1;
+		oCamera.camclamp = true;
 	}
 }
 
 //Disable Cheats
 if (!global.cheat)
 {
-	global.fly = 0;
-	oCamera.camclamp = 1;
+	global.fly = false;
+	oCamera.camclamp = true;
 }
 
 //Create Particles
