@@ -65,14 +65,14 @@ else
 	}
 }
 
-if (place_meeting(x,y,oWall))
+if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall))
 {
-	stopshooting = 1;
+	stopshooting = true;
 	image_alpha = 0.5;
 }
 else
 {
-	stopshooting = 0;
+	stopshooting = false;
 	image_alpha = 1;
 }
 

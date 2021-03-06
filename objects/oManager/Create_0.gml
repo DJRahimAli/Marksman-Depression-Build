@@ -1,6 +1,6 @@
-global.debug = 0;
-global.cheat = 0;
-global.fly = 0;
+global.debug = false;
+global.cheat = false;
+global.fly = false;
 
 //Particle System
 particleSystem = part_system_create();

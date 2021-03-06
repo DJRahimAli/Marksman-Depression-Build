@@ -8,8 +8,8 @@ accel = 0.2;
 controller = false;
 deadzone = 0.2;
 
-crouch = 0;
-crouchstuck = 0;
+crouch = false;
+crouchstuck = false;
 
 hascontrol = true;
 
