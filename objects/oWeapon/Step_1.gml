@@ -102,18 +102,20 @@ if (ironsights)
 if (image_angle > 90) && (image_angle < 270)
 {
 	image_yscale = -1;
-	with (oPlayer)
-	{
-	image_xscale = -1;
-	}
+	
+	with (oCrosshair) image_yscale = -1;
+	
+	with (oPlayer) image_xscale = -1;
+	
 	with (oManager) part_type_scale(particleType_Player_Fade,-1,1);
 }
 else
 {
 	image_yscale = 1;
-	with (oPlayer)
-	{
-	image_xscale = 1;
-	}
+	
+	with (oCrosshair) image_yscale = 1;
+	
+	with (oPlayer) image_xscale = 1;
+	
 	with (oManager) part_type_scale(particleType_Player_Fade,1,1);
 }
