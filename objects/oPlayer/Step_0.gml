@@ -132,10 +132,12 @@ if (key_uncrouch)
 if (crouch) && (place_meeting(x,y+1,oWall))
 {
 	walksp = 2.5;
+	oWeapon.ironsights = true;
 }
 else
 {
 	walksp = 4.5;
+	oWeapon.ironsights = false;
 }
 
 if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
