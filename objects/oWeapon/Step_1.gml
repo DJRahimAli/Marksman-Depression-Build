@@ -79,16 +79,25 @@ else
 	}
 }
 
-if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall))
+if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall)) || (holstered)
 {
 	stopshooting = true;
-	image_alpha = 0.5;
 }
 else
 {
 	stopshooting = false;
-	image_alpha = 1;
 }
+
+if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall))
+{
+	if (!holstered) image_alpha = 0.5;
+}
+else
+{
+	if (!holstered) image_alpha = 1;
+}
+
+if (holstered) image_alpha = 0;
 
 x = x - lengthdir_x(recoil,image_angle);
 y = y - lengthdir_y(recoil,image_angle);
@@ -105,9 +114,12 @@ if (image_angle > 90) && (image_angle < 270)
 	
 	with (oCrosshair) image_yscale = -1;
 	
-	with (oPlayer) image_xscale = -1;
+	if (!oWeapon.holstered) 
+	{
+		with (oPlayer) image_xscale = -1;
 	
-	with (oManager) part_type_scale(particleType_Player_Fade,-1,1);
+		with (oManager) part_type_scale(particleType_Player_Fade,-1,1);
+	}
 }
 else
 {
@@ -115,7 +127,10 @@ else
 	
 	with (oCrosshair) image_yscale = 1;
 	
-	with (oPlayer) image_xscale = 1;
+	if (!oWeapon.holstered) 
+	{
+		with (oPlayer) image_xscale = 1;
 	
-	with (oManager) part_type_scale(particleType_Player_Fade,1,1);
+		with (oManager) part_type_scale(particleType_Player_Fade,1,1);
+	}
 }

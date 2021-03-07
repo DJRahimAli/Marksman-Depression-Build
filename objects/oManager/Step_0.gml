@@ -11,7 +11,7 @@ if (key_fly)
 	oPlayer.controller = false;
 }
 
-if (gamepad_button_check_pressed(0,gp_padd))
+if (gamepad_button_check_pressed(0,gp_padu))
 {
 	key_fly = true;
 	oPlayer.controller = true;
