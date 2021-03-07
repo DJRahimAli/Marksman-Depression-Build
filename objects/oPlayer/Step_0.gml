@@ -9,11 +9,13 @@ if (hascontrol)
 	key_crouch = keyboard_check_pressed(vk_control);
 	key_crouching = keyboard_check(vk_control);
 	key_uncrouch = keyboard_check_released(vk_control);
+	key_holster = keyboard_check_pressed(ord("H"));
+	key_gun = keyboard_check_pressed(ord("2"));
 
 	key_flyup = key_up || keyboard_check(vk_space);
 	key_flydown = key_down
 
-	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_crouch) || (key_crouching) || (key_uncrouch) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
+	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_crouch) || (key_crouching) || (key_uncrouch) || (key_flyup) || (key_flydown) || key_holster || key_gun || (mouse_check_button(mb_left))
 	{
 		controller = false;
 	}
@@ -68,19 +70,15 @@ if (hascontrol)
 	{
 		controller = true;
 	}
-
-	#region //Stupid Ass Holstering (Gross!) (Disgiusting!) (This will get fucking changed bro!)
-	key_holster = keyboard_check_pressed(ord("H"));
-	key_gun = keyboard_check_pressed(ord("2"));
-	if (key_holster) && instance_number(oWeapon) = 1
+	if (gamepad_button_check_pressed(0,gp_padd))
 	{
-		instance_destroy(oWeapon);
+		key_holster = true;
+		controller = true;
 	}
-	#endregion
-
-	if (key_gun) && instance_number(oWeapon) = 0
+	if (gamepad_button_check_pressed(0,gp_padr))
 	{
-		instance_create_layer(x,y,"Weapon",oWeapon);
+		key_gun = true;
+		controller = true;
 	}
 }
 else
@@ -93,6 +91,8 @@ else
 	key_crouch = false;
 	key_crouching = false;
 	key_uncrouch = false;
+	key_holster = false;
+	key_gun = false;
 
 	key_flyup = false;
 	key_flydown = false;
@@ -161,6 +161,18 @@ if (!place_meeting(x,y-16,oWall))
 		crouch = false;
 		walksp = 4.5;
 	}
+}
+#endregion
+
+#region //Holstering
+if (key_holster)
+{
+	oWeapon.holstered = true;
+}
+
+if (key_gun)
+{
+	oWeapon.holstered = false;
 }
 #endregion
 
@@ -245,7 +257,7 @@ else
 	}
 }
 
-if (hsp != 0) && !instance_exists(oWeapon)
+if (hsp != 0) && (oWeapon.holstered)
 {
 	image_xscale = sign(hsp);
 	with (oManager) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp),1);
