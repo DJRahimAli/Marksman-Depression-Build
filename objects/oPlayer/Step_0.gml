@@ -116,7 +116,7 @@ if (key_crouch)
 	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
 		crouch = true;
-		walksp = 3.5;
+		walksp = 2.5;
 	}
 }
 
@@ -131,7 +131,7 @@ if (key_uncrouch)
 
 if (crouch) && (place_meeting(x,y+1,oWall))
 {
-	walksp = 3.5;
+	walksp = 2.5;
 }
 else
 {
@@ -142,7 +142,7 @@ if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
 {
 	crouchstuck = true;
 	crouch = true;
-	walksp = 3.5;
+	walksp = 2.5;
 }
 
 if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
