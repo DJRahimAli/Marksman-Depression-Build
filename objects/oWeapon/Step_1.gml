@@ -17,9 +17,16 @@ if (oPlayer.controller == false)
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
-				direction = other.image_angle + random_range(-3,3);
+				if (!oPlayer.crouch)
+				{
+					direction = other.image_angle + random_range(-2,3);
+				}
+				else
+				{
+					direction = other.image_angle + random_range(-1,2);
+				}
 				image_angle = direction;
-				if (point_direction(x,y,mouse_x,mouse_y) > 90) && (point_direction(x,y,mouse_x,mouse_y) < 270)
+				if (image_angle > 90) && (image_angle < 270)
 				{
 					image_yscale = -1;
 				}
@@ -50,9 +57,16 @@ else
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
-				direction = other.image_angle + random_range(-3,3);
+				if (!oPlayer.crouch)
+				{
+					direction = other.image_angle + random_range(-2,3);
+				}
+				else
+				{
+					direction = other.image_angle + random_range(-1,2);
+				}
 				image_angle = direction;
-				if (oWeapon.controllerangle > 90) && (oWeapon.controllerangle < 270)
+				if (image_angle > 90) && (image_angle < 270)
 				{
 					image_yscale = -1;
 				}
@@ -78,6 +92,23 @@ else
 
 x = x - lengthdir_x(recoil,image_angle);
 y = y - lengthdir_y(recoil,image_angle);
+
+/*
+if (oPlayer.crouch)
+{
+	sprite_set_offset(object_get_sprite(oWeapon), -25, 9);
+}
+else
+{
+	sprite_set_offset(object_get_sprite(oWeapon), -25, 10);
+}
+*/
+
+if (oPlayer.crouch)
+{
+x = x - lengthdir_x(5,image_angle);
+y = y - lengthdir_y(5,image_angle);
+}
 
 if (image_angle > 90) && (image_angle < 270)
 {
