@@ -48,19 +48,19 @@ if (hascontrol)
 		controller = true;
 	}
 
-	if (gamepad_button_check_pressed(0,gp_shoulderr))
+	if (gamepad_button_check_pressed(0,gp_shoulderlb))
 	{
 		key_crouch = true;
 		controller = true;
 	}
 
-	if (gamepad_button_check(0,gp_shoulderr))
+	if (gamepad_button_check(0,gp_shoulderlb))
 	{
 		key_crouching = true;
 		controller = true;
 	}
 
-	if (gamepad_button_check_released(0,gp_shoulderr))
+	if (gamepad_button_check_released(0,gp_shoulderlb))
 	{
 		key_uncrouch = true;
 		controller = true;

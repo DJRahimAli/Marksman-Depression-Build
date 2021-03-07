@@ -1,6 +1,6 @@
 /// @desc Follow player and copy weapon angle
 x = oPlayer.x;
-y = oPlayer.y;
+y = oPlayer.y+5;
 
 image_angle = oWeapon.image_angle;
 image_alpha = oWeapon.image_alpha;
