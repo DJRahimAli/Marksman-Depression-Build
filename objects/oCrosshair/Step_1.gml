@@ -3,7 +3,15 @@ x = oPlayer.x;
 y = oPlayer.y+5;
 
 image_angle = oWeapon.image_angle;
-image_alpha = oWeapon.image_alpha;
+
+if (oWeapon.stopshooting)
+{
+	image_alpha = 0;
+}
+else
+{
+	image_alpha = 1;
+}
 
 if (oWeapon.ironsights)
 {
