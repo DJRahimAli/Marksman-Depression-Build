@@ -19,7 +19,7 @@ if (oPlayer.controller == false)
 				speed = 25;
 				direction = other.image_angle + random_range(-3,3);
 				image_angle = direction;
-				if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
+				if (point_direction(x,y,mouse_x,mouse_y) > 90) && (point_direction(x,y,mouse_x,mouse_y) < 270)
 				{
 					image_yscale = -1;
 				}
@@ -52,7 +52,7 @@ else
 				speed = 25;
 				direction = other.image_angle + random_range(-3,3);
 				image_angle = direction;
-				if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
+				if (oWeapon.controllerangle > 90) && (oWeapon.controllerangle < 270)
 				{
 					image_yscale = -1;
 				}
