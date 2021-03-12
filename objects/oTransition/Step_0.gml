@@ -1,9 +1,9 @@
 /// @desc Progress the transition
-if (window_frame_get_visible())
+if os_windows && (window_frame_get_visible())
 {
-w = window_get_width();
-h = window_get_height();
-h_half = h * 0.5;
+	w = window_get_width();
+	h = window_get_height();
+	h_half = h * 0.5;
 }
 
 if (mode != TRANS_MODE.OFF)
