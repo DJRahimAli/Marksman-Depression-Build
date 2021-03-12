@@ -11,9 +11,9 @@
   "license": "Proprietary",
   "description": "",
   "helpfile": "",
-  "iosProps": true,
+  "iosProps": false,
   "tvosProps": false,
-  "androidProps": true,
+  "androidProps": false,
   "installdir": "",
   "files": [
     {"filename":"window_frame.dll","origname":"extensions\\window_frame.dll","init":"","final":"","kind":1,"uncompress":false,"functions":[
@@ -94,7 +94,7 @@
             1,
           ],"resourceVersion":"1.0","name":"window_frame_init_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"window_frame_cleanup_raw","kind":11,"help":"","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"window_frame_cleanup_raw","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":9223372036854775807,"order":[
+      ],"constants":[],"ProxyFiles":[],"copyToTargets":64,"order":[
         {"name":"window_frame_has_focus","path":"extensions/window_frame/window_frame.yy",},
         {"name":"window_frame_get_handle","path":"extensions/window_frame/window_frame.yy",},
         {"name":"window_frame_get_wid","path":"extensions/window_frame/window_frame.yy",},
@@ -159,7 +159,7 @@
         {"value":"$F120","hidden":false,"resourceVersion":"1.0","name":"window_command_restore","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"$F000","hidden":false,"resourceVersion":"1.0","name":"window_command_resize","tags":[],"resourceType":"GMExtensionConstant",},
         {"value":"$F010","hidden":false,"resourceVersion":"1.0","name":"window_command_move","tags":[],"resourceType":"GMExtensionConstant",},
-      ],"ProxyFiles":[],"copyToTargets":105554172285166,"order":[
+      ],"ProxyFiles":[],"copyToTargets":64,"order":[
         {"name":"window_frame_init","path":"extensions/window_frame/window_frame.yy",},
         {"name":"window_frame_update","path":"extensions/window_frame/window_frame.yy",},
         {"name":"window_frame_get_visible","path":"extensions/window_frame/window_frame.yy",},
@@ -174,7 +174,7 @@
         {"name":"window_command_set_active","path":"extensions/window_frame/window_frame.yy",},
         {"name":"window_frame_cleanup","path":"extensions/window_frame/window_frame.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
-    {"filename":"window_frame_host.exe","origname":"extensions\\window_frame_host.exe","init":"","final":"","kind":4,"uncompress":false,"functions":[],"constants":[],"ProxyFiles":[],"copyToTargets":9223372036854775807,"order":[],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
+    {"filename":"window_frame_host.exe","origname":"extensions\\window_frame_host.exe","init":"","final":"","kind":4,"uncompress":false,"functions":[],"constants":[],"ProxyFiles":[],"copyToTargets":64,"order":[],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",
   "tvosclassname": "",
@@ -205,7 +205,7 @@
     "Included Files\\window_frame.html",
   ],
   "androidPermissions": [],
-  "copyToTargets": 105554172285166,
+  "copyToTargets": 64,
   "iosCocoaPods": "",
   "tvosCocoaPods": "",
   "iosCocoaPodDependencies": "",

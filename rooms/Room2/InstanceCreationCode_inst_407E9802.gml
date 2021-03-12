@@ -1,1 +1,1 @@
-target = rm_window_frame_test;
+target = Room1;
