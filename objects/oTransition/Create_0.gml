@@ -1,8 +1,9 @@
 /// @desc Size variables and mode setup
 
-w = display_get_gui_width();
-h = display_get_gui_height();
-h_half = h * 0.5;
+w = 0;
+h = 0;
+h_half = 0;
+
 enum TRANS_MODE
 {
 	OFF,
