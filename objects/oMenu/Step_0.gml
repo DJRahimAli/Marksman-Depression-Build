@@ -1,7 +1,14 @@
 /// @desc Control Menu
 
 //Item ease in
-menu_x += (menu_x_target - menu_x) / menu_speed;
+if (menu_x > menu_x_target) || (menu_commited != -1)
+{
+	menu_x += (menu_x_target - menu_x) / menu_speed;
+}
+else
+{
+	menu_x = gui_width - gui_margin;
+}
 
 //Keyboard Controls
 if (menu_control)
@@ -24,6 +31,7 @@ if (menu_control)
 		menu_commited = menu_cursor;
 		ScreenShake(4,30);
 		menu_control = false;
+		oWindowFrame.stopwindowresize = true;
 	}
 }
 
@@ -31,7 +39,8 @@ if (menu_x > gui_width+150) && (menu_commited != -1)
 {
 	switch (menu_commited)
 	{
-		case 2: default: SlideTransition(TRANS_MODE.NEXT); break;
-		case 0: SlideTransition(TRANS_MODE.QUIT); break;	
+		case 3: default: SlideTransition(TRANS_MODE.NEXT); break;
+		case 1: SlideTransition(TRANS_MODE.RESTART); break;
+		case 0: SlideTransition(TRANS_MODE.QUIT); break;
 	}
 }

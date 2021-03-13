@@ -1,4 +1,4 @@
-draw_set_font(0);
+draw_set_font(fMenu);
 draw_set_halign(0);
 draw_set_valign(0);
 

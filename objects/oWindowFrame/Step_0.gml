@@ -24,7 +24,7 @@ if (os_windows == 0)
 
 	// resize the game to fit the container window if it's visible
 	// (if you don't do window resizing, you don't need this)
-	if (window_frame_get_visible())
+	if (window_frame_get_visible()) && (!stopwindowresize)
 	{
 	    var w = window_frame_get_width();
 	    var h = window_frame_get_height();

@@ -34,6 +34,7 @@ if (mode != TRANS_MODE.OFF)
 			case TRANS_MODE.NEXT:
 			{
 				mode = TRANS_MODE.INTRO;
+				oWindowFrame.stopwindowresize = false;
 				room_goto_next();
 				break;
 			}
