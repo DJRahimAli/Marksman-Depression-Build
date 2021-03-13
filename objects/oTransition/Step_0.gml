@@ -1,12 +1,3 @@
-// Window scaling
-
-if (global.os == 0)
-{
-	w = window_get_width();
-	h = window_get_height();
-	h_half = h * 0.5;
-}
-
 /// @desc Progress the transition
 
 if (mode != TRANS_MODE.OFF)
@@ -34,7 +25,6 @@ if (mode != TRANS_MODE.OFF)
 			case TRANS_MODE.NEXT:
 			{
 				mode = TRANS_MODE.INTRO;
-				oWindowFrame.stopwindowresize = false;
 				room_goto_next();
 				break;
 			}

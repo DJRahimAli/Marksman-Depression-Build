@@ -1,4 +1,4 @@
-draw_set_font(fMenu);
+draw_set_font(fText);
 draw_set_halign(0);
 draw_set_valign(0);
 
@@ -43,14 +43,16 @@ s = "Debug Menu"
 //Debug UI
 if global.debug
 {
+/*
 	draw_set_color(c_black);
 	draw_text(0-2,0,string_hash_to_newline(s));
 	draw_text(0+2,0,string_hash_to_newline(s));
 	draw_text(0,0+2,string_hash_to_newline(s));
 	draw_text(0,0-2,string_hash_to_newline(s));
+*/
 	draw_set_color(c_white);
 	draw_text(0,0,string_hash_to_newline(s));
-	
+/*
 	draw_set_color(c_black);
 	draw_text(1200-2,0, "| FPS " + string(fps));
 	draw_text(1200+2,0, "| FPS " + string(fps));
@@ -60,6 +62,7 @@ if global.debug
 	draw_text(1200+2,25,"| Real FPS " + string(fps_real));
 	draw_text(1200,25+2,"| Real FPS " + string(fps_real));
 	draw_text(1200,25-2,"| Real FPS " + string(fps_real));
+*/
 	draw_set_color(c_white);
 	draw_text(1200,0, "| FPS " + string(fps));
 	draw_text(1200,25,"| Real FPS " + string(fps_real));
