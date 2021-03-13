@@ -1,14 +1,7 @@
 /// @desc Control Menu
 
 //Item ease in
-if (menu_x > menu_x_target) || (menu_commited != -1)
-{
-	menu_x += (menu_x_target - menu_x) / menu_speed;
-}
-else
-{
-	menu_x = gui_width - gui_margin;
-}
+menu_x += (menu_x_target - menu_x) / menu_speed;
 
 //Keyboard Controls
 if (menu_control)
@@ -31,7 +24,6 @@ if (menu_control)
 		menu_commited = menu_cursor;
 		ScreenShake(4,30);
 		menu_control = false;
-		oWindowFrame.stopwindowresize = true;
 	}
 }
 
