@@ -20,6 +20,8 @@ if (os_windows == 0)
 		SlideTransition(TRANS_MODE.QUIT);
 	}
 
+	window_command_set_active(window_command_resize, 0);
+
 	// resize the game to fit the container window if it's visible
 	// (if you don't do window resizing, you don't need this)
 	if (window_frame_get_visible())

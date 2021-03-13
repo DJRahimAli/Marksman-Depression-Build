@@ -118,7 +118,7 @@ if (image_angle > 90) && (image_angle < 270)
 	{
 		with (oPlayer) image_xscale = -1;
 	
-		with (oManager) part_type_scale(particleType_Player_Fade,-1,1);
+		with (oParticle) part_type_scale(particleType_Player_Fade,-1,1);
 	}
 }
 else
@@ -131,6 +131,6 @@ else
 	{
 		with (oPlayer) image_xscale = 1;
 	
-		with (oManager) part_type_scale(particleType_Player_Fade,1,1);
+		with (oParticle) part_type_scale(particleType_Player_Fade,1,1);
 	}
 }
