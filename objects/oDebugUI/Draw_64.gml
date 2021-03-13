@@ -1,4 +1,6 @@
-draw_set_color(c_white);
+draw_set_font(0);
+draw_set_halign(0);
+draw_set_valign(0);
 
 var s;
 s = "Debug Menu"
@@ -12,7 +14,7 @@ s = "Debug Menu"
     + "#Walk Speed: " + string(oPlayer.walksp)
     + "#Acceleration: " + string(oPlayer.accel)
     + "#Crouch: " + string(oPlayer.crouch)
-    + "#Crouch Stuck:| " + string(oPlayer.crouchstuck)
+    + "#Crouch Stuck: " + string(oPlayer.crouchstuck)
     + "#Controller Variables: "
     + "#Controller: " + string(oPlayer.controller)
     + "#Deadzone: " + string(oPlayer.deadzone)
@@ -41,8 +43,24 @@ s = "Debug Menu"
 //Debug UI
 if global.debug
 {
-draw_text(0, 0, string_hash_to_newline(s));
+	draw_set_color(c_black);
+	draw_text(0-2,0,string_hash_to_newline(s));
+	draw_text(0+2,0,string_hash_to_newline(s));
+	draw_text(0,0+2,string_hash_to_newline(s));
+	draw_text(0,0-2,string_hash_to_newline(s));
+	draw_set_color(c_white);
+	draw_text(0,0,string_hash_to_newline(s));
 	
-draw_text(1200,0, "| FPS " + string(fps));
-draw_text(1200,15,"| Real FPS " + string(fps_real));
+	draw_set_color(c_black);
+	draw_text(1200-2,0, "| FPS " + string(fps));
+	draw_text(1200+2,0, "| FPS " + string(fps));
+	draw_text(1200,0+2, "| FPS " + string(fps));
+	draw_text(1200,0-2, "| FPS " + string(fps));
+	draw_text(1200-2,25,"| Real FPS " + string(fps_real));
+	draw_text(1200+2,25,"| Real FPS " + string(fps_real));
+	draw_text(1200,25+2,"| Real FPS " + string(fps_real));
+	draw_text(1200,25-2,"| Real FPS " + string(fps_real));
+	draw_set_color(c_white);
+	draw_text(1200,0, "| FPS " + string(fps));
+	draw_text(1200,25,"| Real FPS " + string(fps_real));
 }

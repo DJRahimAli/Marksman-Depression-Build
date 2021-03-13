@@ -1,10 +1,13 @@
-/// @desc Progress the transition
-if (os_windows == 0) && (window_frame_get_visible())
+// Window scaling
+
+if (global.os == 0)
 {
 	w = window_get_width();
 	h = window_get_height();
 	h_half = h * 0.5;
 }
+
+/// @desc Progress the transition
 
 if (mode != TRANS_MODE.OFF)
 {
