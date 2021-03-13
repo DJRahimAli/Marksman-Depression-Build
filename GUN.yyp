@@ -52,6 +52,7 @@
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"order":8,},
     {"id":{"name":"sPlayerTrailRC","path":"sprites/sPlayerTrailRC/sPlayerTrailRC.yy",},"order":21,},
     {"id":{"name":"sPlayerAC","path":"sprites/sPlayerAC/sPlayerAC.yy",},"order":18,},
+    {"id":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},"order":3,},
     {"id":{"name":"oEnemyDead","path":"objects/oEnemyDead/oEnemyDead.yy",},"order":6,},
     {"id":{"name":"rLevel1","path":"rooms/rLevel1/rLevel1.yy",},"order":0,},
   ],
@@ -72,6 +73,7 @@
     {"roomId":{"name":"rMenu","path":"rooms/rMenu/rMenu.yy",},},
     {"roomId":{"name":"rLevel1","path":"rooms/rLevel1/rLevel1.yy",},},
     {"roomId":{"name":"rLevel2","path":"rooms/rLevel2/rLevel2.yy",},},
+    {"roomId":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
