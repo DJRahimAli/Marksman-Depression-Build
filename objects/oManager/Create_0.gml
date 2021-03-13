@@ -1,3 +1,4 @@
+global.os = 0;
 global.debug = false;
 global.cheat = false;
 global.fly = false;

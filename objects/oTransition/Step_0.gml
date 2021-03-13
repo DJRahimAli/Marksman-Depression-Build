@@ -1,5 +1,5 @@
 /// @desc Progress the transition
-if os_windows && (window_frame_get_visible())
+if (os_windows == 0) && (window_frame_get_visible())
 {
 	w = window_get_width();
 	h = window_get_height();

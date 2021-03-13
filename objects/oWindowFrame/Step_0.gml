@@ -1,4 +1,4 @@
-if os_windows
+if (os_windows == 0)
 {
 	window_frame_update();
 	// if the extension just finished readying up:
