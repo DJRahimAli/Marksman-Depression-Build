@@ -1,5 +1,5 @@
 draw_set_color(c_white);
-if os_windows
+if (global.os == 0)
 {
 	/*var s;
 	s = string_format(current_time / 1000, 0, 1) + "s"

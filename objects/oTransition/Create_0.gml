@@ -1,5 +1,5 @@
 /// @desc Size variables and mode setup
-if os_windows
+if (os_windows == 0)
 {
 	w = 0;
 	h = 0;
