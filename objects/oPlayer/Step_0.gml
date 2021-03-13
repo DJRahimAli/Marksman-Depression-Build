@@ -259,6 +259,7 @@ else
 
 if (hsp != 0) && (oWeapon.holstered)
 {
-	image_xscale = sign(hsp);
-	with (oParticle) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp),1);
+	image_xscale = sign(hsp) * size;
+	with (oParticle) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp)*oPlayer.size,oPlayer.size);
 }
+image_yscale = size;
