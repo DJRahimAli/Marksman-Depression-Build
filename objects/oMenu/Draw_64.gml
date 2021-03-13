@@ -1,12 +1,12 @@
 // Window scaling
 
-if (global.os == 0)
+if (global.os == 0) && (menu_control)
 {
 	gui_width = window_get_width();
 	gui_height = window_get_height();
 	
 	menu_y = gui_height - gui_margin;
-	if (menu_control) menu_x_target = gui_width - gui_margin;
+	menu_x_target = gui_width - gui_margin;
 }
 
 /// @desc Draw Menu
