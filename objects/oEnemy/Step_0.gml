@@ -41,7 +41,7 @@ else
 	image_speed = 1;
 	if (hsp == 0)
 	{
-		sprite_index = sStand;
+		sprite_index = sStanding;
 	}
 	else
 	{
