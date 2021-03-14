@@ -116,7 +116,8 @@ if (key_crouch)
 	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
 		crouch = true;
-		walksp = 2.5;
+		if (!crouchstuck) crouchsp = walksp-2;
+		walksp = crouchsp;
 	}
 }
 
@@ -125,13 +126,14 @@ if (key_uncrouch)
 	if (!crouchstuck)
 	{
 		crouch = false;
-		walksp = 4.5;
+		crouchsp = walksp-2;
+		walksp = crouchsp;
 	}
 }
 
 if (crouch) && (place_meeting(x,y+1,oWall))
 {
-	walksp = 2.5;
+	walksp = crouchsp;
 	oWeapon.ironsights = true;
 }
 else
@@ -144,7 +146,7 @@ if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
 {
 	crouchstuck = true;
 	crouch = true;
-	walksp = 2.5;
+	walksp = crouchsp;
 }
 
 if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
