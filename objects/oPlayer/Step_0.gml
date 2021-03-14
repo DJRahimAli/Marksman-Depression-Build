@@ -189,6 +189,7 @@ else
 	if (place_meeting(x,y+1,oWall)) && (key_jump) && (!crouchstuck)
 	{
 		vsp = -7;
+		audio_play_sound(snd_Jump,10,false);
 	}
 }
 
@@ -232,6 +233,11 @@ if (!place_meeting(x,y+1,oWall))
 }
 else
 {
+	if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
+	{
+		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
+		audio_play_sound(snd_Landing,4,false);
+	}
 	image_speed = 1;
 	if (hspstr == 0)
 	{
