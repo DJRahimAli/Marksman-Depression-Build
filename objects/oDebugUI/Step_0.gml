@@ -6,15 +6,18 @@ key_cheat = keyboard_check_pressed(vk_f2);
 key_fly = keyboard_check_pressed(ord("V"));
 key_camclamp = keyboard_check_pressed(vk_f3);
 
-if (key_fly)
+if instance_exists(oPlayer)
 {
-	oPlayer.controller = false;
-}
+	if (key_fly)
+	{
+		oPlayer.controller = false;
+	}
 
-if (gamepad_button_check_pressed(0,gp_padu))
-{
-	key_fly = true;
-	oPlayer.controller = true;
+	if (gamepad_button_check_pressed(0,gp_padu))
+	{
+		key_fly = true;
+		oPlayer.controller = true;
+	}
 }
 
 //Debug UI Toggle

@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.8,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_PistolFire.wav",
+  "soundFile": "snd_Hurt.wav",
   "duration": 1.005,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_PistolFire",
+  "name": "snd_Hurt",
   "tags": [],
   "resourceType": "GMSound",
 }
