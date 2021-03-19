@@ -47,15 +47,18 @@ if (key_cheat)
 }
 
 //Cheat Toggles
-if (key_fly)
+if instance_exists(oPlayer)
 {
-	if (global.fly) || (!global.cheat)
+	if (key_fly)
 	{
-		global.fly = false;
-	}
-	else
-	{
-		global.fly = true;
+		if (global.fly) || (!global.cheat)
+		{
+			global.fly = false;
+		}
+		else
+		{
+			global.fly = true;
+		}
 	}
 }
 

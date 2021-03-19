@@ -116,8 +116,7 @@ if (key_crouch)
 	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
 		crouch = true;
-		if (!crouchstuck) crouchsp = walksp-2;
-		walksp = crouchsp;
+		walksp = 2.5;
 	}
 }
 
@@ -125,15 +124,13 @@ if (key_uncrouch)
 {
 	if (!crouchstuck)
 	{
-		crouch = false;
-		crouchsp = walksp-2;
-		walksp = crouchsp;
+		walksp = 2.5;
 	}
 }
 
 if (crouch) && (place_meeting(x,y+1,oWall))
 {
-	walksp = crouchsp;
+	walksp = 2.5;
 	oWeapon.ironsights = true;
 }
 else
@@ -146,7 +143,7 @@ if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
 {
 	crouchstuck = true;
 	crouch = true;
-	walksp = crouchsp;
+	walksp = 2.5;
 }
 
 if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
@@ -155,7 +152,7 @@ if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
 	crouch = true;
 }
 
-if (!place_meeting(x,y-16,oWall))
+if (!place_meeting(x,y-16*size,oWall))
 {
 	crouchstuck = false;
 	if (!key_crouching)
@@ -196,13 +193,27 @@ else
 }
 
 //Horizontal Collision
-if (place_meeting(x+hsp,y,oWall))
+if (size < 1)
 {
-	while (!place_meeting(x+sign(hsp),y,oWall))
+	if (place_meeting(x+hsp,y-1,oWall))
 	{
-		x = x + sign(hsp);
+		while (!place_meeting(x+sign(hsp),y-1,oWall))
+		{
+			x = x + sign(hsp);
+		}
+		hsp = 0;
 	}
-	hsp = 0;
+}
+else
+{	
+	if (place_meeting(x+hsp,y,oWall))
+	{
+		while (!place_meeting(x+sign(hsp),y,oWall))
+		{
+			x = x + sign(hsp);
+		}
+		hsp = 0;
+	}
 }
 x = x + hsp;
 
@@ -219,6 +230,7 @@ y = y + vsp;
 
 //Animation
 hspstr = string_format(hsp, 0, 0);
+vspstr = string_format(vsp, 0, 0);
 
 if (!place_meeting(x,y+1,oWall))
 {
@@ -267,7 +279,16 @@ else
 
 if (hsp != 0) && (oWeapon.holstered)
 {
-	image_xscale = sign(hsp) * size;
+	image_xscale = sign(hsp)*size;
 	with (oParticle) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp)*oPlayer.size,oPlayer.size);
 }
 image_yscale = size;
+
+if hspstr != 0 || (!place_meeting(x,y+1,oWall))
+{
+	moving = 1;
+}
+else 
+{
+	moving = 0;
+}
