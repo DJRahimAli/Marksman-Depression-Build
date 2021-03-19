@@ -1,7 +1,7 @@
 //Create Particles
 if instance_exists(oPlayer)
 {
-	if !oPlayer.sprite_index = sPlayer || oPlayer.sprite_index = sPlayerC
+	if (oPlayer.moving)
 	{
 		part_particles_create(particleSystem,oPlayer.x,oPlayer.y,particleType_Player_Fade,1);
 	}
@@ -18,7 +18,7 @@ if instance_exists(oPlayerDead)
 #region //Animated Trail Particle
 if instance_exists(oPlayer)
 {
-	if oPlayer.sprite_index = sPlayer && oPlayer.image_index = 0
+	if (!oPlayer.crouch) && (!oPlayer.moving)
 	{
 		part_type_sprite(particleType_Player_Fade,sPlayer,0,0,0);
 	}
@@ -43,7 +43,7 @@ if instance_exists(oPlayer)
 		part_type_sprite(particleType_Player_Fade,sPlayerTrailR,0,0,0);
 	}
 #region //Crouching
-	if oPlayer.sprite_index = sPlayerC && oPlayer.image_index = 0
+	if (oPlayer.crouch) && (!oPlayer.moving)
 	{
 		part_type_sprite(particleType_Player_Fade,sPlayerC,0,0,0);
 	}
@@ -76,7 +76,7 @@ if instance_exists(oPlayerDead)
 	if oPlayerDead.sprite_index = sPlayerD && oPlayerDead.image_index = 0
 	{
 		part_type_sprite(particleType_Player_Fade,sPlayerD,0,0,0);
-		with (oPlayerDead) part_type_scale(oParticle.particleType_Player_Fade,sign(hsp),oPlayerDead.size);
+		with (oPlayerDead) part_type_scale(oParticle.particleType_Player_Fade,sign(hsp)*size,size);
 	}
 }
 #endregion
