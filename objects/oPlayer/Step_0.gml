@@ -211,7 +211,7 @@ else
 	{
 		vsp = -5;
 		multijump --;
-		audio_play_sound(snd_Jump,10,false);
+		audio_play_sound(snd_MultiJump,10,false);
 	}
 
 	if (place_meeting(x,y+1,oWall)) && (!place_meeting(x,y+1,oSpring)) multijump = 1;
