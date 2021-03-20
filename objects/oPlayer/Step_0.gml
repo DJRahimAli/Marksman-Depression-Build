@@ -1,4 +1,12 @@
 #region //Get Player Input
+key_interact = keyboard_check_pressed(ord("E"));
+
+if (gamepad_button_check_pressed(0,gp_face1))
+{
+	key_interact = true;
+	controller = true;
+}
+
 if (hascontrol)
 {
 	key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
@@ -16,7 +24,7 @@ if (hascontrol)
 	key_flyup = key_up || keyboard_check(vk_space);
 	key_flydown = key_down
 
-	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_flyup) || (key_flydown) || key_holster || key_gun || (mouse_check_button(mb_left))
+	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_interact) || (key_flyup) || (key_flydown) || key_holster || key_gun || (mouse_check_button(mb_left))
 	{
 		controller = false;
 	}
@@ -77,11 +85,13 @@ if (hascontrol)
 	{
 		controller = true;
 	}
+
 	if (gamepad_button_check_pressed(0,gp_padd))
 	{
 		key_holster = true;
 		controller = true;
 	}
+
 	if (gamepad_button_check_pressed(0,gp_padr))
 	{
 		key_gun = true;
