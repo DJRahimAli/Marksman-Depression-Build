@@ -123,8 +123,15 @@ if (key_crouch)
 {
 	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
-		crouch = true;
 		walksp = 2.5;
+	}
+}
+
+if (key_crouch_held)
+{
+	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
+	{
+		crouch = true;
 	}
 }
 
@@ -207,11 +214,18 @@ else
 		audio_play_sound(snd_Jump,10,false);
 	}
 
-	if (place_meeting(x,y+1,oWall)) multijump = 1;
+	if (place_meeting(x,y+1,oWall)) && (!place_meeting(x,y+1,oSpring)) multijump = 1;
 }
 
 //Variable Jump
-if (vsp < 0) && (!key_jump_held) vsp += grv;
+if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += grv;
+
+//Spring Jump
+if (place_meeting(x,y+1,oSpring)) && (!crouch)
+{
+	vsp = -14;
+	if (!key_jump) audio_play_sound(snd_Jump,10,false);
+}
 
 //Horizontal Collision
 if (size < 1)
