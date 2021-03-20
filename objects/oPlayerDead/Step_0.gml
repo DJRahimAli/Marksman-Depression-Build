@@ -31,4 +31,26 @@ if (done == 0)
 	y = y + vsp;
 }
 
-if (done) && keyboard_check_pressed(vk_anykey) || gamepad_button_check_pressed(0,gp_face1) SlideTransition(TRANS_MODE.GOTO,room);
+//Reset Room
+if (done)
+&&
+gamepad_button_check_pressed(0,gp_face1)
+||
+gamepad_button_check_pressed(0,gp_face2)
+||
+gamepad_button_check_pressed(0,gp_face3)
+||
+gamepad_button_check_pressed(0,gp_face4)
+||
+gamepad_button_check_pressed(0,gp_select)
+||
+gamepad_button_check_pressed(0,gp_start)
+||
+gamepad_button_check_pressed(0,gp_shoulderl)
+||
+gamepad_button_check_pressed(0,gp_shoulderlb)
+||
+gamepad_button_check_pressed(0,gp_shoulderr)
+||
+gamepad_button_check_pressed(0,gp_shoulderrb)
+SlideTransition(TRANS_MODE.GOTO,room);
