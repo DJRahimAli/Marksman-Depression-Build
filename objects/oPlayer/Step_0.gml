@@ -183,6 +183,7 @@ if (key_gun)
 }
 #endregion
 
+//Jump or Fly Up/Down
 if (global.fly)
 {
 	var movefly = (key_flydown - key_flyup) * walksp;
@@ -198,6 +199,15 @@ else
 		vsp = -7;
 		audio_play_sound(snd_Jump,10,false);
 	}
+	
+	if (!place_meeting(x,y+1,oWall)) && (key_jump) && (multijump > 0)
+	{
+		vsp = -5;
+		multijump --;
+		audio_play_sound(snd_Jump,10,false);
+	}
+
+	if (place_meeting(x,y+1,oWall)) multijump = 1;
 }
 
 //Variable Jump
