@@ -6,8 +6,9 @@ if (hascontrol)
 	key_up = keyboard_check(ord("W"));
 	key_down = keyboard_check(ord("S"))
 	key_jump = keyboard_check_pressed(vk_space);
+	key_jump_held = keyboard_check(vk_space);
 	key_crouch = keyboard_check_pressed(vk_control);
-	key_crouching = keyboard_check(vk_control);
+	key_crouch_held = keyboard_check(vk_control);
 	key_uncrouch = keyboard_check_released(vk_control);
 	key_holster = keyboard_check_pressed(ord("H"));
 	key_gun = keyboard_check_pressed(ord("2"));
@@ -15,7 +16,7 @@ if (hascontrol)
 	key_flyup = key_up || keyboard_check(vk_space);
 	key_flydown = key_down
 
-	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_crouch) || (key_crouching) || (key_uncrouch) || (key_flyup) || (key_flydown) || key_holster || key_gun || (mouse_check_button(mb_left))
+	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_flyup) || (key_flydown) || key_holster || key_gun || (mouse_check_button(mb_left))
 	{
 		controller = false;
 	}
@@ -44,6 +45,12 @@ if (hascontrol)
 
 	if (gamepad_button_check(0,gp_shoulderl))
 	{
+		key_jump_held = true;
+		controller = true;
+	}
+
+	if (gamepad_button_check(0,gp_shoulderl))
+	{
 		key_flyup = true;
 		controller = true;
 	}
@@ -56,7 +63,7 @@ if (hascontrol)
 
 	if (gamepad_button_check(0,gp_shoulderlb))
 	{
-		key_crouching = true;
+		key_crouch_held = true;
 		controller = true;
 	}
 
@@ -88,8 +95,9 @@ else
 	key_up = false;
 	key_down = false;
 	key_jump = false;
+	key_jump_held = false;
 	key_crouch = false;
-	key_crouching = false;
+	key_crouch_held = false;
 	key_uncrouch = false;
 	key_holster = false;
 	key_gun = false;
@@ -155,7 +163,7 @@ if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
 if (!place_meeting(x,y-16*size,oWall))
 {
 	crouchstuck = false;
-	if (!key_crouching)
+	if (!key_crouch_held)
 	{
 		crouch = false;
 		walksp = 4.5;
@@ -191,6 +199,9 @@ else
 		audio_play_sound(snd_Jump,10,false);
 	}
 }
+
+//Variable Jump
+if (vsp < 0) && (!key_jump_held) vsp += grv;
 
 //Horizontal Collision
 if (size < 1)
