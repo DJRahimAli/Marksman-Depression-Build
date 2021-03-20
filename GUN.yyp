@@ -41,6 +41,7 @@
     {"id":{"name":"oTransition","path":"objects/oTransition/oTransition.yy",},"order":10,},
     {"id":{"name":"shWhite","path":"shaders/shWhite/shWhite.yy",},"order":0,},
     {"id":{"name":"SlideTransition","path":"scripts/SlideTransition/SlideTransition.yy",},"order":0,},
+    {"id":{"name":"snd_MultiJump","path":"sounds/snd_MultiJump/snd_MultiJump.yy",},"order":7,},
     {"id":{"name":"sBuildings","path":"sprites/sBuildings/sBuildings.yy",},"order":26,},
     {"id":{"name":"sGun","path":"sprites/sGun/sGun.yy",},"order":5,},
     {"id":{"name":"sPlayerR","path":"sprites/sPlayerR/sPlayerR.yy",},"order":2,},
