@@ -16,6 +16,19 @@ if (oPlayer.controller == false)
 			ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
+			with (instance_create_layer(x,y,"Shells",oShell))
+			{
+				direction = other.image_angle;
+				image_angle = direction;
+				if (image_angle > 90) && (image_angle < 270)
+				{
+					image_yscale = -1;
+				}
+				else
+				{
+					image_yscale = 1;
+				}
+			}
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
@@ -58,6 +71,19 @@ else
 			ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
+			with (instance_create_layer(x,y,"Shells",oShell))
+			{
+				direction = other.image_angle;
+				image_angle = direction;
+				if (image_angle > 90) && (image_angle < 270)
+				{
+					image_yscale = -1;
+				}
+				else
+				{
+					image_yscale = 1;
+				}
+			}
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
@@ -114,6 +140,7 @@ if (ironsights)
 
 if (image_angle > 90) && (image_angle < 270)
 {
+	facingx = -1;
 	image_yscale = -1;
 	
 	with (oCrosshair) image_yscale = -1;
@@ -127,6 +154,7 @@ if (image_angle > 90) && (image_angle < 270)
 }
 else
 {
+	facingx = 1;
 	image_yscale = 1;
 	
 	with (oCrosshair) image_yscale = 1;
@@ -137,4 +165,13 @@ else
 	
 		with (oParticle) part_type_scale(particleType_Player_Fade,1*oPlayer.size,oPlayer.size);
 	}
+}
+
+if (image_angle > 60) && (image_angle < 120) || (image_angle > 240) && (image_angle < 300)
+{
+	facingy = 1;
+}
+else
+{
+	facingy = -1;
 }
