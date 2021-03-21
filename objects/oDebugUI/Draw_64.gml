@@ -27,6 +27,7 @@ if instance_exists(oPlayer)
 	    + "#Recoil: " + string(oWeapon.recoil)
 	    + "#Stop Shooting: " + string(oWeapon.stopshooting)
 	    + "#Bullet Count: " + string(instance_number(oBullet))
+	    + "#Shell Count: " + string(instance_number(oShell))
 	    + "#Camera Variables:"
 	    + "#Camera: " + string(oCamera.cam)
 	    + "#Camera Following: " + string(oCamera.follow)
@@ -57,6 +58,7 @@ if instance_exists(oPlayerDead)
 	    + "#Done Falling when dead: " + string(oPlayerDead.done)
 	    + "#Weapon Variables: "
 	    + "#Bullet Count: " + string(instance_number(oBullet))
+	    + "#Shell Count: " + string(instance_number(oShell))
 	    + "#Camera Variables:"
 	    + "#Camera: " + string(oCamera.cam)
 	    + "#Camera Following: " + string(oCamera.follow)
@@ -80,6 +82,7 @@ if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
 	s = "Debug Menu"
 	    + "#Weapon Variables: "
 	    + "#Bullet Count: " + string(instance_number(oBullet))
+	    + "#Shell Count: " + string(instance_number(oShell))
 	    + "#Camera Variables:"
 	    + "#Camera: " + string(oCamera.cam)
 	    + "#Camera Following: " + string(oCamera.follow)
