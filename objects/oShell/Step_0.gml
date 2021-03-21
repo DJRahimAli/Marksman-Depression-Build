@@ -19,12 +19,8 @@ if (done == 0)
 		if (vsp > 0)
 		{
 			done = 1;
+			instance_destroy();
 		}
-		while (!place_meeting(x,y+sign(vsp),oWall))
-		{
-			y = y + sign(vsp);
-		}
-		vsp = 0;
 	}
 	y = y + vsp;
 }
