@@ -87,7 +87,7 @@ if (hascontrol)
 		controller = true;
 	}
 
-	if (gamepad_button_check_released(0,gp_face4))
+	if (gamepad_button_check_pressed(0,gp_face4))
 	{
 		key_suicide = true;
 		controller = true;
