@@ -1,12 +1,12 @@
 if (oWeapon.image_angle > 240) && (oWeapon.image_angle < 300)
 {
-	hsp = 4 * oWeapon.facingx;
+	hsp = 4 * oPlayer.facingx;
 }
 else
 {
-	hsp = -4 * oWeapon.facingx;
+	hsp = -4 * oPlayer.facingx;
 }
-vsp = 5 * oWeapon.facingy;
+vsp = 5 * oPlayer.facingy;
 grv = 0.3;
 done = 0;
 shelllife = 200;

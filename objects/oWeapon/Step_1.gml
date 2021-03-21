@@ -140,7 +140,7 @@ if (ironsights)
 
 if (image_angle > 90) && (image_angle < 270)
 {
-	facingx = -1;
+	oPlayer.facingx = -1;
 	image_yscale = -1;
 	
 	with (oCrosshair) image_yscale = -1;
@@ -154,7 +154,7 @@ if (image_angle > 90) && (image_angle < 270)
 }
 else
 {
-	facingx = 1;
+	oPlayer.facingx = 1;
 	image_yscale = 1;
 	
 	with (oCrosshair) image_yscale = 1;
@@ -169,9 +169,9 @@ else
 
 if (image_angle > 60) && (image_angle < 120) || (image_angle > 240) && (image_angle < 300)
 {
-	facingy = 1;
+	oPlayer.facingy = 1;
 }
 else
 {
-	facingy = -1;
+	oPlayer.facingy = -1;
 }
