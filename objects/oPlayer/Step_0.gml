@@ -1,6 +1,11 @@
 #region //Get Player Input
 key_interact = keyboard_check_pressed(ord("E"));
 
+if (key_interact)
+{
+	controller = false;
+}
+
 if (gamepad_button_check_pressed(0,gp_face1))
 {
 	key_interact = true;
@@ -18,13 +23,14 @@ if (hascontrol)
 	key_crouch = keyboard_check_pressed(vk_control);
 	key_crouch_held = keyboard_check(vk_control);
 	key_uncrouch = keyboard_check_released(vk_control);
+	key_suicide = keyboard_check_pressed(ord("K"));
 	key_holster = keyboard_check_pressed(ord("H"));
 	key_gun = keyboard_check_pressed(ord("2"));
 
 	key_flyup = key_up || keyboard_check(vk_space);
 	key_flydown = key_down
 
-	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_interact) || (key_flyup) || (key_flydown) || key_holster || key_gun || (mouse_check_button(mb_left))
+	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_suicide) || key_holster || key_gun || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
 	{
 		controller = false;
 	}
@@ -324,6 +330,7 @@ else
 
 if (hsp != 0) && (oWeapon.holstered)
 {
+	facingx = sign(hsp);
 	image_xscale = sign(hsp)*size;
 	with (oParticle) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp)*oPlayer.size,oPlayer.size);
 }
@@ -336,4 +343,16 @@ if hspstr != 0 || (!place_meeting(x,y+1,oWall))
 else 
 {
 	moving = 0;
+}
+
+//Suicide
+if (key_suicide)
+{
+	with (oWeapon) instance_destroy();
+	with (oCrosshair) instance_destroy();
+	instance_change(oPlayerDead,true);
+
+	hsp = -sign(facingx)*6;
+	vsp = -2;
+	if (sign(hsp) != 0) image_xscale = sign(hsp)*size;
 }
