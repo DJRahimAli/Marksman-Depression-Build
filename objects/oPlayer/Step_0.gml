@@ -225,18 +225,18 @@ else
 	
 	if (place_meeting(x,y+1,oWall)) && (key_jump) && (!crouchstuck)
 	{
-		vsp = -7;
+		vsp = -6;
 		audio_play_sound(snd_Jump,10,false);
 	}
 	
 	if (!place_meeting(x,y+1,oWall)) && (key_jump) && (multijump > 0)
 	{
-		vsp = -5;
+		vsp = -4;
 		multijump --;
 		audio_play_sound(snd_MultiJump,10,false);
 	}
 
-	if (place_meeting(x,y+1,oWall)) && (!place_meeting(x,y+1,oSpring)) multijump = 1;
+	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
 }
 
 //Variable Jump
@@ -325,10 +325,12 @@ else
 	{
 		if (!crouch)
 		{
+			image_speed = (1 * walksp) -3.5;
 			sprite_index = sPlayerR;
 		}
 		else
 		{
+			image_speed = 0.8;
 			sprite_index = sPlayerRC;
 		}
 	}
