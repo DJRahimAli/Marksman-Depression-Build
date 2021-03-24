@@ -245,7 +245,7 @@ if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += grv;
 //Spring Jump
 if (place_meeting(x,y+1,oSpring)) && (!crouch)
 {
-	vsp = -14;
+	vsp = -10;
 	if (!key_jump) audio_play_sound(snd_Jump,10,false);
 }
 
