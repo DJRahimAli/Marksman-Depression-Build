@@ -25,6 +25,7 @@
     {"id":{"name":"snd_PlayerDeath","path":"sounds/snd_PlayerDeath/snd_PlayerDeath.yy",},"order":4,},
     {"id":{"name":"oPlayerDead","path":"objects/oPlayerDead/oPlayerDead.yy",},"order":18,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
+    {"id":{"name":"sTitle","path":"sprites/sTitle/sTitle.yy",},"order":35,},
     {"id":{"name":"sPlayerRC","path":"sprites/sPlayerRC/sPlayerRC.yy",},"order":17,},
     {"id":{"name":"oSign","path":"objects/oSign/oSign.yy",},"order":21,},
     {"id":{"name":"sEnemy","path":"sprites/sEnemy/sEnemy.yy",},"order":12,},

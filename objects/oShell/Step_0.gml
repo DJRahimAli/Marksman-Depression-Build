@@ -14,13 +14,22 @@ if (done == 0)
 	x = x + hsp;
 
 	//Vertical Collision
-	if (place_meeting(x,y+vsp,oWall))
+	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y,oBulletWall))
 	{
 		if (vsp > 0)
 		{
 			done = 1;
 			instance_destroy();
 		}
+	}
+	
+	if (place_meeting(x,y+vsp,oWall))
+	{
+		while (!place_meeting(x,y+sign(vsp),oWall))
+		{
+			y = y + sign(vsp);
+		}
+		vsp = 0;
 	}
 	y = y + vsp;
 }

@@ -1,7 +1,8 @@
 #region //Get Player Input
 key_interact = keyboard_check_pressed(ord("E"));
+key_suicide = keyboard_check_pressed(ord("K"));
 
-if (key_interact)
+if (key_interact) || (key_suicide)
 {
 	controller = false;
 }
@@ -23,14 +24,13 @@ if (hascontrol)
 	key_crouch = keyboard_check_pressed(vk_control);
 	key_crouch_held = keyboard_check(vk_control);
 	key_uncrouch = keyboard_check_released(vk_control);
-	key_suicide = keyboard_check_pressed(ord("K"));
 	key_holster = keyboard_check_pressed(ord("H"));
 	key_gun = keyboard_check_pressed(ord("2"));
 
 	key_flyup = key_up || keyboard_check(vk_space);
 	key_flydown = key_down
 
-	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_suicide) || key_holster || key_gun || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
+	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_holster) || (key_gun) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
 	{
 		controller = false;
 	}

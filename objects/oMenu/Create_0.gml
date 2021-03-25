@@ -7,6 +7,7 @@ gui_margin = 32;
 
 menu_x = gui_width+200//- gui_margin;
 menu_y = gui_height - gui_margin;
+
 menu_x_target = gui_width - gui_margin;
 menu_speed = 10; //lower is faster
 menu_font = fMenu;
@@ -19,4 +20,8 @@ menu[1] = "Continue";
 menu[0] = "Quit";
 
 menu_items = array_length_1d(menu);
+
+menu_top = menu_y - ((menu_itemheight * 1.5) * menu_items);
+
 menu_cursor = 2;
+menu_last_cursor = menu_cursor;
