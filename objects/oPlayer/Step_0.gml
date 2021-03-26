@@ -336,11 +336,14 @@ else
 	}
 }
 
-if (hsp != 0) && (oWeapon.holstered) && (place_meeting(x,y+1,oWall))
+if (hsp != 0) && (oWeapon.holstered)
 {
 	facingx = sign(hsp);
+	if (place_meeting(x,y+1,oWall))
+	{
 	image_xscale = sign(hsp)*size;
 	with (oParticle) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp)*oPlayer.size,oPlayer.size);
+	}
 }
 image_yscale = size;
 
@@ -362,5 +365,5 @@ if (key_suicide)
 
 	hsp = -sign(facingx)*6;
 	vsp = -2;
-	if (sign(hsp) != 0) && (place_meeting(x,y+1,oWall)) image_xscale = sign(hsp)*size;
+	if (sign(hsp) != 0) image_xscale = sign(hsp)*size;
 }
