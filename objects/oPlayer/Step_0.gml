@@ -336,7 +336,7 @@ else
 	}
 }
 
-if (hsp != 0) && (oWeapon.holstered)
+if (hsp != 0) && (oWeapon.holstered) && (place_meeting(x,y+1,oWall))
 {
 	facingx = sign(hsp);
 	image_xscale = sign(hsp)*size;
@@ -362,5 +362,5 @@ if (key_suicide)
 
 	hsp = -sign(facingx)*6;
 	vsp = -2;
-	if (sign(hsp) != 0) image_xscale = sign(hsp)*size;
+	if (sign(hsp) != 0) && (place_meeting(x,y+1,oWall)) image_xscale = sign(hsp)*size;
 }
