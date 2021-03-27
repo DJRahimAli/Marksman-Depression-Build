@@ -22,7 +22,6 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":960.0,"resourceVersion":"1.0","name":"inst_193C36FF","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":736.0,"resourceVersion":"1.0","name":"inst_36181B16","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"oParticle","path":"objects/oParticle/oParticle.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":424.0,"y":744.0,"resourceVersion":"1.0","name":"inst_5AFED307","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"oSpring","path":"objects/oSpring/oSpring.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":1008.0,"resourceVersion":"1.0","name":"inst_5D9A779E","tags":[],"resourceType":"GMRInstance",},
@@ -130,7 +129,6 @@
     {"name":"inst_4BF914F6","path":"rooms/rLevel3/rLevel3.yy",},
     {"name":"inst_193C36FF","path":"rooms/rLevel3/rLevel3.yy",},
     {"name":"inst_36181B16","path":"rooms/rLevel3/rLevel3.yy",},
-    {"name":"inst_5AFED307","path":"rooms/rLevel3/rLevel3.yy",},
     {"name":"inst_49E06226","path":"rooms/rLevel3/rLevel3.yy",},
     {"name":"inst_749AE444","path":"rooms/rLevel3/rLevel3.yy",},
     {"name":"inst_536C755F","path":"rooms/rLevel3/rLevel3.yy",},
