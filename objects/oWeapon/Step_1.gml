@@ -148,8 +148,6 @@ if (image_angle > 90) && (image_angle < 270)
 	if (!oWeapon.holstered) 
 	{
 		with (oPlayer) image_xscale = -1 * size;
-	
-		with (oParticle) part_type_scale(particleType_Player_Fade,-1*oPlayer.size,oPlayer.size);
 	}
 }
 else
@@ -162,8 +160,6 @@ else
 	if (!oWeapon.holstered) 
 	{
 		with (oPlayer) image_xscale = 1 * size;
-	
-		with (oParticle) part_type_scale(particleType_Player_Fade,1*oPlayer.size,oPlayer.size);
 	}
 }
 

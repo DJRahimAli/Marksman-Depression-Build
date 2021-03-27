@@ -1,11 +1,16 @@
-//Particle System
-particleSystem = part_system_create();
+if instance_exists(oPlayer)
+{
+	image_xscale = oPlayer.image_xscale;
+	image_yscale = oPlayer.image_yscale;
+	image_speed = oPlayer.image_speed;
+	sprite_index = oPlayer.sprite_index;
+}
+if instance_exists(oPlayerDead)
+{
+	image_xscale = oPlayerDead.image_xscale;
+	image_yscale = oPlayerDead.image_yscale;
+	image_speed = oPlayerDead.image_speed;
+	sprite_index = oPlayerDead.sprite_index;
+}
 
-particleType_Player_Fade = part_type_create();
-
-part_type_size(particleType_Player_Fade,1,1,0,0);
-
-part_type_life(particleType_Player_Fade,5,5);
-part_type_alpha3(particleType_Player_Fade,0.3,0.2,0.1);
-
-part_system_depth(particleType_Player_Fade,oPlayer.depth+50);
+image_alpha = 0;
