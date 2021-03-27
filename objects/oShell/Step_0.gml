@@ -34,7 +34,7 @@ if (done == 0)
 	y = y + vsp;
 }
 
-if shelllife = 0 instance_destroy();
+if shelllife == 0 instance_destroy();
 
 shelllife--;
 image_alpha = shelllife/40;
