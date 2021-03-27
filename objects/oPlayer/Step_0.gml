@@ -309,7 +309,6 @@ else
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
 		audio_play_sound(snd_Landing,4,false);
 	}
-	image_speed = 1;
 	if (hspstr == 0)
 	{
 		if (!crouch)
@@ -325,12 +324,12 @@ else
 	{
 		if (!crouch)
 		{
-			image_speed = (1 * walksp) -3.5;
+			image_speed = (1 * hsp/4);
 			sprite_index = sPlayerR;
 		}
 		else
 		{
-			image_speed = 0.8;
+			image_speed = (1 * hsp/4);
 			sprite_index = sPlayerRC;
 		}
 	}
