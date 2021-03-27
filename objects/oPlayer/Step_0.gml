@@ -218,6 +218,17 @@ if (global.fly)
 	var movefly = (key_flydown - key_flyup) * walksp;
 	
 	vsp = lerp(vsp, movefly, accel);
+	
+	//Detect When Moving
+	if (hspstr != 0) || (vspstr != 0)
+	{
+		moving = true;
+		instance_create_layer(x,y,"Entities",oParticle)
+	}
+	else 
+	{
+		moving = false;
+	}
 }
 else
 {
@@ -237,6 +248,17 @@ else
 	}
 
 	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
+	
+	//Detect When Moving
+	if (hspstr != 0) || (!place_meeting(x,y+1,oWall))
+	{
+		moving = true;
+		instance_create_layer(x,y,"Entities",oParticle)
+	}
+	else 
+	{
+		moving = false;
+	}
 }
 
 //Variable Jump
@@ -344,16 +366,6 @@ if (hsp != 0) && (oWeapon.holstered)
 	}
 }
 image_yscale = size;
-
-if hspstr != 0 || (!place_meeting(x,y+1,oWall))
-{
-	moving = true;
-	instance_create_layer(x,y,"Entities",oParticle)
-}
-else 
-{
-	moving = false;
-}
 
 //Suicide
 if (key_suicide)
