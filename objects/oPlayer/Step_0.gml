@@ -349,11 +349,11 @@ image_yscale = size;
 
 if hspstr != 0 || (!place_meeting(x,y+1,oWall))
 {
-	moving = 1;
+	moving = true;
 }
 else 
 {
-	moving = 0;
+	moving = false;
 }
 
 //Suicide
