@@ -341,7 +341,6 @@ if (hsp != 0) && (oWeapon.holstered)
 	if (place_meeting(x,y+1,oWall))
 	{
 	image_xscale = sign(hsp)*size;
-	with (oParticle) part_type_scale(particleType_Player_Fade,sign(oPlayer.hsp)*oPlayer.size,oPlayer.size);
 	}
 }
 image_yscale = size;
@@ -349,6 +348,7 @@ image_yscale = size;
 if hspstr != 0 || (!place_meeting(x,y+1,oWall))
 {
 	moving = true;
+	instance_create_layer(x,y,"Entities",oParticle)
 }
 else 
 {
