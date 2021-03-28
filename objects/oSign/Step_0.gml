@@ -23,16 +23,21 @@ if (oPlayer.key_interact)
 		oPlayer.hascontrol = 1;
 	}
 	
-if (point_in_circle(oPlayer.x,oPlayer.y,x,y,64)) && (!instance_exists(oText))
-{
-	image_speed = 1;
-}
-else
-{
-	image_speed = 0;
-	image_index = 1;
-}
-
+	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,64)) && (!instance_exists(oText))
+	{
+		image_speed = 1;
+	}
+	else
+	{
+		image_speed = 0;
+		image_index = 1;
+	}
+	
+	if (instance_exists(oText)) && (oText.letters <= oText.length)
+	{
+		image_speed = 0;
+		image_index = 0;
+	}
 }
 else
 {
