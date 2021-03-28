@@ -5,4 +5,4 @@ if instance_exists(oPlayerDead) image_index = oPlayerDead.image_index;
 if particlelife == 0 instance_destroy();
 
 particlelife--;
-image_alpha = particlelife/40;
+image_alpha = particlelife/particlealphalength;
