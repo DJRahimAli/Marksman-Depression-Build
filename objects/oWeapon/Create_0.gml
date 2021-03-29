@@ -6,4 +6,7 @@ controllerangle = 0;
 holstered = false;
 ironsights = false;
 
+weapondistance = 40;
+weaponcrouchdistance = 5;
+
 //test = 0;

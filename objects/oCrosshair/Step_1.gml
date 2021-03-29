@@ -13,8 +13,11 @@ else
 	image_alpha = 1;
 }
 
+x = x + lengthdir_x(crosshairdistance,image_angle);
+y = y + lengthdir_y(crosshairdistance,image_angle);
+
 if (oWeapon.ironsights)
 {
-	x = x + lengthdir_x(5,image_angle);
-	y = y + lengthdir_y(5,image_angle);
+	x = x + lengthdir_x(crosshaircrouchdistance,image_angle);
+	y = y + lengthdir_y(crosshaircrouchdistance,image_angle);
 }
