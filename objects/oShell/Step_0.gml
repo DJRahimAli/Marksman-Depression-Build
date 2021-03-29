@@ -7,7 +7,7 @@ if (place_meeting(x+hsp,y,oWall))
 	{
 		x = x + sign(hsp);
 	}
-	if (!place_meeting(x,y+2,oWall)) hsp = 0;
+	if (!place_meeting(x,y+1,oWall)) hsp = 0;
 }
 x = x + hsp;
 
@@ -21,7 +21,7 @@ x = x + hsp;
 	}
 }*/
 
-if (place_meeting(x,y+2,oWall))
+if (place_meeting(x,y+1,oWall))
 {
 	vsp -= vsp+5;
 	done = 1;
@@ -45,10 +45,11 @@ if shelllife == 0 instance_destroy();
 if (done)
 {
 	shelllife-=10;
-	image_alpha = shelllife/80;
+	shellalphalength = 120;
 }
 else
 {
 	shelllife--;
-	image_alpha = shelllife/40;
 }
+
+image_alpha = shelllife/shellalphalength;
