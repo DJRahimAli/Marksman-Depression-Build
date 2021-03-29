@@ -3,6 +3,7 @@ vsp = 0;
 grv = 0.3;
 done = 0;
 bodylife = 400;
+bodyalphalength = 40;
 
 image_speed = 0;
 //ScreenShake(6,25);

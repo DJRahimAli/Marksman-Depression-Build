@@ -11,3 +11,4 @@ else
 grv = 0.3;
 done = 0;
 shelllife = 200;
+shellalphalength = 40; 

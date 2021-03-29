@@ -33,4 +33,4 @@ if (done == 0)
 if bodylife == 0 instance_destroy();
 
 bodylife--;
-image_alpha = bodylife/40;
+image_alpha = bodylife/bodyalphalength;
