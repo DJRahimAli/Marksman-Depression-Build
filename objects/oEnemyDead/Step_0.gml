@@ -30,7 +30,7 @@ if (done == 0)
 	y = y + vsp;
 }
 
-if bodylife == 0 instance_destroy();
+if image_alpha < 0 instance_destroy();
 
 bodylife--;
 image_alpha = bodylife/bodyalphalength;
