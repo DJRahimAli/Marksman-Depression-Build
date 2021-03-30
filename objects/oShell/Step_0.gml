@@ -7,7 +7,7 @@ if (place_meeting(x+hsp,y,oWall))
 	{
 		x = x + sign(hsp);
 	}
-	if (!place_meeting(x,y+1,oWall)) hsp = 0;
+	hsp = 0;
 }
 x = x + hsp;
 
@@ -33,9 +33,10 @@ if (place_meeting(x,y+vsp,oWall))
 	}
 	vsp = 0;
 }
-	y = y + vsp;
+y = y + vsp;
 
-if (place_meeting(x,y+1,oWall)) && (!place_meeting(x,y+vsp,oWall))
+//Bounce Shell
+if (place_meeting(x,y+1,oWall))
 {
 	vsp -= vsp+5;
 	done = 1;

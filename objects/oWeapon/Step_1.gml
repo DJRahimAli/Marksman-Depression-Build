@@ -159,7 +159,7 @@ else
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
-			with (instance_create_layer(x,y,"Shells",oShell))
+			with (instance_create_layer(x+4,y-4,"Shells",oShell))
 			{
 				direction = other.image_angle;
 				image_angle = direction;
@@ -172,7 +172,7 @@ else
 					image_yscale = 1;
 				}
 			}
-			with (instance_create_layer(x,y,"Bullets",oBullet))
+			with (instance_create_layer(x,y-6,"Bullets",oBullet))
 			{
 				speed = 25;
 				if (!oWeapon.ironsights)
