@@ -61,13 +61,13 @@ else
 firingdelay = firingdelay - 1;
 recoil = max(0,recoil -1);
 
-x = x + lengthdir_x(weapondistance-recoil,image_angle);
-y = y + lengthdir_y(weapondistance-recoil,image_angle);
+x = x + lengthdir_x(weapondistance*oPlayer.size/1-recoil,image_angle);
+y = y + lengthdir_y(weapondistance*oPlayer.size/1-recoil,image_angle);
 
 if (ironsights)
 {
-	x = x - lengthdir_x(weaponcrouchdistance,image_angle);
-	y = y - lengthdir_y(weaponcrouchdistance,image_angle);
+	x = x - lengthdir_x(weaponcrouchdistance*oPlayer.size/1,image_angle);
+	y = y - lengthdir_y(weaponcrouchdistance*oPlayer.size/1,image_angle);
 }
 
 if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall)) || (holstered)
