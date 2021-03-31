@@ -1,5 +1,5 @@
 x = oPlayer.x;
-y = oPlayer.y+10;
+y = oPlayer.y+10*oPlayer.size/1;
 
 //Set angle of weapon
 if (oPlayer.controller == false)
