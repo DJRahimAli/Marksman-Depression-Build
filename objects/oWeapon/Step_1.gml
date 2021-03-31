@@ -27,9 +27,9 @@ else
 if (image_angle > 90) && (image_angle < 270)
 {
 	oPlayer.facingx = -1;
-	image_yscale = oPlayer.facingx;
+	image_yscale = oPlayer.facingx*oPlayer.size;
 	
-	with (oCrosshair) image_yscale = oPlayer.facingx;
+	with (oCrosshair) image_yscale = oPlayer.facingx*oPlayer.size;
 	
 	if (!oWeapon.holstered) 
 	{
@@ -39,15 +39,17 @@ if (image_angle > 90) && (image_angle < 270)
 else
 {
 	oPlayer.facingx = 1;
-	image_yscale = oPlayer.facingx;
+	image_yscale = oPlayer.facingx*oPlayer.size;
 	
-	with (oCrosshair) image_yscale = oPlayer.facingx;
+	with (oCrosshair) image_yscale = oPlayer.facingx*oPlayer.size;
 	
 	if (!oWeapon.holstered) 
 	{
-		with (oPlayer) image_xscale = facingx * size;
+		with (oPlayer) image_xscale = facingx*size;
 	}
 }
+image_xscale = oPlayer.size;
+with (oCrosshair) image_xscale = oPlayer.size;
 
 if (image_angle > 60) && (image_angle < 120) || (image_angle > 240) && (image_angle < 300)
 {
@@ -106,7 +108,8 @@ if (oPlayer.controller == false)
 			{
 				direction = other.image_angle;
 				image_angle = direction;
-				image_yscale = oPlayer.facingx;
+				image_xscale = oPlayer.size;
+				image_yscale = oPlayer.facingx*oPlayer.size;
 			}
 			with (instance_create_layer(x,y-6,"Bullets",oBullet))
 			{
@@ -120,7 +123,8 @@ if (oPlayer.controller == false)
 					direction = other.image_angle + random_range(-1,2);
 				}
 				image_angle = direction;
-				image_yscale = oPlayer.facingx;
+				image_xscale = oPlayer.size;
+				image_yscale = oPlayer.facingx*oPlayer.size;
 			}
 		}
 	}
@@ -149,7 +153,8 @@ else
 			{
 				direction = other.image_angle;
 				image_angle = direction;
-				image_yscale = oPlayer.facingx;
+				image_xscale = oPlayer.size;
+				image_yscale = oPlayer.facingx*oPlayer.size;
 			}
 			with (instance_create_layer(x,y-6,"Bullets",oBullet))
 			{
@@ -163,7 +168,8 @@ else
 					direction = other.image_angle + random_range(-1,2);
 				}
 				image_angle = direction;
-				image_yscale = oPlayer.facingx;
+				image_xscale = oPlayer.size;
+				image_yscale = oPlayer.facingx*oPlayer.size;
 			}
 		}
 	}
