@@ -27,25 +27,25 @@ else
 if (image_angle > 90) && (image_angle < 270)
 {
 	oPlayer.facingx = -1;
-	image_yscale = -1;
+	image_yscale = oPlayer.facingx;
 	
-	with (oCrosshair) image_yscale = -1;
+	with (oCrosshair) image_yscale = oPlayer.facingx;
 	
 	if (!oWeapon.holstered) 
 	{
-		with (oPlayer) image_xscale = -1 * size;
+		with (oPlayer) image_xscale = facingx * size;
 	}
 }
 else
 {
 	oPlayer.facingx = 1;
-	image_yscale = 1;
+	image_yscale = oPlayer.facingx;
 	
-	with (oCrosshair) image_yscale = 1;
+	with (oCrosshair) image_yscale = oPlayer.facingx;
 	
 	if (!oWeapon.holstered) 
 	{
-		with (oPlayer) image_xscale = 1 * size;
+		with (oPlayer) image_xscale = facingx * size;
 	}
 }
 
@@ -102,18 +102,11 @@ if (oPlayer.controller == false)
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
-			with (instance_create_layer(x+4,y-4,"Shells",oShell))
+			with (instance_create_layer(x+4*oPlayer.facingx,y-4,"Shells",oShell))
 			{
 				direction = other.image_angle;
 				image_angle = direction;
-				if (image_angle > 90) && (image_angle < 270)
-				{
-					image_yscale = -1;
-				}
-				else
-				{
-					image_yscale = 1;
-				}
+				image_yscale = oPlayer.facingx;
 			}
 			with (instance_create_layer(x,y-6,"Bullets",oBullet))
 			{
@@ -127,14 +120,7 @@ if (oPlayer.controller == false)
 					direction = other.image_angle + random_range(-1,2);
 				}
 				image_angle = direction;
-				if (image_angle > 90) && (image_angle < 270)
-				{
-					image_yscale = -1;
-				}
-				else
-				{
-					image_yscale = 1;
-				}
+				image_yscale = oPlayer.facingx;
 			}
 		}
 	}
@@ -159,18 +145,11 @@ else
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
-			with (instance_create_layer(x+4,y-4,"Shells",oShell))
+			with (instance_create_layer(x+4*oPlayer.facingx,y-4,"Shells",oShell))
 			{
 				direction = other.image_angle;
 				image_angle = direction;
-				if (image_angle > 90) && (image_angle < 270)
-				{
-					image_yscale = -1;
-				}
-				else
-				{
-					image_yscale = 1;
-				}
+				image_yscale = oPlayer.facingx;
 			}
 			with (instance_create_layer(x,y-6,"Bullets",oBullet))
 			{
@@ -184,14 +163,7 @@ else
 					direction = other.image_angle + random_range(-1,2);
 				}
 				image_angle = direction;
-				if (image_angle > 90) && (image_angle < 270)
-				{
-					image_yscale = -1;
-				}
-				else
-				{
-					image_yscale = 1;
-				}
+				image_yscale = oPlayer.facingx;
 			}
 		}
 	}
