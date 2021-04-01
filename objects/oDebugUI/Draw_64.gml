@@ -2,11 +2,11 @@ draw_set_font(fText);
 draw_set_halign(0);
 draw_set_valign(0);
 
+#region //Debug UI
 if instance_exists(oPlayer)
 {
 	var s;
-	s = "Debug Menu"
-	    + "#Player Variables:"
+	s = "Player Variables:"
 	    + "#X Coordinates: " + string(oPlayer.x)
 	    + "#Y Coordinates: " + string(oPlayer.y)
 	    + "#Horizontal Speed: " + string(oPlayer.hsp)
@@ -16,6 +16,46 @@ if instance_exists(oPlayer)
 	    + "#Gravity: " + string(oPlayer.grv)
 	    + "#Walk Speed: " + string(oPlayer.walksp)
 	    + "#Acceleration: " + string(oPlayer.accel)
+	    + "#Moving: " + string(oPlayer.moving)
+	    + "#Crouch: " + string(oPlayer.crouch)
+	    + "#Crouch Stuck: " + string(oPlayer.crouchstuck)
+	    + "#Controller Variables: "
+	    + "#Controller: " + string(oPlayer.controller)
+	    + "#Deadzone: " + string(oPlayer.deadzone)
+	    + "#Weapon Variables: "
+	    + "#Bullet Count: " + string(instance_number(oBullet))
+	    + "#Shell Count: " + string(instance_number(oShell))
+	    + "#Camera Variables:"
+	    + "#Camera: " + string(oCamera.cam)
+	    + "#Camera Following: " + string(oCamera.follow)
+	    + "#Camera View Width Half: " + string(oCamera.view_w_half)
+	    + "#Camera View Height Half: " + string(oCamera.view_h_half)
+	    + "#Camera X To: " + string(oCamera.xTo)
+	    + "#Camera X To: " + string(oCamera.xTo)
+	    + "#Camera Clamp: " + string(oCamera.camclamp)
+	    + "#Camera Shake Length: " + string(oCamera.shake_length)
+	    + "#Camera Shake Magnitude: " + string(oCamera.shake_magnitude)
+	    + "#Camera Shake Remain: " + string(oCamera.shake_remain)
+	    + "#Camera Buffer: " + string(oCamera.buff)
+	    + "#Cheat Variables:"
+	    + "#Cheats: " + string(global.cheat)
+	    + "#Fly Mode: " + string(global.fly);
+}
+
+if instance_exists(oPlayer) && instance_exists(oWeapon)
+{
+	var s;
+	s = "Player Variables:"
+	    + "#X Coordinates: " + string(oPlayer.x)
+	    + "#Y Coordinates: " + string(oPlayer.y)
+	    + "#Horizontal Speed: " + string(oPlayer.hsp)
+	    + "#Horizontal Speed No Decimals: " + string(oPlayer.hspstr)
+	    + "#Vertical Speed: " + string(oPlayer.vsp)
+	    + "#Vertical Speed No Decimals: " + string(oPlayer.vspstr)
+	    + "#Gravity: " + string(oPlayer.grv)
+	    + "#Walk Speed: " + string(oPlayer.walksp)
+	    + "#Acceleration: " + string(oPlayer.accel)
+	    + "#Moving: " + string(oPlayer.moving)
 	    + "#Crouch: " + string(oPlayer.crouch)
 	    + "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 	    + "#Controller Variables: "
@@ -48,8 +88,7 @@ if instance_exists(oPlayer)
 if instance_exists(oPlayerDead)
 {
 	var s;
-	s = "Debug Menu"
-	    + "#Player Variables:"
+	s = "Player Variables:"
 	    + "#X Coordinates: " + string(oPlayerDead.x)
 	    + "#Y Coordinates: " + string(oPlayerDead.y)
 	    + "#Horizontal Speed: " + string(oPlayerDead.hsp)
@@ -79,8 +118,7 @@ if instance_exists(oPlayerDead)
 if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
 {
 	var s;
-	s = "Debug Menu"
-	    + "#Weapon Variables: "
+	s = "Weapon Variables: "
 	    + "#Bullet Count: " + string(instance_number(oBullet))
 	    + "#Shell Count: " + string(instance_number(oShell))
 	    + "#Camera Variables:"
@@ -99,8 +137,9 @@ if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
 	    + "#Cheats: " + string(global.cheat)
 	    + "#Fly Mode: " + string(global.fly);
 }
+#endregion
 
-//Debug UI
+//Draw Debug UI
 if global.debug
 {
 /*
