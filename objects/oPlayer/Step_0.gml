@@ -238,7 +238,7 @@ if (!global.fly)
 	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
 	
 	//Detect when moving
-	if (hspstr != 0) || (!place_meeting(x,y+1,oWall))
+	if (hspstr != 0) || (canjump < 0)
 	{
 		moving = true;
 		instance_create_layer(x,y,"Entities",oParticle)
@@ -364,13 +364,20 @@ else
 		}
 	}
 }
-
-if (hsp != 0) && (oWeapon.holstered)
+if instance_exists(oWeapon)
 {
-	facingx = sign(hsp);
-	if (place_meeting(x,y+1,oWall))
+	if (hsp != 0) && (oWeapon.holstered)
 	{
-	image_xscale = sign(hsp)*size;
+		facingx = sign(hsp);
+		image_xscale = sign(hsp)*size;
+	}
+}
+else
+{
+	if (hsp != 0)
+	{
+		facingx = sign(hsp);
+		image_xscale = sign(hsp)*size;
 	}
 }
 image_yscale = size;
