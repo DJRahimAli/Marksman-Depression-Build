@@ -236,14 +236,16 @@ else
 	
 	if (place_meeting(x,y+1,oWall)) && (key_jump) && (!crouchstuck)
 	{
-		vsp = -6;
+		jumpheight = 6;
+		vsp = -jumpheight;
 		audio_play_sound(snd_Jump,10,false);
 	}
 	
 	if (!place_meeting(x,y+1,oWall)) && (key_jump) && (multijump > 0)
 	{
-		vsp = -4;
-		multijump --;
+		jumpheight = 2.5;
+		vsp = -jumpheight;
+		multijump--;
 		audio_play_sound(snd_MultiJump,10,false);
 	}
 
@@ -267,7 +269,8 @@ if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += grv;
 //Spring Jump
 if (place_meeting(x,y+1,oSpring)) && (!crouch)
 {
-	vsp = -10;
+	jumpheight = 10;
+	vsp = -jumpheight;
 	if (!key_jump) audio_play_sound(snd_Jump,10,false);
 }
 
