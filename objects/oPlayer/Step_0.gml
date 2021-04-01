@@ -212,15 +212,33 @@ if (key_gun)
 }
 #endregion
 
-//Jump or Fly Up/Down
-if (global.fly)
+//Jumping or Fly Up/Down
+canjump -= 1;
+
+if (!global.fly)
 {
-	var movefly = (key_flydown - key_flyup) * walksp;
+	vsp = vsp + grv;
+
+	if (canjump > 0) && (key_jump) && (!crouchstuck)
+	{
+		jumpheight = 6;
+		vsp = -jumpheight;
+		canjump = 0;
+		audio_play_sound(snd_Jump,10,false);
+	}
 	
-	vsp = lerp(vsp, movefly, accel);
+	if (canjump < 0) && (key_jump) && (multijump > 0)
+	{
+		jumpheight = 2.5;
+		vsp = -jumpheight;
+		multijump--;
+		audio_play_sound(snd_MultiJump,10,false);
+	}
+
+	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
 	
-	//Detect When Moving
-	if (hspstr != 0) || (vspstr != 0)
+	//Detect when moving
+	if (hspstr != 0) || (!place_meeting(x,y+1,oWall))
 	{
 		moving = true;
 		instance_create_layer(x,y,"Entities",oParticle)
@@ -232,27 +250,12 @@ if (global.fly)
 }
 else
 {
-	vsp = vsp + grv;
+	var movefly = (key_flydown - key_flyup) * walksp;
 	
-	if (place_meeting(x,y+1,oWall)) && (key_jump) && (!crouchstuck)
-	{
-		jumpheight = 6;
-		vsp = -jumpheight;
-		audio_play_sound(snd_Jump,10,false);
-	}
+	vsp = lerp(vsp, movefly, accel);
 	
-	if (!place_meeting(x,y+1,oWall)) && (key_jump) && (multijump > 0)
-	{
-		jumpheight = 2.5;
-		vsp = -jumpheight;
-		multijump--;
-		audio_play_sound(snd_MultiJump,10,false);
-	}
-
-	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
-	
-	//Detect When Moving
-	if (hspstr != 0) || (!place_meeting(x,y+1,oWall))
+	//Detect when moving
+	if (hspstr != 0) || (vspstr != 0)
 	{
 		moving = true;
 		instance_create_layer(x,y,"Entities",oParticle)
@@ -271,6 +274,7 @@ if (place_meeting(x,y+1,oSpring)) && (!crouch)
 {
 	jumpheight = 10;
 	vsp = -jumpheight;
+	canjump = 0;
 	if (!key_jump) audio_play_sound(snd_Jump,10,false);
 }
 
@@ -329,6 +333,7 @@ if (!place_meeting(x,y+1,oWall))
 }
 else
 {
+	canjump = 10;
 	if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
 	{
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
