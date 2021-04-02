@@ -1,5 +1,5 @@
 x = oPlayer.x;
-y = oPlayer.y+10*oPlayer.size/1;
+y = oPlayer.y+8*oPlayer.size/1;
 
 //Set angle of weapon
 if (oPlayer.controller == false)
@@ -104,14 +104,14 @@ if (oPlayer.controller == false)
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
-			with (instance_create_layer(x+4*oPlayer.facingx,y-4,"Shells",oShell))
+			with (instance_create_layer(x,y,"Shells",oShell))
 			{
 				direction = other.image_angle;
 				image_angle = direction;
 				image_xscale = oPlayer.size;
 				image_yscale = oPlayer.facingx*oPlayer.size;
 			}
-			with (instance_create_layer(x,y-6,"Bullets",oBullet))
+			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
 				if (!oWeapon.ironsights)
@@ -149,14 +149,14 @@ else
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
-			with (instance_create_layer(x+4*oPlayer.facingx,y-4,"Shells",oShell))
+			with (instance_create_layer(x,y,"Shells",oShell))
 			{
 				direction = other.image_angle;
 				image_angle = direction;
 				image_xscale = oPlayer.size;
 				image_yscale = oPlayer.facingx*oPlayer.size;
 			}
-			with (instance_create_layer(x,y-6,"Bullets",oBullet))
+			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				speed = 25;
 				if (!oWeapon.ironsights)
