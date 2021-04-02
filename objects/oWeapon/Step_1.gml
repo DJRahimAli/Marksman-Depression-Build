@@ -99,6 +99,8 @@ if (oPlayer.controller == false)
 		//image_angle = point_direction(x,y,mouse_x,mouse_y);
 		if (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting)
 		{
+			image_speed = 1;
+			image_index = 0;
 			recoil = 4;
 			firingdelay = 20;
 			//ScreenShake(2,10);
@@ -144,6 +146,8 @@ else
 	{
 		if (gamepad_button_check(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting)
 		{
+			image_speed = 1;
+			image_index = 0;
 			recoil = 4;
 			firingdelay = 20;
 			//ScreenShake(2,10);
