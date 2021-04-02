@@ -168,12 +168,12 @@ if (key_uncrouch)
 if (crouch) && (place_meeting(x,y+1,oWall))
 {
 	walksp = 2.5;
-	oWeapon.ironsights = true;
+	if instance_exists(oWeapon) oWeapon.ironsights = true;
 }
 else
 {
 	walksp = 4.5;
-	oWeapon.ironsights = false;
+	if instance_exists(oWeapon) oWeapon.ironsights = false;
 }
 
 if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
@@ -201,12 +201,12 @@ if (!place_meeting(x,y-16*size,oWall))
 #endregion
 
 #region //Holstering
-if (key_holster)
+if (key_holster) && instance_exists(oWeapon)
 {
 	oWeapon.holstered = true;
 }
 
-if (key_gun)
+if (key_gun) && instance_exists(oWeapon)
 {
 	oWeapon.holstered = false;
 }

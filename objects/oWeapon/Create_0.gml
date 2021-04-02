@@ -1,3 +1,5 @@
+image_alpha = 0;
+
 firingdelay = 0;
 recoil = 0;
 stopshooting = false;

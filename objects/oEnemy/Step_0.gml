@@ -59,3 +59,10 @@ else
 
 if (hsp !=0) image_xscale = sign(hsp) * size;
 image_yscale = size;
+
+//Hit Sound
+if (hp != lasthp)
+{
+	if (hp < lasthp) audio_play_sound(snd_Hurt,10,false);
+	lasthp = hp;
+}
