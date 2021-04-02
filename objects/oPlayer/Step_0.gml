@@ -380,7 +380,6 @@ else
 		image_xscale = sign(hsp)*size;
 	}
 }
-image_yscale = size;
 
 //Suicide
 if (key_suicide)
