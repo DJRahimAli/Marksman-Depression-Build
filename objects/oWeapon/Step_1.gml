@@ -106,6 +106,7 @@ if (oPlayer.controller == false)
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
+			with (oPlayer) hsp -= 0.5*walksp*facingx;
 			with (instance_create_layer(x,y,"Shells",oShell))
 			{
 				direction = other.image_angle;
