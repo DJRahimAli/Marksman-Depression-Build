@@ -102,7 +102,7 @@ if (oPlayer.controller == false)
 			image_speed = 1;
 			image_index = 0;
 			recoil = 4;
-			firingdelay = 20;
+			firingdelay = 15;
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
@@ -149,7 +149,7 @@ else
 			image_speed = 1;
 			image_index = 0;
 			recoil = 4;
-			firingdelay = 20;
+			firingdelay = 15;
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
