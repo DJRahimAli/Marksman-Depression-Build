@@ -1,6 +1,6 @@
 if (done == 0)
 {
-	instance_create_layer(x,y,"Entities",oParticle)
+	instance_create_layer(x,y,"Entities",oParticle);
 	vsp = vsp + grv;
 
 	//Horizontal Collision

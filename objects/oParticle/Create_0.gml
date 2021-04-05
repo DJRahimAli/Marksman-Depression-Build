@@ -5,6 +5,7 @@ if instance_exists(oPlayer)
 	image_speed = oPlayer.image_speed;
 	sprite_index = oPlayer.sprite_index;
 }
+
 if instance_exists(oPlayerDead)
 {
 	image_xscale = oPlayerDead.image_xscale;
