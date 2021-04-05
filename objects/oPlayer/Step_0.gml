@@ -339,7 +339,7 @@ else
 		audio_play_sound(snd_Landing,4,false);
 		repeat(5)
 		{
-			with(instance_create_depth(x,bbox_bottom,oPlayer.depth-50,oDust))
+			with(instance_create_layer(x,bbox_bottom,"Particles",oDust))
 			{
 				vsp = 0;
 			}
