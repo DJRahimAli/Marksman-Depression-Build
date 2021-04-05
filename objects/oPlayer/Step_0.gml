@@ -241,7 +241,6 @@ if (!global.fly)
 	if (hspstr != 0) || (canjump < 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Entities",oParticle)
 	}
 	else 
 	{
@@ -267,7 +266,7 @@ else
 }
 
 //Variable Jump
-if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += 0.45;
+if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += grv; //0.45;
 
 //Spring Jump
 if (place_meeting(x,y+1,oSpring)) && (!crouch)
@@ -338,6 +337,13 @@ else
 	{
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
 		audio_play_sound(snd_Landing,4,false);
+		repeat(5)
+		{
+			with(instance_create_depth(x,bbox_bottom,oPlayer.depth-50,oDust))
+			{
+				vsp = 0;
+			}
+		}
 	}
 	if (hspstr == 0)
 	{
