@@ -23,55 +23,27 @@ if instance_exists(oPlayer)
 //Debug UI Toggle
 if (key_debug)
 {
-	if (global.debug)
-	{
-		global.debug = false;
-	}
-	else
-	{
-		global.debug = true;
-	}
+	global.debug = !global.debug;
 }
 
 //Cheat Toggle
 if (key_cheat)
 {
-	if (global.cheat)
-	{
-		global.cheat = false;
-	}
-	else
-	{
-		global.cheat = true;
-	}
+	global.cheat = !global.cheat;
 }
 
 //Cheat Toggles
 if instance_exists(oPlayer)
 {
-	if (key_fly)
+	if (key_fly) && (global.cheat)
 	{
-		if (global.fly) || (!global.cheat)
-		{
-			global.fly = false;
-		}
-		else
-		{
-			global.fly = true;
-		}
+		global.fly = !global.fly;
 	}
 }
 
-if (key_camclamp)
+if (key_camclamp) && (global.cheat)
 {
-	if (oCamera.camclamp) || (!global.cheat)
-	{
-		oCamera.camclamp = false;
-	}
-	else
-	{
-		oCamera.camclamp = true;
-	}
+	oCamera.camclamp = !oCamera.camclamp;
 }
 
 //Disable Cheats

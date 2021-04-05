@@ -10,7 +10,7 @@ if (mode != TRANS_MODE.OFF)
 	else
 	{
 		//percent = min(1,percent+0.05);
-		percent = min(percenttarget,percent + max(((percenttarget - percent)/10),0.005));
+		percent = min(percenttarget,percent + max(((percenttarget - percent)/15),0.005));
 	}
 	
 	if (percent == percenttarget) || (percent == 0)

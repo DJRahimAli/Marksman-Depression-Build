@@ -1,7 +1,7 @@
 /// @desc Draw Menu
 
 draw_set_font(menu_font);
-draw_set_halign(fa_right);
+draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
 
 for (var i = 0; i < menu_items; i ++)
@@ -10,7 +10,7 @@ for (var i = 0; i < menu_items; i ++)
 	var txt = menu[i];
 	if (menu_cursor == i)
 	{
-		txt = string_insert("> ", txt, 0);
+		txt = string_insert(" <", txt, string_length(txt)+1);
 		var col = c_white;
 	}
 	else
@@ -27,3 +27,6 @@ for (var i = 0; i < menu_items; i ++)
 	draw_set_color(col);
 	draw_text(xx,yy,txt);
 }
+
+draw_set_color(c_black);
+draw_rectangle(-0.1,gui_height-200,-200,gui_height,false);
