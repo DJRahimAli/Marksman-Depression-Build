@@ -57,12 +57,16 @@ else
 	}
 }
 
-if (hsp !=0) image_xscale = sign(hsp) * size;
-image_yscale = size;
-
-//Hit Sound
-if (hp != lasthp)
+if (hsp !=0)
 {
-	if (hp < lasthp) audio_play_sound(snd_Hurt,10,false);
-	lasthp = hp;
+	image_xscale = sign(hsp)*size;
 }
+else
+{
+	if (!hasweapon) image_xscale = size;
+}
+if (instance_exists(oPlayer))
+{
+	if (hasweapon) && (point_distance(oPlayer.x,oPlayer.y,x,y) < 600 ) image_xscale = oEnemyWeapon.image_yscale*size;
+}
+image_yscale = size;

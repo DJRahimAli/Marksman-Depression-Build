@@ -97,7 +97,7 @@ else
 	if (oPlayer.hascontrol)
 	{
 		//image_angle = point_direction(x,y,mouse_x,mouse_y);
-		if (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting) && (!oPlayer.controller) || (gamepad_button_check(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting) && (oPlayer.controller)
+		if (!oPlayer.controller) && (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting) || (oPlayer.controller) && (gamepad_button_check(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting)
 		{
 			image_speed = 1;
 			image_index = 1;
@@ -107,13 +107,6 @@ else
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
 			with (oPlayer) hsp -= 0.5*walksp*facingx;
-			with (instance_create_layer(x,y,"Shells",oShell))
-			{
-				direction = other.image_angle;
-				image_angle = direction;
-				image_xscale = oPlayer.size;
-				image_yscale = oPlayer.facingx*oPlayer.size;
-			}
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				spd = 25;
@@ -125,6 +118,13 @@ else
 				{
 					direction = other.image_angle + random_range(-1,2);
 				}
+				image_angle = direction;
+				image_xscale = oPlayer.size;
+				image_yscale = oPlayer.facingx*oPlayer.size;
+			}
+			with (instance_create_layer(x,y,"Shells",oShell))
+			{
+				direction = other.image_angle;
 				image_angle = direction;
 				image_xscale = oPlayer.size;
 				image_yscale = oPlayer.facingx*oPlayer.size;

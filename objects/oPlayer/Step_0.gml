@@ -241,6 +241,7 @@ if (!global.fly)
 	if (hspstr != 0) || (canjump < 0)
 	{
 		moving = true;
+		instance_create_layer(x,y,"Entities",oParticle);
 	}
 	else 
 	{
@@ -390,11 +391,6 @@ else
 //Suicide
 if (key_suicide)
 {
-	with (oWeapon) instance_destroy();
-	with (oCrosshair) instance_destroy();
-	instance_change(oPlayerDead,true);
-
-	hsp = -sign(facingx)*6;
-	vsp = -2;
-	if (sign(hsp) != 0) image_xscale = sign(hsp)*size;
+	hp = 0;
+	suicide = 1;
 }
