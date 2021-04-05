@@ -1,6 +1,6 @@
 image_alpha = 0;
 image_speed = 0;
-image_index = 2;
+image_index = 0;
 
 firingdelay = 0;
 recoil = 0;

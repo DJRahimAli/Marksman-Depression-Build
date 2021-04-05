@@ -8,6 +8,7 @@ else
 	hsp = random_range(-3,-4) * oPlayer.facingx;
 	vsp = random_range(4,5) * oPlayer.facingy;
 }
+
 grv = 0.3;
 done = 0;
 shelllife = 200;

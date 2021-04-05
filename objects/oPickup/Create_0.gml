@@ -9,7 +9,7 @@ switch (pickuptype)
 	case 1:
 	sprite_index = sGun;
 	image_speed = 0;
-	image_index = 2;
+	image_index = 0;
 	break;
 	default: instance_destroy();
 }
