@@ -203,7 +203,7 @@ if (!place_meeting(x,y-16*size,oWall))
 #region //Holstering
 if (key_holster) && instance_exists(oWeapon)
 {
-	oWeapon.holstered = true;
+	oWeapon.holstered = !oWeapon.holstered;
 }
 
 if (key_gun) && instance_exists(oWeapon)
