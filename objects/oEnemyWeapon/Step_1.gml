@@ -16,11 +16,11 @@ if (instance_exists(oPlayer))
 		if (owner.hsp !=0)
 		{
 			image_angle = point_direction(x,y,x*sign(owner.hsp),y);
-			image_yscale = owner.image_xscale*owner.size;
+			image_yscale = owner.image_xscale;
 		}
 		else
 		{
-			image_yscale = owner.image_xscale*owner.size;
+			image_yscale = owner.image_xscale;
 		}
 	}
 }
@@ -29,11 +29,11 @@ else
 	if (owner.hsp !=0)
 	{
 		image_angle = point_direction(x,y,x*sign(owner.hsp),y);
-		image_yscale = owner.image_xscale*owner.size;
+		image_yscale = owner.image_xscale;
 	}
 	else
 	{
-		image_yscale = owner.image_xscale*owner.size;
+		image_yscale = owner.image_xscale;
 	}
 }
 
@@ -71,7 +71,7 @@ if (instance_exists(oPlayer))
 					audio_play_sound(snd_PistolFire,5,false);
 					with (instance_create_layer(x,y,"Bullets",oEnemyBullet))
 					{
-						spd = 25;
+						spd = 15;
 						direction = other.image_angle + random_range(-2,3);
 						image_angle = direction;
 						image_xscale = other.owner.size;
