@@ -36,7 +36,7 @@ if (place_meeting(x,y+vsp,oWall))
 y = y + vsp;
 
 //Player Collision
-if (place_meeting(x,y,oPlayer))
+if (place_meeting(x,y,oPlayer))// && (global.hasweapon == true)
 {
 	image_speed = 1;
 	sprite_index = sEnemyR;

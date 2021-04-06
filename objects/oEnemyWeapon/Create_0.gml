@@ -6,3 +6,5 @@ countdown = countdownrate;
 recoil = 0;
 stopshooting = false;
 weapondistance = 40;
+
+//if (global.hasweapon == false) instance_destroy();
