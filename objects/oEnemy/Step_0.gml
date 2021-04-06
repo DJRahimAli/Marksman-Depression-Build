@@ -94,6 +94,6 @@ else
 }
 if (instance_exists(oPlayer))
 {
-	if (hasweapon) && (point_distance(oPlayer.x,oPlayer.y,x,y) < 600 ) image_xscale = oEnemyWeapon.image_yscale*size;
+	if (hasweapon) && (point_distance(oPlayer.x,oPlayer.y,x,y) < 600 ) image_xscale = facingx*size;
 }
 image_yscale = size;

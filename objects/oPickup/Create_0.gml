@@ -7,7 +7,7 @@ grv = 0.3;
 switch (pickuptype)
 {
 	case 1:
-	sprite_index = sGun;
+	sprite_index = sPistol;
 	image_speed = 0;
 	image_index = 0;
 	break;

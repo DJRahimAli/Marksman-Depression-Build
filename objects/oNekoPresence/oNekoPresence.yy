@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "sBlank",
-    "path": "sprites/sBlank/sBlank.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
