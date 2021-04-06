@@ -35,25 +35,52 @@ if (place_meeting(x,y+vsp,oWall))
 }
 y = y + vsp;
 
-//Animation
-if (!place_meeting(x,y+1,oWall))
+//Player Collision
+if (place_meeting(x,y,oPlayer))
 {
-	grounded = false;
-	sprite_index = sAirborne;
-	image_speed = 0;
-	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
+	image_speed = 1;
+	sprite_index = sEnemyR;
+	attack = true;
+
+	with (oPlayer)
+	{
+		hurtcountdownrate = 28;
+		hurtcountdown--;
+		if (hurtcountdown <= 0 )
+		{
+			hurtcountdown = hurtcountdownrate;
+			hp--;
+			flash = 3;
+		}
+	}
 }
 else
 {
-	grounded = true;
-	image_speed = 1;
-	if (hsp == 0)
+	attack = false;
+}
+
+//Animation
+if (!attack)
+{
+	if (!place_meeting(x,y+1,oWall))
 	{
-		sprite_index = sStanding;
+		grounded = false;
+		sprite_index = sAirborne;
+		image_speed = 0;
+		if (sign(vsp) > 0) image_index = 1; else image_index = 0;
 	}
 	else
 	{
-		sprite_index = sRunning;
+		grounded = true;
+		image_speed = 1;
+		if (hsp == 0)
+		{
+			sprite_index = sStanding;
+		}
+		else
+		{
+			sprite_index = sRunning;
+		}
 	}
 }
 

@@ -24,4 +24,6 @@ else
 	vsp = -2;
 }
 if (sign(hsp) != 0) image_xscale = sign(hsp)*size;
+
+global.kills -= global.killsthisroom;
 }
