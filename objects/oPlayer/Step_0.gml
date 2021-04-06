@@ -241,7 +241,7 @@ if (!global.fly)
 	if (hspstr != 0) || (canjump < 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Entities",oParticle);
+		instance_create_layer(x,y,"Player",oParticle)
 	}
 	else 
 	{
@@ -258,7 +258,7 @@ else
 	if (hspstr != 0) || (vspstr != 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Entities",oParticle)
+		instance_create_layer(x,y,"Player",oParticle)
 	}
 	else 
 	{
@@ -393,4 +393,9 @@ if (key_suicide)
 {
 	hp = 0;
 	suicide = 1;
+}
+
+if (!place_meeting(x,y,oEnemy))
+{
+	hurtcountdown = 0;
 }

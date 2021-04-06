@@ -3,7 +3,7 @@ draw_set_halign(0);
 draw_set_valign(0);
 
 #region //Debug UI
-if instance_exists(oPlayer)
+if instance_exists(oPlayer) && !instance_exists(oWeapon)
 {
 	var s;
 	s = "Player Variables:"
