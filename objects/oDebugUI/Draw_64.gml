@@ -39,7 +39,9 @@ if instance_exists(oPlayer) && !instance_exists(oWeapon)
 	    + "#Camera Buffer: " + string(oCamera.buff)
 	    + "#Cheat Variables:"
 	    + "#Cheats: " + string(global.cheat)
-	    + "#Fly Mode: " + string(global.fly);
+	    + "#Fly Mode: " + string(global.fly)
+	    + "#Noclip Mode: " + string(global.noclip)
+	    + "#God Mode: " + string(global.god);
 }
 
 if instance_exists(oPlayer) && instance_exists(oWeapon)
@@ -82,7 +84,9 @@ if instance_exists(oPlayer) && instance_exists(oWeapon)
 	    + "#Camera Buffer: " + string(oCamera.buff)
 	    + "#Cheat Variables:"
 	    + "#Cheats: " + string(global.cheat)
-	    + "#Fly Mode: " + string(global.fly);
+	    + "#Fly Mode: " + string(global.fly)
+	    + "#Noclip Mode: " + string(global.noclip)
+	    + "#God Mode: " + string(global.god);
 }
 
 if instance_exists(oPlayerDead)
@@ -112,7 +116,9 @@ if instance_exists(oPlayerDead)
 	    + "#Camera Buffer: " + string(oCamera.buff)
 	    + "#Cheat Variables:"
 	    + "#Cheats: " + string(global.cheat)
-	    + "#Fly Mode: " + string(global.fly);
+	    + "#Fly Mode: " + string(global.fly)
+	    + "#Noclip Mode: " + string(global.noclip)
+	    + "#God Mode: " + string(global.god);
 }
 
 if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
@@ -135,7 +141,9 @@ if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
 	    + "#Camera Buffer: " + string(oCamera.buff)
 	    + "#Cheat Variables:"
 	    + "#Cheats: " + string(global.cheat)
-	    + "#Fly Mode: " + string(global.fly);
+	    + "#Fly Mode: " + string(global.fly)
+	    + "#Noclip Mode: " + string(global.noclip)
+	    + "#God Mode: " + string(global.god);
 }
 #endregion
 

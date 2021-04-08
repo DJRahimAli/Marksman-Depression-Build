@@ -49,7 +49,7 @@ if (place_meeting(x,y,oPlayer))// && (global.hasweapon == true)
 		if (hurtcountdown <= 0 )
 		{
 			hurtcountdown = hurtcountdownrate;
-			hp--;
+			if (!global.god) hp--;
 			flash = 3;
 		}
 	}
