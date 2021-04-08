@@ -176,20 +176,20 @@ else
 	if instance_exists(oWeapon) oWeapon.ironsights = false;
 }
 
-if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall))
+if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall)) && (!global.noclip)
 {
 	crouchstuck = true;
 	crouch = true;
 	walksp = 2.5;
 }
 
-if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly)
+if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly) && (!global.noclip)
 {
 	crouchstuck = true;
 	crouch = true;
 }
 
-if (!place_meeting(x,y-16*size,oWall))
+if (!place_meeting(x,y-16*size,oWall)) && (!global.noclip)
 {
 	crouchstuck = false;
 	if (!key_crouch_held)
@@ -281,7 +281,7 @@ if (place_meeting(x,y+1,oSpring)) && (!crouch)
 //Horizontal Collision
 if (size < 1)
 {
-	if (place_meeting(x+hsp,y-1,oWall))
+	if (place_meeting(x+hsp,y-1,oWall)) && (!global.noclip)
 	{
 		while (!place_meeting(x+sign(hsp),y-1,oWall))
 		{
@@ -292,7 +292,7 @@ if (size < 1)
 }
 else
 {	
-	if (place_meeting(x+hsp,y,oWall))
+	if (place_meeting(x+hsp,y,oWall)) && (!global.noclip)
 	{
 		while (!place_meeting(x+sign(hsp),y,oWall))
 		{
@@ -304,7 +304,7 @@ else
 x = x + hsp;
 
 //Vertical Collision
-if (place_meeting(x,y+vsp,oWall))
+if (place_meeting(x,y+vsp,oWall)) && (!global.noclip)
 {
 	while (!place_meeting(x,y+sign(vsp),oWall))
 	{
@@ -338,11 +338,14 @@ else
 	{
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
 		audio_play_sound(snd_Landing,4,false);
-		repeat(5)
+		if (!global.noclip)
 		{
-			with(instance_create_layer(x,bbox_bottom,"Particles",oDust))
+			repeat(5)
 			{
-				vsp = 0;
+				with(instance_create_layer(x,bbox_bottom,"Particles",oDust))
+				{
+					vsp = 0;
+				}
 			}
 		}
 	}
@@ -359,7 +362,7 @@ else
 	}
 	else
 	{
-		if (!crouch)
+		if (!crouch) && (!global.noclip)
 		{
 			image_speed = (1 * hsp/4);
 			sprite_index = sPlayerR;

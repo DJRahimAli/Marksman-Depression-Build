@@ -21,6 +21,13 @@ if (done == 0)
 		{
 			done = 1;
 			image_index = 1;
+			repeat(5)
+			{
+				with(instance_create_layer(x,bbox_bottom,"Particles",oDust))
+				{
+					vsp = 0;
+				}
+			}
 			//alarm[0] = 60;
 		}
 		while (!place_meeting(x,y+sign(vsp),oWall))
