@@ -106,7 +106,6 @@ else
 			//ScreenShake(2,10);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 			audio_play_sound(snd_PistolFire,5,false);
-			with (oPlayer) hsp -= 0.5*walksp*facingx;
 			with (instance_create_layer(x,y,"Bullets",oBullet))
 			{
 				spd = 25;
@@ -121,6 +120,12 @@ else
 				image_angle = direction;
 				image_xscale = oPlayer.size;
 				image_yscale = oPlayer.facingx*oPlayer.size;
+			}
+			//with (oPlayer) hsp -= 0.5*walksp*facingx;
+			with (oPlayer)
+			{
+				gunkickx = lengthdir_x(1.5, other.image_angle-180);
+				gunkicky = lengthdir_y(1, other.image_angle-180);
 			}
 			with (instance_create_layer(x,y,"Shells",oShell))
 			{
