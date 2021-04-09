@@ -53,3 +53,13 @@ if (!global.cheat)
 	global.god = false;
 	oCamera.camclamp = true;
 }
+
+//Set Visibility
+/*if (global.debug)
+{
+	visible = true;
+}
+else
+{
+	visible = false;
+}*/
