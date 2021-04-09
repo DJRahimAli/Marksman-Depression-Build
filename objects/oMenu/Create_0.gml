@@ -23,5 +23,5 @@ menu_items = array_length_1d(menu);
 
 menu_top = menu_y - ((menu_itemheight * 1.5) * menu_items);
 
-menu_cursor = 2;
+menu_cursor = 1;
 menu_last_cursor = menu_cursor;
