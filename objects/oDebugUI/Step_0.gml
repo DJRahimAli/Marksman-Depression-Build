@@ -32,14 +32,11 @@ if (key_debug) global.debug = !global.debug;
 if (key_cheat) global.cheat = !global.cheat;
 
 #region //Cheat Toggles
-if instance_exists(oPlayer)
-{
-	if (key_fly) && (global.cheat) global.fly = !global.fly;
+if (key_fly) && (global.cheat) global.fly = !global.fly;
 
-	if (key_noclip) && (global.cheat) global.noclip = !global.noclip;
-		
-	if (key_god) && (global.cheat) global.god = !global.god;
-}
+if (key_noclip) && (global.cheat) global.noclip = !global.noclip;
+
+if (key_god) && (global.cheat) global.god = !global.god;
 
 if (key_camclamp) && (global.cheat) oCamera.camclamp = !oCamera.camclamp;
 

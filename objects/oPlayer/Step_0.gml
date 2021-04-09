@@ -132,7 +132,8 @@ else
 //Calculate Movement
 var move = (key_right - key_left) * walksp;
 
-hsp = lerp(hsp, move, accel);
+hsp = lerp(hsp, move, accel) + gunkickx;
+gunkickx = 0;
 
 #region //awful smb1 type movement
 /*
@@ -217,7 +218,8 @@ canjump -= 1;
 
 if (!global.fly)
 {
-	vsp = vsp + grv;
+	vsp = (vsp + grv) + gunkicky;
+	gunkicky = 0;
 
 	if (canjump > 0) && (key_jump) && (!crouchstuck)
 	{
@@ -394,8 +396,8 @@ else
 //Suicide
 if (key_suicide)
 {
-	hp = 0;
 	suicide = 1;
+	hp = 0;
 }
 
 if (!place_meeting(x,y,oEnemy))
