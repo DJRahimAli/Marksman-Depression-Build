@@ -145,7 +145,7 @@ if (key_crouch)
 {
 	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
 	{
-		walksp = 2.5;
+		walksp = walkspcrouchrate;
 	}
 }
 
@@ -161,18 +161,18 @@ if (key_uncrouch)
 {
 	if (!crouchstuck)
 	{
-		walksp = 2.5;
+		walksp = walkspcrouchrate;
 	}
 }
 
 if (crouch) && (place_meeting(x,y+1,oWall))
 {
-	walksp = 2.5;
+	walksp = walkspcrouchrate;
 	if instance_exists(oWeapon) oWeapon.ironsights = true;
 }
 else
 {
-	walksp = 4.5;
+	walksp = walksprate;
 	if instance_exists(oWeapon) oWeapon.ironsights = false;
 }
 
@@ -180,7 +180,7 @@ if (place_meeting(x,y-8,oWall)) && (place_meeting(x,y+2,oWall)) && (!global.nocl
 {
 	crouchstuck = true;
 	crouch = true;
-	walksp = 2.5;
+	walksp = walkspcrouchrate;
 }
 
 if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly) && (!global.noclip)
@@ -195,7 +195,7 @@ if (!place_meeting(x,y-16*size,oWall)) && (!global.noclip)
 	if (!key_crouch_held)
 	{
 		crouch = false;
-		walksp = 4.5;
+		walksp = walksprate;
 	}
 }
 #endregion
