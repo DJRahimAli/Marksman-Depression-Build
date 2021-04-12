@@ -1,5 +1,5 @@
 /// @desc Move player towards center
-layer_x(layerid, min(layer_get_x(layerid)+1.50,RES_W * 0.5 - 32));
+layer_x(layerid, min(layer_get_x(layerid)+1.50,RES_W * 0.5 - 306));
 
 //Progress Text
 letters += spd;

@@ -132,6 +132,7 @@ else
 //Calculate Movement
 var move = (key_right - key_left) * walksp;
 
+if (global.fly) gunkickx = 0;
 hsp = lerp(hsp, move, accel) + gunkickx;
 gunkickx = 0;
 
@@ -240,7 +241,7 @@ if (!global.fly)
 	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
 	
 	//Detect when moving
-	if (hspstr != 0) || (canjump < 0)
+	if (hspnodec != 0) || (canjump < 0)
 	{
 		moving = true;
 		instance_create_layer(x,y,"Player",oParticle)
@@ -257,7 +258,7 @@ else
 	vsp = lerp(vsp, movefly, accel);
 	
 	//Detect when moving
-	if (hspstr != 0) || (vspstr != 0)
+	if (hspnodec != 0) || (vspnodec != 0)
 	{
 		moving = true;
 		instance_create_layer(x,y,"Player",oParticle)
@@ -317,8 +318,8 @@ if (place_meeting(x,y+vsp,oWall)) && (!global.noclip)
 y = y + vsp;
 
 //Animation
-hspstr = string_format(hsp, 0, 0);
-vspstr = string_format(vsp, 0, 0);
+hspnodec = string_format(hsp, 0, 0);
+vspnodec = string_format(vsp, 0, 0);
 
 if (!place_meeting(x,y+1,oWall))
 {
@@ -351,7 +352,7 @@ else
 			}
 		}
 	}
-	if (hspstr == 0)
+	if (hspnodec == 0)
 	{
 		if (!crouch)
 		{
@@ -380,7 +381,6 @@ if instance_exists(oWeapon)
 {
 	if (hsp != 0) && (oWeapon.holstered)
 	{
-		facingx = sign(hsp);
 		image_xscale = sign(hsp)*size;
 	}
 }
@@ -388,7 +388,6 @@ else
 {
 	if (hsp != 0)
 	{
-		facingx = sign(hsp);
 		image_xscale = sign(hsp)*size;
 	}
 }

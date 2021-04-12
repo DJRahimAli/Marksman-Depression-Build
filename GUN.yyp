@@ -75,6 +75,7 @@
     {"id":{"name":"sMarkerS","path":"sprites/sMarkerS/sMarkerS.yy",},"order":33,},
     {"id":{"name":"sSkyscrapers","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"order":25,},
     {"id":{"name":"sEnemyD","path":"sprites/sEnemyD/sEnemyD.yy",},"order":13,},
+    {"id":{"name":"sHitSpark41","path":"sprites/sHitSpark41/sHitSpark41.yy",},"order":43,},
     {"id":{"name":"oDebugUI","path":"objects/oDebugUI/oDebugUI.yy",},"order":14,},
     {"id":{"name":"oHitSpark","path":"objects/oHitSpark/oHitSpark.yy",},"order":25,},
     {"id":{"name":"sPlayerS","path":"sprites/sPlayerS/sPlayerS.yy",},"order":7,},

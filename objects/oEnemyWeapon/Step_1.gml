@@ -74,28 +74,27 @@ if (instance_exists(oPlayer))
 						spd = 15;
 						direction = other.image_angle + random_range(-2,3);
 						image_angle = direction;
-						image_xscale = other.owner.size;
-						image_yscale = other.owner.facingx*other.owner.size;
+						image_xscale = other.owner.image_yscale;
+						image_yscale = other.owner.image_yscale;
 					}
 					with (instance_create_layer(x,y,"Shells",oEnemyShell))
 					{
-						hsp = random_range(-3,-4) * other.owner.facingx;
+						hsp = lengthdir_x(random_range(3,4), other.image_angle-180);
+						if (other.image_angle > 45) && (other.image_angle < 135)
+						{
+							vsp = random_range(4,5);
+						}
+						else
+						{
+							vsp = random_range(-4,-5);
+						}
 						direction = other.image_angle;
 						image_angle = direction;
-						image_xscale = other.owner.size;
-						image_yscale = other.owner.facingx*other.owner.size;
+						image_xscale = other.owner.image_xscale;
+						image_yscale = other.owner.image_yscale;
 					}
 				}
 			}
 		}
 	}
-}
-
-if (image_angle > 90) && (image_angle < 270)
-{
-	owner.facingx = -1;
-}
-else
-{
-	owner.facingx = 1;
 }
