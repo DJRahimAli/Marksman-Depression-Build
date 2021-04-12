@@ -10,7 +10,7 @@ else
 }*/
 
 hsp = 0;
-vsp = random_range(-4,-5);
+vsp = 0;
 
 grv = 0.3;
 done = 0;

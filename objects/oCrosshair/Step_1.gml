@@ -4,15 +4,25 @@ y = oPlayer.y+5*oPlayer.size/1;
 
 if (oPlayer.controller == false)
 {
-	if (oPlayer.hascontrol) && instance_exists(oWeapon) image_angle = point_direction(x,y,mouse_x,mouse_y);
+	if (oPlayer.hascontrol) && instance_exists(oWeapon)
+	{
+	direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
+	if (direction > 360) direction -= 360;
+	if (direction < 0) direction += 360;
+	}
 }
 else
 {
-	if (oPlayer.hascontrol) && instance_exists(oWeapon) image_angle = oWeapon.controllerangle;
+	if (oPlayer.hascontrol) && instance_exists(oWeapon)
+	{
+	direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
+	if (direction > 360) direction -= 360;
+	if (direction < 0) direction += 360;
+	}
 }
 
-x = x + lengthdir_x(crosshairdistance*oPlayer.size/1,image_angle);
-y = y + lengthdir_y(crosshairdistance*oPlayer.size/1,image_angle);
+x = x + lengthdir_x(crosshairdistance+crosshaircrouchdistance*oPlayer.size/1,direction);
+y = y + lengthdir_y(crosshairdistance+crosshaircrouchdistance*oPlayer.size/1,direction);
 
 if instance_exists(oWeapon)
 {
@@ -24,11 +34,13 @@ if instance_exists(oWeapon)
 	{
 		image_alpha = 1;
 	}
-
 	if (oWeapon.ironsights)
 	{
-		x = x + lengthdir_x(crosshaircrouchdistance*oPlayer.size/1,image_angle);
-		y = y + lengthdir_y(crosshaircrouchdistance*oPlayer.size/1,image_angle);
+		crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5);
+	}
+	else
+	{
+		crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);
 	}
 }
 else

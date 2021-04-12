@@ -24,6 +24,8 @@ if (place_meeting(x,y,oWall))
 	}
 	spd = 0;
 	instance_change(oHitSpark,true);
+	layer_add_instance("ForegroundTiles",id);
+	depth += 1;
 }
 
 bulletlife--;
