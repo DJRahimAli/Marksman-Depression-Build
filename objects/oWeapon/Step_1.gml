@@ -35,21 +35,21 @@ if (image_angle > 90) && (image_angle < 270)
 {
 	image_yscale = -1*oPlayer.size;
 	
-	if (!oWeapon.holstered) with (oPlayer) image_xscale = -1*size;
+	//if (!oWeapon.holstered) with (oPlayer) image_xscale = -1*size;
 }
 else
 {
 	image_yscale = 1*oPlayer.size;
 	
-	if (!oWeapon.holstered) with (oPlayer) image_xscale = 1*size;
+	//if (!oWeapon.holstered) with (oPlayer) image_xscale = 1*size;
 }
 image_xscale = oPlayer.size;
 
 firingdelay = firingdelay - 1;
 recoil = max(0,recoil -1);
 
-x = x + lengthdir_x(weapondistance-weaponcrouchdistance-recoil*oPlayer.size/1,image_angle);
-y = y + lengthdir_y(weapondistance-weaponcrouchdistance-recoil*oPlayer.size/1,image_angle);
+x = x + lengthdir_x((weapondistance-weaponcrouchdistance-recoil)*oPlayer.size/1,image_angle);
+y = y + lengthdir_y((weapondistance-weaponcrouchdistance-recoil)*oPlayer.size/1,image_angle);
 
 if (ironsights)
 {
@@ -112,7 +112,6 @@ if (oPlayer.hascontrol)
 			gunkickx = lengthdir_x(1.5, other.image_angle-180);
 			gunkicky = lengthdir_y(1, other.image_angle-180);
 		}
-		
 		with (instance_create_layer(x,y,"Shells",oShell))
 		{
 			hsp = lengthdir_x(random_range(3,4), other.image_angle-180);
@@ -125,8 +124,7 @@ if (oPlayer.hascontrol)
 				vsp = random_range(-4,-5);
 			}
 			direction = other.image_angle;
-			image_angle = direction;
-			image_xscale = other.image_xscale;
+			image_xscale = other.image_yscale;
 			image_yscale = other.image_yscale;
 		}
 	}

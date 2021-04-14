@@ -20,7 +20,7 @@ if (!suicide)
 }
 else
 {
-	hsp = -sign(facingx)*6;
+	hsp = -sign(image_xscale)*6;
 	vsp = -2;
 }
 if (sign(hsp) != 0) image_xscale = sign(hsp)*size;

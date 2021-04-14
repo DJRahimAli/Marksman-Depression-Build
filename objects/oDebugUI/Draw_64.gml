@@ -158,17 +158,12 @@ f = (string(fps) + " FPS")
 #endregion
 
 //Draw Debug UI
-if global.debug
+if (global.debug)
 {
 	DrawSetText(c_black, fText, fa_left, fa_top);
 	draw_text(0.5-2,0.3+2,string_hash_to_newline(s));
 	draw_set_color(c_white);
 	draw_text(0.5,0.3,string_hash_to_newline(s));
-
-	DrawSetText(c_black, fText, fa_right, fa_top);
-	draw_text(RES_W-0.5+2,0.3+2,string_hash_to_newline(f));
-	draw_set_color(c_white);
-	draw_text(RES_W-0.5,0.3,string_hash_to_newline(f));
 
 /*
 	draw_set_color(c_black);
@@ -189,4 +184,13 @@ if global.debug
 	draw_text(1200,25+2,"| Real FPS " + string(fps_real));
 	draw_text(1200,25-2,"| Real FPS " + string(fps_real));
 */
+}
+
+//Draw FPS UI
+if (global.debugfps)
+{
+	DrawSetText(c_black, fText, fa_right, fa_top);
+	draw_text(RES_W-0.5+2,0.3+2,string_hash_to_newline(f));
+	draw_set_color(c_white);
+	draw_text(RES_W-0.5,0.3,string_hash_to_newline(f));
 }
