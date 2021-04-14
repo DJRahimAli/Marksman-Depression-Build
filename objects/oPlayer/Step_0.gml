@@ -317,9 +317,42 @@ if (place_meeting(x,y+vsp,oWall)) && (!global.noclip)
 }
 y = y + vsp;
 
-//Animation
+#region //Animation
 hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
+
+if instance_exists(oWeapon)
+{
+	if (hsp != 0) && (oWeapon.holstered)
+	{
+		image_xscale = sign(hsp)*size;
+	}
+	var aimside = sign(hsp);
+}
+else
+{
+	if (hsp != 0)
+	{
+		image_xscale = sign(hsp)*size;
+	}
+	var aimside = sign(hsp);
+}
+
+if instance_exists(oWeapon)
+{
+	if (!oWeapon.holstered)
+	{
+		if (!controller)
+		{
+			var aimside = sign(mouse_x - x);
+		}
+		else
+		{
+			var aimside = oWeapon.image_yscale;
+		}
+		if (aimside != 0) image_xscale = aimside;
+	}
+}
 
 if (!place_meeting(x,y+1,oWall))
 {
@@ -369,28 +402,17 @@ else
 		{
 			image_speed = (1 * hsp/4);
 			sprite_index = sPlayerR;
+			if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 		}
 		else
 		{
 			image_speed = (1 * hsp/4);
 			sprite_index = sPlayerRC;
+			if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 		}
 	}
 }
-if instance_exists(oWeapon)
-{
-	if (hsp != 0) && (oWeapon.holstered)
-	{
-		image_xscale = sign(hsp)*size;
-	}
-}
-else
-{
-	if (hsp != 0)
-	{
-		image_xscale = sign(hsp)*size;
-	}
-}
+#endregion
 
 //Suicide
 if (key_suicide)

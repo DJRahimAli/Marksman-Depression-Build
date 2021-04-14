@@ -1,44 +1,48 @@
 //Get Player Input
-key_debug = keyboard_check_pressed(vk_f1);
-key_cheat = keyboard_check_pressed(vk_f2);
+global.key_debug = keyboard_check_pressed(vk_f1);
+global.key_debugfps = keyboard_check_pressed(vk_f2);
+global.key_cheat = keyboard_check_pressed(vk_f3);
 
 //Cheat Keys
-key_fly = keyboard_check_pressed(ord("V"));
-key_noclip = keyboard_check_pressed(ord("N"));
-key_god = keyboard_check_pressed(ord("G"));
-key_camclamp = keyboard_check_pressed(vk_f3);
+global.key_fly = keyboard_check_pressed(ord("V"));
+global.key_noclip = keyboard_check_pressed(ord("N"));
+global.key_god = keyboard_check_pressed(ord("G"));
+global.key_camclamp = keyboard_check_pressed(vk_f4);
 
 if instance_exists(oPlayer)
 {
-	if (key_fly) || (key_noclip) || (key_god) oPlayer.controller = false;
+	if (global.key_fly) || (global.key_noclip) || (global.key_god) oPlayer.controller = false;
 
 	if (gamepad_button_check_pressed(0,gp_padu))
 	{
-		key_fly = true;
+		global.key_fly = true;
 		oPlayer.controller = true;
 	}
 
 	if (gamepad_button_check_pressed(0,gp_padd))
 	{
-		key_noclip = true;
+		global.key_noclip = true;
 		oPlayer.controller = true;
 	}
 }
 
 //Debug UI Toggle
-if (key_debug) global.debug = !global.debug;
+if (global.key_debug) global.debug = !global.debug;
+
+//FPS UI Toggle
+if (global.key_debugfps) global.debugfps = !global.debugfps;
 
 //Cheat Toggle
-if (key_cheat) global.cheat = !global.cheat;
+if (global.key_cheat) global.cheat = !global.cheat;
 
 #region //Cheat Toggles
-if (key_fly) && (global.cheat) global.fly = !global.fly;
+if (global.key_fly) && (global.cheat) global.fly = !global.fly;
 
-if (key_noclip) && (global.cheat) global.noclip = !global.noclip;
+if (global.key_noclip) && (global.cheat) global.noclip = !global.noclip;
 
-if (key_god) && (global.cheat) global.god = !global.god;
+if (global.key_god) && (global.cheat) global.god = !global.god;
 
-if (key_camclamp) && (global.cheat) oCamera.camclamp = !oCamera.camclamp;
+if (global.key_camclamp) && (global.cheat) oCamera.camclamp = !oCamera.camclamp;
 
 #endregion
 

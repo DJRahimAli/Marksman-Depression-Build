@@ -38,7 +38,13 @@ y = y + vsp;
 //Bounce Shell
 if (place_meeting(x,y+1,oWall))
 {
-	vsp -= vsp+5;
+	if (done)
+	{
+		hsp = 0;
+		image_speed = 0;
+		image_index = 7;
+	}
+	if (!done) vsp -= vsp+5;
 	done = 1;
 }
 
@@ -46,8 +52,9 @@ if (shelllife == 0) || (image_alpha < 0) instance_destroy();
 
 if (done)
 {
-	shelllife-=10;
-	shellalphalength = 120;
+	shelllife-=2;
+	//shelllife--;
+	//shellalphalength = 120;
 }
 else
 {

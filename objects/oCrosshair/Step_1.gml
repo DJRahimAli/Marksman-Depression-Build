@@ -21,8 +21,8 @@ else
 	}
 }
 
-x = x + lengthdir_x(crosshairdistance+crosshaircrouchdistance*oPlayer.size/1,direction);
-y = y + lengthdir_y(crosshairdistance+crosshaircrouchdistance*oPlayer.size/1,direction);
+x = x + lengthdir_x((crosshairdistance+crosshaircrouchdistance)*oPlayer.size/1,direction);
+y = y + lengthdir_y((crosshairdistance+crosshaircrouchdistance)*oPlayer.size/1,direction);
 
 if instance_exists(oWeapon)
 {

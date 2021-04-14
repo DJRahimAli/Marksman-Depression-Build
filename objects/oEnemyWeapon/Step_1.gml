@@ -89,8 +89,7 @@ if (instance_exists(oPlayer))
 							vsp = random_range(-4,-5);
 						}
 						direction = other.image_angle;
-						image_angle = direction;
-						image_xscale = other.owner.image_xscale;
+						image_xscale = other.owner.image_yscale;
 						image_yscale = other.owner.image_yscale;
 					}
 				}
