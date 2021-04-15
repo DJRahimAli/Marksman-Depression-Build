@@ -36,7 +36,9 @@ if (mode != TRANS_MODE.OFF)
 			}
 			case TRANS_MODE.RESTART:
 			{
-				game_restart();
+				//game_restart();
+				mode = TRANS_MODE.INTRO;
+				room_goto(rMenu);
 				break;
 			}
 			case TRANS_MODE.QUIT:

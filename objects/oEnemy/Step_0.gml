@@ -1,3 +1,6 @@
+hp = string_format(hp, 0, 0);
+if (hp < 0) hp = 0;
+
 vsp = vsp + grv;
 
 //Don't walk off edges
@@ -49,7 +52,7 @@ if (place_meeting(x,y,oPlayer))// && (global.hasweapon == true)
 		if (hurtcountdown <= 0 )
 		{
 			hurtcountdown = hurtcountdownrate;
-			if (!global.god) hp--;
+			if (!global.god) hp-=4;
 			flash = 3;
 		}
 	}
@@ -57,6 +60,7 @@ if (place_meeting(x,y,oPlayer))// && (global.hasweapon == true)
 else
 {
 	attack = false;
+	with (oPlayer) hurtcountdown = 0;
 }
 
 //Animation

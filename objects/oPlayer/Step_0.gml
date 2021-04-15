@@ -1,3 +1,6 @@
+hp = string_format(hp, 0, 0);
+if (hp < 0) hp = 0;
+
 #region //Get Player Input
 key_interact = keyboard_check_pressed(ord("E"));
 key_suicide = keyboard_check_pressed(ord("K"));
@@ -129,16 +132,23 @@ else
 }
 #endregion
 
-//Calculate Movement
-var move = (key_right - key_left) * walksp;
+//Calculate horizontal movement
+var dir = (key_right - key_left);
 
 if (global.fly) gunkickx = 0;
-hsp = lerp(hsp, move, accel) + gunkickx;
+hsp += dir * accel;
+if (dir == 0)
+{
+	var hspfricfinal = hspfricground;
+	if (!onground) && (!global.fly) hspfricfinal = hspfricair;
+	hsp = lerp(hsp,0,hspfricfinal) + gunkickx;
+}
+hsp = clamp(hsp,-walksp,walksp);
 gunkickx = 0;
 
 //Calculate current status
 onground = place_meeting(x,y+1,oWall);
-
+if (onground) jumpbuffer = 5+1;
 
 #region //awful smb1 type movement
 /*
@@ -219,33 +229,39 @@ if (key_gun) && instance_exists(oWeapon)
 #endregion
 
 //Jumping or Fly Up/Down
-canjump -= 1;
-
 if (!global.fly)
 {
 	vsp = (vsp + grv) + gunkicky;
 	gunkicky = 0;
 
-	if (canjump > 0) && (key_jump) && (!crouchstuck)
+	if (onground) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
+
+	if (jumpbuffer > -1) jumpbuffer--;
+
+	if (jumpbuffer > 0)
 	{
-		jumpheight = 6;
-		vsp = -jumpheight;
-		canjump = 0;
-		audio_play_sound(snd_Jump,10,false);
-	}
-	
-	if (canjump < 0) && (key_jump) && (multijump > 0)
-	{
-		jumpheight = 2.5;
-		vsp = -jumpheight;
-		multijump--;
-		audio_play_sound(snd_MultiJump,10,false);
+		if (key_jump) && (!crouchstuck)
+		{
+			jumpbuffer = 0;
+			jumpheight = 6;
+			vsp = -jumpheight;
+			audio_play_sound(snd_Jump,10,false);
+		}
 	}
 
-	if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
+	if (jumpbuffer < 0)
+	{
+		if (key_jump) && (multijump > 0)
+		{
+			multijump--;
+			jumpheight = 2.5;
+			vsp = -jumpheight;
+			audio_play_sound(snd_MultiJump,10,false);
+		}
+	}
 	
 	//Detect when moving
-	if (hspnodec != 0) || (canjump < 0)
+	if (hspnodec != 0) || (jumpbuffer < 0)
 	{
 		moving = true;
 		instance_create_layer(x,y,"Player",oParticle)
@@ -257,9 +273,15 @@ if (!global.fly)
 }
 else
 {
-	var movefly = (key_flydown - key_flyup) * walksp;
+	var dirfly = (key_down - key_up);
 	
-	vsp = lerp(vsp, movefly, accel);
+	vsp += dirfly * accel;
+	if (dirfly == 0)
+	{
+		var vspfricfinal = hspfricground;
+		vsp = lerp(vsp,0,vspfricfinal) + gunkickx;
+	}
+	vsp = clamp(vsp,-walksp,walksp);
 	
 	//Detect when moving
 	if (hspnodec != 0) || (vspnodec != 0)
@@ -279,10 +301,9 @@ if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += grv; //0.45;
 //Spring Jump
 if (place_meeting(x,y+1,oSpring)) && (!crouch)
 {
+	jumpbuffer = 0;
 	jumpheight = 10;
 	vsp = -jumpheight;
-	canjump = 0;
-	if (!key_jump) audio_play_sound(snd_Jump,10,false);
 }
 
 //Horizontal Collision
@@ -348,7 +369,7 @@ if instance_exists(oWeapon)
 	{
 		if (!controller)
 		{
-			var aimside = sign(mouse_x - x);
+			var aimside = sign(mouse_x - x)*size;
 		}
 		else
 		{
@@ -373,7 +394,6 @@ if (!place_meeting(x,y+1,oWall))
 }
 else
 {
-	canjump = 10;
 	if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
 	{
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
@@ -423,9 +443,4 @@ if (key_suicide)
 {
 	suicide = 1;
 	hp = 0;
-}
-
-if (!place_meeting(x,y,oEnemy))
-{
-	hurtcountdown = 0;
 }

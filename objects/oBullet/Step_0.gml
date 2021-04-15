@@ -6,7 +6,7 @@ if (place_meeting(x,y,pShootable))
 {
 	with (instance_place(x,y,pShootable))
 	{
-		hp--;
+		hp-=8;
 		flash = 3;
 		hitfrom = other.direction;
 	}
