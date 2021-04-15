@@ -28,5 +28,5 @@ if (place_meeting(x,y,oWall))
 	depth += 1;
 }
 
-bulletlife--;
+bulletlife -= instance_number(oBullet)/12.5;
 image_alpha = bulletlife/bulletalphalength;
