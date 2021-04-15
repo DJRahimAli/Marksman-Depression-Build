@@ -27,5 +27,5 @@ if (place_meeting(x,y,oWall))
 	depth += 1;
 }
 
-bulletlife--;
+bulletlife -= instance_number(oEnemyBullet)/8.5;
 image_alpha = bulletlife/bulletalphalength;

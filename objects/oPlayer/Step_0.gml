@@ -136,6 +136,10 @@ if (global.fly) gunkickx = 0;
 hsp = lerp(hsp, move, accel) + gunkickx;
 gunkickx = 0;
 
+//Calculate current status
+onground = place_meeting(x,y+1,oWall);
+
+
 #region //awful smb1 type movement
 /*
 if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);

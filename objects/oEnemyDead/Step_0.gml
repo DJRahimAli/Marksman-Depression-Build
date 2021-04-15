@@ -32,5 +32,5 @@ if (done == 0)
 
 if (bodylife == 0) || (image_alpha < 0) instance_destroy();
 
-bodylife--;
+bodylife -= (instance_number(oEnemyDead)/0.5);
 image_alpha = bodylife/bodyalphalength;

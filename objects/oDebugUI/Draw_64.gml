@@ -24,6 +24,8 @@ if instance_exists(oPlayer) && !instance_exists(oWeapon)
 		+ "#Weapon Variables:"
 		+ "#Bullet Count: " + string(instance_number(oBullet))
 		+ "#Shell Count: " + string(instance_number(oShell))
+		+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
+		+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
 		+ "#Camera Variables:"
 		+ "#Camera: " + string(oCamera.cam)
 		+ "#Camera Following: " + string(oCamera.follow)
@@ -72,6 +74,8 @@ if instance_exists(oPlayer) && instance_exists(oWeapon)
 		+ "#Stop Shooting: " + string(oWeapon.stopshooting)
 		+ "#Bullet Count: " + string(instance_number(oBullet))
 		+ "#Shell Count: " + string(instance_number(oShell))
+		+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
+		+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
 		+ "#Camera Variables:"
 		+ "#Camera: " + string(oCamera.cam)
 		+ "#Camera Following: " + string(oCamera.follow)
@@ -105,6 +109,8 @@ if instance_exists(oPlayerDead)
 		+ "#Weapon Variables:"
 		+ "#Bullet Count: " + string(instance_number(oBullet))
 		+ "#Shell Count: " + string(instance_number(oShell))
+		+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
+		+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
 		+ "#Camera Variables:"
 		+ "#Camera: " + string(oCamera.cam)
 		+ "#Camera Following: " + string(oCamera.follow)
@@ -132,6 +138,8 @@ if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
 		+ "#Weapon Variables:"
 		+ "#Bullet Count: " + string(instance_number(oBullet))
 		+ "#Shell Count: " + string(instance_number(oShell))
+		+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
+		+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
 		+ "#Camera Variables:"
 		+ "#Camera: " + string(oCamera.cam)
 		+ "#Camera Following: " + string(oCamera.follow)

@@ -50,15 +50,15 @@ if (place_meeting(x,y+1,oWall))
 
 if (shelllife == 0) || (image_alpha < 0) instance_destroy();
 
-if (done)
+/*if (done)
 {
-	shelllife-=2;
+	shelllife -= 2;
 	//shelllife--;
 	//shellalphalength = 120;
 }
 else
-{
-	shelllife--;
-}
+{*/
+	shelllife -= (instance_number(oShell) + instance_number(oEnemyShell))/4.5;
+//}
 
 image_alpha = shelllife/shellalphalength;
