@@ -30,18 +30,14 @@ else
 	}
 }
 
-//Flip weapon and player
+//Flip weapon
 if (image_angle > 90) && (image_angle < 270)
 {
 	image_yscale = -1*oPlayer.size;
-	
-	//if (!oWeapon.holstered) with (oPlayer) image_xscale = -1*size;
 }
 else
 {
 	image_yscale = 1*oPlayer.size;
-	
-	//if (!oWeapon.holstered) with (oPlayer) image_xscale = 1*size;
 }
 image_xscale = oPlayer.size;
 

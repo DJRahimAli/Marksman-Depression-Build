@@ -17,7 +17,6 @@ if (instance_exists(follow))
 x += (xTo - x) / 10 //25;
 y += (yTo - y) / 10 //25;
 
-
 //Keep camera center inside room
 if (camclamp)
 {
@@ -31,7 +30,14 @@ y += random_range(-shake_remain,shake_remain);
 shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
 
 //Update camera view
+view_w = camera_get_view_width(cam);
+view_h = camera_get_view_height(cam);
+view_w_half = view_w * 0.5;
+view_h_half = view_h * 0.5;
+
 camera_set_view_pos(cam,x-view_w_half,y-view_h_half);
+
+camera_set_view_size(cam,orig_view_w*zoom,orig_view_h*zoom);
 
 if (room != rMenu) && (room != rEnding)
 {
