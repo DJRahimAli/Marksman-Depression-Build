@@ -1,4 +1,4 @@
-if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,64)) && (!instance_exists(oText))
+if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) && (!instance_exists(oText))
 {
 	nearby = true;
 	if (oPlayer.key_interact)
@@ -14,6 +14,7 @@ if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,64)) &
 			follow = other.id;
 		}
 		oPlayer.hascontrol = false;
+		oPlayer.hsp = 0;
 	}
 }else nearby = false;
 
