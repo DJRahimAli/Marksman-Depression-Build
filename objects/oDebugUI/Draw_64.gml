@@ -21,14 +21,17 @@ if (global.debug)
 			+ "#Crouch: " + string(oPlayer.crouch)
 			+ "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#"
 			+ "#Controller Variables: "
 			+ "#Controller: " + string(oPlayer.controller)
 			+ "#Deadzone: " + string(oPlayer.deadzone)
+			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
 			+ "#Shell Count: " + string(instance_number(oShell))
 			+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
 			+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
+			+ "#"
 			+ "#Camera Variables:"
 			+ "#Camera: " + string(oCamera.cam)
 			+ "#Camera Following: " + string(oCamera.follow)
@@ -41,11 +44,12 @@ if (global.debug)
 			+ "#Camera Shake Magnitude: " + string(oCamera.shake_magnitude)
 			+ "#Camera Shake Remain: " + string(oCamera.shake_remain)
 			+ "#Camera Buffer: " + string(oCamera.buff)
+			+ "#"
 			+ "#Cheat Variables:"
 			+ "#Cheats: " + string(global.cheat)
 			+ "#Fly Mode: " + string(global.fly)
 			+ "#Noclip Mode: " + string(global.noclip)
-			+ "#God Mode: " + string(global.god);
+			+ "#God Mode: " + string(global.god);//End
 	}
 
 	if instance_exists(oPlayer) && instance_exists(oWeapon)
@@ -68,6 +72,7 @@ if (global.debug)
 			+ "#Crouch: " + string(oPlayer.crouch)
 			+ "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#"
 			+ "#Controller Variables: "
 			+ "#Controller: " + string(oPlayer.controller)
 			+ "#Deadzone: " + string(oPlayer.deadzone)
@@ -80,6 +85,7 @@ if (global.debug)
 			+ "#Shell Count: " + string(instance_number(oShell))
 			+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
 			+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
+			+ "#"
 			+ "#Camera Variables:"
 			+ "#Camera: " + string(oCamera.cam)
 			+ "#Camera Following: " + string(oCamera.follow)
@@ -92,11 +98,12 @@ if (global.debug)
 			+ "#Camera Shake Magnitude: " + string(oCamera.shake_magnitude)
 			+ "#Camera Shake Remain: " + string(oCamera.shake_remain)
 			+ "#Camera Buffer: " + string(oCamera.buff)
+			+ "#"
 			+ "#Cheat Variables:"
 			+ "#Cheats: " + string(global.cheat)
 			+ "#Fly Mode: " + string(global.fly)
 			+ "#Noclip Mode: " + string(global.noclip)
-			+ "#God Mode: " + string(global.god);
+			+ "#God Mode: " + string(global.god);//End
 	}
 
 	if instance_exists(oPlayerDead)
@@ -110,11 +117,13 @@ if (global.debug)
 			+ "#Gravity: " + string(oPlayerDead.grv)
 			+ "#Done Falling when dead: " + string(oPlayerDead.done)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
 			+ "#Shell Count: " + string(instance_number(oShell))
 			+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
 			+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
+			+ "#"
 			+ "#Camera Variables:"
 			+ "#Camera: " + string(oCamera.cam)
 			+ "#Camera Following: " + string(oCamera.follow)
@@ -127,11 +136,12 @@ if (global.debug)
 			+ "#Camera Shake Magnitude: " + string(oCamera.shake_magnitude)
 			+ "#Camera Shake Remain: " + string(oCamera.shake_remain)
 			+ "#Camera Buffer: " + string(oCamera.buff)
+			+ "#"
 			+ "#Cheat Variables:"
 			+ "#Cheats: " + string(global.cheat)
 			+ "#Fly Mode: " + string(global.fly)
 			+ "#Noclip Mode: " + string(global.noclip)
-			+ "#God Mode: " + string(global.god);
+			+ "#God Mode: " + string(global.god);//End
 	}
 
 	if !instance_exists(oPlayer) && !instance_exists(oPlayerDead)
@@ -139,11 +149,13 @@ if (global.debug)
 		var s;
 		s = "Player Variables:"
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
 			+ "#Shell Count: " + string(instance_number(oShell))
 			+ "#Enemy Bullet Count: " + string(instance_number(oEnemyBullet))
 			+ "#Enemy Shell Count: " + string(instance_number(oEnemyShell))
+			+ "#"
 			+ "#Camera Variables:"
 			+ "#Camera: " + string(oCamera.cam)
 			+ "#Camera Following: " + string(oCamera.follow)
@@ -156,11 +168,12 @@ if (global.debug)
 			+ "#Camera Shake Magnitude: " + string(oCamera.shake_magnitude)
 			+ "#Camera Shake Remain: " + string(oCamera.shake_remain)
 			+ "#Camera Buffer: " + string(oCamera.buff)
+			+ "#"
 			+ "#Cheat Variables:"
 			+ "#Cheats: " + string(global.cheat)
 			+ "#Fly Mode: " + string(global.fly)
 			+ "#Noclip Mode: " + string(global.noclip)
-			+ "#God Mode: " + string(global.god);
+			+ "#God Mode: " + string(global.god);//End
 	}
 }
 

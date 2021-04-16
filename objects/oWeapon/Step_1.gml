@@ -31,16 +31,23 @@ else
 }
 
 //Flip weapon
-if (image_angle > 90) && (image_angle < 270)
+if (!oPlayer.controller)
 {
-	image_yscale = -1;
+	image_yscale = sign(mouse_x - x);
 }
 else
 {
-	image_yscale = 1;
+	if (image_angle > 90) && (image_angle < 270)
+	{
+		image_yscale = -1;
+	}
+	else
+	{
+		image_yscale = 1;
+	}
 }
 
-firingdelay = firingdelay - 1;
+if (firingdelay > -1) firingdelay--;
 recoil = max(0,recoil -1);
 
 x = x + lengthdir_x(weapondistance-weaponcrouchdistance-recoil,image_angle);
