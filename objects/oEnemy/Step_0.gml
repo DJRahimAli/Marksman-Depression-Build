@@ -92,12 +92,9 @@ if (hsp !=0)
 {
 	image_xscale = sign(hsp)*size;
 }
-else
-{
-	if (!hasweapon) image_xscale = size;
-}
+
 if (instance_exists(oPlayer))
 {
-	if (hasweapon) && (point_distance(oPlayer.x,oPlayer.y,x,y) < 600 ) image_xscale = facingx*size;
+	if (hasweapon) && (point_distance(oPlayer.x,oPlayer.y,x,y) < 600 ) image_xscale = sign(oPlayer.x - x)*size;
 }
 image_yscale = size;

@@ -16,7 +16,7 @@ if (instance_exists(oPlayer))
 		if (owner.hsp !=0)
 		{
 			image_angle = point_direction(x,y,x*sign(owner.hsp),y);
-			image_yscale = owner.image_xscale;
+			image_yscale = sign(owner.hsp)*owner.size;
 		}
 		else
 		{
@@ -29,7 +29,7 @@ else
 	if (owner.hsp !=0)
 	{
 		image_angle = point_direction(x,y,x*sign(owner.hsp),y);
-		image_yscale = owner.image_xscale;
+		image_yscale = sign(owner.hsp)*owner.size;
 	}
 	else
 	{
