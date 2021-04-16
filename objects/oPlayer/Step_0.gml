@@ -159,7 +159,7 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 #region //Crouching
 if (key_crouch)
 {
-	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
+	if (onground) || (crouchstuck) || (global.fly)
 	{
 		walksp = walkspcrouchrate;
 	}
@@ -167,7 +167,7 @@ if (key_crouch)
 
 if (key_crouch_held)
 {
-	if (place_meeting(x,y+1,oWall)) || (crouchstuck) || (global.fly)
+	if (onground) || (crouchstuck) || (global.fly)
 	{
 		crouch = true;
 	}
@@ -181,7 +181,7 @@ if (key_uncrouch)
 	}
 }
 
-if (crouch) && (place_meeting(x,y+1,oWall))
+if (crouch) && (onground)
 {
 	walksp = walkspcrouchrate;
 	if instance_exists(oWeapon) oWeapon.ironsights = true;
@@ -365,7 +365,7 @@ if instance_exists(oWeapon)
 	}
 }
 
-if (!place_meeting(x,y+1,oWall))
+if (!onground)
 {
 	if (!crouch)
 	{
