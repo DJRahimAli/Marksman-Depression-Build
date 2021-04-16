@@ -1,5 +1,5 @@
 x = oPlayer.x;
-y = oPlayer.y+8*oPlayer.size/1;
+y = oPlayer.y+8;
 
 //Set angle of weapon
 if (oPlayer.controller == false)
@@ -33,19 +33,18 @@ else
 //Flip weapon
 if (image_angle > 90) && (image_angle < 270)
 {
-	image_yscale = -1*oPlayer.size;
+	image_yscale = -1;
 }
 else
 {
-	image_yscale = 1*oPlayer.size;
+	image_yscale = 1;
 }
-image_xscale = oPlayer.size;
 
 firingdelay = firingdelay - 1;
 recoil = max(0,recoil -1);
 
-x = x + lengthdir_x((weapondistance-weaponcrouchdistance-recoil)*oPlayer.size/1,image_angle);
-y = y + lengthdir_y((weapondistance-weaponcrouchdistance-recoil)*oPlayer.size/1,image_angle);
+x = x + lengthdir_x(weapondistance-weaponcrouchdistance-recoil,image_angle);
+y = y + lengthdir_y(weapondistance-weaponcrouchdistance-recoil,image_angle);
 
 if (ironsights)
 {

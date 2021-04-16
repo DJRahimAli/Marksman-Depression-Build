@@ -92,6 +92,10 @@ if (hsp !=0)
 {
 	image_xscale = sign(hsp)*size;
 }
+else 
+{
+	image_xscale = sign(image_xscale)*size;
+}
 
 if (instance_exists(oPlayer))
 {
