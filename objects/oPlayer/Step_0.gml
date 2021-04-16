@@ -205,7 +205,7 @@ if (place_meeting(x,y-8,oWall)) && (crouch) && (global.fly) && (!global.noclip)
 	crouch = true;
 }
 
-if (!place_meeting(x,y-16*size,oWall)) && (!global.noclip)
+if (!place_meeting(x,y-16,oWall)) && (!global.noclip)
 {
 	crouchstuck = false;
 	if (!key_crouch_held)
@@ -307,27 +307,13 @@ if (place_meeting(x,y+1,oSpring)) && (!crouch)
 }
 
 //Horizontal Collision
-if (size < 1)
+if (place_meeting(x+hsp,y,oWall)) && (!global.noclip)
 {
-	if (place_meeting(x+hsp,y-1,oWall)) && (!global.noclip)
+	while (!place_meeting(x+sign(hsp),y,oWall))
 	{
-		while (!place_meeting(x+sign(hsp),y-1,oWall))
-		{
-			x = x + sign(hsp);
-		}
-		hsp = 0;
+		x = x + sign(hsp);
 	}
-}
-else
-{	
-	if (place_meeting(x+hsp,y,oWall)) && (!global.noclip)
-	{
-		while (!place_meeting(x+sign(hsp),y,oWall))
-		{
-			x = x + sign(hsp);
-		}
-		hsp = 0;
-	}
+	hsp = 0;
 }
 x = x + hsp;
 
@@ -350,7 +336,7 @@ if instance_exists(oWeapon)
 {
 	if (hsp != 0) && (oWeapon.holstered)
 	{
-		image_xscale = sign(hsp)*size;
+		image_xscale = sign(hsp);
 	}
 	var aimside = sign(hsp);
 }
@@ -358,7 +344,7 @@ else
 {
 	if (hsp != 0)
 	{
-		image_xscale = sign(hsp)*size;
+		image_xscale = sign(hsp);
 	}
 	var aimside = sign(hsp);
 }
@@ -369,7 +355,7 @@ if instance_exists(oWeapon)
 	{
 		if (!controller)
 		{
-			var aimside = sign(mouse_x - x)*size;
+			var aimside = sign(mouse_x - x);
 		}
 		else
 		{

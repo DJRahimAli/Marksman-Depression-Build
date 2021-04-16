@@ -1,6 +1,6 @@
 /// @desc Follow player and copy weapon angle
 x = oPlayer.x;
-y = oPlayer.y+5*oPlayer.size/1;
+y = oPlayer.y+5;
 
 if (oPlayer.controller == false)
 {
@@ -21,8 +21,8 @@ else
 	}
 }
 
-x = x + lengthdir_x((crosshairdistance+crosshaircrouchdistance)*oPlayer.size/1,direction);
-y = y + lengthdir_y((crosshairdistance+crosshaircrouchdistance)*oPlayer.size/1,direction);
+x = x + lengthdir_x(crosshairdistance+crosshaircrouchdistance,direction);
+y = y + lengthdir_y(crosshairdistance+crosshaircrouchdistance,direction);
 
 if instance_exists(oWeapon)
 {

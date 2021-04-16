@@ -23,7 +23,7 @@ else
 	hsp = -sign(image_xscale)*6;
 	vsp = -2;
 }
-if (sign(hsp) != 0) image_xscale = sign(hsp)*size;
+if (sign(hsp) != 0) image_xscale = sign(hsp);
 
 global.kills -= global.killsthisroom;
 }
