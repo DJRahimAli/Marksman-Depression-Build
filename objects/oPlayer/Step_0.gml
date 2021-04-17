@@ -451,19 +451,3 @@ if (key_suicide)
 	suicide = 1;
 	hp = 0;
 }
-
-if instance_exists(oEnemy)
-{
-	if !(point_in_circle(oEnemy.x,oEnemy.y,x,y,32))
-	{
-		hurtcountdown = 0;
-	}
-}
-
-if instance_exists(oEnemyBig)
-{
-	if !(point_in_circle(oEnemyBig.x,oEnemyBig.y,x,y,128))
-	{
-		hurtcountdown = 0;
-	}
-}
