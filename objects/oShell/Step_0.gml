@@ -11,6 +11,19 @@ if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 }
 x = x + hsp;
 
+//Bounce Shell
+if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
+{
+	if (done)
+	{
+		hsp = 0;
+		image_speed = 0;
+		image_index = 7;
+	}
+	if (!done) vsp -= sign(vsp)*5;
+	done = 1;
+}
+
 //Vertical Collision
 /*if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y,oBulletWall))
 {
@@ -34,19 +47,6 @@ if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 	vsp = 0;
 }
 y = y + vsp;
-
-//Bounce Shell
-if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
-{
-	if (done)
-	{
-		hsp = 0;
-		image_speed = 0;
-		image_index = 7;
-	}
-	if (!done) vsp -= vsp+5;
-	done = 1;
-}
 
 if (shelllife == 0) || (image_alpha < 0) instance_destroy();
 
