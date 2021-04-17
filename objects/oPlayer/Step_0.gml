@@ -132,6 +132,17 @@ else
 }
 #endregion
 
+//Calculate current status
+if place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision)
+{
+	onground = true;
+}
+else
+{
+	onground = false;
+}
+if (onground) jumpbuffer = 5+1;
+
 //Calculate horizontal movement
 walksprate = 4;
 walkspcrouchrate = 2;
@@ -149,16 +160,11 @@ hsp += dir * accel;
 if (dir == 0)
 {
 	var hspfricfinal = hspfricground;
-	if (!onwallground) && (!global.fly) hspfricfinal = hspfricair;
+	if (!onground) && (!global.fly) hspfricfinal = hspfricair;
 	hsp = lerp(hsp,0,hspfricfinal) + gunkickx;
 }
 hsp = clamp(hsp,-walksp,walksp);
 gunkickx = 0;
-
-//Calculate current status
-onwallground = place_meeting(x,y+1,oWall);
-oncollisionground = place_meeting(x,y+1,oCollision);
-if (onwallground) || (oncollisionground) jumpbuffer = 5+1;
 
 #region //awful smb1 type movement
 /*
@@ -169,7 +175,7 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 #region //Crouching
 if (key_crouch)
 {
-	if (onwallground) || (oncollisionground) || (crouchstuck) || (global.fly)
+	if (onground) || (crouchstuck) || (global.fly)
 	{
 		walksp = walkspcrouchrate;
 	}
@@ -177,7 +183,7 @@ if (key_crouch)
 
 if (key_crouch_held)
 {
-	if (onwallground) || (oncollisionground) || (crouchstuck) || (global.fly)
+	if (onground) || (crouchstuck) || (global.fly)
 	{
 		crouch = true;
 	}
@@ -191,7 +197,7 @@ if (key_uncrouch)
 	}
 }
 
-if (crouch) && (onwallground) || (oncollisionground)
+if (crouch) && (onground)
 {
 	walksp = walkspcrouchrate;
 	if instance_exists(oWeapon) oWeapon.ironsights = true;
@@ -202,20 +208,14 @@ else
 	if instance_exists(oWeapon) oWeapon.ironsights = false;
 }
 
-if (place_meeting(x,y-8,oWall) && place_meeting(x,y+2,oWall)) || (place_meeting(x,y-8,oCollision)) && (!global.noclip)
+if (place_meeting(x,y-8,oWall) && (onground) || place_meeting(x,y-8,oCollision)) && (!global.noclip)
 {
 	crouchstuck = true;
 	crouch = true;
 	walksp = walkspcrouchrate;
 }
 
-if place_meeting(x,y-8,oWall) || place_meeting(x,y-8,oCollision) && (crouch) && (global.fly) && (!global.noclip)
-{
-	crouchstuck = true;
-	crouch = true;
-}
-
-if (!place_meeting(x,y-16,oWall)) && (!place_meeting(x,y-16,oCollision)) && (!global.noclip)
+if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
 {
 	crouchstuck = false;
 	if (!key_crouch_held)
@@ -244,7 +244,7 @@ if (!global.fly)
 	vsp = (vsp + grv) + gunkicky;
 	gunkicky = 0;
 
-	if (onwallground) || (oncollisionground) || place_meeting(x,y+1,oSpring) multijump = multijumpamt;
+	if (onground) || place_meeting(x,y+1,oSpring) multijump = multijumpamt;
 
 	if (jumpbuffer > -1) jumpbuffer--;
 
@@ -385,7 +385,7 @@ if instance_exists(oWeapon)
 	}
 }
 
-if !(onwallground) || (oncollisionground)
+if (!onground)
 {
 	if (!crouch)
 	{
@@ -401,12 +401,12 @@ if !(onwallground) || (oncollisionground)
 }
 else
 {
-	if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
+	if (!global.noclip)
 	{
-		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
-		audio_play_sound(snd_Landing,4,false);
-		if (!global.noclip)
+		if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
 		{
+			audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
+			audio_play_sound(snd_Landing,4,false);
 			repeat(5)
 			{
 				with(instance_create_layer(x,bbox_bottom,"Particles",oDust))
@@ -415,31 +415,31 @@ else
 				}
 			}
 		}
-	}
-	if (hspnodec == 0)
-	{
-		if (!crouch)
+		if (hspnodec == 0)
 		{
-			sprite_index = sPlayer;
+			if (!crouch)
+			{
+				sprite_index = sPlayer;
+			}
+			else
+			{
+				sprite_index = sPlayerC;
+			}
 		}
 		else
 		{
-			sprite_index = sPlayerC;
-		}
-	}
-	else
-	{
-		if (!crouch) && (!global.noclip)
-		{
-			image_speed = (1 * hsp/4);
-			sprite_index = sPlayerR;
-			if (aimside != sign(hspnodec)) sprite_index = sPlayerRB;
-		}
-		else
-		{
-			image_speed = (1 * hsp/4);
-			sprite_index = sPlayerRC;
-			if (aimside != sign(hspnodec)) sprite_index = sPlayerRBC;
+			if (!crouch) && (!global.noclip)
+			{
+				image_speed = (1 * hsp/4);
+				sprite_index = sPlayerR;
+				if (aimside != sign(hspnodec)) sprite_index = sPlayerRB;
+			}
+			else
+			{
+				image_speed = (1 * hsp/4);
+				sprite_index = sPlayerRC;
+				if (aimside != sign(hspnodec)) sprite_index = sPlayerRBC;
+			}
 		}
 	}
 }
@@ -450,4 +450,20 @@ if (key_suicide)
 {
 	suicide = 1;
 	hp = 0;
+}
+
+if instance_exists(oEnemy)
+{
+	if !(point_in_circle(oEnemy.x,oEnemy.y,x,y,32))
+	{
+		hurtcountdown = 0;
+	}
+}
+
+if instance_exists(oEnemyBig)
+{
+	if !(point_in_circle(oEnemyBig.x,oEnemyBig.y,x,y,128))
+	{
+		hurtcountdown = 0;
+	}
 }

@@ -31,20 +31,13 @@ else
 }
 
 //Flip weapon
-if (!oPlayer.controller)
+if (image_angle > 90) && (image_angle < 270)
 {
-	image_yscale = sign(mouse_x - x);
+	image_yscale = -1;
 }
 else
 {
-	if (image_angle > 90) && (image_angle < 270)
-	{
-		image_yscale = -1;
-	}
-	else
-	{
-		image_yscale = 1;
-	}
+	image_yscale = 1;
 }
 
 if (firingdelay > -1) firingdelay--;
@@ -62,7 +55,7 @@ else
 	weaponcrouchdistance = lerp(weaponcrouchdistance, 0, 0.5);
 }
 
-if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall)) || (holstered)
+if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall)) || (place_meeting(x,y,oCollision)) || (holstered)
 {
 	stopshooting = true;
 }
@@ -73,7 +66,7 @@ else
 
 if (holstered) image_alpha = 0;
 
-if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall))
+if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall)) || (place_meeting(x,y,oCollision))
 {
 	if (!holstered) image_alpha = 0.5;
 }
