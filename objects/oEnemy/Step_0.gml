@@ -38,52 +38,25 @@ if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 }
 y = y + vsp;
 
-//Player Collision
-if (place_meeting(x,y,oPlayer))// && (global.hasweapon == true)
+//Animation
+if !(place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
 {
-	image_speed = 1;
-	sprite_index = sEnemyR;
-	attack = true;
-
-	with (oPlayer)
-	{
-		hurtcountdownrate = 28;
-		hurtcountdown--;
-		if (hurtcountdown <= 0 )
-		{
-			hurtcountdown = hurtcountdownrate;
-			if (!global.god) hp-=4;
-			flash = 3;
-		}
-	}
+	onground = false;
+	sprite_index = sAirborne;
+	image_speed = 0;
+	if (sign(vsp) > 0) image_index = 1; else image_index = 0;
 }
 else
 {
-	attack = false;
-}
-
-//Animation
-if (!attack)
-{
-	if !(place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
+	onground = true;
+	image_speed = 1;
+	if (hsp == 0)
 	{
-		onground = false;
-		sprite_index = sAirborne;
-		image_speed = 0;
-		if (sign(vsp) > 0) image_index = 1; else image_index = 0;
+		sprite_index = sStanding;
 	}
 	else
 	{
-		onground = true;
-		image_speed = 1;
-		if (hsp == 0)
-		{
-			sprite_index = sStanding;
-		}
-		else
-		{
-			sprite_index = sRunning;
-		}
+		sprite_index = sRunning;
 	}
 }
 
