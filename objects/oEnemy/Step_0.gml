@@ -4,7 +4,7 @@ if (hp < 0) hp = 0;
 vsp = vsp + grv;
 
 //Don't walk off edges
-if (onground) && (afraidofheights) && (!place_meeting(x+hsp,y+1,oWall))
+if (onground) && (afraidofheights) && !(place_meeting(x+hsp,y+1,oWall) || place_meeting(x+hsp,y+1,oCollision))
 {
 	hsp = -hsp;
 }
@@ -17,9 +17,9 @@ if (place_meeting(x,y+1,oWall)) && keyboard_check_pressed(vk_space)
 */
 
 //Horizontal Collision
-if (place_meeting(x+hsp,y,oWall))
+if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 {
-	while (!place_meeting(x+sign(hsp),y,oWall))
+	while !(place_meeting(x+sign(hsp),y,oWall) || place_meeting(x+sign(hsp),y,oCollision))
 	{
 		x = x + sign(hsp);
 	}
@@ -28,9 +28,9 @@ if (place_meeting(x+hsp,y,oWall))
 x = x + hsp;
 
 //Vertical Collision
-if (place_meeting(x,y+vsp,oWall))
+if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 {
-	while (!place_meeting(x,y+sign(vsp),oWall))
+	while !(place_meeting(x,y+sign(vsp),oWall) || place_meeting(x,y+sign(vsp),oCollision))
 	{
 		y = y + sign(vsp);
 	}
@@ -60,13 +60,12 @@ if (place_meeting(x,y,oPlayer))// && (global.hasweapon == true)
 else
 {
 	attack = false;
-	with (oPlayer) hurtcountdown = 0;
 }
 
 //Animation
 if (!attack)
 {
-	if (!place_meeting(x,y+1,oWall))
+	if !(place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
 	{
 		onground = false;
 		sprite_index = sAirborne;

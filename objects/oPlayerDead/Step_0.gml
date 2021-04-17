@@ -4,9 +4,9 @@ if (done == 0)
 	vsp = vsp + grv;
 
 	//Horizontal Collision
-	if (place_meeting(x+hsp,y,oWall))
+	if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 	{
-		while (!place_meeting(x+sign(hsp),y,oWall))
+		while !(place_meeting(x+sign(hsp),y,oWall) || place_meeting(x+sign(hsp),y,oCollision))
 		{
 			x = x + sign(hsp);
 		}
@@ -15,7 +15,7 @@ if (done == 0)
 	x = x + hsp;
 
 	//Vertical Collision
-	if (place_meeting(x,y+vsp,oWall))
+	if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 	{
 		if (vsp > 0)
 		{
@@ -23,7 +23,7 @@ if (done == 0)
 			image_index = 1;
 			//alarm[0] = 60;
 		}
-		while (!place_meeting(x,y+sign(vsp),oWall))
+		while !(place_meeting(x,y+sign(vsp),oWall) || place_meeting(x,y+vsp,oCollision))
 		{
 			y = y + sign(vsp);
 		}
@@ -31,7 +31,7 @@ if (done == 0)
 	}
 	y = y + vsp;
 
-	if (place_meeting(x,y+1,oWall))
+	if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
 	{
 		repeat(5)
 		{
