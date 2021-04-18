@@ -31,6 +31,7 @@ if (mode != TRANS_MODE.OFF)
 			case TRANS_MODE.GOTO:
 			{
 				mode = TRANS_MODE.INTRO;
+				SaveGame();
 				room_goto(target);
 				break;
 			}
@@ -38,6 +39,10 @@ if (mode != TRANS_MODE.OFF)
 			{
 				//game_restart();
 				mode = TRANS_MODE.INTRO;
+				global.hasweapon = false;
+				global.kills = 0;
+				global.killsthisroom = 0;
+				global.hp = 100;
 				room_goto(rMenu);
 				break;
 			}

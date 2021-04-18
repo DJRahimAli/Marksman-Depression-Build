@@ -1,5 +1,5 @@
-hp = string_format(hp, 0, 0);
-if (hp < 0) hp = 0;
+global.hp = string_format(global.hp, 0, 0);
+if (global.hp < 0) global.hp = 0;
 
 #region //Get Player Input
 key_interact = keyboard_check_pressed(ord("E"));
@@ -449,5 +449,5 @@ else
 if (key_suicide)
 {
 	suicide = 1;
-	hp = 0;
+	global.hp = 0;
 }

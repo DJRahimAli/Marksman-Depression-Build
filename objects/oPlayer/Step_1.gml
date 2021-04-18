@@ -1,11 +1,11 @@
 //Hit Sound
-if (hp != lasthp)
+if (global.hp != lasthp)
 {
-	if (hp < lasthp) audio_play_sound(snd_Hurt,10,false);
-	lasthp = hp;
+	if (global.hp < lasthp) audio_play_sound(snd_Hurt,10,false);
+	lasthp = global.hp;
 }
 
-if (hp <= 0)
+if (global.hp <= 0)
 {
 /// @desc Death
 with (oWeapon) instance_destroy();

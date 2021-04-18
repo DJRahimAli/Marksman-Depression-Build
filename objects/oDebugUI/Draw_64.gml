@@ -5,7 +5,7 @@ if (global.debug)
 	{
 		var s;
 		s = "Player Variables:"
-			+ "#Health: " + string(oPlayer.hp)
+			+ "#Health: " + string(global.hp)
 			+ "#X Coordinates: " + string(oPlayer.x)
 			+ "#Y Coordinates: " + string(oPlayer.y)
 			+ "#Horizontal Speed: " + string(oPlayer.hsp)
@@ -56,7 +56,7 @@ if (global.debug)
 	{
 		var s;
 		s = "Player Variables:"
-			+ "#Health: " + string(oPlayer.hp)
+			+ "#Health: " + string(global.hp)
 			+ "#X Coordinates: " + string(oPlayer.x)
 			+ "#Y Coordinates: " + string(oPlayer.y)
 			+ "#Horizontal Speed: " + string(oPlayer.hsp)
@@ -110,6 +110,7 @@ if (global.debug)
 	{
 		var s;
 		s = "Player Variables:"
+			+ "#Health: " + string(global.hp)
 			+ "#X Coordinates: " + string(oPlayerDead.x)
 			+ "#Y Coordinates: " + string(oPlayerDead.y)
 			+ "#Horizontal Speed: " + string(oPlayerDead.hsp)
@@ -148,6 +149,7 @@ if (global.debug)
 	{
 		var s;
 		s = "Player Variables:"
+			+ "#Health: " + string(global.hp)
 			+ "#Has Weapon: " + string(global.hasweapon)
 			+ "#"
 			+ "#Weapon Variables:"
