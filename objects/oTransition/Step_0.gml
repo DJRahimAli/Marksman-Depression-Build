@@ -38,6 +38,7 @@ if (mode != TRANS_MODE.OFF)
 			{
 				//game_restart();
 				mode = TRANS_MODE.INTRO;
+				global.levelchanging = false;
 				global.hasweapon = false;
 				global.kills = 0;
 				global.killsthisroom = 0;
