@@ -76,9 +76,9 @@ if (menu_x > menu_x_target+50) && (menu_commited != -1)
 				var file = file_text_open_read(SAVEFILE);
 				global.hp = file_text_read_real(file);
 				global.kills = file_text_read_real(file);
-				global.hasweapon = file_text_read_real(file);
 				var ignore = file_text_read_real(file);
 				var ignore2 = file_text_read_real(file);
+				var ignore3 = file_text_read_real(file);
 				var target = file_text_read_real(file);
 				file_text_close(file);
 				SlideTransition(TRANS_MODE.GOTO,target);

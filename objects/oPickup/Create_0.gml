@@ -14,3 +14,5 @@ switch (pickuptype)
 	break;
 	default: instance_destroy();
 }
+
+if (global.hasweapon == true) instance_destroy();

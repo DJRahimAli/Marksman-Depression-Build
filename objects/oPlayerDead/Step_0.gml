@@ -76,4 +76,5 @@ gamepad_button_check_pressed(0,gp_shoulderrb)
 	global.hp = file_text_read_real(file);
 	file_text_close(file);
 	global.levelchanging = false;
+	global.hasweapon = false;
 }
