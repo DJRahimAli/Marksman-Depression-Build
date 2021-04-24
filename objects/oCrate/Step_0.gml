@@ -1,15 +1,13 @@
-vsp = vsp + grv;
+vsp += grv;
 
 //Vertical Collision
 if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCrate) || place_meeting(x,y+vsp,oPlayer))
 {
-	while !(place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCrate) || place_meeting(x,y+vsp,oPlayer))
-	{
-		y = y + sign(vsp);
-	}
+	var onepixel = sign(vsp);
+	while !(place_meeting(x,y+onepixel,oWall) || place_meeting(x,y+onepixel,oCrate) || place_meeting(x,y+onepixel,oPlayer)) y += onepixel;
 	vsp = 0;
 }
-y = y + vsp;
+y += vsp;
 
 /// @desc ?
 with (mywall)

@@ -1,15 +1,13 @@
-vsp = vsp + grv;
+vsp += grv;
 
 //Horizontal Collision
 if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 {
-	while !(place_meeting(x+sign(hsp),y,oWall) || place_meeting(x+sign(hsp),y,oCollision))
-	{
-		x = x + sign(hsp);
-	}
+	var onepixel = sign(hsp);
+	while !(place_meeting(x+onepixel,y,oWall) || place_meeting(x+onepixel,y,oCollision)) x += onepixel;
 	hsp = 0;
 }
-x = x + hsp;
+x += hsp;
 
 //Bounce Shell
 if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
@@ -20,7 +18,8 @@ if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
 		image_speed = 0;
 		image_index = 7;
 	}
-	if (!done) vsp -= sign(vsp)*5;
+	var onepixel = sign(vsp);
+	if (!done) vsp -= onepixel*5;
 	done = 1;
 }
 
@@ -40,13 +39,11 @@ if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 	{
 		done = 1;
 	}*/
-	while !(place_meeting(x,y+sign(vsp),oWall) || place_meeting(x,y+vsp,oCollision))
-	{
-		y = y + sign(vsp);
-	}
+	var onepixel = sign(vsp);
+	while !(place_meeting(x,y+onepixel,oWall) || place_meeting(x,y+onepixel,oCollision)) y += onepixel;
 	vsp = 0;
 }
-y = y + vsp;
+y += vsp;
 
 if (shelllife == 0) || (image_alpha < 0) instance_destroy();
 

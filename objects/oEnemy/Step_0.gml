@@ -1,7 +1,7 @@
 hp = string_format(hp, 0, 0);
 if (hp < 0) hp = 0;
 
-vsp = vsp + grv;
+vsp += grv;
 
 //Don't walk off edges
 if (onground) && (afraidofheights) && !(place_meeting(x+hsp,y+1,oWall) || place_meeting(x+hsp,y+1,oCollision))
@@ -19,24 +19,20 @@ if (place_meeting(x,y+1,oWall)) && keyboard_check_pressed(vk_space)
 //Horizontal Collision
 if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 {
-	while !(place_meeting(x+sign(hsp),y,oWall) || place_meeting(x+sign(hsp),y,oCollision))
-	{
-		x = x + sign(hsp);
-	}
+	var onepixel = sign(hsp);
+	while !(place_meeting(x+onepixel,y,oWall) || place_meeting(x+onepixel,y,oCollision)) x += onepixel;
 	hsp = -hsp;
 }
-x = x + hsp;
+x += hsp;
 
 //Vertical Collision
 if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 {
-	while !(place_meeting(x,y+sign(vsp),oWall) || place_meeting(x,y+sign(vsp),oCollision))
-	{
-		y = y + sign(vsp);
-	}
+	var onepixel = sign(vsp);
+	while !(place_meeting(x,y+onepixel,oWall) || place_meeting(x,y+onepixel,oCollision)) y += onepixel;
 	vsp = 0;
 }
-y = y + vsp;
+y += vsp;
 
 //Animation
 if !(place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))

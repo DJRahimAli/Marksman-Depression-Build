@@ -133,15 +133,10 @@ else
 #endregion
 
 //Calculate current status
-if place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision)
-{
-	onground = true;
-}
-else
-{
-	onground = false;
-}
+onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
+onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
 if (onground) jumpbuffer = 5+1;
+if (crouch) onwall = 0;
 
 //Calculate horizontal movement
 walksprate = 4;
@@ -319,27 +314,35 @@ if place_meeting(x,y+1,oSpring) && (!crouch)
 	vspfrac = 0;
 }
 
+/*
+//Dump fractions and get final integer speeds
+hsp += hspfrac;
+vsp += vspfrac;
+hspfrac = frac(hsp);
+vspfrac = frac(vsp);
+hsp -= hspfrac;
+vsp -= vspfrac;
+*/
+
 //Horizontal Collision
 if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision)) && (!global.noclip)
 {
-	while !(place_meeting(x+sign(hsp),y,oWall) || place_meeting(x+sign(hsp),y,oCollision))
-	{
-		x = x + sign(hsp);
-	}
+	var onepixel = sign(hsp);
+	while !(place_meeting(x+onepixel,y,oWall) || place_meeting(x+onepixel,y,oCollision)) x += onepixel;
 	hsp = 0;
+	hspfrac = 0;
 }
-x = x + hsp;
+x += hsp;
 
 //Vertical Collision
 if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision)) && (!global.noclip)
 {
-	while !(place_meeting(x,y+sign(vsp),oWall) || place_meeting(x,y+sign(vsp),oCollision))
-	{
-		y = y + sign(vsp);
-	}
+	var onepixel = sign(vsp);
+	while !(place_meeting(x,y+onepixel,oWall) || place_meeting(x,y+onepixel,oCollision)) y += onepixel;
 	vsp = 0;
+	vspfrac = 0;
 }
-y = y + vsp;
+y += vsp;
 
 #region //Animation
 hspnodec = string_format(hsp, 0, 0);
@@ -387,20 +390,44 @@ if instance_exists(oWeapon)
 
 if (!onground)
 {
-	if (!crouch)
+	if (onwall != 0)
 	{
-		sprite_index = sPlayerA;
+		if (!global.fly)
+		{
+			sprite_index = sPlayerW;
+			image_xscale = -onwall;
+			image_speed = 1;
+			if (audio_is_playing(snd_Sliding) == false)
+			{
+				audio_play_sound(snd_Sliding, 10, true);
+			}
+		}
 	}
 	else
 	{
-		sprite_index = sPlayerAC;
+		if (audio_is_playing(snd_Sliding) == true)
+		{
+			audio_stop_sound(snd_Sliding);
+		}
+		if (!crouch)
+		{
+			sprite_index = sPlayerA;
+		}
+		else
+		{
+			sprite_index = sPlayerAC;
+		}
+		image_speed = 0;
+		image_index = (vspnodec > 0);
 	}
-	image_speed = 0;
-	image_index = (vspnodec > 0);
 	//if (sign(vspnodec) > 0) image_index = 1; else image_index = 0;
 }
 else
 {
+	if (audio_is_playing(snd_Sliding) == true)
+	{
+		audio_stop_sound(snd_Sliding);
+	}
 	if (!global.noclip)
 	{
 		if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
