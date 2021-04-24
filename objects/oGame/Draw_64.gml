@@ -1,4 +1,3 @@
-
 //draw_text(0,0,global.os);
 
 /// @desc Draw Score
