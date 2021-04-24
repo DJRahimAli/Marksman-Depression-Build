@@ -221,6 +221,11 @@ if (global.debugfps)
 {
 	DrawSetText(c_black, fText, fa_right, fa_top);
 	draw_text(RES_W-0.5+2,0.3+2,string_hash_to_newline(f));
-	draw_set_color(c_white);
+	if (fps > 59) draw_set_color(c_lime);
+	if (fps < 60) draw_set_color(c_green);
+	if (fps < 40) draw_set_color(c_olive);
+	if (fps < 30) draw_set_color(c_yellow);
+	if (fps < 20) draw_set_color(c_orange);
+	if (fps < 10) draw_set_color(c_red);
 	draw_text(RES_W-0.5,0.3,string_hash_to_newline(f));
 }
