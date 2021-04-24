@@ -2,6 +2,7 @@
 #macro RES_H 1080
 display_set_gui_size(RES_W,RES_H);
 
+global.levelchanging = false;
 global.os = 0;
 global.hasweapon = false;
 global.kills = 0;

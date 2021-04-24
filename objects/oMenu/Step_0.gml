@@ -59,20 +59,27 @@ if (menu_x > menu_x_target+50) && (menu_commited != -1)
 {
 	switch (menu_commited)
 	{
-		case 2: SlideTransition(TRANS_MODE.NEXT); break;
+		case 2:
+		{
+			SlideTransition(TRANS_MODE.NEXT);
+			file_delete(SAVEFILE);
+		}
+		break;
 		case 1:
 		{
 			if (!file_exists(SAVEFILE))
 			{
-				SlideTransition(TRANS_MODE.NEXT)
+				SlideTransition(TRANS_MODE.NEXT);
 			}
 			else
 			{
 				var file = file_text_open_read(SAVEFILE);
-				var target = file_text_read_real(file);
+				global.hp = file_text_read_real(file);
 				global.kills = file_text_read_real(file);
 				global.hasweapon = file_text_read_real(file);
-				global.hp = file_text_read_real(file);
+				var ignore = file_text_read_real(file);
+				var ignore2 = file_text_read_real(file);
+				var target = file_text_read_real(file);
 				file_text_close(file);
 				SlideTransition(TRANS_MODE.GOTO,target);
 			}

@@ -47,6 +47,10 @@ if (done == 0)
 //Reset Room
 if (done)
 &&
+keyboard_check_pressed(vk_anykey)
+||
+mouse_check_button_pressed(mb_any)
+||
 gamepad_button_check_pressed(0,gp_face1)
 ||
 gamepad_button_check_pressed(0,gp_face2)
@@ -66,4 +70,10 @@ gamepad_button_check_pressed(0,gp_shoulderlb)
 gamepad_button_check_pressed(0,gp_shoulderr)
 ||
 gamepad_button_check_pressed(0,gp_shoulderrb)
-SlideTransition(TRANS_MODE.GOTO,room);
+{
+	SlideTransition(TRANS_MODE.GOTO,room);
+	var file = file_text_open_read(SAVEFILE);
+	global.hp = file_text_read_real(file);
+	file_text_close(file);
+	global.levelchanging = false;
+}
