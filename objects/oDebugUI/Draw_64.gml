@@ -220,12 +220,10 @@ if (global.debug)
 if (global.debugfps)
 {
 	DrawSetText(c_black, fText, fa_right, fa_top);
-	draw_text(RES_W-0.5+2,0.3+2,string_hash_to_newline(f));
-	if (fps > 59) draw_set_color(c_lime);
-	if (fps < 60) draw_set_color(c_green);
-	if (fps < 40) draw_set_color(c_olive);
-	if (fps < 30) draw_set_color(c_yellow);
-	if (fps < 20) draw_set_color(c_orange);
-	if (fps < 10) draw_set_color(c_red);
-	draw_text(RES_W-0.5,0.3,string_hash_to_newline(f));
+	draw_text(RES_W-0.5+2,0.3+2,(string(fps) + " FPS"));
+	draw_text(RES_W-0.5+2,20.3+2,(string(fps_real) + " Real FPS"));
+	draw_set_colour(make_colour_rgb(abs(clamp(255/targetfps*fps, 0, 255) -255), clamp(255/targetfps*fps, 0, 255), 0));
+	draw_text(RES_W-0.5,0.3,(string(fps) + " FPS"));
+	draw_set_colour(c_white);
+	draw_text(RES_W-0.5,20.3,(string(fps_real) + " Real FPS"));
 }
