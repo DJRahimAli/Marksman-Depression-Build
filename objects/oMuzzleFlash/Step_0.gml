@@ -8,3 +8,8 @@ image_yscale = oWeapon.image_yscale;
 
 x = x + lengthdir_x(25,image_angle);
 y = y + lengthdir_y(25,image_angle);
+
+if (oWeapon.stopshooting)
+{
+	image_alpha = 0;
+}
