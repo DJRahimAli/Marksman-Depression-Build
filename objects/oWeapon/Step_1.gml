@@ -87,12 +87,11 @@ if (oPlayer.hascontrol)
 		//ScreenShake(2,10);
 		audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 		audio_play_sound(snd_PistolFire,5,false);
-		with (instance_create_layer(x,y,"Bullets",oMuzzleFlash))
+		with (oMuzzleFlash)
 		{
-			direction = other.image_angle;
-			image_angle = direction;
-			image_xscale = other.image_xscale;
-			image_yscale = other.image_yscale;
+			image_alpha = 1;
+			image_speed = 1;
+			image_index = 0;
 		}
 		with (instance_create_layer(x,y,"Bullets",oBullet))
 		{
