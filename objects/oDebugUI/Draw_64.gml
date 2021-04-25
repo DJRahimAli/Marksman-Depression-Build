@@ -179,12 +179,6 @@ if (global.debug)
 	}
 }
 
-if (global.debugfps)
-{
-	var f;
-	f = (string(fps) + " FPS")
-		+ "#" + (string(fps_real) + " Real FPS");
-}
 #endregion
 
 //Draw Debug UI
