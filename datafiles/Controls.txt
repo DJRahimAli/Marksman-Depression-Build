@@ -3,6 +3,8 @@ F2 - Show FPS Counters
 F3 - Enable Cheats
 F4 - Unlock Camera
 F5 - Manually Save Anywhere (May Break Things)
+F11 - Toggle Fullscreen Mode
+` - Toggle Console
 
 V - Fly Mode
 N - Noclip Mode
