@@ -214,10 +214,10 @@ if (global.debug)
 if (global.debugfps)
 {
 	DrawSetText(c_black, fText, fa_right, fa_top);
-	draw_text(RES_W-0.5+2,0.3+2,(string(fps) + " FPS"));
+	draw_text(RES_W-0.5+2,0.3+2,(string(fps) + " / " + string(room_speed) + " FPS"));
 	draw_text(RES_W-0.5+2,20.3+2,(string(fps_real) + " Real FPS"));
-	draw_set_colour(make_colour_rgb(abs(clamp(255/targetfps*fps, 0, 255) -255), clamp(255/targetfps*fps, 0, 255), 0));
-	draw_text(RES_W-0.5,0.3,(string(fps) + " FPS"));
+	draw_set_colour(make_colour_hsv(clamp(100/targetfps*fps, 0, 100), 255, 255));
+	draw_text(RES_W-0.5,0.3,(string(fps) + " / " + string(room_speed) + " FPS"));
 	draw_set_colour(c_white);
 	draw_text(RES_W-0.5,20.3,(string(fps_real) + " Real FPS"));
 }
