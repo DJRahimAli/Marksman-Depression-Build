@@ -21,6 +21,7 @@ if (global.debug)
 			+ "#Crouch: " + string(oPlayer.crouch)
 			+ "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#Particle Count: " + string(instance_number(oParticle))
 			+ "#"
 			+ "#Controller Variables: "
 			+ "#Controller: " + string(oPlayer.controller)
@@ -72,6 +73,7 @@ if (global.debug)
 			+ "#Crouch: " + string(oPlayer.crouch)
 			+ "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#Particle Count: " + string(instance_number(oParticle))
 			+ "#"
 			+ "#Controller Variables: "
 			+ "#Controller: " + string(oPlayer.controller)
@@ -118,6 +120,7 @@ if (global.debug)
 			+ "#Gravity: " + string(oPlayerDead.grv)
 			+ "#Done Falling when dead: " + string(oPlayerDead.done)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#Particle Count: " + string(instance_number(oParticle))
 			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
@@ -151,6 +154,7 @@ if (global.debug)
 		s = "Player Variables:"
 			+ "#Health: " + string(global.hp)
 			+ "#Has Weapon: " + string(global.hasweapon)
+			+ "#Particle Count: " + string(instance_number(oParticle))
 			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
