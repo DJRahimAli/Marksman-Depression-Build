@@ -4,11 +4,8 @@ display_set_gui_size(RES_W,RES_H);
 
 global.levelchanging = false;
 global.os = 0;
-global.hasweapon = false;
 global.kills = 0;
 global.killsthisroom = 0;
-global.hp = 100;
-global.rainbowtrail = 0;
 killtextscale = 1;
 
 //window_set_cursor (cr_none)
