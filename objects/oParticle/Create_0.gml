@@ -15,3 +15,5 @@ if instance_exists(oPlayerDead)
 }
 
 image_alpha = 0;
+
+if (global.rainbowtrail) image_blend = make_colour_hsv(random(255), 255, 255);
