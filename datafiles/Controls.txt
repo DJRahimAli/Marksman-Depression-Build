@@ -6,6 +6,9 @@ F5 - Manually Save Anywhere (May Break Things)
 F11 - Toggle Fullscreen Mode
 ` - Toggle Console
 
+Zoom In - Numpad +
+Zoom Out - Numpad -
+
 V - Fly Mode
 N - Noclip Mode
 G - God Mode
