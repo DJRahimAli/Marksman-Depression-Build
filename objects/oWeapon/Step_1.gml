@@ -4,7 +4,7 @@ y = oPlayer.y+8;
 //Set angle of weapon
 if (oPlayer.controller == false)
 {
-	if (oPlayer.hascontrol)
+	if (oPlayer.hascontrol) && (!holstered)
 	{
 		mouseangle = point_direction(x,y,mouse_x,mouse_y);
 		image_angle += angle_difference(mouseangle, image_angle) * rspeed;
@@ -18,7 +18,7 @@ else
 {
 	var controllerh = gamepad_axis_value(0,gp_axisrh);
 	var controllerv = gamepad_axis_value(0,gp_axisrv);
-	if (oPlayer.hascontrol)
+	if (oPlayer.hascontrol) && (!holstered)
 	{
 		if (abs(controllerh) > oPlayer.deadzone) || (abs(controllerv) > oPlayer.deadzone)
 		{

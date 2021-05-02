@@ -9,7 +9,6 @@ if (global.hp <= 0)
 {
 /// @desc Death
 with (oWeapon) instance_destroy();
-with (oCrosshair) instance_destroy();
 instance_change(oPlayerDead,true);
 
 if (!suicide)
