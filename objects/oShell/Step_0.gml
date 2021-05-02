@@ -18,8 +18,7 @@ if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
 		image_speed = 0;
 		image_index = 7;
 	}
-	var onepixel = sign(vsp);
-	if (!done) vsp -= onepixel*5;
+	if (!done) vsp -= 5;
 	done = 1;
 }
 
