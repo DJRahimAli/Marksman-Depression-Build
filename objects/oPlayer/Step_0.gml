@@ -369,20 +369,13 @@ if instance_exists(oWeapon)
 {
 	if (!oWeapon.holstered) && (hascontrol)
 	{
-		if (!controller)
+		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
 		{
-			var aimside = sign(mouse_x - x);
+			var aimside = -1;
 		}
 		else
 		{
-			if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
-			{
-				var aimside = -1;
-			}
-			else
-			{
-				var aimside = 1;
-			}
+			var aimside = 1;
 		}
 		if (aimside != 0) image_xscale = aimside;
 	}
