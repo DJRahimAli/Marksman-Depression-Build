@@ -2,22 +2,23 @@
 x = oPlayer.x;
 y = oPlayer.y+10;
 
-if (oPlayer.controller == false)
+if (direction > 360) direction -= 360;
+if (direction < 0) direction += 360;
+
+if (oWeapon.holstered)
 {
-	if (oPlayer.hascontrol)
-	{
-		direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
-		if (direction > 360) direction -= 360;
-		if (direction < 0) direction += 360;
-	}
+	direction += angle_difference(270, direction) * rspeed/2;
+	if (direction >= 240) && (direction <= 300) image_alpha = 0;
 }
 else
 {
-	if (oPlayer.hascontrol)
+	if (oPlayer.controller == false)
 	{
-		direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
-		if (direction > 360) direction -= 360;
-		if (direction < 0) direction += 360;
+		if (oPlayer.hascontrol) direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
+	}
+	else
+	{
+		if (oPlayer.hascontrol) direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
 	}
 }
 
