@@ -2,31 +2,38 @@ x = oPlayer.x;
 y = oPlayer.y+8;
 
 //Set angle of weapon
-if (oPlayer.controller == false)
+if (image_angle > 360) image_angle -= 360;
+if (image_angle < 0) image_angle += 360;
+
+if (holstered)
 {
-	if (oPlayer.hascontrol) && (!holstered)
-	{
-		mouseangle = point_direction(x,y,mouse_x,mouse_y);
-		image_angle += angle_difference(mouseangle, image_angle) * rspeed;
-		//image_angle = clamp(image_angle, 0, 360);
-		//image_angle = image_angle mod 360;
-		if (image_angle > 360) image_angle -= 360;
-		if (image_angle < 0) image_angle += 360;
-	}
+	image_angle += angle_difference(270, image_angle) * rspeed/2;
+	if (image_angle >= 240) && (image_angle <= 300) image_alpha = 0;
 }
 else
 {
-	var controllerh = gamepad_axis_value(0,gp_axisrh);
-	var controllerv = gamepad_axis_value(0,gp_axisrv);
-	if (oPlayer.hascontrol) && (!holstered)
+	if (oPlayer.controller == false)
 	{
-		if (abs(controllerh) > oPlayer.deadzone) || (abs(controllerv) > oPlayer.deadzone)
+		if (oPlayer.hascontrol)
 		{
-			controllerangle = point_direction(0,0,controllerh,controllerv)
+			mouseangle = point_direction(x,y,mouse_x,mouse_y);
+			image_angle += angle_difference(mouseangle, image_angle) * rspeed;
+			//image_angle = clamp(image_angle, 0, 360);
+			//image_angle = image_angle mod 360;
 		}
-		image_angle += angle_difference(controllerangle, image_angle) * rspeed;
-		if (image_angle > 360) image_angle -= 360;
-		if (image_angle < 0) image_angle += 360;
+	}
+	else
+	{
+		var controllerh = gamepad_axis_value(0,gp_axisrh);
+		var controllerv = gamepad_axis_value(0,gp_axisrv);
+		if (oPlayer.hascontrol)
+		{
+			if (abs(controllerh) > oPlayer.deadzone) || (abs(controllerv) > oPlayer.deadzone)
+			{
+				controllerangle = point_direction(0,0,controllerh,controllerv)
+			}
+			image_angle += angle_difference(controllerangle, image_angle) * rspeed;
+		}
 	}
 }
 
@@ -63,8 +70,6 @@ else
 {
 	stopshooting = false;
 }
-
-if (holstered) image_alpha = 0;
 
 if (place_meeting(x,y,oWall)) || (place_meeting(x,y,oBulletWall)) || (place_meeting(x,y,oCollision))
 {
@@ -116,7 +121,7 @@ if (oPlayer.hascontrol)
 		with (instance_create_layer(x,y,"Shells",oShell))
 		{
 			hsp = lengthdir_x(random_range(3,4), other.image_angle-180);
-			if (other.image_angle > 45) && (other.image_angle < 135)
+			if (other.image_angle >= 45) && (other.image_angle <= 135)
 			{
 				vsp = random_range(4,5);
 			}

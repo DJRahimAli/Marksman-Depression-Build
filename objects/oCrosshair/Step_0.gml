@@ -4,20 +4,20 @@ y = oPlayer.y+10;
 
 if (oPlayer.controller == false)
 {
-	if (oPlayer.hascontrol) && (!oWeapon.holstered)
+	if (oPlayer.hascontrol)
 	{
-	direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
-	if (direction > 360) direction -= 360;
-	if (direction < 0) direction += 360;
+		direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
+		if (direction > 360) direction -= 360;
+		if (direction < 0) direction += 360;
 	}
 }
 else
 {
-	if (oPlayer.hascontrol) && (!oWeapon.holstered)
+	if (oPlayer.hascontrol)
 	{
-	direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
-	if (direction > 360) direction -= 360;
-	if (direction < 0) direction += 360;
+		direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
+		if (direction > 360) direction -= 360;
+		if (direction < 0) direction += 360;
 	}
 }
 
@@ -32,6 +32,7 @@ else
 {
 	image_alpha = 1;
 }
+
 if (oWeapon.ironsights)
 {
 	crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5);
