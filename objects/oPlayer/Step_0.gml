@@ -352,7 +352,7 @@ if instance_exists(oWeapon)
 {
 	if (hspnodec != 0) && (oWeapon.holstered)
 	{
-		var aimside = sign(hspnodec);
+		var aimside = sign(hsp);
 		image_xscale = aimside;
 	}
 }
@@ -360,7 +360,7 @@ else
 {
 	if (hspnodec != 0)
 	{
-		var aimside = sign(hspnodec);
+		var aimside = sign(hsp);
 		image_xscale = aimside;
 	}
 }
@@ -452,13 +452,13 @@ else
 			{
 				image_speed = (1 * hsp/4);
 				sprite_index = sPlayerR;
-				if (aimside != sign(hspnodec)) sprite_index = sPlayerRB;
+				if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
 				image_speed = (1 * hsp/4);
 				sprite_index = sPlayerRC;
-				if (aimside != sign(hspnodec)) sprite_index = sPlayerRBC;
+				if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
 	}
