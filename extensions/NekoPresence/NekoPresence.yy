@@ -7,7 +7,7 @@
   "packageId": "",
   "productId": "",
   "author": "",
-  "date": "2020-11-11T10:13:31.2571444+00:00",
+  "date": "2020-11-11T11:13:31.2571444+01:00",
   "license": "",
   "description": "",
   "helpfile": "",
