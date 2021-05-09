@@ -1,6 +1,6 @@
 /// @desc Create wall
 
-mywall = instance_create_layer(x,y,layer,oWall);
+mywall = instance_create_layer(x,y,layer,oCollision);
 with (mywall)
 {
 	image_xscale = other.sprite_width / sprite_width;
