@@ -470,4 +470,5 @@ if (key_suicide)
 {
 	suicide = 1;
 	global.hp = 0;
+	lasthp = 0;
 }
