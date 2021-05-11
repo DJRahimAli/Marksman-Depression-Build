@@ -314,14 +314,15 @@ if place_meeting(x,y+1,oSpring) && (!crouch)
 	vspfrac = 0;
 }
 
-//Dump fractions and get final integer speeds when on wall
+//Dump fractions and get final integer speeds
+hsp += hspfrac;
+hspfrac = frac(hsp);
+hsp -= hspfrac;
+
 if (onwall != 0)
 {
-	hsp += hspfrac;
 	vsp += vspfrac;
-	hspfrac = frac(hsp);
 	vspfrac = frac(vsp);
-	hsp -= hspfrac;
 	vsp -= vspfrac;
 }
 
