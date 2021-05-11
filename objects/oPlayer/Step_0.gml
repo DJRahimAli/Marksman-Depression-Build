@@ -314,15 +314,16 @@ if place_meeting(x,y+1,oSpring) && (!crouch)
 	vspfrac = 0;
 }
 
-/*
-//Dump fractions and get final integer speeds
-hsp += hspfrac;
-vsp += vspfrac;
-hspfrac = frac(hsp);
-vspfrac = frac(vsp);
-hsp -= hspfrac;
-vsp -= vspfrac;
-*/
+//Dump fractions and get final integer speeds when on wall
+if (onwall != 0)
+{
+	hsp += hspfrac;
+	vsp += vspfrac;
+	hspfrac = frac(hsp);
+	vspfrac = frac(vsp);
+	hsp -= hspfrac;
+	vsp -= vspfrac;
+}
 
 //Horizontal Collision
 if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision)) && (!global.noclip)
