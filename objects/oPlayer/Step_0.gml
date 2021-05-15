@@ -319,7 +319,7 @@ hsp += hspfrac;
 hspfrac = frac(hsp);
 hsp -= hspfrac;
 
-if (onwall != 0)
+if (onwall != 0) && (!onground)
 {
 	vsp += vspfrac;
 	vspfrac = frac(vsp);
@@ -392,18 +392,24 @@ if (!onground)
 			sprite_index = sPlayerW;
 			image_xscale = -onwall;
 			image_speed = 1;
-			if (audio_is_playing(snd_Sliding) == false)
+			
+			var side = bbox_left;
+			if (onwall == 1) side = bbox_right;
+			dust++;
+			if ((dust > 2) && (vsp > 0)) with (instance_create_layer(side,y,"Particles",oDust))
 			{
-				audio_play_sound(snd_Sliding, 10, true);
+				other.dust = 0;
+				hspeed = -other.onwall*0.5;
+				if (audio_is_playing(snd_Sliding) == false)
+				{
+					audio_play_sound(snd_Sliding, 10, true);
+				}
 			}
 		}
 	}
 	else
 	{
-		if (audio_is_playing(snd_Sliding) == true)
-		{
-			audio_stop_sound(snd_Sliding);
-		}
+		dust = 0;
 		if (!crouch)
 		{
 			sprite_index = sPlayerA;
@@ -414,15 +420,15 @@ if (!onground)
 		}
 		image_speed = 0;
 		image_index = (vspnodec > 0);
+		if (audio_is_playing(snd_Sliding) == true)
+		{
+			audio_stop_sound(snd_Sliding);
+		}
 	}
 	//if (sign(vspnodec) > 0) image_index = 1; else image_index = 0;
 }
 else
 {
-	if (audio_is_playing(snd_Sliding) == true)
-	{
-		audio_stop_sound(snd_Sliding);
-	}
 	if (!global.noclip)
 	{
 		if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
@@ -464,6 +470,15 @@ else
 			}
 		}
 	}
+	if (audio_is_playing(snd_Sliding) == true)
+	{
+		audio_stop_sound(snd_Sliding);
+	}
+}
+
+if (global.fly) && (audio_is_playing(snd_Sliding) == true)
+{
+	audio_stop_sound(snd_Sliding);
 }
 #endregion
 
