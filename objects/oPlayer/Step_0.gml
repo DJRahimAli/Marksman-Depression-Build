@@ -429,6 +429,7 @@ if (!onground)
 }
 else
 {
+	dust = 0;
 	if (!global.noclip)
 	{
 		if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
