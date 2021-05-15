@@ -19,6 +19,7 @@ weaponcrouchdistance = 0;
 weaponcrouchdistancerate = 5;
 
 instance_create_layer(x,y,"Crosshair",oCrosshair);
+instance_create_layer(x,y,"Weapon",oMuzzleFlash);
 
 x = x + lengthdir_x(weapondistance-weaponcrouchdistance-recoil,image_angle);
 y = y + lengthdir_y(weapondistance-weaponcrouchdistance-recoil,image_angle);
