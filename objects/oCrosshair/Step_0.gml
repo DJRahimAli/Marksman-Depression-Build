@@ -12,13 +12,13 @@ if (oWeapon.holstered)
 }
 else
 {
-	if (oPlayer.controller == false)
+	if (global.controller == false)
 	{
-		if (oPlayer.hascontrol) direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
+		if (global.hascontrol) direction += angle_difference(oWeapon.mouseangle, direction) * rspeed;
 	}
 	else
 	{
-		if (oPlayer.hascontrol) direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
+		if (global.hascontrol) direction += angle_difference(oWeapon.controllerangle, direction) * rspeed;
 	}
 }
 

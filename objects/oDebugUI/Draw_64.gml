@@ -24,8 +24,8 @@ if (global.debug)
 			+ "#Particle Count: " + string(instance_number(oParticle))
 			+ "#"
 			+ "#Controller Variables: "
-			+ "#Controller: " + string(oPlayer.controller)
-			+ "#Deadzone: " + string(oPlayer.deadzone)
+			+ "#Controller: " + string(global.controller)
+			+ "#Deadzone: " + string(global.deadzone)
 			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
@@ -76,8 +76,8 @@ if (global.debug)
 			+ "#Particle Count: " + string(instance_number(oParticle))
 			+ "#"
 			+ "#Controller Variables: "
-			+ "#Controller: " + string(oPlayer.controller)
-			+ "#Deadzone: " + string(oPlayer.deadzone)
+			+ "#Controller: " + string(global.controller)
+			+ "#Deadzone: " + string(global.deadzone)
 			+ "#Controller Angle: " + string(oWeapon.controllerangle)
 			+ "#Weapon Variables:"
 			+ "#Firing Delay: " + string(oWeapon.firingdelay)

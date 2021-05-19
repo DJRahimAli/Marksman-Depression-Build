@@ -6,21 +6,21 @@ menu_x += (menu_x_target - menu_x) / menu_speed;
 //Keyboard Controls
 if (menu_control)
 {
-	if (keyboard_check_pressed(ord("W"))) || (keyboard_check_pressed(vk_up)) || (gamepad_button_check_pressed(0,gp_padu))
+	if (global.key_up_pressed) || (keyboard_check_pressed(vk_up)) || (gamepad_button_check_pressed(0,gp_padu))
 	{
 		menu_cursor++;
 		if (menu_cursor >= menu_items) menu_cursor = 0;
 		//audio_play_sound(snd_Landing,10,false);
 	}
 	
-	if (keyboard_check_pressed(ord("S"))) || (keyboard_check_pressed(vk_down)) || (gamepad_button_check_pressed(0,gp_padd))
+	if (global.key_down_pressed) || (keyboard_check_pressed(vk_down)) || (gamepad_button_check_pressed(0,gp_padd))
 	{
 		menu_cursor--;
 		if (menu_cursor < 0) menu_cursor = menu_items-1;
 		//audio_play_sound(snd_Landing,10,false);
 	}
 	
-	if (keyboard_check_pressed(ord("E"))) || (keyboard_check_pressed(vk_enter)) || (gamepad_button_check_pressed(0,gp_face1)) || (gamepad_button_check_pressed(0,gp_start))
+	if (global.key_interact_pressed) || (keyboard_check_pressed(vk_enter)) || (gamepad_button_check_pressed(0,gp_start))
 	{
 		menu_x_target = -200;
 		menu_commited = menu_cursor;
