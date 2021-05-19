@@ -1,137 +1,6 @@
 global.hp = string_format(global.hp, 0, 0);
 if (global.hp < 0) global.hp = 0;
 
-#region //Get Player Input
-key_interact = keyboard_check_pressed(ord("E"));
-key_suicide = keyboard_check_pressed(ord("K"));
-
-if (key_interact) || (key_suicide)
-{
-	controller = false;
-}
-
-if (gamepad_button_check_pressed(0,gp_face1))
-{
-	key_interact = true;
-	controller = true;
-}
-
-if (hascontrol)
-{
-	key_left = keyboard_check(ord("A"));// || keyboard_check(vk_left);
-	key_right = keyboard_check(ord("D"));// || keyboard_check(vk_right);
-	key_up = keyboard_check(ord("W"));
-	key_down = keyboard_check(ord("S"))
-	key_jump = keyboard_check_pressed(vk_space);
-	key_jump_held = keyboard_check(vk_space);
-	key_crouch = keyboard_check_pressed(vk_control);
-	key_crouch_held = keyboard_check(vk_control);
-	key_uncrouch = keyboard_check_released(vk_control);
-	key_holster = keyboard_check_pressed(ord("H"));
-	key_gun = keyboard_check_pressed(ord("2"));
-
-	key_flyup = key_up || keyboard_check(vk_space);
-	key_flydown = key_down
-
-	if (key_left) || (key_right) || (key_up) || (key_down) || (key_jump) || (key_jump_held) || (key_crouch) || (key_crouch_held) || (key_uncrouch) || (key_holster) || (key_gun) || (key_flyup) || (key_flydown) || (mouse_check_button(mb_left))
-	{
-		controller = false;
-	}
-
-	if (abs(gamepad_axis_value(0,gp_axislh)) > deadzone)
-	{
-		key_left = abs(min(gamepad_axis_value(0,gp_axislh),0));
-		key_right = max(gamepad_axis_value(0,gp_axislh),0);
-		controller = true;
-	}
-
-	if (abs(gamepad_axis_value(0,gp_axislv)) > deadzone)
-	{
-		key_up = abs(min(gamepad_axis_value(0,gp_axislv),0));
-		key_down = max(gamepad_axis_value(0,gp_axislv),0);
-		key_flyup = key_up;
-		key_flydown = key_down;
-		controller = true;
-	}
-
-	if (gamepad_button_check_pressed(0,gp_shoulderl))
-	{
-		key_jump = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check(0,gp_shoulderl))
-	{
-		key_jump_held = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check(0,gp_shoulderl))
-	{
-		key_flyup = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check_pressed(0,gp_shoulderlb))
-	{
-		key_crouch = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check(0,gp_shoulderlb))
-	{
-		key_crouch_held = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check_released(0,gp_shoulderlb))
-	{
-		key_uncrouch = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check_pressed(0,gp_face4))
-	{
-		key_suicide = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check(0,gp_shoulderrb))
-	{
-		controller = true;
-	}
-
-	if (gamepad_button_check_pressed(0,gp_padd))
-	{
-		key_holster = true;
-		controller = true;
-	}
-
-	if (gamepad_button_check_pressed(0,gp_padr))
-	{
-		key_gun = true;
-		controller = true;
-	}
-}
-else
-{
-	key_left = false;
-	key_right = false;
-	key_up = false;
-	key_down = false;
-	key_jump = false;
-	key_jump_held = false;
-	key_crouch = false;
-	key_crouch_held = false;
-	key_uncrouch = false;
-	key_holster = false;
-	key_gun = false;
-
-	key_flyup = false;
-	key_flydown = false;
-}
-#endregion
-
 //Calculate current status
 onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
 onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
@@ -148,7 +17,7 @@ if (!onwallground) && (!global.fly)
 	//walkspcrouchrate = walkspcrouchrate/1.1;
 }*/
 
-var dir = (key_right - key_left);
+var dir = (global.key_right_held - global.key_left_held);
 
 if (global.fly) gunkickx = 0;
 hsp += dir * accel;
@@ -161,6 +30,19 @@ if (dir == 0)
 hsp = clamp(hsp,-walksp,walksp);
 gunkickx = 0;
 
+//Wall jump
+if (onwall != 0) && (!onground) && (global.key_jump_pressed) && (!global.fly)
+{
+	jumpheight = 5;
+	hsp = onwall * -jumpheight;
+	vsp = -jumpheight;
+	hspfrac = 0;
+	vspfrac = 0;
+	audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
+	audio_play_sound(snd_Landing,4,false);
+	audio_play_sound(snd_MultiJump,10,false);
+}
+
 #region //awful smb1 type movement
 /*
 if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
@@ -168,7 +50,7 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 #endregion
 
 #region //Crouching
-if (key_crouch)
+if (global.key_crouch_pressed)
 {
 	if (onground) || (crouchstuck) || (global.fly)
 	{
@@ -176,7 +58,7 @@ if (key_crouch)
 	}
 }
 
-if (key_crouch_held)
+if (global.key_crouch_pressed)
 {
 	if (onground) || (crouchstuck) || (global.fly)
 	{
@@ -184,7 +66,7 @@ if (key_crouch_held)
 	}
 }
 
-if (key_uncrouch)
+if (global.key_crouch_released)
 {
 	if (!crouchstuck)
 	{
@@ -213,7 +95,7 @@ if (place_meeting(x,y-8,oWall) && (onground) || place_meeting(x,y-8,oCollision))
 if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
 {
 	crouchstuck = false;
-	if (!key_crouch_held)
+	if (!global.key_crouch_held)
 	{
 		crouch = false;
 		walksp = walksprate;
@@ -222,22 +104,30 @@ if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
 #endregion
 
 #region //Holstering
-if (key_holster) && instance_exists(oWeapon)
+if (global.key_holster_pressed) && instance_exists(oWeapon)
 {
 	oWeapon.holstered = !oWeapon.holstered;
 }
 
-if (key_gun) && instance_exists(oWeapon)
+if (global.key_gun_pressed) && instance_exists(oWeapon)
 {
 	oWeapon.holstered = false;
 }
 #endregion
 
-//Jumping or Fly Up/Down
+//Calculate vertical movement "Jumping or Fly Up/Down"
 if (!global.fly)
 {
-	vsp = (vsp + grv) + gunkicky;
+	var grvfinal = grv;
+	var vspmaxfinal = vspmax;
+	if (onwall != 0) && (vsp > 0)
+	{
+		grvfinal = grvwall;
+		vspmaxfinal = vspmaxwall;
+	}
+	vsp = (vsp + grvfinal) + gunkicky;
 	gunkicky = 0;
+	vsp = clamp(vsp,-vspmaxfinal,vspmaxfinal);
 
 	if (onground) || place_meeting(x,y+1,oSpring) multijump = multijumpamt;
 
@@ -245,7 +135,7 @@ if (!global.fly)
 
 	if (jumpbuffer > 0)
 	{
-		if (key_jump) && (!crouchstuck)
+		if (global.key_jump_pressed) && (!crouchstuck)
 		{
 			jumpbuffer = 0;
 			jumpheight = 6;
@@ -255,9 +145,9 @@ if (!global.fly)
 		}
 	}
 
-	if (jumpbuffer < 0)
+	if (jumpbuffer < 0) && (onwall == 0)
 	{
-		if (key_jump) && (multijump > 0)
+		if (global.key_jump_pressed) && (multijump > 0)
 		{
 			multijump--;
 			jumpheight = 2.5;
@@ -265,7 +155,7 @@ if (!global.fly)
 			audio_play_sound(snd_MultiJump,10,false);
 		}
 	}
-	vsp = clamp(vsp,-vspmax,vspmax);
+	//vsp = clamp(vsp,-vspmax,vspmax);
 
 	//Detect when moving
 	if (hspnodec != 0) || (jumpbuffer < 0)
@@ -280,7 +170,7 @@ if (!global.fly)
 }
 else
 {
-	var dirfly = (key_down - key_up);
+	var dirfly = (global.key_flydown_held - global.key_flyup_held);
 	
 	vsp += dirfly * accel;
 	if (dirfly == 0)
@@ -303,7 +193,7 @@ else
 }
 
 //Variable Jump
-if (vsp < 0) && (!key_jump_held) && (!global.fly) vsp += grv; //0.45;
+if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal; //0.45;
 
 //Spring Jump
 if place_meeting(x,y+1,oSpring) && (!crouch)
@@ -319,7 +209,7 @@ hsp += hspfrac;
 hspfrac = frac(hsp);
 hsp -= hspfrac;
 
-if (onwall != 0) && (!onground)
+if (onwall != 0) && (!onground) || (global.fly)
 {
 	vsp += vspfrac;
 	vspfrac = frac(vsp);
@@ -369,7 +259,7 @@ else
 
 if instance_exists(oWeapon)
 {
-	if (!oWeapon.holstered) && (hascontrol)
+	if (!oWeapon.holstered) && (global.hascontrol)
 	{
 		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
 		{
@@ -484,7 +374,7 @@ if (global.fly) && (audio_is_playing(snd_Sliding) == true)
 #endregion
 
 //Suicide
-if (key_suicide)
+if (global.key_suicide_pressed)
 {
 	suicide = 1;
 	global.hp = 0;

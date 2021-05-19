@@ -1,9 +1,6 @@
 /// @desc Move to next room
-with (oPlayer)
+if (global.hascontrol)
 {
-	if (hascontrol)
-	{
-		hascontrol = false;
-		SlideTransition(TRANS_MODE.GOTO,other.target)
-	}
+	global.hascontrol = false;
+	SlideTransition(TRANS_MODE.GOTO,target)
 }

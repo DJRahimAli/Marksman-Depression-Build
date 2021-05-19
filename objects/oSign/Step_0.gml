@@ -1,7 +1,7 @@
 if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) && (!instance_exists(oText))
 {
 	nearby = true;
-	if (oPlayer.key_interact)
+	if (global.key_interact_pressed)
 	{
 		with (instance_create_layer(x,y-64,layer,oText))
 		{
@@ -13,12 +13,12 @@ if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) &
 		{
 			follow = other.id;
 		}
-		oPlayer.hascontrol = false;
+		global.hascontrol = false;
 		oPlayer.hsp = 0;
 	}
 }else nearby = false;
 
-if (instance_exists(oPlayer)) && (!instance_exists(oText)) oPlayer.hascontrol = 1;
+if (instance_exists(oPlayer)) && (!instance_exists(oText)) global.hascontrol = 1;
 
 if (nearby)
 {

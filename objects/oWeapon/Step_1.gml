@@ -12,9 +12,9 @@ if (holstered)
 }
 else
 {
-	if (oPlayer.controller == false)
+	if (global.controller == false)
 	{
-		if (oPlayer.hascontrol)
+		if (global.hascontrol)
 		{
 			mouseangle = point_direction(x,y,mouse_x,mouse_y);
 			image_angle += angle_difference(mouseangle, image_angle) * rspeed;
@@ -26,9 +26,9 @@ else
 	{
 		var controllerh = gamepad_axis_value(0,gp_axisrh);
 		var controllerv = gamepad_axis_value(0,gp_axisrv);
-		if (oPlayer.hascontrol)
+		if (global.hascontrol)
 		{
-			if (abs(controllerh) > oPlayer.deadzone) || (abs(controllerv) > oPlayer.deadzone)
+			if (abs(controllerh) > global.deadzone) || (abs(controllerv) > global.deadzone)
 			{
 				controllerangle = point_direction(0,0,controllerh,controllerv)
 			}
@@ -80,10 +80,10 @@ else
 	if (!holstered) image_alpha = 1;
 }
 
-if (oPlayer.hascontrol)
+if (global.hascontrol)
 {
 	//image_angle = point_direction(x,y,mouse_x,mouse_y);
-	if (!oPlayer.controller) && (mouse_check_button(mb_left)) && (firingdelay < 0) && (!stopshooting) || (oPlayer.controller) && (gamepad_button_check(0,gp_shoulderrb)) && (firingdelay < 0) && (!stopshooting)
+	if (global.key_primaryattack_held) && (firingdelay < 0) && (!stopshooting)
 	{
 		image_speed = 1;
 		image_index = 1;
