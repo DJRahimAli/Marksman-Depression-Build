@@ -50,4 +50,11 @@ if (room != rMenu) && (room != rEnding)
 	{
 		layer_x(buildingslayer,x/4);
 	}
+	
+	if (layer_exists(cloudslayer))
+	{
+		cloud_x += 1;
+		layer_x(cloudslayer,(x/6) + cloud_x);
+	}
 }
+

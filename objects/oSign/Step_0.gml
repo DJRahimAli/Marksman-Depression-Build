@@ -18,8 +18,6 @@ if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) &
 	}
 }else nearby = false;
 
-if (instance_exists(oPlayer)) && (!instance_exists(oText)) global.hascontrol = 1;
-
 if (nearby)
 {
 	image_speed = 1;

@@ -1,4 +1,5 @@
 //test = 0;
+global.hascontrol = true;
 
 if (!file_exists(SAVEFILE)) SaveGame();
 

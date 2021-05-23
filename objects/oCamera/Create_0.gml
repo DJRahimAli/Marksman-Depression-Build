@@ -18,6 +18,9 @@ buff = 32;
 
 skyscraperslayer = layer_get_id("Skyscrapers");
 buildingslayer = layer_get_id("Buildings");
+cloudslayer = layer_get_id("Clouds");
+
+cloud_x = 0;
 
 zoom = 1;
 zoomsp = 0.01;
