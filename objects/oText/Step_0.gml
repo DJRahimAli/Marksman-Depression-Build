@@ -13,10 +13,12 @@ if(instance_exists(oPlayer))
 	{
 		instance_destroy();
 		with (oCamera) follow = oPlayer;
+		global.hascontrol = true;
 	}
 }
 else
 {
 	instance_destroy();
 	with (oCamera) follow = oPlayerDead;
+	global.hascontrol = true;
 }

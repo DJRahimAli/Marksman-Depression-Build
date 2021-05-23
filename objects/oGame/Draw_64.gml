@@ -10,5 +10,6 @@
 	draw_text_transformed(RES_W-10,10,string(global.kills) + " Kills", killtextscale,killtextscale,0);
 }*/
 
-//draw_set_color(c_white);
-//draw_text(0,0,global.hasweapon);
+/*draw_set_color(c_white);
+draw_text(0,0,global.hascontrol);
+draw_text(0,15,global.levelchanging);*/
