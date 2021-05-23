@@ -53,8 +53,8 @@ if (room != rMenu) && (room != rEnding)
 	
 	if (layer_exists(cloudslayer))
 	{
-		cloud_x += 1;
-		layer_x(cloudslayer,(x/5) + cloud_x);
+		cloud_x += 0.3;
+		layer_x(cloudslayer,(x/2) + cloud_x);
 	}
 }
 
