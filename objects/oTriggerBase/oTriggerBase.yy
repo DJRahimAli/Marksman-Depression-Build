@@ -4,13 +4,10 @@
     "path": "sprites/sTrigger/sTrigger.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "oTriggerBase",
-    "path": "objects/oTriggerBase/oTriggerBase.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,16 +23,16 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
-  "overriddenProperties": [
-    {"propertyId":{"name":"triggerobject","path":"objects/oTriggerBase/oTriggerBase.yy",},"objectId":{"name":"oTriggerBase","path":"objects/oTriggerBase/oTriggerBase.yy",},"value":"oPlayer","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+  "properties": [
+    {"varType":0,"value":"all","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"triggerobject","tags":[],"resourceType":"GMObjectProperty",},
   ],
+  "overriddenProperties": [],
   "parent": {
     "name": "Triggers",
     "path": "folders/Objects/Triggers.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oLevelEndTrigger",
+  "name": "oTriggerBase",
   "tags": [],
   "resourceType": "GMObject",
 }
