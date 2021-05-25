@@ -211,7 +211,7 @@ hspfrac = frac(hsp);
 hsp -= hspfrac;
 */
 
-if (onwall != 0) && (!onground) || (global.fly)
+if (onwall != 0) && (!onground) && (!global.fly)
 {
 	vsp += vspfrac;
 	vspfrac = frac(vsp);
