@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Mobile Controls",
+    "path": "folders/Objects/Mobile Controls.yy",
   },
   "resourceVersion": "1.0",
   "name": "oDPadOutline",
