@@ -116,6 +116,7 @@
     {"id":{"name":"sPlayerAC","path":"sprites/sPlayerAC/sPlayerAC.yy",},"order":18,},
     {"id":{"name":"snd_PistolFire","path":"sounds/snd_PistolFire/snd_PistolFire.yy",},"order":3,},
     {"id":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},"order":3,},
+    {"id":{"name":"oTriggerBase","path":"objects/oTriggerBase/oTriggerBase.yy",},"order":2,},
     {"id":{"name":"sClouds","path":"sprites/sClouds/sClouds.yy",},"order":57,},
     {"id":{"name":"fSign","path":"fonts/fSign/fSign.yy",},"order":2,},
     {"id":{"name":"oEnemyDead","path":"objects/oEnemyDead/oEnemyDead.yy",},"order":6,},
