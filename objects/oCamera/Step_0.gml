@@ -57,4 +57,3 @@ if (room != rMenu) && (room != rEnding)
 		layer_x(cloudslayer,(x/2) + cloud_x);
 	}
 }
-
