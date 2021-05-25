@@ -31,8 +31,6 @@ global.key_secondaryattack = mb_right;
 global.key_reload = ord("R");
 global.key_holster = ord("H");
 global.key_gun = ord("2");
-global.key_flyup = global.key_up || global.key_jump;
-global.key_flydown = global.key_down;
 global.key_interact = ord("E");
 global.key_suicide = ord("K");
 #endregion

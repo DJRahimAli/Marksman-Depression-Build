@@ -170,7 +170,7 @@ if (!global.fly)
 }
 else
 {
-	var dirfly = (global.key_flydown_held - global.key_flyup_held);
+	var dirfly = (global.key_down_held - (global.key_up_held || global.key_jump_held));
 	
 	vsp += dirfly * accel;
 	if (dirfly == 0)
@@ -205,9 +205,11 @@ if place_meeting(x,y+1,oSpring) && (!crouch)
 }
 
 //Dump fractions and get final integer speeds
+/*
 hsp += hspfrac;
 hspfrac = frac(hsp);
 hsp -= hspfrac;
+*/
 
 if (onwall != 0) && (!onground) || (global.fly)
 {
