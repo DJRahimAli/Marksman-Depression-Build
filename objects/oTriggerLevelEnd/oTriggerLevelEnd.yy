@@ -4,7 +4,7 @@
     "path": "sprites/sTrigger/sTrigger.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -27,13 +27,15 @@
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"propertyId":{"name":"triggerobject","path":"objects/oTriggerBase/oTriggerBase.yy",},"objectId":{"name":"oTriggerBase","path":"objects/oTriggerBase/oTriggerBase.yy",},"value":"oPlayer","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+  ],
   "parent": {
     "name": "Triggers",
     "path": "folders/Objects/Triggers.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oDestroyTrigger",
+  "name": "oTriggerLevelEnd",
   "tags": [],
   "resourceType": "GMObject",
 }
