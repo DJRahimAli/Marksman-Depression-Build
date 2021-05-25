@@ -19,16 +19,16 @@ if (!onwallground) && (!global.fly)
 
 var dir = (global.key_right_held - global.key_left_held);
 
-if (global.fly) gunkickx = 0;
+if (global.fly) kickbackx = 0;
 hsp += dir * accel;
 if (dir == 0)
 {
 	var hspfricfinal = hspfricground;
 	if (!onground) && (!global.fly) hspfricfinal = hspfricair;
-	hsp = lerp(hsp,0,hspfricfinal) + gunkickx;
+	hsp = lerp(hsp,0,hspfricfinal) + kickbackx;
 }
 hsp = clamp(hsp,-walksp,walksp);
-gunkickx = 0;
+kickbackx = 0;
 
 //Wall jump
 if (onwall != 0) && (!onground) && (global.key_jump_pressed) && (!global.fly)
@@ -125,8 +125,8 @@ if (!global.fly)
 		grvfinal = grvwall;
 		vspmaxfinal = vspmaxwall;
 	}
-	vsp = (vsp + grvfinal) + gunkicky;
-	gunkicky = 0;
+	vsp = (vsp + grvfinal) + kickbacky;
+	kickbacky = 0;
 	vsp = clamp(vsp,-vspmaxfinal,vspmaxfinal);
 
 	if (onground) || place_meeting(x,y+1,oSpring) multijump = multijumpamt;
