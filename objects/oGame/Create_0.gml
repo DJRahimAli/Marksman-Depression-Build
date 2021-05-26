@@ -19,7 +19,7 @@ switch (os_type)
 }
 
 #region //Get Input
-//Keyboard Input
+#region //Keyboard & Mouse Input
 global.key_left = ord("A");
 global.key_right = ord("D");
 global.key_up = ord("W");
@@ -33,6 +33,53 @@ global.key_holster = ord("H");
 global.key_gun = ord("2");
 global.key_interact = ord("E");
 global.key_suicide = ord("K");
+
+#region //Held
+global.key_left_held = keyboard_check(global.key_left);
+global.key_right_held = keyboard_check(global.key_right);
+global.key_up_held = keyboard_check(global.key_up);
+global.key_down_held = keyboard_check(global.key_down);
+global.key_jump_held = keyboard_check(global.key_jump);
+global.key_crouch_held = keyboard_check(global.key_crouch);
+global.key_primaryattack_held = mouse_check_button(global.key_primaryattack);
+global.key_secondaryattack_held = mouse_check_button(global.key_secondaryattack);
+global.key_reload_held = keyboard_check(global.key_reload);
+global.key_holster_held = keyboard_check(global.key_holster);
+global.key_gun_held = keyboard_check(global.key_gun);
+#endregion
+	
+#region //Pressed
+global.key_left_pressed = keyboard_check_pressed(global.key_left);
+global.key_right_pressed = keyboard_check_pressed(global.key_right);
+global.key_up_pressed = keyboard_check_pressed(global.key_up);
+global.key_down_pressed = keyboard_check_pressed(global.key_down);
+global.key_jump_pressed = keyboard_check_pressed(global.key_jump);
+global.key_crouch_pressed = keyboard_check_pressed(global.key_crouch);
+global.key_primaryattack_pressed = mouse_check_button_pressed(global.key_primaryattack);
+global.key_secondaryattack_pressed = mouse_check_button_pressed(global.key_secondaryattack);
+global.key_reload_pressed = keyboard_check_pressed(global.key_reload);
+global.key_holster_pressed = keyboard_check_pressed(global.key_holster);
+global.key_gun_pressed = keyboard_check_pressed(global.key_gun);
+
+global.key_interact_pressed = keyboard_check_pressed(global.key_interact);
+global.key_suicide_pressed = keyboard_check_pressed(global.key_suicide);
+#endregion
+	
+#region //Released
+global.key_left_released = keyboard_check_released(global.key_left);
+global.key_right_released = keyboard_check_released(global.key_right);
+global.key_up_released = keyboard_check_released(global.key_up);
+global.key_down_released = keyboard_check_released(global.key_down);
+global.key_jump_released = keyboard_check_released(global.key_jump);
+global.key_crouch_released = keyboard_check_released(global.key_crouch);
+global.key_primaryattack_released = mouse_check_button_released(global.key_primaryattack);
+global.key_secondaryattack_released = mouse_check_button_released(global.key_secondaryattack);
+global.key_reload_released = keyboard_check_released(global.key_reload);
+global.key_holster_released = keyboard_check_released(global.key_holster);
+global.key_gun_released = keyboard_check_released(global.key_gun);
+#endregion
+#endregion
+
 #endregion
 
 global.controller = false;
