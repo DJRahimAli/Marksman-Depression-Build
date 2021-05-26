@@ -79,7 +79,6 @@ global.key_holster_released = keyboard_check_released(global.key_holster);
 global.key_gun_released = keyboard_check_released(global.key_gun);
 #endregion
 #endregion
-
 #endregion
 
 global.controller = false;

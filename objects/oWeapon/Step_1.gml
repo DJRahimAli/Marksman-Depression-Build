@@ -12,7 +12,7 @@ if (holstered)
 }
 else
 {
-	if (global.controller == false)
+	if (global.controller == 0)
 	{
 		if (global.hascontrol)
 		{
@@ -22,7 +22,8 @@ else
 			//image_angle = image_angle mod 360;
 		}
 	}
-	else
+
+	if (global.controller == 1)
 	{
 		var controllerh = gamepad_axis_value(0,gp_axisrh);
 		var controllerv = gamepad_axis_value(0,gp_axisrv);
