@@ -112,7 +112,7 @@
     {"id":{"name":"snd_Death","path":"sounds/snd_Death/snd_Death.yy",},"order":5,},
     {"id":{"name":"oShell","path":"objects/oShell/oShell.yy",},"order":11,},
     {"id":{"name":"sPlayerTrailRC","path":"sprites/sPlayerTrailRC/sPlayerTrailRC.yy",},"order":21,},
-    {"id":{"name":"Object43","path":"objects/Object43/Object43.yy",},"order":9,},
+    {"id":{"name":"oDPadLeft","path":"objects/oDPadLeft/oDPadLeft.yy",},"order":9,},
     {"id":{"name":"sPlayerAC","path":"sprites/sPlayerAC/sPlayerAC.yy",},"order":18,},
     {"id":{"name":"snd_PistolFire","path":"sounds/snd_PistolFire/snd_PistolFire.yy",},"order":3,},
     {"id":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},"order":2,},
