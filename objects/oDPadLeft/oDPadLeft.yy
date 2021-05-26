@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sDPadLeft",
+    "path": "sprites/sDPadLeft/sDPadLeft.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -28,7 +31,7 @@
     "path": "folders/Objects/Mobile Controls.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object43",
+  "name": "oDPadLeft",
   "tags": [],
   "resourceType": "GMObject",
 }
