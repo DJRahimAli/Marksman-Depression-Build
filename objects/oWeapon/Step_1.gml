@@ -22,7 +22,7 @@ else
 			//image_angle = image_angle mod 360;
 		}
 	}
-
+	
 	if (global.controller == 1)
 	{
 		var controllerh = gamepad_axis_value(0,gp_axisrh);
