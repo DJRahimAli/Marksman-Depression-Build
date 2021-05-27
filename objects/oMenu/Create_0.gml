@@ -6,7 +6,7 @@ gui_height = display_get_gui_height();
 gui_margin = 32;
 
 menu_x = -200//gui_width+200//- gui_margin;
-menu_y = gui_height - gui_margin;
+menu_y = RES_H - gui_margin;
 
 menu_x_target = gui_margin;
 menu_speed = 10; //lower is faster
