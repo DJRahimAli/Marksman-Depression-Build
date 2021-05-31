@@ -10,6 +10,7 @@ if (crouch) onwall = 0;
 //Calculate horizontal movement
 walksprate = 4;
 walkspcrouchrate = 2;
+walljumpdelay = max(walljumpdelay-1,0);
 /*
 if (!onwallground) && (!global.fly)
 {
@@ -17,22 +18,26 @@ if (!onwallground) && (!global.fly)
 	//walkspcrouchrate = walkspcrouchrate/1.1;
 }*/
 
-var dir = (global.key_right_held - global.key_left_held);
-
-if (global.fly) kickbackx = 0;
-hsp += dir * accel;
-if (dir == 0)
+if (walljumpdelay == 0)
 {
-	var hspfricfinal = hspfricground;
-	if (!onground) && (!global.fly) hspfricfinal = hspfricair;
-	hsp = lerp(hsp,0,hspfricfinal) + kickbackx;
+	var dir = (global.key_right_held - global.key_left_held);
+
+	if (global.fly) kickbackx = 0;
+	hsp += dir * accel;
+	if (dir == 0)
+	{
+		var hspfricfinal = hspfricground;
+		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
+		hsp = lerp(hsp,0,hspfricfinal) + kickbackx;
+	}
+	hsp = clamp(hsp,-walksp,walksp);
 }
-hsp = clamp(hsp,-walksp,walksp);
 kickbackx = 0;
 
 //Wall jump
 if (onwall != 0) && (!onground) && (global.key_jump_pressed) && (!global.fly)
 {
+	walljumpdelay = walljumpdelaymax;
 	jumpheight = 5;
 	hsp = onwall * -jumpheight;
 	vsp = -jumpheight;
@@ -243,7 +248,20 @@ hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 
 if instance_exists(oWeapon)
-{
+{	
+	if (!oWeapon.holstered) && (global.hascontrol)
+	{
+		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
+		{
+			var aimside = -1;
+		}
+		else
+		{
+			var aimside = 1;
+		}
+		if (aimside != 0) image_xscale = aimside;
+	}
+	
 	if (hspnodec != 0) && (oWeapon.holstered)
 	{
 		var aimside = sign(hsp);
@@ -256,22 +274,6 @@ else
 	{
 		var aimside = sign(hsp);
 		image_xscale = aimside;
-	}
-}
-
-if instance_exists(oWeapon)
-{
-	if (!oWeapon.holstered) && (global.hascontrol)
-	{
-		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
-		{
-			var aimside = -1;
-		}
-		else
-		{
-			var aimside = 1;
-		}
-		if (aimside != 0) image_xscale = aimside;
 	}
 }
 
