@@ -326,7 +326,7 @@ else
 	dust = 0;
 	if (!global.noclip)
 	{
-		if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
+		/*if (sprite_index == sPlayerA) || (sprite_index == sPlayerAC)
 		{
 			audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
 			audio_play_sound(snd_Landing,4,false);
@@ -337,7 +337,7 @@ else
 					vsp = 0;
 				}
 			}
-		}
+		}*/
 		if (hspnodec == 0)
 		{
 			if (!crouch)
