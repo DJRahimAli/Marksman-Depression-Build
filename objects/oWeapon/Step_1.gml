@@ -7,17 +7,38 @@ if (image_angle < 0) image_angle += 360;
 
 if (holstered)
 {
-	image_angle += angle_difference(270, image_angle) * rspeed/2;
+	image_angle = image_angle + angle_difference(270, image_angle) * rspeed/2;
 	if (image_angle >= 240) && (image_angle <= 300) image_alpha = 0;
 }
 else
 {
+	if (oPlayer.onwall == 0)
+	{
+		minmaxangle = 360;
+	}
+	else
+	{
+		minmaxangle = 60;
+	}
+	
+	if (oPlayer.onwall <= 0)
+	{
+		delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir, 0)));
+		image_angle += angle_difference(delta, image_angle) * rspeed;
+	}
+	
+	if (oPlayer.onwall > 0)
+	{
+		delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir - 180, 0)));
+		image_angle += angle_difference(delta, image_angle - 180) * rspeed;
+	}
+	
 	if (global.controller == 0)
 	{
 		if (global.hascontrol)
 		{
 			mouseangle = point_direction(x,y,mouse_x,mouse_y);
-			image_angle += angle_difference(mouseangle, image_angle) * rspeed;
+			pointdir = mouseangle;
 			//image_angle = clamp(image_angle, 0, 360);
 			//image_angle = image_angle mod 360;
 		}
@@ -31,9 +52,9 @@ else
 		{
 			if (abs(controllerh) > global.deadzone) || (abs(controllerv) > global.deadzone)
 			{
-				controllerangle = point_direction(0,0,controllerh,controllerv)
+				controllerangle = point_direction(0,0,controllerh,controllerv);
+				pointdir = controllerangle;
 			}
-			image_angle += angle_difference(controllerangle, image_angle) * rspeed;
 		}
 	}
 }
