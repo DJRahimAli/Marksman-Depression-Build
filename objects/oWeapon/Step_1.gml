@@ -7,7 +7,7 @@ if (image_angle < 0) image_angle += 360;
 
 if (holstered)
 {
-	image_angle = image_angle + angle_difference(270, image_angle) * rspeed/2;
+	image_angle += angle_difference(270, image_angle) * rspeed/2;
 	if (image_angle >= 240) && (image_angle <= 300) image_alpha = 0;
 }
 else
