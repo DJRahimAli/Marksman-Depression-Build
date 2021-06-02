@@ -7,7 +7,7 @@ if (direction < 0) direction += 360;
 
 if (oWeapon.holstered)
 {
-	direction = direction + angle_difference(270, direction) * rspeed/2;
+	direction += angle_difference(270, direction) * rspeed/2;
 	if (direction >= 240) && (direction <= 300) direction = 0;
 }
 else
