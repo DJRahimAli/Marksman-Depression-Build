@@ -10,9 +10,7 @@ if (crouch) onwall = 0;
 //Calculate horizontal movement
 walksprate = 4;
 walkspcrouchrate = 2;
-//walljumpdelay = max(walljumpdelay-1,0);
-if (onground || onwall) walljumpdelay = false;
-
+walljumpdelay = max(walljumpdelay-1,0);
 /*
 if (!onwallground) && (!global.fly)
 {
@@ -39,7 +37,7 @@ kickbackx = 0;
 //Wall jump
 if (onwall != 0) && (!onground) && (global.key_jump_pressed) && (!global.fly)
 {
-	walljumpdelay = true;
+	walljumpdelay = walljumpdelaymax;
 	jumpheight = 5;
 	hsp = onwall * -jumpheight;
 	vsp = -jumpheight;
