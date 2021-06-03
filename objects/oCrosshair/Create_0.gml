@@ -5,4 +5,4 @@ y = y + lengthdir_y(crosshairdistance+crosshaircrouchdistance,direction);
 
 delta = 0;
 minmaxangle = 60;
-rspeed = 0.45;// Max = 1 or else things will glitch the fuck out
+rspeed = 0;// Max = 1 or else things will glitch the fuck out

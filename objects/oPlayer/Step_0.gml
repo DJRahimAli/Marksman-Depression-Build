@@ -267,6 +267,17 @@ if instance_exists(oWeapon)
 		var aimside = sign(hsp);
 		image_xscale = aimside;
 	}
+	
+	if (onwall != 0) && (image_xscale == onwall)
+	{
+		oWeapon.rspeed = 1;
+		oCrosshair.rspeed = 1;
+	}
+	else
+	{
+		oWeapon.rspeed = 0.25;
+		oCrosshair.rspeed = 0.45;
+	}
 }
 else
 {
@@ -281,10 +292,10 @@ if (!onground)
 {
 	if (onwall != 0)
 	{
+		image_xscale = -onwall;
 		if (!global.fly)
 		{
 			sprite_index = sPlayerW;
-			image_xscale = -onwall;
 			image_speed = 1;
 			
 			var side = bbox_left;
