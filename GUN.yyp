@@ -103,6 +103,7 @@
     {"id":{"name":"sPlayerS","path":"sprites/sPlayerS/sPlayerS.yy",},"order":7,},
     {"id":{"name":"sCollision","path":"sprites/sCollision/sCollision.yy",},"order":46,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":2,},
+    {"id":{"name":"sPixel","path":"sprites/sPixel/sPixel.yy",},"order":58,},
     {"id":{"name":"sDPadBorder","path":"sprites/sDPadBorder/sDPadBorder.yy",},"order":49,},
     {"id":{"name":"sBulletWall","path":"sprites/sBulletWall/sBulletWall.yy",},"order":23,},
     {"id":{"name":"DrawSetText","path":"scripts/DrawSetText/DrawSetText.yy",},"order":2,},
