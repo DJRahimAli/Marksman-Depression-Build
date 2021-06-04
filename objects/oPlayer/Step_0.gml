@@ -16,6 +16,7 @@ else
 	jumpbuffer = -2;
 	walljumpbuffer = 0;
 }
+if (crouch) wallsliding = 0;
 
 //Calculate horizontal movement
 walksprate = 4;
