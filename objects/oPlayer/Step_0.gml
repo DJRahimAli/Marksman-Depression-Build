@@ -4,10 +4,11 @@ if (global.hp < 0) global.hp = 0;
 //Calculate current status
 onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
 onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
+wallsliding = (collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-2, oWall, false, true) || collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-2, oCollision, false, true));
 if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
-	if (place_meeting(x+1,y-16,oWall) || place_meeting(x+1,y-16,oCollision) || place_meeting(x-1,y-16,oWall) || place_meeting(x-1,y-16,oCollision)) walljumpbuffer = walljumpbuffermax+1;
+	if (wallsliding) walljumpbuffer = walljumpbuffermax+1;
 	if (onground && onwall != 0) walljumpbuffer = 0;
 }
 else
@@ -15,7 +16,7 @@ else
 	jumpbuffer = -2;
 	walljumpbuffer = 0;
 }
-if (crouch) onwall = 0;
+if (crouch) wallsliding = 0;
 
 //Calculate horizontal movement
 walksprate = 4;
@@ -50,7 +51,7 @@ if (!global.fly)
 {
 	if (walljumpbuffer > 0) walljumpbuffer--;
 	
-	if (onwall != 0) walljumpdirection = onwall;
+	if (wallsliding != 0) walljumpdirection = onwall;
 	
 	if (walljumpbuffer > 0) && (global.key_jump_pressed)
 	{
@@ -144,7 +145,7 @@ if (!global.fly)
 {
 	var grvfinal = grv;
 	var vspmaxfinal = vspmax;
-	if (onwall != 0) && (vsp > 0)
+	if (wallsliding != 0) && (vsp > 0)
 	{
 		grvfinal = grvwall;
 		vspmaxfinal = vspmaxwall;
@@ -169,7 +170,7 @@ if (!global.fly)
 		}
 	}
 
-	if (jumpbuffer == -1) && (onwall == 0)
+	if (jumpbuffer == -1) && (wallsliding == 0)
 	{
 		if (global.key_jump_pressed) && (multijump > 0)
 		{
@@ -235,7 +236,7 @@ hspfrac = frac(hsp);
 hsp -= hspfrac;
 */
 
-if (walljumpbuffer == walljumpbuffermax) && (!global.fly)
+if (wallsliding) && (!global.fly)
 {
 	vsp += vspfrac;
 	vspfrac = frac(vsp);
@@ -296,7 +297,7 @@ if instance_exists(oWeapon)
 		}
 	}
 	
-	if (onwall != 0)
+	if (onwall != 0 && aimside == onwall)
 	{
 		oWeapon.rspeed = 1;
 		oCrosshair.rspeed = 1;
@@ -324,7 +325,7 @@ else
 
 if (!onground)
 {
-	if (walljumpbuffer == walljumpbuffermax)
+	if (wallsliding)
 	{
 		if (!global.fly)
 		{
