@@ -167,7 +167,7 @@ if (!global.fly)
 		}
 	}
 
-	if (jumpbuffer == -1)
+	if (jumpbuffer == -1) && (onwall == 0)
 	{
 		if (global.key_jump_pressed) && (multijump > 0)
 		{
