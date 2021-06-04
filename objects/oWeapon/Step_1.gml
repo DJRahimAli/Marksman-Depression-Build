@@ -12,8 +12,6 @@ if (holstered)
 }
 else
 {
-	if (oPlayer.walljumpbuffer == 0)
-	{
 		if (oPlayer.onwall == 0)
 		{
 			minmaxangle = 360;
@@ -34,24 +32,6 @@ else
 			delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir - 180, 0)));
 			image_angle += angle_difference(delta, image_angle - 180) * rspeed;
 		}
-	}
-	
-	if (oPlayer.walljumpbuffer == oPlayer.walljumpbuffermax)
-	{
-		minmaxangle = 60;
-		
-		if (oPlayer.onwall < 0)
-		{
-			delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir, 0)));
-			image_angle += angle_difference(delta, image_angle) * rspeed;
-		}
-	
-		if (oPlayer.onwall > 0)
-		{
-			delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir - 180, 0)));
-			image_angle += angle_difference(delta, image_angle - 180) * rspeed;
-		}
-	}
 	
 	if (global.controller == 0)
 	{
