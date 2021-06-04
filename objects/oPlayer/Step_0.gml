@@ -11,7 +11,7 @@ if (crouch) onwall = 0;
 walksprate = 4;
 walkspcrouchrate = 2;
 walljumpdelay = max(walljumpdelay-1,0);
-if (!global.key_jump_held) walljumpdelay /= 2;
+if (!global.key_jump_held && walljumpdelay <= walljumpdelaymax/2) walljumpdelay /= 2;
 /*
 if (!onwallground) && (!global.fly)
 {
