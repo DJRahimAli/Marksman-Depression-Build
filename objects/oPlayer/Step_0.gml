@@ -7,7 +7,7 @@ onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (plac
 if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
-	if (!onground && onwall != 0) walljumpbuffer = 5+1;
+	if (place_meeting(x+1,y-16,oWall) || place_meeting(x+1,y-16,oCollision) || place_meeting(x-1,y-16,oWall) || place_meeting(x-1,y-16,oCollision)) walljumpbuffer = walljumpbuffermax+1;
 	if (onground && onwall != 0) walljumpbuffer = 0;
 }
 else
@@ -235,7 +235,7 @@ hspfrac = frac(hsp);
 hsp -= hspfrac;
 */
 
-if (onwall != 0) && (!onground) && (!global.fly)
+if (walljumpbuffer == walljumpbuffermax) && (!global.fly)
 {
 	vsp += vspfrac;
 	vspfrac = frac(vsp);
@@ -272,22 +272,31 @@ if instance_exists(oWeapon)
 	{
 		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
 		{
-			var aimside = -1;
+			aimside = -1;
 		}
 		else
 		{
-			var aimside = 1;
+			aimside = 1;
 		}
-		if (aimside != 0) image_xscale = aimside;
-	}
-	
-	if (hspnodec != 0) && (oWeapon.holstered)
-	{
-		var aimside = sign(hsp);
 		image_xscale = aimside;
 	}
 	
-	if (onwall != 0) && (image_xscale == onwall)
+	if (oWeapon.holstered)
+	{
+		if (hspnodec != 0)
+		{
+			aimside = sign(hsp);
+			image_xscale = aimside;
+		}
+	
+		if (hsp < 1 && onwall != 0) 
+		{
+			aimside = -onwall;
+			image_xscale = aimside;
+		}
+	}
+	
+	if (onwall != 0)
 	{
 		oWeapon.rspeed = 1;
 		oCrosshair.rspeed = 1;
@@ -302,16 +311,21 @@ else
 {
 	if (hspnodec != 0)
 	{
-		var aimside = sign(hsp);
+		aimside = sign(hsp);
+		image_xscale = aimside;
+	}
+	
+	if (hsp < 1 && onwall != 0) 
+	{
+		aimside = -onwall;
 		image_xscale = aimside;
 	}
 }
 
 if (!onground)
 {
-	if (onwall != 0)
+	if (walljumpbuffer == walljumpbuffermax)
 	{
-		image_xscale = -onwall;
 		if (!global.fly)
 		{
 			sprite_index = sPlayerW;
@@ -385,13 +399,13 @@ else
 			{
 				image_speed = (1 * hsp/4);
 				sprite_index = sPlayerR;
-				if (aimside != sign(hsp)) sprite_index = sPlayerRB;
+				if (hspnodec != 0) && (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
 				image_speed = (1 * hsp/4);
 				sprite_index = sPlayerRC;
-				if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
+				if (hspnodec != 0) && (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
 	}
