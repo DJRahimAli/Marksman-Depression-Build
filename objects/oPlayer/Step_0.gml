@@ -58,6 +58,10 @@ if (!global.fly)
 		audio_play_sound(snd_MultiJump,10,false);
 	}
 }
+else
+{
+	walljumpbuffer = 0;
+}
 
 #region //awful smb1 type movement
 /*
@@ -195,6 +199,8 @@ else
 		vsp = lerp(vsp,0,vspfricfinal);
 	}
 	vsp = clamp(vsp,-walksp,walksp);
+	
+	jumpbuffer = 0;
 	
 	//Detect when moving
 	if (hspnodec != 0) || (vspnodec != 0)
