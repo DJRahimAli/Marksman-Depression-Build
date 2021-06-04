@@ -7,7 +7,13 @@ onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (plac
 if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
-	if (!onground && onwall != 0) walljumpbuffer =	7+1;
+	if (!onground && onwall != 0) walljumpbuffer = 10+1;
+	if (onground && onwall != 0) walljumpbuffer = 0;
+}
+else
+{
+	jumpbuffer = -1;
+	walljumpbuffer = 0;
 }
 if (crouch) onwall = 0;
 
@@ -42,9 +48,9 @@ kickbackx = 0;
 //Wall jump
 if (!global.fly)
 {
-	if (walljumpbuffer > -1) walljumpbuffer--;
+	if (walljumpbuffer > 0) walljumpbuffer--;
 
-	if (walljumpbuffer > 0) && (onwall != 0) && (!onground) && (global.key_jump_pressed)
+	if (walljumpbuffer > 0) && (onwall != 0) && (global.key_jump_pressed)
 	{
 		walljumpbuffer = 0;
 		walljumpdelay = walljumpdelaymax;
@@ -57,10 +63,6 @@ if (!global.fly)
 		audio_play_sound(snd_Landing,4,false);
 		audio_play_sound(snd_MultiJump,10,false);
 	}
-}
-else
-{
-	walljumpbuffer = 0;
 }
 
 #region //awful smb1 type movement
@@ -149,7 +151,7 @@ if (!global.fly)
 	kickbacky = 0;
 	vsp = clamp(vsp,-vspmaxfinal,vspmaxfinal);
 
-	if (onground) || place_meeting(x,y+1,oSpring) multijump = multijumpamt;
+	if (jumpbuffer > 0 || place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
 
 	if (jumpbuffer > -1) jumpbuffer--;
 
@@ -199,8 +201,6 @@ else
 		vsp = lerp(vsp,0,vspfricfinal);
 	}
 	vsp = clamp(vsp,-walksp,walksp);
-	
-	jumpbuffer = 0;
 	
 	//Detect when moving
 	if (hspnodec != 0) || (vspnodec != 0)
