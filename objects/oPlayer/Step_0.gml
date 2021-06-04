@@ -12,7 +12,7 @@ if (!global.fly)
 }
 else
 {
-	jumpbuffer = -1;
+	jumpbuffer = -2;
 	walljumpbuffer = 0;
 }
 if (crouch) onwall = 0;
@@ -167,7 +167,7 @@ if (!global.fly)
 		}
 	}
 
-	if (jumpbuffer < 0) && (onwall == 0)
+	if (jumpbuffer == -1)
 	{
 		if (global.key_jump_pressed) && (multijump > 0)
 		{
