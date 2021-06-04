@@ -1,6 +1,8 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function SaveGame(){
+
+function SaveGame()
+{
 	if (room != rMenu) && (room != rEnding) && (global.hp != 0)
 	{
 		/// @desc Save Game
