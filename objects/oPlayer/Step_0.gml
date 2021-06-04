@@ -7,7 +7,7 @@ onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (plac
 if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
-	if (!onground && onwall != 0) walljumpbuffer = 10+1;
+	if (!onground && onwall != 0) walljumpbuffer = 5+1;
 	if (onground && onwall != 0) walljumpbuffer = 0;
 }
 else
@@ -49,13 +49,15 @@ kickbackx = 0;
 if (!global.fly)
 {
 	if (walljumpbuffer > 0) walljumpbuffer--;
-
-	if (walljumpbuffer > 0) && (onwall != 0) && (global.key_jump_pressed)
+	
+	if (onwall != 0) walljumpdirection = onwall;
+	
+	if (walljumpbuffer > 0) && (global.key_jump_pressed)
 	{
 		walljumpbuffer = 0;
 		walljumpdelay = walljumpdelaymax;
 		jumpheight = 5;
-		hsp = onwall * -jumpheight;
+		hsp = walljumpdirection * -jumpheight;
 		vsp = -jumpheight;
 		hspfrac = 0;
 		vspfrac = 0;
