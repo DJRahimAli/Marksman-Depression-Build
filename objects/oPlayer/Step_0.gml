@@ -9,14 +9,13 @@ if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
 	if (wallsliding) walljumpbuffer = walljumpbuffermax+1;
-	if (onground && onwall != 0) walljumpbuffer = 0;
+	if (onground && onwall != 0 || crouch) walljumpbuffer = 0;
 }
 else
 {
 	jumpbuffer = -2;
 	walljumpbuffer = 0;
 }
-if (crouch) wallsliding = 0;
 
 //Calculate horizontal movement
 walksprate = 4;
