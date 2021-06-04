@@ -4,7 +4,11 @@ if (global.hp < 0) global.hp = 0;
 //Calculate current status
 onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
 onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
-if (onground) jumpbuffer = 5+1;
+if (!global.fly)
+{
+	if (onground) jumpbuffer = 5+1;
+	if (!onground && onwall != 0) walljumpbuffer =	7+1;
+}
 if (crouch) onwall = 0;
 
 //Calculate horizontal movement
@@ -36,17 +40,23 @@ if (walljumpdelay == 0)
 kickbackx = 0;
 
 //Wall jump
-if (onwall != 0) && (!onground) && (global.key_jump_pressed) && (!global.fly)
+if (!global.fly)
 {
-	walljumpdelay = walljumpdelaymax;
-	jumpheight = 5;
-	hsp = onwall * -jumpheight;
-	vsp = -jumpheight;
-	hspfrac = 0;
-	vspfrac = 0;
-	audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
-	audio_play_sound(snd_Landing,4,false);
-	audio_play_sound(snd_MultiJump,10,false);
+	if (walljumpbuffer > -1) walljumpbuffer--;
+
+	if (walljumpbuffer > 0) && (onwall != 0) && (!onground) && (global.key_jump_pressed)
+	{
+		walljumpbuffer = 0;
+		walljumpdelay = walljumpdelaymax;
+		jumpheight = 5;
+		hsp = onwall * -jumpheight;
+		vsp = -jumpheight;
+		hspfrac = 0;
+		vspfrac = 0;
+		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
+		audio_play_sound(snd_Landing,4,false);
+		audio_play_sound(snd_MultiJump,10,false);
+	}
 }
 
 #region //awful smb1 type movement
