@@ -269,7 +269,7 @@ vspnodec = string_format(vsp, 0, 0);
 
 if instance_exists(oWeapon)
 {	
-	if (!oWeapon.holstered) && (global.hascontrol)
+	if (!oWeapon.holstered)
 	{
 		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
 		{
