@@ -343,7 +343,7 @@ if (!onground)
 			if ((dust > 2) && (vsp > 0)) with (instance_create_layer(side,y,"Particles",oDust))
 			{
 				other.dust = 0;
-				hspeed = -other.onwall*0.5;
+				hsp = -other.onwall*random_range(0.08,0.6);
 				if (audio_is_playing(snd_Sliding) == false)
 				{
 					audio_play_sound(snd_Sliding, 10, true);
