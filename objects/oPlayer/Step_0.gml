@@ -57,7 +57,7 @@ if (!global.fly)
 	
 	if (wallsliding) walljumpdirection = onwall;
 	
-	if (walljumpbuffer > 0) && (global.key_jump_pressed)
+	if (walljumpbuffer > 0) && (walljumpdelay < walljumpdelaymax-6.5) && (global.key_jump_pressed)
 	{
 		walljumpbuffer = 0;
 		walljumpdelay = walljumpdelaymax;
