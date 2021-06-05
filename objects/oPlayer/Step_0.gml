@@ -59,7 +59,7 @@ if (!global.fly)
 		walljumpdelay = walljumpdelaymax;
 		jumpheight = 5;
 		hsp = walljumpdirection * -jumpheight;
-		vsp -= jumpheight;
+		vsp = -jumpheight;
 		hspfrac = 0;
 		vspfrac = 0;
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
