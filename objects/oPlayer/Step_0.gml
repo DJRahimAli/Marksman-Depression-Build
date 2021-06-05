@@ -51,7 +51,7 @@ if (!global.fly)
 {
 	if (walljumpbuffer > 0) walljumpbuffer--;
 	
-	if (wallsliding != 0) walljumpdirection = onwall;
+	if (wallsliding) walljumpdirection = onwall;
 	
 	if (walljumpbuffer > 0) && (global.key_jump_pressed)
 	{
@@ -59,7 +59,7 @@ if (!global.fly)
 		walljumpdelay = walljumpdelaymax;
 		jumpheight = 5;
 		hsp = walljumpdirection * -jumpheight;
-		vsp = -jumpheight;
+		vsp -= jumpheight;
 		hspfrac = 0;
 		vspfrac = 0;
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
@@ -145,10 +145,10 @@ if (!global.fly)
 {
 	var grvfinal = grv;
 	var vspmaxfinal = vspmax;
-	if (wallsliding != 0) && (vsp > 0)
+	if (wallsliding)
 	{
 		grvfinal = grvwall;
-		vspmaxfinal = vspmaxwall;
+		if (vsp > 0) vspmaxfinal = vspmaxwall;
 	}
 	vsp = (vsp + grvfinal) + kickbacky;
 	kickbacky = 0;
