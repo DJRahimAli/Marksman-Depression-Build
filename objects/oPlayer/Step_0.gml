@@ -61,9 +61,9 @@ if (!global.fly)
 	{
 		walljumpbuffer = 0;
 		walljumpdelay = walljumpdelaymax;
-		jumpheight = 5+walljumpheight;
-		hsp = walljumpdirection * -jumpheight;
-		vsp = -jumpheight;
+		jumpheight = 5;
+		hsp = walljumpdirection * -(jumpheight+walljumpheight/2);
+		vsp = -(jumpheight+walljumpheight);
 		walljumpheight += 1;
 		hspfrac = 0;
 		vspfrac = 0;
