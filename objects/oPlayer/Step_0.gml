@@ -191,7 +191,7 @@ if (!global.fly)
 	if (hspnodec != 0) || (jumpbuffer < 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Player",oParticle)
+		instance_create_layer(x,y,"Player",oParticle);
 	}
 	else 
 	{
@@ -214,7 +214,7 @@ else
 	if (hspnodec != 0) || (vspnodec != 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Player",oParticle)
+		instance_create_layer(x,y,"Player",oParticle);
 	}
 	else 
 	{
@@ -388,7 +388,7 @@ else
 				}
 			}
 		}*/
-		if (!moving && dir == 0)
+		if (!moving)
 		{
 			if (!crouch)
 			{
