@@ -383,7 +383,7 @@ else
 				}
 			}
 		}*/
-		if (!moving)
+		if (!moving && dir == 0)
 		{
 			if (!crouch)
 			{
