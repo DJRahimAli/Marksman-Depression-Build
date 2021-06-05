@@ -400,13 +400,13 @@ else
 			{
 				image_speed = (1 * hsp/4);
 				sprite_index = sPlayerR;
-				if (hspnodec != 0) && (aimside != sign(hsp)) sprite_index = sPlayerRB;
+				if (hspnodec != 0 && aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
 				image_speed = (1 * hsp/4);
 				sprite_index = sPlayerRC;
-				if (hspnodec != 0) && (aimside != sign(hsp)) sprite_index = sPlayerRBC;
+				if (hspnodec != 0 && aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
 	}
