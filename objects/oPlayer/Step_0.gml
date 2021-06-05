@@ -52,7 +52,7 @@ if (!global.fly)
 	if (walljumpbuffer > 0) walljumpbuffer--;
 	
 	if (walljumpheight > 0) walljumpheight-=0.05;
-	if (vsp > 0) walljumpheight = 0;
+	if (vsp > 0 || global.fly) walljumpheight = 0;
 	
 	if (wallsliding) walljumpdirection = onwall;
 	
