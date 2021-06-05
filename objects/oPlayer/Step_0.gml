@@ -383,7 +383,7 @@ else
 				}
 			}
 		}*/
-		if (hspnodec == 0)
+		if (!moving)
 		{
 			if (!crouch)
 			{
