@@ -51,15 +51,19 @@ if (!global.fly)
 {
 	if (walljumpbuffer > 0) walljumpbuffer--;
 	
+	if (walljumpheight > 0) walljumpheight-=0.05;
+	if (vsp > 0) walljumpheight = 0;
+	
 	if (wallsliding) walljumpdirection = onwall;
 	
 	if (walljumpbuffer > 0) && (global.key_jump_pressed)
 	{
 		walljumpbuffer = 0;
 		walljumpdelay = walljumpdelaymax;
-		jumpheight = 5;
+		jumpheight = 5+walljumpheight;
 		hsp = walljumpdirection * -jumpheight;
 		vsp = -jumpheight;
+		walljumpheight += 1;
 		hspfrac = 0;
 		vspfrac = 0;
 		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
