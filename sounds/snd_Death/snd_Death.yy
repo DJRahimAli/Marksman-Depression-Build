@@ -11,7 +11,7 @@
     "path": "audiogroups/agSfx",
   },
   "soundFile": "snd_Death.wav",
-  "duration": 0.315583,
+  "duration": 0.315125,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
