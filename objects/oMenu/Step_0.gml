@@ -49,7 +49,7 @@ if (menu_control)
 	}
 }
 
-if(menu_cursor != menu_last_cursor)
+if (menu_cursor != menu_last_cursor)
 {
 	audio_play_sound(snd_Landing,10,false);
 	menu_last_cursor = menu_cursor;

@@ -43,6 +43,7 @@ if (mode != TRANS_MODE.OFF)
 				global.kills = 0;
 				global.killsthisroom = 0;
 				global.hp = 100;
+				global.hascontrol = true;
 				room_goto(rMenu);
 				break;
 			}
