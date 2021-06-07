@@ -345,6 +345,7 @@ if (!onground)
 			{
 				other.dust = 0;
 				hsp = -other.onwall*random_range(0.08,0.6);
+				vsp = random_range(-0.4,0.4);
 				if (audio_is_playing(snd_Sliding) == false)
 				{
 					audio_play_sound(snd_Sliding, 10, true);
