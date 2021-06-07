@@ -29,13 +29,13 @@ if (done == 0)
 
 	if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
 	{
-		repeat(5)
+		/*repeat(5)
 		{
 			with(instance_create_layer(x,bbox_bottom,"Particles",oDust))
 			{
-				vsp = 0;
+				hsp = random_range(-2,2);
 			}
-		}
+		}*/
 		done = 1;
 	}
 }
