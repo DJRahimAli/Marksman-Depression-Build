@@ -19,8 +19,8 @@ else
 if (crouch) wallsliding = 0;
 
 //Calculate horizontal movement
-walkspmax = 4;
-walkspcrouchmax = 2;
+/*walkspmax = 4;
+walkspcrouchmax = 2;*/
 walljumpdelay = max(walljumpdelay-1,0);
 if (!global.key_jump_held && walljumpdelay <= walljumpdelaymax/2) walljumpdelay /= 2;
 /*
@@ -57,13 +57,12 @@ if (!global.fly)
 	
 	if (wallsliding) walljumpdirection = onwall;
 	
-	if (walljumpbuffer > 0) && (walljumpdelay < walljumpdelaymax-6.5) && (global.key_jump_pressed)
+	if (global.key_jump_pressed) && (walljumpbuffer > 0) && (walljumpdelay < walljumpdelaymax-6.5)
 	{
 		walljumpbuffer = 0;
 		walljumpdelay = walljumpdelaymax;
-		jumpheight = 5;
-		hsp = walljumpdirection * -(jumpheight+walljumpheight/2);
-		vsp = -(jumpheight+walljumpheight);
+		hsp = walljumpdirection * -(jumpheightwall+walljumpheight/2);
+		vsp = -(jumpheightwall+walljumpheight);
 		walljumpheight += 1;
 		hspfrac = 0;
 		vspfrac = 0;
@@ -163,27 +162,30 @@ if (!global.fly)
 
 	if (jumpbuffer > -1) jumpbuffer--;
 
-	if (jumpbuffer > 0)
+	if (global.key_jump_pressed) && (jumpbuffer > 0) && (!crouchstuck)
 	{
-		if (global.key_jump_pressed) && (!crouchstuck)
+		if (!crouch)
 		{
 			jumpbuffer = 0;
-			jumpheight = 6;
 			vsp = -jumpheight;
 			vspfrac = 0;
 			audio_play_sound(snd_Jump,10,false);
 		}
-	}
-
-	if (jumpbuffer == -1) && (wallsliding == 0)
-	{
-		if (global.key_jump_pressed) && (multijump > 0)
+		
+		if (crouch)
 		{
-			multijump--;
-			jumpheight = 2.5;
-			vsp = -jumpheight;
-			audio_play_sound(snd_MultiJump,10,false);
+			jumpbuffer = 0;
+			vsp = -jumpheightcrouch;
+			vspfrac = 0;
+			audio_play_sound(snd_Jump,10,false);
 		}
+	}
+	
+	if (global.key_jump_pressed) && (multijump > 0) && (jumpbuffer == -1) && (wallsliding == 0)
+	{
+		multijump--;
+		vsp = -jumpheightmulti;
+		audio_play_sound(snd_MultiJump,10,false);
 	}
 	//vsp = clamp(vsp,-vspmax,vspmax);
 
@@ -229,8 +231,7 @@ if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal; //0.45
 if place_meeting(x,y+1,oSpring) && (!crouch)
 {
 	jumpbuffer = 0;
-	jumpheight = 10;
-	vsp = -jumpheight;
+	vsp = -jumpheightspring;
 	vspfrac = 0;
 }
 
