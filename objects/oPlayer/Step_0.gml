@@ -193,7 +193,6 @@ if (!global.fly)
 	if (hspnodec != 0) || (jumpbuffer < 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Player",oParticle);
 	}
 	else 
 	{
@@ -216,7 +215,6 @@ else
 	if (hspnodec != 0) || (vspnodec != 0)
 	{
 		moving = true;
-		instance_create_layer(x,y,"Player",oParticle);
 	}
 	else 
 	{
@@ -268,6 +266,9 @@ if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision)) && (!glob
 	vspfrac = 0;
 }
 y += vsp;
+
+//Player Trail
+if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
 
 #region //Animation
 hspnodec = string_format(hsp, 0, 0);
@@ -344,6 +345,7 @@ if (!onground)
 			if ((dust > 2) && (vsp > 0)) with (instance_create_layer(side,y,"Particles",oDust))
 			{
 				other.dust = 0;
+				hsp = -other.onwall*random_range(0.08,0.6);
 				hsp = -other.onwall*random_range(0.08,0.6);
 				vsp = random_range(-0.4,0.4);
 				if (audio_is_playing(snd_Sliding) == false)
