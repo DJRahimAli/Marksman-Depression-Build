@@ -19,15 +19,15 @@ else
 if (crouch) wallsliding = 0;
 
 //Calculate horizontal movement
-walksprate = 4;
-walkspcrouchrate = 2;
+walkspmax = 4;
+walkspcrouchmax = 2;
 walljumpdelay = max(walljumpdelay-1,0);
 if (!global.key_jump_held && walljumpdelay <= walljumpdelaymax/2) walljumpdelay /= 2;
 /*
 if (!onwallground) && (!global.fly)
 {
-	walksprate = walksprate/1.1;
-	//walkspcrouchrate = walkspcrouchrate/1.1;
+	walkspmax = walkspmax/1.1;
+	//walkspcrouchmax = walkspcrouchmax/1.1;
 }*/
 
 if (walljumpdelay == 0)
@@ -84,7 +84,7 @@ if (global.key_crouch_pressed)
 {
 	if (onground) || (crouchstuck) || (global.fly)
 	{
-		walksp = walkspcrouchrate;
+		walksp = walkspcrouchmax;
 	}
 }
 
@@ -100,18 +100,18 @@ if (global.key_crouch_released)
 {
 	if (!crouchstuck)
 	{
-		walksp = walkspcrouchrate;
+		walksp = walkspcrouchmax;
 	}
 }
 
 if (crouch) && (onground)
 {
-	walksp = walkspcrouchrate;
+	walksp = walkspcrouchmax;
 	if instance_exists(oWeapon) oWeapon.ironsights = true;
 }
 else
 {
-	walksp = walksprate;
+	walksp = walkspmax;
 	if instance_exists(oWeapon) oWeapon.ironsights = false;
 }
 
@@ -119,7 +119,7 @@ if (place_meeting(x,y-8,oWall) && (onground) || place_meeting(x,y-8,oCollision))
 {
 	crouchstuck = true;
 	crouch = true;
-	walksp = walkspcrouchrate;
+	walksp = walkspcrouchmax;
 }
 
 if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
@@ -128,7 +128,7 @@ if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
 	if (!global.key_crouch_held)
 	{
 		crouch = false;
-		walksp = walksprate;
+		walksp = walkspmax;
 	}
 }
 #endregion
@@ -159,7 +159,7 @@ if (!global.fly)
 	kickbacky = 0;
 	vsp = clamp(vsp,-vspmaxfinal,vspmaxfinal);
 
-	if (jumpbuffer > 0 || place_meeting(x,y+1,oSpring)) multijump = multijumpamt;
+	if (jumpbuffer > 0 || place_meeting(x,y+1,oSpring)) multijump = multijumpmax;
 
 	if (jumpbuffer > -1) jumpbuffer--;
 
