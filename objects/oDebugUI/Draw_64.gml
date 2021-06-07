@@ -21,9 +21,10 @@ if (global.debug)
 			+ "#Crouch: " + string(oPlayer.crouch)
 			+ "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 			+ "#Has Weapon: " + string(global.hasweapon)
-			+ "#Particle Count: " + string(instance_number(oParticle))
+			+ "#Trail Count: " + string(instance_number(oParticle))
+			+ "#Particle Count: " + string(instance_number(oDust))
 			+ "#"
-			+ "#Controller Variables: "
+			+ "#Controller Variables:"
 			+ "#Controller: " + string(global.controller)
 			+ "#Deadzone: " + string(global.deadzone)
 			+ "#"
@@ -73,12 +74,14 @@ if (global.debug)
 			+ "#Crouch: " + string(oPlayer.crouch)
 			+ "#Crouch Stuck: " + string(oPlayer.crouchstuck)
 			+ "#Has Weapon: " + string(global.hasweapon)
-			+ "#Particle Count: " + string(instance_number(oParticle))
+			+ "#Trail Count: " + string(instance_number(oParticle))
+			+ "#Particle Count: " + string(instance_number(oDust))
 			+ "#"
-			+ "#Controller Variables: "
+			+ "#Controller Variables:"
 			+ "#Controller: " + string(global.controller)
 			+ "#Deadzone: " + string(global.deadzone)
 			+ "#Controller Angle: " + string(oWeapon.controllerangle)
+			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Firing Delay: " + string(oWeapon.firingdelay)
 			+ "#Recoil: " + string(oWeapon.recoil)
@@ -120,7 +123,12 @@ if (global.debug)
 			+ "#Gravity: " + string(oPlayerDead.grv)
 			+ "#Done Falling when dead: " + string(oPlayerDead.done)
 			+ "#Has Weapon: " + string(global.hasweapon)
-			+ "#Particle Count: " + string(instance_number(oParticle))
+			+ "#Trail Count: " + string(instance_number(oParticle))
+			+ "#Particle Count: " + string(instance_number(oDust))
+			+ "#"
+			+ "#Controller Variables:"
+			+ "#Controller: " + string(global.controller)
+			+ "#Deadzone: " + string(global.deadzone)
 			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
@@ -154,7 +162,12 @@ if (global.debug)
 		s = "Player Variables:"
 			+ "#Health: " + string(global.hp)
 			+ "#Has Weapon: " + string(global.hasweapon)
-			+ "#Particle Count: " + string(instance_number(oParticle))
+			+ "#Trail Count: " + string(instance_number(oParticle))
+			+ "#Particle Count: " + string(instance_number(oDust))
+			+ "#"
+			+ "#Controller Variables:"
+			+ "#Controller: " + string(global.controller)
+			+ "#Deadzone: " + string(global.deadzone)
 			+ "#"
 			+ "#Weapon Variables:"
 			+ "#Bullet Count: " + string(instance_number(oBullet))
