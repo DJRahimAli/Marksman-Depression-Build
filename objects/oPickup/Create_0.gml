@@ -8,7 +8,7 @@ my_angle = 0;
 switch (pickuptype)
 {
 	case 1:
-	sprite_index = sPistol;
+	sprite_index = sWeaponPistol;
 	image_speed = 0;
 	image_index = 0;
 	break;

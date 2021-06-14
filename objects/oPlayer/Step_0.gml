@@ -40,7 +40,7 @@ if (walljumpdelay == 0)
 	{
 		var hspfricfinal = hspfricground;
 		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
-		hsp = lerp(hsp,0,hspfricfinal) + kickbackx;
+		hsp = lerp(hsp,0,hspfricfinal) - kickbackx;
 	}
 	hsp = clamp(hsp,-walksp,walksp);
 }
