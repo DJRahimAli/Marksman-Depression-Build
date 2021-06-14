@@ -1,6 +1,10 @@
 x += lengthdir_x(spd,direction);
 y += lengthdir_y(spd,direction);
 
+if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
+
+image_angle = direction;
+
 if (place_meeting(x,y,pShootable))
 {
 	with (instance_place(x,y,pShootable))

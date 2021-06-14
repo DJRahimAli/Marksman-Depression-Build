@@ -34,8 +34,8 @@ else
 	}
 }
 
-x = x + lengthdir_x(crosshairdistance+crosshaircrouchdistance,direction);
-y = y + lengthdir_y(crosshairdistance+crosshaircrouchdistance,direction);
+x += lengthdir_x(crosshairdistance+crosshaircrouchdistance,direction);
+y += lengthdir_y(crosshairdistance+crosshaircrouchdistance,direction);
 
 if (oWeapon.stopshooting)
 {
@@ -46,11 +46,4 @@ else
 	image_alpha = 1;
 }
 
-if (oWeapon.ironsights)
-{
-	crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5);
-}
-else
-{
-	crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);
-}
+if (oWeapon.ironsights) crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5); else crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);

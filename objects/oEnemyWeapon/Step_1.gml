@@ -69,7 +69,7 @@ if (instance_exists(oPlayer))
 					//ScreenShake(2,10);
 					audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
 					audio_play_sound(snd_PistolFire,5,false);
-					with (instance_create_layer(x,y,"Bullets",oEnemyBullet))
+					with (instance_create_layer(x,y,"Projectiles",oEnemyBullet))
 					{
 						spd = 15;
 						direction = other.image_angle + random_range(-2,3);
