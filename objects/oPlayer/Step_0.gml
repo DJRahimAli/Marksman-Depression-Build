@@ -200,7 +200,7 @@ else
 }
 
 //Variable Jump
-if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal; //0.45;
+if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal*2; //0.45;
 
 //Spring Jump
 if place_meeting(x,y+1,oSpring) && (!crouch)
