@@ -1,15 +1,15 @@
-x = oWeapon.x;
-y = oWeapon.y;
+x = oWeaponNew.x;
+y = oWeaponNew.y;
 
-direction = oWeapon.image_angle;
+direction = oWeaponNew.direction;
 image_angle = direction;
-image_xscale = oWeapon.image_xscale;
-image_yscale = oWeapon.image_yscale;
+image_xscale = oWeaponNew.image_xscale;
+image_yscale = oWeaponNew.image_yscale;
 
-x = x + lengthdir_x(25,image_angle);
-y = y + lengthdir_y(25,image_angle);
+x += lengthdir_x(25,direction);
+y += lengthdir_y(25,direction);
 
-if (oWeapon.stopshooting)
+/*if (oWeaponNew.stopshooting)
 {
 	image_alpha = 0;
 }
