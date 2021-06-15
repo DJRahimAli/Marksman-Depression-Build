@@ -27,6 +27,14 @@ if (currentdelay == 0) && (wp_map[? "projectile"] != -1)
 {
 	if (ammo[weapon] != 0)
 	{
+		image_speed = 1;
+		image_index = 1;
+		with (oMuzzleFlash)
+		{
+			image_alpha = 1;
+			image_speed = 1;
+			image_index = 0;
+		}
 		with (instance_create_layer(x+lengthdir_x(wp_map[? "projectilelength"],direction),y+lengthdir_y(wp_map[? "projectilelength"],direction),"Projectiles",wp_map[? "projectile"]))
 		{
 			direction = other.direction + random_range(wp_map[? "spreadmin"],wp_map[? "spreadmax"]);

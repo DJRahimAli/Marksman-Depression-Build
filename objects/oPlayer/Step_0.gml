@@ -81,26 +81,17 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 #region //Crouching
 if (global.key_crouch_pressed)
 {
-	if (onground) || (crouchstuck) || (global.fly)
-	{
-		walksp = walkspcrouchmax;
-	}
+	if (onground) || (crouchstuck) || (global.fly) walksp = walkspcrouchmax;
 }
 
 if (global.key_crouch_pressed)
 {
-	if (onground) || (crouchstuck) || (global.fly)
-	{
-		crouch = true;
-	}
+	if (onground) || (crouchstuck) || (global.fly) crouch = true;
 }
 
 if (global.key_crouch_released)
 {
-	if (!crouchstuck)
-	{
-		walksp = walkspcrouchmax;
-	}
+	if (!crouchstuck) walksp = walkspcrouchmax;
 }
 
 if (crouch) && (onground)
@@ -190,14 +181,7 @@ if (!global.fly)
 	//vsp = clamp(vsp,-vspmax,vspmax);
 
 	//Detect when moving
-	if (hspnodec != 0) || (jumpbuffer < 0)
-	{
-		moving = true;
-	}
-	else 
-	{
-		moving = false;
-	}
+	if (hspnodec != 0) || (jumpbuffer < 0) moving = true; else moving = false;
 }
 else
 {
@@ -212,14 +196,7 @@ else
 	vsp = clamp(vsp,-walksp,walksp);
 	
 	//Detect when moving
-	if (hspnodec != 0) || (vspnodec != 0)
-	{
-		moving = true;
-	}
-	else 
-	{
-		moving = false;
-	}
+	if (hspnodec != 0) || (vspnodec != 0) moving = true; else moving = false;
 }
 
 //Variable Jump
@@ -278,14 +255,7 @@ if instance_exists(oWeapon)
 {	
 	if (!oWeapon.holstered)
 	{
-		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270)
-		{
-			aimside = -1;
-		}
-		else
-		{
-			aimside = 1;
-		}
+		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
 		image_xscale = aimside;
 	}
 	
@@ -358,14 +328,7 @@ if (!onground)
 	else
 	{
 		dust = 0;
-		if (!crouch)
-		{
-			sprite_index = sPlayerA;
-		}
-		else
-		{
-			sprite_index = sPlayerAC;
-		}
+		if (!crouch) sprite_index = sPlayerA; else sprite_index = sPlayerAC;
 		image_speed = 0;
 		image_index = (vspnodec > 0);
 		if (audio_is_playing(snd_Sliding) == true)
