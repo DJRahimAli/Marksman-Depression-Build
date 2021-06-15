@@ -102,7 +102,7 @@ if (global.hascontrol)
 		}
 		with (oPlayer)
 		{
-			kickbackx = lengthdir_x(1.5, other.image_angle-180);
+			kickbackx = lengthdir_x(1.5, other.image_angle);
 			//kickbacky = lengthdir_y(0.5, other.image_angle-180);
 		}
 		with (instance_create_layer(x,y,"Shells",oShell))
