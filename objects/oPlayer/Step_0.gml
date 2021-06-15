@@ -4,7 +4,7 @@ if (global.hp < 0) global.hp = 0;
 //Calculate current status
 onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
 onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
-wallsliding = (collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-2, oWall, false, true) || collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-2, oCollision, false, true));
+wallsliding = (collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-4, oWall, false, true) || collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-4, oCollision, false, true));
 if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
