@@ -29,7 +29,7 @@ ds_map_add(weapons[0],"automatic",false);
 //pistol
 weapons[1] = ds_map_create();
 ds_map_add(weapons[1],"sprite",sWeaponPistol);
-ds_map_add(weapons[1],"recoil",3);
+ds_map_add(weapons[1],"recoil",4);
 ds_map_add(weapons[1],"spreadmin",-2);
 ds_map_add(weapons[1],"spreadmax",3);
 ds_map_add(weapons[1],"ironsight",1);
@@ -51,7 +51,7 @@ ds_map_add(weapons[1],"automatic",false);
 //submachine gun
 weapons[2] = ds_map_create();
 ds_map_add(weapons[2],"sprite",sWeaponPistol);
-ds_map_add(weapons[2],"recoil",3);
+ds_map_add(weapons[2],"recoil",4);
 ds_map_add(weapons[2],"spreadmin",-2);
 ds_map_add(weapons[2],"spreadmax",3);
 ds_map_add(weapons[2],"ironsight",1);
