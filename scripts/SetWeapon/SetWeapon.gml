@@ -30,10 +30,12 @@ function SetWeapon(argument0)
 	crosshair = wp_map[? "crosshair"];
 	crosshairsprite = wp_map[? "crosshairsprite"];
 	crosshairdistance = wp_map[? "crosshairdistance"];
-	crosshairironsightspeed = wp_map[? "crosshairironsightspeed"];
-	crosshairironsightdistance = wp_map[? "crosshairironsightdistance"];
 	crosshairshakemagnitude = wp_map[? "crosshairshakemagnitude"];
 	crosshairshakelength = wp_map[? "crosshairshakelength"];
+	crosshairironsightspeed = wp_map[? "crosshairironsightspeed"];
+	crosshairironsightdistance = wp_map[? "crosshairironsightdistance"];
+	crosshairironsightshakemagnitude = wp_map[? "crosshairironsightshakemagnitude"];
+	crosshairironsightshakelength = wp_map[? "crosshairironsightshakelength"];
 	soundprimary = wp_map[? "soundprimary"];
 	soundsecondary = wp_map[? "soundsecondary"];
 	soundreload = wp_map[? "soundreload"];
