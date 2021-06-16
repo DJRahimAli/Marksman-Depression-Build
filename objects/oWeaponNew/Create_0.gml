@@ -112,6 +112,7 @@ ammo[0] = -1;
 pointdir = 0;
 mouseangle = 0;
 controllerangle = 0;
+stopattack = false;
 ironsights = false;
 delta = 0;
 minmaxangle = 60;
