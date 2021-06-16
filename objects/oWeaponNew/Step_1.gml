@@ -103,8 +103,8 @@ if (currentdelay == 0) && (projectile != -1)
 			kickbackx = lengthdir_x(ds_map_find_value(other.weapons[other.weapon],"kickback"), other.image_angle);
 			//kickbacky = lengthdir_y(ds_map_find_value(other.weapons[other.weapon],"kickback"), -other.image_angle);
 		}
-		CrosshairShake(crosshairshakemagnitude,crosshairshakelength);
-		//ScreenShake(2,10);
+		Shake(crosshairshakemagnitude,crosshairshakelength,oCrosshair);
+		//Shake(2,10,oCamera);
 		currentrecoil = recoil;
 	}
 }

@@ -24,7 +24,7 @@ if (menu_control)
 	{
 		menu_x_target = -200;
 		menu_commited = menu_cursor;
-		ScreenShake(4,30);
+		Shake(4,30,oCamera);
 		menu_control = false;
 		audio_play_sound(snd_PistolFire,10,false);
 		audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
@@ -41,7 +41,7 @@ if (menu_control)
 		{
 			menu_x_target = -200;
 			menu_commited = menu_cursor;
-			ScreenShake(4,30);
+			Shake(4,30,oCamera);
 			menu_control = false;
 			audio_play_sound(snd_PistolFire,10,false);
 			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
