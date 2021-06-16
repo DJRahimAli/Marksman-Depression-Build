@@ -26,8 +26,7 @@ if (menu_control)
 		menu_commited = menu_cursor;
 		Shake(4,30,oCamera);
 		menu_control = false;
-		audio_play_sound(snd_PistolFire,10,false);
-		audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
+		audio_sound_pitch(audio_play_sound(snd_WeaponPistolPrimary,5,false),(random_range(0.98,1.02)));
 	}
 	
 	var mouse_x_gui = device_mouse_x_to_gui(0);
@@ -43,8 +42,7 @@ if (menu_control)
 			menu_commited = menu_cursor;
 			Shake(4,30,oCamera);
 			menu_control = false;
-			audio_play_sound(snd_PistolFire,10,false);
-			audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
+			audio_sound_pitch(audio_play_sound(snd_WeaponPistolPrimary,5,false),(random_range(0.98,1.02)));
 		}
 	}
 }

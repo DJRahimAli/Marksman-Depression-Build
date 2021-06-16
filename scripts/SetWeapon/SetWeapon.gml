@@ -34,4 +34,16 @@ function SetWeapon(argument0)
 	crosshairironsightdistance = wp_map[? "crosshairironsightdistance"];
 	crosshairshakemagnitude = wp_map[? "crosshairshakemagnitude"];
 	crosshairshakelength = wp_map[? "crosshairshakelength"];
+	soundprimary = wp_map[? "soundprimary"];
+	soundsecondary = wp_map[? "soundsecondary"];
+	soundreload = wp_map[? "soundreload"];
+	soundempty = wp_map[? "soundempty"];
+	soundprimarypitchmin = wp_map[? "soundprimarypitchmin"];
+	soundprimarypitchmax = wp_map[? "soundprimarypitchmax"];
+	soundsecondarypitchmin = wp_map[? "soundsecondarypitchmin"];
+	soundsecondarypitchmax = wp_map[? "soundsecondarypitchmax"];
+	soundreloadpitchmin = wp_map[? "soundreloadpitchmin"];
+	soundreloadpitchmax = wp_map[? "soundreloadpitchmax"];
+	soundemptypitchmin = wp_map[? "soundemptypitchmin"];
+	soundemptypitchmax = wp_map[? "soundemptypitchmax"];
 }

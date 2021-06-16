@@ -121,7 +121,7 @@
     {"id":{"name":"sPlayerTrailRC","path":"sprites/sPlayerTrailRC/sPlayerTrailRC.yy",},"order":15,},
     {"id":{"name":"oDPadLeft","path":"objects/oDPadLeft/oDPadLeft.yy",},"order":9,},
     {"id":{"name":"sPlayerAC","path":"sprites/sPlayerAC/sPlayerAC.yy",},"order":2,},
-    {"id":{"name":"snd_PistolFire","path":"sounds/snd_PistolFire/snd_PistolFire.yy",},"order":3,},
+    {"id":{"name":"snd_WeaponPistolPrimary","path":"sounds/snd_WeaponPistolPrimary/snd_WeaponPistolPrimary.yy",},"order":0,},
     {"id":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},"order":2,},
     {"id":{"name":"oTriggerBase","path":"objects/oTriggerBase/oTriggerBase.yy",},"order":2,},
     {"id":{"name":"sClouds","path":"sprites/sClouds/sClouds.yy",},"order":57,},
@@ -175,6 +175,7 @@
     {"folderPath":"folders/Sprites/Weapons.yy","order":61,"resourceVersion":"1.0","name":"Weapons","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Player.yy","order":62,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/Archive.yy","order":13,"resourceVersion":"1.0","name":"Archive","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sounds/Weapons.yy","order":10,"resourceVersion":"1.0","name":"Weapons","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
