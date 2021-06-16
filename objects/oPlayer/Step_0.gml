@@ -276,13 +276,13 @@ if instance_exists(oWeapon)
 	
 	if (onwall != 0 && aimside == onwall)
 	{
-		oWeapon.rspeed = 1;
-		oCrosshair.rspeed = 1;
+		oWeapon.currentrspeed = 1;
+		oCrosshair.currentrspeed = 1;
 	}
 	else
 	{
-		oWeapon.rspeed = 0.25;
-		oCrosshair.rspeed = 0.45;
+		oWeapon.currentrspeed = oWeapon.rspeed;
+		oCrosshair.currentrspeed = oCrosshair.rspeed;
 	}
 }
 else

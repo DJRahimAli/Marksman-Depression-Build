@@ -27,7 +27,8 @@ y += lengthdir_y(weapondistance-weaponcrouchdistance-recoil,image_angle);
 
 delta = 0;
 minmaxangle = 60;
-rspeed = 0;// Max = 1 or else things will glitch the fuck out
+rspeed = 0.25; // Max = 1 or else things will glitch the fuck out
+currentrspeed = 0;
 
 if (global.hasweapon == false) instance_destroy();
 

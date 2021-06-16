@@ -7,7 +7,7 @@ if (direction < 0) direction += 360;
 
 if (oWeapon.holstered)
 {
-	direction += angle_difference(270, direction) * rspeed/2;
+	direction += angle_difference(270, direction) * currentrspeed/2;
 	if (direction >= 240) && (direction <= 300) direction = 0;
 }
 else
@@ -24,13 +24,13 @@ else
 	if (oPlayer.onwall <= 0)
 	{
 		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir, 0)));
-		direction += angle_difference(delta, direction) * rspeed;
+		direction += angle_difference(delta, direction) * currentrspeed;
 	}
 	
 	if (oPlayer.onwall > 0)
 	{
 		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
-		direction += angle_difference(delta, direction - 180) * rspeed;
+		direction += angle_difference(delta, direction - 180) * currentrspeed;
 	}
 }
 

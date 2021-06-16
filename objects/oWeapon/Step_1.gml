@@ -7,7 +7,7 @@ if (image_angle < 0) image_angle += 360;
 
 if (holstered)
 {
-	image_angle += angle_difference(270, image_angle) * rspeed/2;
+	image_angle += angle_difference(270, image_angle) * currentrspeed/2;
 	if (image_angle >= 240) && (image_angle <= 300) image_alpha = 0; else image_alpha = 1;
 }
 else
@@ -16,21 +16,21 @@ else
 		{
 			minmaxangle = 360;
 			delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir, 0)));
-			image_angle += angle_difference(delta, image_angle) * rspeed;
+			image_angle += angle_difference(delta, image_angle) * currentrspeed;
 		}
 		
 		if (oPlayer.onwall < 0)
 		{
 			minmaxangle = 60;
 			delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir, 0)));
-			image_angle += angle_difference(delta, image_angle) * rspeed;
+			image_angle += angle_difference(delta, image_angle) * currentrspeed;
 		}
 	
 		if (oPlayer.onwall > 0)
 		{
 			minmaxangle = 60;
 			delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir - 180, 0)));
-			image_angle += angle_difference(delta, image_angle - 180) * rspeed;
+			image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
 		}
 	
 	if (global.controller == 0)
