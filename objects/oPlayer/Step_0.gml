@@ -94,16 +94,9 @@ if (global.key_crouch_released)
 	if (!crouchstuck) walksp = walkspcrouchmax;
 }
 
-if (crouch) && (onground)
-{
-	walksp = walkspcrouchmax;
-	if instance_exists(oWeapon) oWeapon.ironsights = true;
-}
-else
-{
-	walksp = walkspmax;
-	if instance_exists(oWeapon) oWeapon.ironsights = false;
-}
+if (crouch) && (onground) walksp = walkspcrouchmax; else walksp = walkspmax;
+
+if (crouch) && (onground) && (oWeaponNew.ironsight) oWeaponNew.ironsights = true; else oWeaponNew.ironsights = false;
 
 if (place_meeting(x,y-8,oWall) && (onground) || place_meeting(x,y-8,oCollision)) && (!global.noclip)
 {
@@ -251,41 +244,7 @@ if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
 hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 
-if instance_exists(oWeapon)
-{	
-	if (!oWeapon.holstered)
-	{
-		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
-		image_xscale = aimside;
-	}
-	
-	if (oWeapon.holstered)
-	{
-		if (hspnodec != 0)
-		{
-			aimside = sign(hsp);
-			image_xscale = aimside;
-		}
-	
-		if (hsp < 1 && onwall != 0) 
-		{
-			aimside = -onwall;
-			image_xscale = aimside;
-		}
-	}
-	
-	if (onwall != 0 && aimside == onwall)
-	{
-		oWeapon.currentrspeed = 1;
-		oCrosshair.currentrspeed = 1;
-	}
-	else
-	{
-		oWeapon.currentrspeed = oWeapon.rspeed;
-		oCrosshair.currentrspeed = oCrosshair.rspeed;
-	}
-}
-else
+if (oWeaponNew.aimsidetype == "hsp")
 {
 	if (hspnodec != 0)
 	{
@@ -298,6 +257,26 @@ else
 		aimside = -onwall;
 		image_xscale = aimside;
 	}
+}
+
+if (oWeaponNew.aimsidetype == "direction")
+{	
+	/*if (!oWeapon.holstered)
+	{*/
+		if (oWeaponNew.image_angle > 90) && (oWeaponNew.image_angle < 270) aimside = -1; else aimside = 1;
+		image_xscale = aimside;
+	//}
+}
+
+if (onwall != 0 && aimside == onwall)
+{
+	oWeaponNew.currentrspeed = 1;
+	oCrosshair.currentrspeed = 1;
+}
+else
+{
+	oWeaponNew.currentrspeed = oWeaponNew.rspeed;
+	oCrosshair.currentrspeed = oCrosshair.rspeed;
 }
 
 if (!onground)

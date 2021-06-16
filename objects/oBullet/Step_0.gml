@@ -9,7 +9,7 @@ if (place_meeting(x,y,pShootable))
 {
 	with (instance_place(x,y,pShootable))
 	{
-		hp-=8;
+		hp -= oWeaponNew.damage;
 		flash = 3;
 		hitfrom = other.direction;
 	}

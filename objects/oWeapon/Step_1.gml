@@ -33,30 +33,30 @@ else
 			image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
 		}
 	
-	if (global.controller == 0)
-	{
-		if (global.hascontrol)
+		if (global.controller == 0)
 		{
-			mouseangle = point_direction(x,y,mouse_x,mouse_y);
-			pointdir = mouseangle;
-			//image_angle = clamp(image_angle, 0, 360);
-			//image_angle = image_angle mod 360;
-		}
-	}
-	
-	if (global.controller == 1)
-	{
-		var controllerh = gamepad_axis_value(0,gp_axisrh);
-		var controllerv = gamepad_axis_value(0,gp_axisrv);
-		if (global.hascontrol)
-		{
-			if (abs(controllerh) > global.deadzone) || (abs(controllerv) > global.deadzone)
+			if (global.hascontrol)
 			{
-				controllerangle = point_direction(0,0,controllerh,controllerv);
-				pointdir = controllerangle;
+				mouseangle = point_direction(x,y,mouse_x,mouse_y);
+				pointdir = mouseangle;
+				//image_angle = clamp(image_angle, 0, 360);
+				//image_angle = image_angle mod 360;
 			}
 		}
-	}
+	
+		if (global.controller == 1)
+		{
+			var controllerh = gamepad_axis_value(0,gp_axisrh);
+			var controllerv = gamepad_axis_value(0,gp_axisrv);
+			if (global.hascontrol)
+			{
+				if (abs(controllerh) > global.deadzone) || (abs(controllerv) > global.deadzone)
+				{
+					controllerangle = point_direction(0,0,controllerh,controllerv);
+					pointdir = controllerangle;
+				}
+			}
+		}
 }
 
 //Flip weapon
@@ -68,7 +68,14 @@ recoil = max(0,recoil -1);
 x += lengthdir_x(weapondistance-weaponcrouchdistance-recoil,image_angle);
 y += lengthdir_y(weapondistance-weaponcrouchdistance-recoil,image_angle);
 
-if (ironsights) weaponcrouchdistance = lerp(weaponcrouchdistance, weaponcrouchdistancerate, 0.5); else weaponcrouchdistance = lerp(weaponcrouchdistance, 0, 0.5);
+if (ironsights)
+{
+	weaponcrouchdistance = lerp(weaponcrouchdistance, weaponcrouchdistancerate, 0.5);
+}
+else
+{
+	weaponcrouchdistance = lerp(weaponcrouchdistance, 0, 0.5);
+}
 
 if (place_meeting(x,y,oWall) || place_meeting(x,y,oBulletWall) || place_meeting(x,y,oCollision) || holstered) stopshooting = true; else stopshooting = false;
 
@@ -94,7 +101,7 @@ if (global.hascontrol)
 		}
 		with (instance_create_layer(x,y,"Projectiles",oBullet))
 		{
-			spd = 25;
+			spd = projectilespeed;
 			if (other.ironsights) direction = other.image_angle + random_range(-1,2); else direction = other.image_angle + random_range(-2,3);
 			image_angle = direction;
 			image_xscale = other.image_xscale;

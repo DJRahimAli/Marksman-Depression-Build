@@ -1,1 +1,1 @@
-with (oWeapon) instance_destroy();
+with (oWeaponNew) instance_destroy();
