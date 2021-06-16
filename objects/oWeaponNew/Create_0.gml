@@ -35,6 +35,22 @@ ds_map_add(weapons[0],"crosshairironsightspeed",0);
 ds_map_add(weapons[0],"crosshairironsightdistance",0);
 ds_map_add(weapons[0],"crosshairshakemagnitude",0);
 ds_map_add(weapons[0],"crosshairshakelength",0);
+ds_map_add(weapons[0],"soundprimary",-1);
+ds_map_add(weapons[0],"soundsecondary",-1);
+ds_map_add(weapons[0],"soundreload",-1);
+ds_map_add(weapons[0],"soundempty",-1);
+ds_map_add(weapons[0],"soundprimarypitch",0);
+ds_map_add(weapons[0],"soundsecondarypitch",0);
+ds_map_add(weapons[0],"soundreloadpitch",0);
+ds_map_add(weapons[0],"soundemptypitch",0);
+ds_map_add(weapons[0],"soundprimarypitchmin",0.98);
+ds_map_add(weapons[0],"soundprimarypitchmax",1.02);
+ds_map_add(weapons[0],"soundsecondarypitchmin",0);
+ds_map_add(weapons[0],"soundsecondarypitchmax",0);
+ds_map_add(weapons[0],"soundreloadpitchmin",0);
+ds_map_add(weapons[0],"soundreloadpitchmax",0);
+ds_map_add(weapons[0],"soundemptypitchmin",0);
+ds_map_add(weapons[0],"soundemptypitchmax",0);
 #endregion
 
 #region //pistol (1)
@@ -68,6 +84,18 @@ ds_map_add(weapons[1],"crosshairironsightspeed",0.5);
 ds_map_add(weapons[1],"crosshairironsightdistance",125);
 ds_map_add(weapons[1],"crosshairshakemagnitude",2);
 ds_map_add(weapons[1],"crosshairshakelength",10);
+ds_map_add(weapons[1],"soundprimary",snd_WeaponPistolPrimary);
+ds_map_add(weapons[1],"soundsecondary",-1);
+ds_map_add(weapons[1],"soundreload",-1);
+ds_map_add(weapons[1],"soundempty",-1);
+ds_map_add(weapons[1],"soundprimarypitchmin",0.98);
+ds_map_add(weapons[1],"soundprimarypitchmax",1.02);
+ds_map_add(weapons[1],"soundsecondarypitchmin",0);
+ds_map_add(weapons[1],"soundsecondarypitchmax",0);
+ds_map_add(weapons[1],"soundreloadpitchmin",0);
+ds_map_add(weapons[1],"soundreloadpitchmax",0);
+ds_map_add(weapons[1],"soundemptypitchmin",0);
+ds_map_add(weapons[1],"soundemptypitchmax",0);
 #endregion
 
 #region //submachine gun (2)
@@ -101,6 +129,18 @@ ds_map_add(weapons[2],"crosshairironsightspeed",0.5);
 ds_map_add(weapons[2],"crosshairironsightdistance",125);
 ds_map_add(weapons[2],"crosshairshakemagnitude",2);
 ds_map_add(weapons[2],"crosshairshakelength",10);
+ds_map_add(weapons[2],"soundprimary",snd_WeaponPistolPrimary);
+ds_map_add(weapons[2],"soundsecondary",-1);
+ds_map_add(weapons[2],"soundreload",-1);
+ds_map_add(weapons[2],"soundempty",-1);
+ds_map_add(weapons[2],"soundprimarypitchmin",0.98);
+ds_map_add(weapons[2],"soundprimarypitchmax",1.02);
+ds_map_add(weapons[2],"soundsecondarypitchmin",0);
+ds_map_add(weapons[2],"soundsecondarypitchmax",0);
+ds_map_add(weapons[2],"soundreloadpitchmin",0);
+ds_map_add(weapons[2],"soundreloadpitchmax",0);
+ds_map_add(weapons[2],"soundemptypitchmin",0);
+ds_map_add(weapons[2],"soundemptypitchmax",0);
 shake_length = 0;
 shake_magnitude = 0;
 shake_remain = 0;
