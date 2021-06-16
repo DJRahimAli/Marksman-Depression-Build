@@ -47,7 +47,7 @@ if (oWeaponNew.crosshair)
 	y += random_range(-shake_remain,shake_remain);
 	shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
 	
-	//if (oWeapon.stopshooting) image_alpha = 0; else image_alpha = 1;
+	if (oWeaponNew.stopattack) image_alpha = 0; else image_alpha = 1;
 
 	//if (oWeapon.ironsights) crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5); else crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);
 }

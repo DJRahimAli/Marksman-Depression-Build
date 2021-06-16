@@ -58,8 +58,20 @@ if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, 0.5);
 x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
+if (place_meeting(x,y,oWall) || place_meeting(x,y,oBulletWall) || place_meeting(x,y,oCollision))
+{
+	stopattack = true;
+	image_alpha = 0.5;
+}
+else
+{
+	stopattack = false;
+	image_alpha = 1;
+}
+
 var primaryattack;
 if (automatic) primaryattack = global.key_primaryattack_held; else primaryattack = global.key_primaryattack_pressed;
+if (!global.hascontrol) || (stopattack) primaryattack = false;
 
 if (primaryattack)
 {
@@ -111,5 +123,5 @@ if (currentdelay == 0) && (projectile != -1)
 currentdelay = max(-1,currentdelay-1);
 if (currentdelay == -1) currentcd = max(0,currentcd-1);
 currentrecoil = max(0,floor(currentrecoil*0.8));
-ammo[weapon] = 1;
+ammo[weapon] = 1;//infinite ammo
 //depth = oPlayer.depth-1;
