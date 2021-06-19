@@ -115,7 +115,7 @@ ds_map_add(weapons[2],"projectileamount",1);
 ds_map_add(weapons[2],"projectilespeed",25);
 ds_map_add(weapons[2],"projectilelength",24);
 ds_map_add(weapons[2],"shell",oShell);
-ds_map_add(weapons[2],"shellamount",2);
+ds_map_add(weapons[2],"shellamount",1);
 ds_map_add(weapons[2],"shelllength",0);
 ds_map_add(weapons[2],"startup",0);
 ds_map_add(weapons[2],"cooldown",20);
