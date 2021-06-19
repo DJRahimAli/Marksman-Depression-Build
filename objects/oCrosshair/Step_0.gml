@@ -35,7 +35,18 @@ else
 if (direction > 360) direction -= 360;
 if (direction < 0) direction += 360;
 	
-if (oWeaponNew.ironsights) currentdistance = lerp(currentdistance, oWeaponNew.crosshairironsightdistance, oWeaponNew.crosshairironsightspeed); else currentdistance = lerp(currentdistance, oWeaponNew.crosshairdistance, oWeaponNew.crosshairironsightspeed);
+if (oWeaponNew.ironsights)
+{
+	currentdistance = lerp(currentdistance, oWeaponNew.crosshairironsightdistance, oWeaponNew.crosshairironsightspeed);
+	currentshakemagnitude = oWeaponNew.crosshairironsightshakemagnitude;
+	currentshakelength = oWeaponNew.crosshairironsightshakelength;
+}
+else
+{
+	currentdistance = lerp(currentdistance, oWeaponNew.crosshairdistance, oWeaponNew.crosshairironsightspeed);
+	currentshakemagnitude = oWeaponNew.crosshairshakemagnitude;
+	currentshakelength = oWeaponNew.crosshairshakelength;
+}
 
 x += lengthdir_x(currentdistance,direction);
 y += lengthdir_y(currentdistance,direction);
