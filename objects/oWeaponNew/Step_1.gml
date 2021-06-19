@@ -70,8 +70,13 @@ else
 }
 
 var primaryattack;
-if (firemodetype == "single") primaryattack = global.key_primaryattack_pressed;
-if (firemodetype == "automatic") primaryattack = global.key_primaryattack_held;
+//Firemodes
+switch (firemodetype)
+{
+	case "single": primaryattack = global.key_primaryattack_pressed; break;
+	case "automatic": primaryattack = global.key_primaryattack_held; break;
+}
+
 if (!global.hascontrol) || (stopattack) primaryattack = false;
 
 if (primaryattack)

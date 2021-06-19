@@ -245,29 +245,30 @@ vspnodec = string_format(vsp, 0, 0);
 if instance_exists(oWeaponNew)
 {
 	if (crouch) && (onground) && (oWeaponNew.ironsight) oWeaponNew.ironsights = true; else oWeaponNew.ironsights = false;
-
-	if (oWeaponNew.aimsidetype == "hsp")
+	
+	//Aimside Types
+	switch (oWeaponNew.aimsidetype)
 	{
+		case "hsp":
 		if (hspnodec != 0)
 		{
 			aimside = sign(hsp);
 			image_xscale = aimside;
 		}
-	
+		
 		if (hsp < 1 && onwall != 0) 
 		{
 			aimside = -onwall;
 			image_xscale = aimside;
 		}
-	}
-
-	if (oWeaponNew.aimsidetype == "direction")
-	{	
+		break;
+		case "direction":
 		/*if (!oWeapon.holstered)
 		{*/
 			if (oWeaponNew.image_angle > 90) && (oWeaponNew.image_angle < 270) aimside = -1; else aimside = 1;
 			image_xscale = aimside;
 		//}
+		break;
 	}
 
 	if (onwall != 0 && aimside == onwall)
@@ -279,6 +280,20 @@ if instance_exists(oWeaponNew)
 	{
 		oWeaponNew.currentrspeed = oWeaponNew.rspeed;
 		oCrosshair.currentrspeed = oCrosshair.rspeed;
+	}
+}
+else
+{
+	if (hspnodec != 0)
+	{
+		aimside = sign(hsp);
+		image_xscale = aimside;
+	}
+		
+	if (hsp < 1 && onwall != 0) 
+	{
+		aimside = -onwall;
+		image_xscale = aimside;
 	}
 }
 
