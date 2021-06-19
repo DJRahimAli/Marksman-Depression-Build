@@ -12,9 +12,11 @@ function SetWeapon(argument0)
 	spreadmin = wp_map[? "spreadmin"];
 	spreadmax = wp_map[? "spreadmax"];
 	projectile = wp_map[? "projectile"];
+	projectileamount = wp_map[? "projectileamount"];
 	projectilespeed = wp_map[? "projectilespeed"];
 	projectilelength = wp_map[? "projectilelength"];
 	shell = wp_map[? "shell"];
+	shellamount = wp_map[? "shellamount"];
 	shelllength = wp_map[? "shelllength"];
 	startup = wp_map[? "startup"];
 	cooldown = wp_map[? "cooldown"];
