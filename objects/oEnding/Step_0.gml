@@ -13,7 +13,7 @@ if (letters >= length) && (keyboard_check_pressed(vk_anykey)
 || gamepad_button_check_pressed(0,gp_padu) || gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_padl) || gamepad_button_check_pressed(0,gp_padr)
 || gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_select))
 {
-	if (currentline+1 == array_length_1d(endtext))
+	if (currentline+1 == array_length(endtext))
 	{
 		SlideTransition(TRANS_MODE.RESTART);
 	}

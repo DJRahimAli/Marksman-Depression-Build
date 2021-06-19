@@ -88,10 +88,7 @@ if (currentdelay == 0)
 	{
 		image_speed = 1;
 		image_index = 1;
-		if (soundprimary != -1)
-		{
-			audio_sound_pitch(audio_play_sound(snd_WeaponPistolPrimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
-		}
+		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 		with (oMuzzleFlash)
 		{
 			image_alpha = 1;
@@ -119,7 +116,6 @@ if (currentdelay == 0)
 				image_yscale = other.image_yscale;
 			}
 		}
-		ammo[weapon] -= 1;
 		with (oPlayer)
 		{
 			kickbackx = lengthdir_x(ds_map_find_value(other.weapons[other.weapon],"kickback"), other.image_angle);
@@ -127,11 +123,19 @@ if (currentdelay == 0)
 		}
 		Shake(oCrosshair.currentshakemagnitude,crosshairshakelength,oCrosshair);
 		//Shake(2,10,oCamera);
+		ammo[weapon] -= 1;
 		currentrecoil = recoil;
 	}
+	
+	if (ammo[weapon] == 0)
+	{
+		//set reload key to true here for an autoreload?
+		if (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
+	}
 }
+
 currentdelay = max(-1,currentdelay-1);
 if (currentdelay == -1) currentcd = max(0,currentcd-1);
 currentrecoil = max(0,floor(currentrecoil*0.8));
-ammo[weapon] = 1;//infinite ammo
+//ammo[weapon] = 1;//infinite ammo
 //depth = oPlayer.depth-1;
