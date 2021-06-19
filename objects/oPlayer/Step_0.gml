@@ -244,7 +244,7 @@ vspnodec = string_format(vsp, 0, 0);
 
 if instance_exists(oWeaponNew)
 {
-	if (global.key_crouch_held) && (onground) && (oWeaponNew.ironsight) oWeaponNew.ironsights = true; else oWeaponNew.ironsights = false;
+	if (crouch) && (onground) && (oWeaponNew.ironsight) oWeaponNew.ironsights = true; else oWeaponNew.ironsights = false;
 
 	if (oWeaponNew.aimsidetype == "hsp")
 	{
