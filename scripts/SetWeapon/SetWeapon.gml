@@ -18,7 +18,7 @@ function SetWeapon(argument0)
 	shelllength = wp_map[? "shelllength"];
 	startup = wp_map[? "startup"];
 	cooldown = wp_map[? "cooldown"];
-	automatic = wp_map[? "automatic"];
+	firemodetype = wp_map[? "firemodetype"];
 	aimsidetype = wp_map[? "aimsidetype"];
 	distance = wp_map[? "distance"];
 	ironsight = wp_map[? "ironsight"];

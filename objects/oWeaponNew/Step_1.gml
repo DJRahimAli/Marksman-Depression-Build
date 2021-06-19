@@ -70,7 +70,8 @@ else
 }
 
 var primaryattack;
-if (automatic) primaryattack = global.key_primaryattack_held; else primaryattack = global.key_primaryattack_pressed;
+if (firemodetype == "single") primaryattack = global.key_primaryattack_pressed;
+if (firemodetype == "automatic") primaryattack = global.key_primaryattack_held;
 if (!global.hascontrol) || (stopattack) primaryattack = false;
 
 if (primaryattack)
