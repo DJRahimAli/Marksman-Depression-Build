@@ -98,23 +98,29 @@ if (currentdelay == 0)
 		}
 		if (projectile != -1)
 		{
-			with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
+			repeat(projectileamount)
 			{
-				if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
-				direction = other.image_angle + oWeaponNew.currentspread;
-				image_angle = direction;
-				spd = oWeaponNew.projectilespeed;
+				with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
+				{
+					if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
+					direction = other.image_angle + oWeaponNew.currentspread;
+					image_angle = direction;
+					spd = oWeaponNew.projectilespeed;
+				}
 			}
 		}
 		if (shell != -1)
 		{
-			with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
+			repeat(shellamount)
 			{
-				hsp -= lengthdir_x(random_range(3,4), other.image_angle);
-				if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(4,5); else vsp = random_range(-4,-5);
-				direction = other.image_angle;
-				image_xscale = other.image_yscale;
-				image_yscale = other.image_yscale;
+				with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
+				{
+					hsp -= lengthdir_x(random_range(3,4), other.image_angle);
+					if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(4,5); else vsp = random_range(-4,-5);
+					direction = other.image_angle;
+					image_xscale = other.image_yscale;
+					image_yscale = other.image_yscale;
+				}
 			}
 		}
 		with (oPlayer)
