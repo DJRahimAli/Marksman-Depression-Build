@@ -82,7 +82,7 @@ if (primaryattack)
 	}
 }
 
-if (currentdelay == 0) && (projectile != -1)
+if (currentdelay == 0)
 {
 	if (ammo[weapon] != 0)
 	{
@@ -98,20 +98,26 @@ if (currentdelay == 0) && (projectile != -1)
 			image_speed = 1;
 			image_index = 0;
 		}
-		with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
+		if (projectile != -1)
 		{
-			if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
-			direction = other.image_angle + oWeaponNew.currentspread;
-			image_angle = direction;
-			spd = oWeaponNew.projectilespeed;
+			with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
+			{
+				if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
+				direction = other.image_angle + oWeaponNew.currentspread;
+				image_angle = direction;
+				spd = oWeaponNew.projectilespeed;
+			}
 		}
-		with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
+		if (shell != -1)
 		{
-			hsp -= lengthdir_x(random_range(3,4), other.image_angle);
-			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(4,5); else vsp = random_range(-4,-5);
-			direction = other.image_angle;
-			image_xscale = other.image_yscale;
-			image_yscale = other.image_yscale;
+			with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
+			{
+				hsp -= lengthdir_x(random_range(3,4), other.image_angle);
+				if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(4,5); else vsp = random_range(-4,-5);
+				direction = other.image_angle;
+				image_xscale = other.image_yscale;
+				image_yscale = other.image_yscale;
+			}
 		}
 		ammo[weapon] -= 1;
 		with (oPlayer)
