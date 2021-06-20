@@ -1,4 +1,3 @@
-
 /// @desc Follow player and copy weapon angle
 x = oPlayer.x;
 y = oPlayer.y+10;

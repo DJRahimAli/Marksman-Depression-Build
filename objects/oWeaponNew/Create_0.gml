@@ -28,6 +28,7 @@ ds_map_add(weapons[weaponid],"ironsightspreadmax",0);
 #endregion
 #region Projectile
 ds_map_add(weapons[weaponid],"projectile",-1);//oHitscan);
+ds_map_add(weapons[weaponid],"projectilesprite",-1);
 ds_map_add(weapons[weaponid],"projectileamount",0);
 ds_map_add(weapons[weaponid],"projectilespeed",0);
 ds_map_add(weapons[weaponid],"projectilelength",0);
@@ -88,6 +89,7 @@ ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
 #endregion
 #region Projectile
 ds_map_add(weapons[weaponid],"projectile",oBullet);//oHitscan);
+ds_map_add(weapons[weaponid],"projectilesprite",sBullet);
 ds_map_add(weapons[weaponid],"projectileamount",1);
 ds_map_add(weapons[weaponid],"projectilespeed",25);
 ds_map_add(weapons[weaponid],"projectilelength",24);
@@ -148,6 +150,7 @@ ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
 #endregion
 #region Projectile
 ds_map_add(weapons[weaponid],"projectile",oBullet);//oHitscan);
+ds_map_add(weapons[weaponid],"projectilesprite",sBullet);
 ds_map_add(weapons[weaponid],"projectileamount",1);
 ds_map_add(weapons[weaponid],"projectilespeed",25);
 ds_map_add(weapons[weaponid],"projectilelength",24);

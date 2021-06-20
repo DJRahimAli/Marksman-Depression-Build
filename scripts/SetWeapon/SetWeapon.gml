@@ -26,6 +26,7 @@ function SetWeapon(argument0)
 	#endregion
 	#region Projectile
 	projectile = wp_map[? "projectile"];
+	projectilesprite = wp_map[? "projectilesprite"];
 	projectileamount = wp_map[? "projectileamount"];
 	projectilespeed = wp_map[? "projectilespeed"];
 	projectilelength = wp_map[? "projectilelength"];
