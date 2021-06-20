@@ -4,151 +4,184 @@ image_index = 0;
 instance_create_layer(x,y,"Crosshair",oCrosshair);
 instance_create_layer(x,y,"Weapon",oMuzzleFlash);
 
-#region //unarmed (0)
-weapons[0] = ds_map_create();
-ds_map_add(weapons[0],"sprite",-1);
-ds_map_add(weapons[0],"recoil",0);
-ds_map_add(weapons[0],"kickback",0);
-ds_map_add(weapons[0],"damage",0);
-ds_map_add(weapons[0],"spreadmin",0);
-ds_map_add(weapons[0],"spreadmax",0);
-ds_map_add(weapons[0],"projectile",-1);//oHitscan);
-ds_map_add(weapons[0],"projectileamount",1);
-ds_map_add(weapons[0],"projectilespeed",0);
-ds_map_add(weapons[0],"projectilelength",0);
-ds_map_add(weapons[0],"shell",-1);
-ds_map_add(weapons[0],"shellamount",0);
-ds_map_add(weapons[0],"shelllength",0);
-ds_map_add(weapons[0],"startup",0);
-ds_map_add(weapons[0],"cooldown",0);
-ds_map_add(weapons[0],"firemodetype","single");
-ds_map_add(weapons[0],"aimsidetype","hsp");
-ds_map_add(weapons[0],"distance",0);
-ds_map_add(weapons[0],"ironsight",false);
-ds_map_add(weapons[0],"ironsightspeed",0);
-ds_map_add(weapons[0],"ironsightdistance",0);
-ds_map_add(weapons[0],"ironsightrecoil",0);
-ds_map_add(weapons[0],"ironsightspreadmin",0);
-ds_map_add(weapons[0],"ironsightspreadmax",0);
-ds_map_add(weapons[0],"crosshair",false);
-ds_map_add(weapons[0],"crosshairsprite",-1);
-ds_map_add(weapons[0],"crosshairdistance",0);
-ds_map_add(weapons[0],"crosshairshakemagnitude",0);
-ds_map_add(weapons[0],"crosshairshakelength",0);
-ds_map_add(weapons[0],"crosshairironsightspeed",0);
-ds_map_add(weapons[0],"crosshairironsightdistance",0);
-ds_map_add(weapons[0],"crosshairironsightshakemagnitude",0);
-ds_map_add(weapons[0],"crosshairironsightshakelength",0);
-ds_map_add(weapons[0],"soundprimary",-1);
-ds_map_add(weapons[0],"soundsecondary",-1);
-ds_map_add(weapons[0],"soundreload",-1);
-ds_map_add(weapons[0],"soundempty",-1);
-ds_map_add(weapons[0],"soundprimarypitchmin",1);
-ds_map_add(weapons[0],"soundprimarypitchmax",1);
-ds_map_add(weapons[0],"soundsecondarypitchmin",1);
-ds_map_add(weapons[0],"soundsecondarypitchmax",1);
-ds_map_add(weapons[0],"soundreloadpitchmin",1);
-ds_map_add(weapons[0],"soundreloadpitchmax",1);
-ds_map_add(weapons[0],"soundemptypitchmin",1);
-ds_map_add(weapons[0],"soundemptypitchmax",1);
+#region Unarmed (0)
+var weaponid = 0;
+weapons[weaponid] = ds_map_create();
+#region Weapon
+ds_map_add(weapons[weaponid],"sprite",-1);
+ds_map_add(weapons[weaponid],"recoil",0);
+ds_map_add(weapons[weaponid],"kickback",0);
+ds_map_add(weapons[weaponid],"damage",0);
+ds_map_add(weapons[weaponid],"startup",0);
+ds_map_add(weapons[weaponid],"cooldown",0);
+ds_map_add(weapons[weaponid],"firemodetype","single");
+ds_map_add(weapons[weaponid],"aimsidetype","hsp");
+ds_map_add(weapons[weaponid],"distance",0);
+ds_map_add(weapons[weaponid],"spreadmin",0);
+ds_map_add(weapons[weaponid],"spreadmax",0);
+ds_map_add(weapons[weaponid],"ironsight",false);
+ds_map_add(weapons[weaponid],"ironsightspeed",0);
+ds_map_add(weapons[weaponid],"ironsightdistance",0);
+ds_map_add(weapons[weaponid],"ironsightrecoil",0);
+ds_map_add(weapons[weaponid],"ironsightspreadmin",0);
+ds_map_add(weapons[weaponid],"ironsightspreadmax",0);
+#endregion
+#region Projectile
+ds_map_add(weapons[weaponid],"projectile",-1);//oHitscan);
+ds_map_add(weapons[weaponid],"projectileamount",0);
+ds_map_add(weapons[weaponid],"projectilespeed",0);
+ds_map_add(weapons[weaponid],"projectilelength",0);
+#endregion
+#region Shell
+ds_map_add(weapons[weaponid],"shell",-1);
+ds_map_add(weapons[weaponid],"shellamount",0);
+ds_map_add(weapons[weaponid],"shelllength",0);
+#endregion
+#region Crosshair
+ds_map_add(weapons[weaponid],"crosshair",false);
+ds_map_add(weapons[weaponid],"crosshairsprite",-1);
+ds_map_add(weapons[weaponid],"crosshairdistance",0);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitude",0);
+ds_map_add(weapons[weaponid],"crosshairshakelength",0);
+ds_map_add(weapons[weaponid],"crosshairironsightspeed",0);
+ds_map_add(weapons[weaponid],"crosshairironsightdistance",0);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitude",0);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelength",0);
+#endregion
+#region Sound
+ds_map_add(weapons[weaponid],"soundprimary",-1);
+ds_map_add(weapons[weaponid],"soundsecondary",-1);
+ds_map_add(weapons[weaponid],"soundreload",-1);
+ds_map_add(weapons[weaponid],"soundempty",-1);
+ds_map_add(weapons[weaponid],"soundprimarypitchmin",1);
+ds_map_add(weapons[weaponid],"soundprimarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundsecondarypitchmin",1);
+ds_map_add(weapons[weaponid],"soundsecondarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundreloadpitchmin",1);
+ds_map_add(weapons[weaponid],"soundreloadpitchmax",1);
+ds_map_add(weapons[weaponid],"soundemptypitchmin",1);
+ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
+#endregion
 #endregion
 
-#region //pistol (1)
-weapons[1] = ds_map_create();
-ds_map_add(weapons[1],"sprite",sWeaponPistol);
-ds_map_add(weapons[1],"recoil",4);
-ds_map_add(weapons[1],"kickback",1.5);
-ds_map_add(weapons[1],"damage",8);
-ds_map_add(weapons[1],"spreadmin",-2);
-ds_map_add(weapons[1],"spreadmax",3);
-ds_map_add(weapons[1],"projectile",oBullet);//oHitscan);
-ds_map_add(weapons[1],"projectileamount",1);
-ds_map_add(weapons[1],"projectilespeed",25);
-ds_map_add(weapons[1],"projectilelength",24);
-ds_map_add(weapons[1],"shell",oShell);
-ds_map_add(weapons[1],"shellamount",1);
-ds_map_add(weapons[1],"shelllength",0);
-ds_map_add(weapons[1],"startup",0);
-ds_map_add(weapons[1],"cooldown",20);
-ds_map_add(weapons[1],"firemodetype","single");
-ds_map_add(weapons[1],"aimsidetype","direction");
-ds_map_add(weapons[1],"distance",40);
-ds_map_add(weapons[1],"ironsight",true);
-ds_map_add(weapons[1],"ironsightspeed",0.5);
-ds_map_add(weapons[1],"ironsightdistance",35);
-ds_map_add(weapons[1],"ironsightrecoil",3);
-ds_map_add(weapons[1],"ironsightspreadmin",-1);
-ds_map_add(weapons[1],"ironsightspreadmax",2);
-ds_map_add(weapons[1],"crosshair",true);
-ds_map_add(weapons[1],"crosshairsprite",sCrosshair);
-ds_map_add(weapons[1],"crosshairdistance",120);
-ds_map_add(weapons[1],"crosshairshakemagnitude",2);
-ds_map_add(weapons[1],"crosshairshakelength",10);
-ds_map_add(weapons[1],"crosshairironsightspeed",0.5);
-ds_map_add(weapons[1],"crosshairironsightdistance",125);
-ds_map_add(weapons[1],"crosshairironsightshakemagnitude",1);
-ds_map_add(weapons[1],"crosshairironsightshakelength",5);
-ds_map_add(weapons[1],"soundprimary",snd_WeaponPistolPrimary);
-ds_map_add(weapons[1],"soundsecondary",-1);
-ds_map_add(weapons[1],"soundreload",-1);
-ds_map_add(weapons[1],"soundempty",snd_WeaponPistolEmpty);
-ds_map_add(weapons[1],"soundprimarypitchmin",0.98);
-ds_map_add(weapons[1],"soundprimarypitchmax",1.02);
-ds_map_add(weapons[1],"soundsecondarypitchmin",1);
-ds_map_add(weapons[1],"soundsecondarypitchmax",1);
-ds_map_add(weapons[1],"soundreloadpitchmin",1);
-ds_map_add(weapons[1],"soundreloadpitchmax",1);
-ds_map_add(weapons[1],"soundemptypitchmin",1);
-ds_map_add(weapons[1],"soundemptypitchmax",1);
+#region //Pistol (1)
+var weaponid = 1;
+weapons[weaponid] = ds_map_create();
+#region Weapon
+ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
+ds_map_add(weapons[weaponid],"recoil",4);
+ds_map_add(weapons[weaponid],"kickback",1.5);
+ds_map_add(weapons[weaponid],"damage",8);
+ds_map_add(weapons[weaponid],"startup",0);
+ds_map_add(weapons[weaponid],"cooldown",20);
+ds_map_add(weapons[weaponid],"firemodetype","single");
+ds_map_add(weapons[weaponid],"aimsidetype","direction");
+ds_map_add(weapons[weaponid],"distance",40);
+ds_map_add(weapons[weaponid],"spreadmin",-2);
+ds_map_add(weapons[weaponid],"spreadmax",3);
+ds_map_add(weapons[weaponid],"ironsight",true);
+ds_map_add(weapons[weaponid],"ironsightspeed",0.5);
+ds_map_add(weapons[weaponid],"ironsightdistance",35);
+ds_map_add(weapons[weaponid],"ironsightrecoil",3);
+ds_map_add(weapons[weaponid],"ironsightspreadmin",-1);
+ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
+#endregion
+#region Projectile
+ds_map_add(weapons[weaponid],"projectile",oBullet);//oHitscan);
+ds_map_add(weapons[weaponid],"projectileamount",1);
+ds_map_add(weapons[weaponid],"projectilespeed",25);
+ds_map_add(weapons[weaponid],"projectilelength",24);
+#endregion
+#region Shell
+ds_map_add(weapons[weaponid],"shell",oShell);
+ds_map_add(weapons[weaponid],"shellamount",1);
+ds_map_add(weapons[weaponid],"shelllength",0);
+#endregion
+#region Crosshair
+ds_map_add(weapons[weaponid],"crosshair",true);
+ds_map_add(weapons[weaponid],"crosshairsprite",sCrosshair);
+ds_map_add(weapons[weaponid],"crosshairdistance",120);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitude",2);
+ds_map_add(weapons[weaponid],"crosshairshakelength",10);
+ds_map_add(weapons[weaponid],"crosshairironsightspeed",0.5);
+ds_map_add(weapons[weaponid],"crosshairironsightdistance",125);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitude",1);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelength",5);
+#endregion
+#region Sound
+ds_map_add(weapons[weaponid],"soundprimary",snd_WeaponPistolPrimary);
+ds_map_add(weapons[weaponid],"soundsecondary",-1);
+ds_map_add(weapons[weaponid],"soundreload",-1);
+ds_map_add(weapons[weaponid],"soundempty",snd_WeaponPistolEmpty);
+ds_map_add(weapons[weaponid],"soundprimarypitchmin",0.98);
+ds_map_add(weapons[weaponid],"soundprimarypitchmax",1.02);
+ds_map_add(weapons[weaponid],"soundsecondarypitchmin",1);
+ds_map_add(weapons[weaponid],"soundsecondarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundreloadpitchmin",1);
+ds_map_add(weapons[weaponid],"soundreloadpitchmax",1);
+ds_map_add(weapons[weaponid],"soundemptypitchmin",1);
+ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
+#endregion
 #endregion
 
-#region //submachine gun (2)
-weapons[2] = ds_map_create();
-ds_map_add(weapons[2],"sprite",sWeaponPistol);
-ds_map_add(weapons[2],"recoil",4);
-ds_map_add(weapons[2],"kickback",1.5);
-ds_map_add(weapons[2],"damage",8);
-ds_map_add(weapons[2],"spreadmin",-2);
-ds_map_add(weapons[2],"spreadmax",3);
-ds_map_add(weapons[2],"projectile",oBullet);//oHitscan);
-ds_map_add(weapons[2],"projectileamount",1);
-ds_map_add(weapons[2],"projectilespeed",25);
-ds_map_add(weapons[2],"projectilelength",24);
-ds_map_add(weapons[2],"shell",oShell);
-ds_map_add(weapons[2],"shellamount",1);
-ds_map_add(weapons[2],"shelllength",0);
-ds_map_add(weapons[2],"startup",0);
-ds_map_add(weapons[2],"cooldown",20);
-ds_map_add(weapons[2],"firemodetype","automatic");
-ds_map_add(weapons[2],"aimsidetype","direction");
-ds_map_add(weapons[2],"distance",40);
-ds_map_add(weapons[2],"ironsight",true);
-ds_map_add(weapons[2],"ironsightspeed",0.5);
-ds_map_add(weapons[2],"ironsightdistance",35);
-ds_map_add(weapons[2],"ironsightrecoil",3);
-ds_map_add(weapons[2],"ironsightspreadmin",-1);
-ds_map_add(weapons[2],"ironsightspreadmax",2);
-ds_map_add(weapons[2],"crosshair",true);
-ds_map_add(weapons[2],"crosshairsprite",sCrosshair);
-ds_map_add(weapons[2],"crosshairdistance",120);
-ds_map_add(weapons[2],"crosshairshakemagnitude",2);
-ds_map_add(weapons[2],"crosshairshakelength",10);
-ds_map_add(weapons[2],"crosshairironsightspeed",0.5);
-ds_map_add(weapons[2],"crosshairironsightdistance",125);
-ds_map_add(weapons[2],"crosshairironsightshakemagnitude",1);
-ds_map_add(weapons[2],"crosshairironsightshakelength",5);
-ds_map_add(weapons[2],"soundprimary",snd_WeaponPistolPrimary);
-ds_map_add(weapons[2],"soundsecondary",-1);
-ds_map_add(weapons[2],"soundreload",-1);
-ds_map_add(weapons[2],"soundempty",snd_WeaponPistolEmpty);
-ds_map_add(weapons[2],"soundprimarypitchmin",0.98);
-ds_map_add(weapons[2],"soundprimarypitchmax",1.02);
-ds_map_add(weapons[2],"soundsecondarypitchmin",1);
-ds_map_add(weapons[2],"soundsecondarypitchmax",1);
-ds_map_add(weapons[2],"soundreloadpitchmin",1);
-ds_map_add(weapons[2],"soundreloadpitchmax",1);
-ds_map_add(weapons[2],"soundemptypitchmin",1);
-ds_map_add(weapons[2],"soundemptypitchmax",1);
+#region //Submachine Gun (2)
+var weaponid = 2;
+weapons[weaponid] = ds_map_create();
+#region Weapon
+ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
+ds_map_add(weapons[weaponid],"recoil",4);
+ds_map_add(weapons[weaponid],"kickback",1.5);
+ds_map_add(weapons[weaponid],"damage",8);
+ds_map_add(weapons[weaponid],"startup",0);
+ds_map_add(weapons[weaponid],"cooldown",20);
+ds_map_add(weapons[weaponid],"firemodetype","automatic");
+ds_map_add(weapons[weaponid],"aimsidetype","direction");
+ds_map_add(weapons[weaponid],"distance",40);
+ds_map_add(weapons[weaponid],"spreadmin",-2);
+ds_map_add(weapons[weaponid],"spreadmax",3);
+ds_map_add(weapons[weaponid],"ironsight",true);
+ds_map_add(weapons[weaponid],"ironsightspeed",0.5);
+ds_map_add(weapons[weaponid],"ironsightdistance",35);
+ds_map_add(weapons[weaponid],"ironsightrecoil",3);
+ds_map_add(weapons[weaponid],"ironsightspreadmin",-1);
+ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
+#endregion
+#region Projectile
+ds_map_add(weapons[weaponid],"projectile",oBullet);//oHitscan);
+ds_map_add(weapons[weaponid],"projectileamount",1);
+ds_map_add(weapons[weaponid],"projectilespeed",25);
+ds_map_add(weapons[weaponid],"projectilelength",24);
+#endregion
+#region Shell
+ds_map_add(weapons[weaponid],"shell",oShell);
+ds_map_add(weapons[weaponid],"shellamount",1);
+ds_map_add(weapons[weaponid],"shelllength",0);
+#endregion
+#region Crosshair
+ds_map_add(weapons[weaponid],"crosshair",true);
+ds_map_add(weapons[weaponid],"crosshairsprite",sCrosshair);
+ds_map_add(weapons[weaponid],"crosshairdistance",120);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitude",2);
+ds_map_add(weapons[weaponid],"crosshairshakelength",10);
+ds_map_add(weapons[weaponid],"crosshairironsightspeed",0.5);
+ds_map_add(weapons[weaponid],"crosshairironsightdistance",125);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitude",1);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelength",5);
+#endregion
+#region Sound
+ds_map_add(weapons[weaponid],"soundprimary",snd_WeaponPistolPrimary);
+ds_map_add(weapons[weaponid],"soundsecondary",-1);
+ds_map_add(weapons[weaponid],"soundreload",-1);
+ds_map_add(weapons[weaponid],"soundempty",snd_WeaponPistolEmpty);
+ds_map_add(weapons[weaponid],"soundprimarypitchmin",0.98);
+ds_map_add(weapons[weaponid],"soundprimarypitchmax",1.02);
+ds_map_add(weapons[weaponid],"soundsecondarypitchmin",1);
+ds_map_add(weapons[weaponid],"soundsecondarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundreloadpitchmin",1);
+ds_map_add(weapons[weaponid],"soundreloadpitchmax",1);
+ds_map_add(weapons[weaponid],"soundemptypitchmin",1);
+ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
+#endregion
 #endregion
 
 weapon = 0;
