@@ -269,6 +269,18 @@ if instance_exists(oWeaponNew)
 			image_xscale = aimside;
 		//}
 		break;
+		default:
+		if (hspnodec != 0)
+		{
+			aimside = sign(hsp);
+			image_xscale = aimside;
+		}
+		
+		if (hsp < 1 && onwall != 0) 
+		{
+			aimside = -onwall;
+			image_xscale = aimside;
+		};
 	}
 
 	if (onwall != 0 && aimside == onwall)

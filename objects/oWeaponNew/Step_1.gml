@@ -75,6 +75,7 @@ switch (firemodetype)
 {
 	case "single": primaryattack = global.key_primaryattack_pressed; break;
 	case "automatic": primaryattack = global.key_primaryattack_held; break;
+	default: primaryattack = global.key_primaryattack_pressed;
 }
 
 if (!global.hascontrol) || (stopattack) primaryattack = false;
