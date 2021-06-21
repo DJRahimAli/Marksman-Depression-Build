@@ -29,18 +29,26 @@ function SetWeapon(argument0)
 	projectile = wp_map[? "projectile"];
 	projectilesprite = wp_map[? "projectilesprite"];
 	projectileamount = wp_map[? "projectileamount"];
+	projectilelength = wp_map[? "projectilelength"];
+	projectilelifemin = wp_map[? "projectilelifemin"];
+	projectilelifemax = wp_map[? "projectilelifemax"];
+	projectilealphalength = wp_map[? "projectilealphalength"];
 	projectilespeedmin = wp_map[? "projectilespeedmin"];
 	projectilespeedmax = wp_map[? "projectilespeedmax"];
-	projectilelength = wp_map[? "projectilelength"];
 	#endregion
 	#region Shell
 	shell = wp_map[? "shell"];
+	shellsprite = wp_map[? "shellsprite"];
 	shellamount = wp_map[? "shellamount"];
 	shelllength = wp_map[? "shelllength"];
+	shelllifemin = wp_map[? "shelllifemin"];
+	shelllifemax = wp_map[? "shelllifemax"];
+	shellalphalength = wp_map[? "shellalphalength"];
 	shellhspmin = wp_map[? "shellhspmin"];
 	shellhspmax = wp_map[? "shellhspmax"];
 	shellvspmin = wp_map[? "shellvspmin"];
 	shellvspmax = wp_map[? "shellvspmax"];
+	shellgrv = wp_map[? "shellgrv"];
 	shellbouncehspmin = wp_map[? "shellbouncehspmin"];
 	shellbouncehspmax = wp_map[? "shellbouncehspmax"];
 	shellbouncevspmin = wp_map[? "shellbouncevspmin"];

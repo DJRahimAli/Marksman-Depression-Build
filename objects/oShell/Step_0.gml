@@ -55,7 +55,7 @@ if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
 }
 y += vsp;
 
-if (shelllife == 0) || (image_alpha < 0) instance_destroy();
+if (life == 0) || (image_alpha < 0) instance_destroy();
 
 /*if (done)
 {
@@ -65,7 +65,7 @@ if (shelllife == 0) || (image_alpha < 0) instance_destroy();
 }
 else
 {*/
-	shelllife -= (instance_number(oShell) + instance_number(oEnemyShell))/4.5;
+	life -= (instance_number(oShell) + instance_number(oEnemyShell))/4.5;
 //}
 
-image_alpha = shelllife/shellalphalength;
+image_alpha = life/alphalength;

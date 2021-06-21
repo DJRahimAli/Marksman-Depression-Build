@@ -111,6 +111,8 @@ if (currentdelay == 0)
 					if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
 					direction = other.image_angle + oWeaponNew.currentspread;
 					image_angle = direction;
+					life = random_range(oWeaponNew.projectilelifemin,oWeaponNew.projectilelifemax);
+					alphalength = oWeaponNew.projectilealphalength;
 					spd = random_range(oWeaponNew.projectilespeedmin,oWeaponNew.projectilespeedmax);
 				}
 			}
@@ -121,11 +123,13 @@ if (currentdelay == 0)
 			{
 				with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
 				{
+					life = random_range(oWeaponNew.shelllifemin,oWeaponNew.shelllifemax);
+					alphalength = oWeaponNew.shellalphalength;
 					hsp = lengthdir_x(random_range(oWeaponNew.shellhspmin,oWeaponNew.shellhspmax), other.image_angle);
 					if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeaponNew.shellvspmin,-oWeaponNew.shellvspmax); else vsp = random_range(oWeaponNew.shellvspmin,oWeaponNew.shellvspmax);
+					grv = oWeaponNew.shellgrv;
 					direction = other.image_angle;
 					image_xscale = other.image_yscale;
-					image_yscale = other.image_yscale;
 				}
 			}
 		}
