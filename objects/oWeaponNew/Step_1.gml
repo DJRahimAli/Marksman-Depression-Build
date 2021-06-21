@@ -2,15 +2,12 @@ x = oPlayer.x;
 y = oPlayer.y+8;
 
 //Set angle of weapon
-if (global.controller == 0)
+if (global.controller == 0) if (global.hascontrol)
 {
-	if (global.hascontrol)
-	{
-		mouseangle = point_direction(x,y,mouse_x,mouse_y);
-		pointdir = mouseangle;
-		//image_angle = clamp(image_angle, 0, 360);
-		//image_angle = image_angle mod 360;
-	}
+	mouseangle = point_direction(x,y,mouse_x,mouse_y);
+	pointdir = mouseangle;
+	//image_angle = clamp(image_angle, 0, 360);
+	//image_angle = image_angle mod 360;
 }
 	
 if (global.controller == 1)
@@ -80,13 +77,10 @@ switch (firemodetype)
 
 if (!global.hascontrol) || (stopattack) primaryattack = false;
 
-if (primaryattack)
+if (primaryattack) if (currentcd == 0)
 {
-	if (currentcd == 0)
-	{
-		currentcd = cooldown;
-		currentdelay = startup;
-	}
+	currentcd = cooldown;
+	currentdelay = startup;
 }
 
 if (currentdelay == 0)
@@ -96,42 +90,30 @@ if (currentdelay == 0)
 		image_speed = 1;
 		image_index = 1;
 		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
-		with (oMuzzleflash)
+		if (muzzleflash) with (oMuzzleflash)
 		{
 			image_alpha = 1;
 			image_speed = 1;
 			image_index = 0;
 		}
-		if (projectile != -1)
+		if (projectile != -1) repeat(projectileamount) with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
 		{
-			repeat(projectileamount)
-			{
-				with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
-				{
-					if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
-					direction = other.image_angle + oWeaponNew.currentspread;
-					image_angle = direction;
-					life = random_range(oWeaponNew.projectilelifemin,oWeaponNew.projectilelifemax);
-					alphalength = oWeaponNew.projectilealphalength;
-					spd = random_range(oWeaponNew.projectilespeedmin,oWeaponNew.projectilespeedmax);
-				}
-			}
+			if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
+			direction = other.image_angle + oWeaponNew.currentspread;
+			image_angle = direction;
+			life = random_range(oWeaponNew.projectilelifemin,oWeaponNew.projectilelifemax);
+			alphalength = oWeaponNew.projectilealphalength;
+			spd = random_range(oWeaponNew.projectilespeedmin,oWeaponNew.projectilespeedmax);
 		}
-		if (shell != -1)
+		if (shell != -1) repeat(shellamount) with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
 		{
-			repeat(shellamount)
-			{
-				with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
-				{
-					life = random_range(oWeaponNew.shelllifemin,oWeaponNew.shelllifemax);
-					alphalength = oWeaponNew.shellalphalength;
-					hsp = lengthdir_x(random_range(oWeaponNew.shellhspmin,oWeaponNew.shellhspmax), other.image_angle);
-					if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeaponNew.shellvspmin,-oWeaponNew.shellvspmax); else vsp = random_range(oWeaponNew.shellvspmin,oWeaponNew.shellvspmax);
-					grv = oWeaponNew.shellgrv;
-					direction = other.image_angle;
-					image_xscale = other.image_yscale;
-				}
-			}
+			life = random_range(oWeaponNew.shelllifemin,oWeaponNew.shelllifemax);
+			alphalength = oWeaponNew.shellalphalength;
+			hsp = lengthdir_x(random_range(oWeaponNew.shellhspmin,oWeaponNew.shellhspmax), other.image_angle);
+			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeaponNew.shellvspmin,-oWeaponNew.shellvspmax); else vsp = random_range(oWeaponNew.shellvspmin,oWeaponNew.shellvspmax);
+			grv = oWeaponNew.shellgrv;
+			direction = other.image_angle;
+			image_xscale = other.image_yscale;
 		}
 		currentkickbackx = lengthdir_x(kickbackx, image_angle);
 		currentkickbacky = lengthdir_y(kickbacky, image_angle);
