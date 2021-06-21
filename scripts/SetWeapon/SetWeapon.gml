@@ -35,6 +35,14 @@ function SetWeapon(argument0)
 	shell = wp_map[? "shell"];
 	shellamount = wp_map[? "shellamount"];
 	shelllength = wp_map[? "shelllength"];
+	shellhspmin = wp_map[? "shellhspmin"];
+	shellhspmax = wp_map[? "shellhspmax"];
+	shellvspmin = wp_map[? "shellvspmin"];
+	shellvspmax = wp_map[? "shellvspmax"];
+	shellbouncehspmin = wp_map[? "shellbouncehspmin"];
+	shellbouncehspmax = wp_map[? "shellbouncehspmax"];
+	shellbouncevspmin = wp_map[? "shellbouncevspmin"];
+	shellbouncevspmax = wp_map[? "shellbouncevspmax"];
 	#endregion
 	#region Crosshair
 	crosshair = wp_map[? "crosshair"];
