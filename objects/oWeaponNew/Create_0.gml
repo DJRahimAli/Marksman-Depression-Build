@@ -86,7 +86,7 @@ ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
 #endregion
 #endregion
 
-#region //Pistol (1)
+#region Pistol (1)
 var weaponid = 1;
 weapons[weaponid] = ds_map_create();
 #region Weapon
@@ -168,7 +168,7 @@ ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
 #endregion
 #endregion
 
-#region //Submachine Gun (2)
+#region Submachine Gun (2)
 var weaponid = 2;
 weapons[weaponid] = ds_map_create();
 #region Weapon

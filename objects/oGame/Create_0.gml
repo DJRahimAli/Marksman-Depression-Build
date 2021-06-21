@@ -18,8 +18,8 @@ switch (os_type)
    case "os_unknown": global.os = 10; break;
 }
 
-#region //Get Input
-#region //Keyboard & Mouse Input
+#region Get Input
+#region Keyboard & Mouse Input
 global.key_left = ord("A");
 global.key_right = ord("D");
 global.key_up = ord("W");
@@ -34,7 +34,7 @@ global.key_gun = ord("2");
 global.key_interact = ord("E");
 global.key_suicide = ord("K");
 
-#region //Held
+#region Held
 global.key_left_held = keyboard_check(global.key_left);
 global.key_right_held = keyboard_check(global.key_right);
 global.key_up_held = keyboard_check(global.key_up);
@@ -48,7 +48,7 @@ global.key_holster_held = keyboard_check(global.key_holster);
 global.key_gun_held = keyboard_check(global.key_gun);
 #endregion
 	
-#region //Pressed
+#region Pressed
 global.key_left_pressed = keyboard_check_pressed(global.key_left);
 global.key_right_pressed = keyboard_check_pressed(global.key_right);
 global.key_up_pressed = keyboard_check_pressed(global.key_up);
@@ -65,7 +65,7 @@ global.key_interact_pressed = keyboard_check_pressed(global.key_interact);
 global.key_suicide_pressed = keyboard_check_pressed(global.key_suicide);
 #endregion
 	
-#region //Released
+#region Released
 global.key_left_released = keyboard_check_released(global.key_left);
 global.key_right_released = keyboard_check_released(global.key_right);
 global.key_up_released = keyboard_check_released(global.key_up);

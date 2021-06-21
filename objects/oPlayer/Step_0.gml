@@ -72,13 +72,13 @@ if (!global.fly)
 	}
 }
 
-#region //awful smb1 type movement
+#region awful smb1 type movement
 /*
 if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 */
 #endregion
 
-#region //Crouching
+#region Crouching
 if (global.key_crouch_pressed)
 {
 	if (onground) || (crouchstuck) || (global.fly) walksp = walkspcrouchmax;
@@ -114,7 +114,7 @@ if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
 }
 #endregion
 
-#region //Holstering
+#region Holstering
 if (global.key_holster_pressed) && instance_exists(oWeapon)
 {
 	oWeapon.holstered = !oWeapon.holstered;
@@ -238,7 +238,7 @@ y += vsp;
 //Player Trail
 if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
 
-#region //Animation
+#region Animation
 hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 

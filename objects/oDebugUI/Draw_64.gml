@@ -1,4 +1,4 @@
-#region //Debug UI
+#region Debug UI
 if (global.debug)
 {
 	if instance_exists(oPlayer) && !instance_exists(oWeapon)
