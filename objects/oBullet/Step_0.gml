@@ -16,7 +16,7 @@ if (place_meeting(x,y,pShootable))
 	instance_destroy();
 }
 
-if (place_meeting(x,y,oBulletWall)) || (bulletlife == 0) || (image_alpha < 0) instance_destroy();
+if (place_meeting(x,y,oBulletWall)) || (life == 0) || (image_alpha < 0) instance_destroy();
 
 if (place_meeting(x,y,oWall))
 {
@@ -31,5 +31,5 @@ if (place_meeting(x,y,oWall))
 	depth += 1;
 }
 
-bulletlife -= instance_number(oBullet)/12.5;
-image_alpha = bulletlife/bulletalphalength;
+life -= instance_number(oBullet)/12.5;
+image_alpha = life/alphalength;

@@ -1,3 +1,3 @@
-bulletlife = 200;
-bulletalphalength = 40;
+life = 0;
+alphalength = 0;
 spd = 0;
