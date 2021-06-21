@@ -111,7 +111,7 @@ if (currentdelay == 0)
 					if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
 					direction = other.image_angle + oWeaponNew.currentspread;
 					image_angle = direction;
-					spd = oWeaponNew.projectilespeed;
+					spd = random_range(oWeaponNew.projectilespeedmin,oWeaponNew.projectilespeedmax);
 				}
 			}
 		}
@@ -129,11 +129,8 @@ if (currentdelay == 0)
 				}
 			}
 		}
-		with (oPlayer)
-		{
-			kickbackx = lengthdir_x(ds_map_find_value(other.weapons[other.weapon],"kickback"), other.image_angle);
-			//kickbacky = lengthdir_y(ds_map_find_value(other.weapons[other.weapon],"kickback"), -other.image_angle);
-		}
+		currentkickbackx = lengthdir_x(kickbackx, image_angle);
+		currentkickbacky = lengthdir_y(kickbacky, image_angle);
 		Shake(oCrosshair.currentshakemagnitude,crosshairshakelength,oCrosshair);
 		//Shake(2,10,oCamera);
 		ammo[weapon] -= 1;

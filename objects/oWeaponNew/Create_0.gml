@@ -10,7 +10,8 @@ weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",-1);
 ds_map_add(weapons[weaponid],"recoil",0);
-ds_map_add(weapons[weaponid],"kickback",0);
+ds_map_add(weapons[weaponid],"kickbackx",0);
+ds_map_add(weapons[weaponid],"kickbacky",0);
 ds_map_add(weapons[weaponid],"damage",0);
 ds_map_add(weapons[weaponid],"startup",0);
 ds_map_add(weapons[weaponid],"cooldown",0);
@@ -30,7 +31,8 @@ ds_map_add(weapons[weaponid],"ironsightspreadmax",0);
 ds_map_add(weapons[weaponid],"projectile",-1);//oHitscan);
 ds_map_add(weapons[weaponid],"projectilesprite",-1);
 ds_map_add(weapons[weaponid],"projectileamount",0);
-ds_map_add(weapons[weaponid],"projectilespeed",0);
+ds_map_add(weapons[weaponid],"projectilespeedmin",0);
+ds_map_add(weapons[weaponid],"projectilespeedmax",0);
 ds_map_add(weapons[weaponid],"projectilelength",0);
 #endregion
 #region Shell
@@ -79,7 +81,8 @@ weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
 ds_map_add(weapons[weaponid],"recoil",4);
-ds_map_add(weapons[weaponid],"kickback",1.5);
+ds_map_add(weapons[weaponid],"kickbackx",1.5);
+ds_map_add(weapons[weaponid],"kickbacky",-1.5);
 ds_map_add(weapons[weaponid],"damage",8);
 ds_map_add(weapons[weaponid],"startup",0);
 ds_map_add(weapons[weaponid],"cooldown",20);
@@ -99,7 +102,8 @@ ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
 ds_map_add(weapons[weaponid],"projectile",oBullet);//oHitscan);
 ds_map_add(weapons[weaponid],"projectilesprite",sBullet);
 ds_map_add(weapons[weaponid],"projectileamount",1);
-ds_map_add(weapons[weaponid],"projectilespeed",25);
+ds_map_add(weapons[weaponid],"projectilespeedmin",20);
+ds_map_add(weapons[weaponid],"projectilespeedmax",25);
 ds_map_add(weapons[weaponid],"projectilelength",24);
 #endregion
 #region Shell
@@ -148,7 +152,8 @@ weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
 ds_map_add(weapons[weaponid],"recoil",4);
-ds_map_add(weapons[weaponid],"kickback",1.5);
+ds_map_add(weapons[weaponid],"kickbackx",1.5);
+ds_map_add(weapons[weaponid],"kickbacky",-1.5);
 ds_map_add(weapons[weaponid],"damage",8);
 ds_map_add(weapons[weaponid],"startup",0);
 ds_map_add(weapons[weaponid],"cooldown",20);
@@ -168,7 +173,8 @@ ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
 ds_map_add(weapons[weaponid],"projectile",oBullet);//oHitscan);
 ds_map_add(weapons[weaponid],"projectilesprite",sBullet);
 ds_map_add(weapons[weaponid],"projectileamount",1);
-ds_map_add(weapons[weaponid],"projectilespeed",25);
+ds_map_add(weapons[weaponid],"projectilespeedmin",20);
+ds_map_add(weapons[weaponid],"projectilespeedmax",25);
 ds_map_add(weapons[weaponid],"projectilelength",24);
 #endregion
 #region Shell
@@ -230,6 +236,8 @@ SetWeapon(2);
 currentcd = 0;
 currentdelay = -1;
 currentrecoil = 0;
+currentkickbackx = 0;
+currentkickbacky = 0;
 currentspread = 0;
 currentdistance = 0;
 currentprimaryammo = 0;
