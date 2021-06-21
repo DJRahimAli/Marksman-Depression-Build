@@ -46,8 +46,11 @@ function SetWeapon(argument0)
 	shellbouncevspmin = wp_map[? "shellbouncevspmin"];
 	shellbouncevspmax = wp_map[? "shellbouncevspmax"];
 	#endregion
+	#region Muzzleflash
+	muzzleflashsprite = wp_map[? "muzzleflashsprite"];
+	muzzleflashlength = wp_map[? "muzzleflashlength"];
+	#endregion
 	#region Crosshair
-	crosshair = wp_map[? "crosshair"];
 	crosshairsprite = wp_map[? "crosshairsprite"];
 	crosshairdistance = wp_map[? "crosshairdistance"];
 	crosshairshakemagnitude = wp_map[? "crosshairshakemagnitude"];

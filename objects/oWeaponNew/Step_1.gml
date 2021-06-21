@@ -96,7 +96,7 @@ if (currentdelay == 0)
 		image_speed = 1;
 		image_index = 1;
 		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
-		with (oMuzzleFlash)
+		with (oMuzzleflash)
 		{
 			image_alpha = 1;
 			image_speed = 1;

@@ -49,15 +49,12 @@ else
 
 x += lengthdir_x(currentdistance,direction);
 y += lengthdir_y(currentdistance,direction);
-	
-if (oWeaponNew.crosshair)
-{
-	//Crosshair Shake
-	x += random_range(-shake_remain,shake_remain);
-	y += random_range(-shake_remain,shake_remain);
-	shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
-	
-	if (oWeaponNew.stopattack) image_alpha = 0; else image_alpha = 1;
 
-	//if (oWeapon.ironsights) crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5); else crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);
-}
+//Crosshair Shake
+x += random_range(-shake_remain,shake_remain);
+y += random_range(-shake_remain,shake_remain);
+shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
+	
+if (oWeaponNew.stopattack) image_alpha = 0; else image_alpha = 1;
+
+//if (oWeapon.ironsights) crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5); else crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);
