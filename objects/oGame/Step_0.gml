@@ -1,4 +1,4 @@
-#region //Get Input
+#region Get Input
 //Detect Keyboard and Mouse
 if (keyboard_check(vk_anykey) || mouse_check_button(mb_any)) global.controller = 0;
 
@@ -12,23 +12,23 @@ if (abs(gamepad_axis_value(0,gp_axislh)) > global.deadzone || abs(gamepad_axis_v
 	global.controller = 1;
 }
 
-#region //Keyboard & Mouse Input
+#region Keyboard & Mouse Input
 if (global.controller == 0)
 {
-	#region //Held
+	#region Held
 	#endregion
 
-	#region //Pressed
+	#region Pressed
 	global.key_interact_pressed = keyboard_check_pressed(global.key_interact);
 	global.key_suicide_pressed = keyboard_check_pressed(global.key_suicide);
 	#endregion
 
-	#region //Released
+	#region Released
 	#endregion
 }
 #endregion
 
-#region //Gamepad Input
+#region Gamepad Input
 if (global.controller == 1)
 {
 	global.key_interact_pressed = gamepad_button_check_pressed(0,gp_face1);
@@ -37,10 +37,10 @@ if (global.controller == 1)
 
 if (global.hascontrol)
 {
-	#region //Keyboard & Mouse Input
+	#region Keyboard & Mouse Input
 	if (global.controller == 0)
 	{
-		#region //Held
+		#region Held
 		global.key_left_held = keyboard_check(global.key_left);
 		global.key_right_held = keyboard_check(global.key_right);
 		global.key_up_held = keyboard_check(global.key_up);
@@ -54,7 +54,7 @@ if (global.hascontrol)
 		global.key_gun_held = keyboard_check(global.key_gun);
 		#endregion
 	
-		#region //Pressed
+		#region Pressed
 		global.key_left_pressed = keyboard_check_pressed(global.key_left);
 		global.key_right_pressed = keyboard_check_pressed(global.key_right);
 		global.key_up_pressed = keyboard_check_pressed(global.key_up);
@@ -68,7 +68,7 @@ if (global.hascontrol)
 		global.key_gun_pressed = keyboard_check_pressed(global.key_gun);
 		#endregion
 	
-		#region //Released
+		#region Released
 		global.key_left_released = keyboard_check_released(global.key_left);
 		global.key_right_released = keyboard_check_released(global.key_right);
 		global.key_up_released = keyboard_check_released(global.key_up);
@@ -84,10 +84,10 @@ if (global.hascontrol)
 	}
 	#endregion
 	
-	#region //Gamepad Input
+	#region Gamepad Input
 	if (global.controller == 1)
 	{
-	#region //Held
+	#region Held
 	if (abs(gamepad_axis_value(0,gp_axislh)) > global.deadzone)
 	{
 		global.key_left_held = abs(min(gamepad_axis_value(0,gp_axislh),0));
@@ -115,7 +115,7 @@ if (global.hascontrol)
 		global.key_primaryattack_held = gamepad_button_check(0,gp_shoulderrb);
 		#endregion
 		
-		#region //Pressed
+		#region Pressed
 		global.key_jump_pressed = gamepad_button_check_pressed(0,gp_shoulderl);
 		global.key_crouch_pressed = gamepad_button_check_pressed(0,gp_shoulderlb);
 		global.key_primaryattack_pressed = gamepad_button_check_pressed(0,gp_shoulderrb);
@@ -124,7 +124,7 @@ if (global.hascontrol)
 		global.key_gun_pressed = gamepad_button_check_pressed(0,gp_padr);
 		#endregion
 		
-		#region //Released
+		#region Released
 		global.key_crouch_released = gamepad_button_check_released(0,gp_shoulderlb);
 		#endregion
 	}
@@ -132,7 +132,7 @@ if (global.hascontrol)
 }
 else
 {
-	#region //Held
+	#region Held
 	global.key_left_held = false;
 	global.key_right_held = false;
 	global.key_up_held = false;
@@ -146,7 +146,7 @@ else
 	global.key_gun_held = false;
 	#endregion
 	
-	#region //Pressed
+	#region Pressed
 	global.key_left_pressed = false;
 	global.key_right_pressed = false;
 	global.key_up_pressed = false;
@@ -160,7 +160,7 @@ else
 	global.key_gun_pressed = false;
 	#endregion
 	
-	#region //Released
+	#region Released
 	global.key_left_released = false;
 	global.key_right_released = false;
 	global.key_up_released = false;

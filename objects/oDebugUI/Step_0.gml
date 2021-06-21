@@ -35,7 +35,7 @@ if (global.key_debugfps) global.debugfps = !global.debugfps;
 //Cheat Toggle
 if (global.key_cheat) global.cheat = !global.cheat;
 
-#region //Cheat Toggles
+#region Cheat Toggles
 if (global.key_fly) && (global.cheat) global.fly = !global.fly;
 
 if (global.key_noclip) && (global.cheat) global.noclip = !global.noclip;
