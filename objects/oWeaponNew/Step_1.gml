@@ -53,7 +53,7 @@ if (image_angle < 0) image_angle += 360;
 
 if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
 
-if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, 0.5); else currentdistance = lerp(currentdistance, distance, 0.5);
+if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, ironsightspeed); else currentdistance = lerp(currentdistance, distance, ironsightspeed);
 
 x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 y += lengthdir_y(currentdistance-currentrecoil,image_angle);
@@ -138,7 +138,7 @@ if (currentdelay == 0)
 		Shake(oCrosshair.currentshakemagnitude,crosshairshakelength,oCrosshair);
 		//Shake(2,10,oCamera);
 		ammo[weapon] -= 1;
-		currentrecoil = recoil;
+		if (ironsights) currentrecoil = ironsightrecoil; else currentrecoil = recoil;
 	}
 	
 	if (ammo[weapon] == 0)
