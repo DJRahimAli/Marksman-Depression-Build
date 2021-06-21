@@ -5,8 +5,8 @@ image_angle = oWeaponNew.image_angle;
 image_xscale = oWeaponNew.image_xscale;
 image_yscale = oWeaponNew.image_yscale;
 
-x += lengthdir_x(25,image_angle);
-y += lengthdir_y(25,image_angle);
+x += lengthdir_x(oWeaponNew.muzzleflashlength,image_angle);
+y += lengthdir_y(oWeaponNew.muzzleflashlength,image_angle);
 
 /*if (oWeaponNew.stopshooting)
 {

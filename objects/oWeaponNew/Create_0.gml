@@ -2,7 +2,7 @@ image_speed = 0;
 image_index = 0;
 
 instance_create_layer(x,y,"Crosshair",oCrosshair);
-instance_create_layer(x,y,"Weapon",oMuzzleFlash);
+instance_create_layer(x,y,"Weapon",oMuzzleflash);
 
 #region Unarmed (0)
 var weaponid = 0;
@@ -48,8 +48,11 @@ ds_map_add(weapons[weaponid],"shellbouncehspmax",0);
 ds_map_add(weapons[weaponid],"shellbouncevspmin",0);
 ds_map_add(weapons[weaponid],"shellbouncevspmax",0);
 #endregion
+#region Muzzleflash
+ds_map_add(weapons[weaponid],"muzzleflashsprite",-1);
+ds_map_add(weapons[weaponid],"muzzleflashlength",0);
+#endregion
 #region Crosshair
-ds_map_add(weapons[weaponid],"crosshair",false);
 ds_map_add(weapons[weaponid],"crosshairsprite",-1);
 ds_map_add(weapons[weaponid],"crosshairdistance",0);
 ds_map_add(weapons[weaponid],"crosshairshakemagnitude",0);
@@ -119,8 +122,11 @@ ds_map_add(weapons[weaponid],"shellbouncehspmax",-4);
 ds_map_add(weapons[weaponid],"shellbouncevspmin",-3);
 ds_map_add(weapons[weaponid],"shellbouncevspmax",-5);
 #endregion
+#region Muzzleflash
+ds_map_add(weapons[weaponid],"muzzleflashsprite",sMuzzleflash);
+ds_map_add(weapons[weaponid],"muzzleflashlength",24);
+#endregion
 #region Crosshair
-ds_map_add(weapons[weaponid],"crosshair",true);
 ds_map_add(weapons[weaponid],"crosshairsprite",sCrosshair);
 ds_map_add(weapons[weaponid],"crosshairdistance",120);
 ds_map_add(weapons[weaponid],"crosshairshakemagnitude",2);
@@ -190,8 +196,11 @@ ds_map_add(weapons[weaponid],"shellbouncehspmax",-4);
 ds_map_add(weapons[weaponid],"shellbouncevspmin",-3);
 ds_map_add(weapons[weaponid],"shellbouncevspmax",-5);
 #endregion
+#region Muzzleflash
+ds_map_add(weapons[weaponid],"muzzleflashsprite",sMuzzleflash);
+ds_map_add(weapons[weaponid],"muzzleflashlength",24);
+#endregion
 #region Crosshair
-ds_map_add(weapons[weaponid],"crosshair",true);
 ds_map_add(weapons[weaponid],"crosshairsprite",sCrosshair);
 ds_map_add(weapons[weaponid],"crosshairdistance",120);
 ds_map_add(weapons[weaponid],"crosshairshakemagnitude",2);
