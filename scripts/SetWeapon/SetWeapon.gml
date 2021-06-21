@@ -55,6 +55,7 @@ function SetWeapon(argument0)
 	shellbouncevspmax = wp_map[? "shellbouncevspmax"];
 	#endregion
 	#region Muzzleflash
+	muzzleflash = wp_map[? "muzzleflash"];
 	muzzleflashsprite = wp_map[? "muzzleflashsprite"];
 	muzzleflashlength = wp_map[? "muzzleflashlength"];
 	#endregion

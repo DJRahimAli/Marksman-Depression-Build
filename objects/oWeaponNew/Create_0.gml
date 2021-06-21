@@ -57,6 +57,7 @@ ds_map_add(weapons[weaponid],"shellbouncevspmin",0);
 ds_map_add(weapons[weaponid],"shellbouncevspmax",0);
 #endregion
 #region Muzzleflash
+ds_map_add(weapons[weaponid],"muzzleflash",false);
 ds_map_add(weapons[weaponid],"muzzleflashsprite",-1);
 ds_map_add(weapons[weaponid],"muzzleflashlength",0);
 #endregion
@@ -139,6 +140,7 @@ ds_map_add(weapons[weaponid],"shellbouncevspmin",-3);
 ds_map_add(weapons[weaponid],"shellbouncevspmax",-5);
 #endregion
 #region Muzzleflash
+ds_map_add(weapons[weaponid],"muzzleflash",true);
 ds_map_add(weapons[weaponid],"muzzleflashsprite",sMuzzleflash);
 ds_map_add(weapons[weaponid],"muzzleflashlength",24);
 #endregion
@@ -221,6 +223,7 @@ ds_map_add(weapons[weaponid],"shellbouncevspmin",-3);
 ds_map_add(weapons[weaponid],"shellbouncevspmax",-5);
 #endregion
 #region Muzzleflash
+ds_map_add(weapons[weaponid],"muzzleflash",true);
 ds_map_add(weapons[weaponid],"muzzleflashsprite",sMuzzleflash);
 ds_map_add(weapons[weaponid],"muzzleflashlength",24);
 #endregion
