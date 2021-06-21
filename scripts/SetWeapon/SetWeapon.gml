@@ -8,7 +8,8 @@ function SetWeapon(argument0)
 	//sprite = ds_map_find_value(wp_map,"sprite");
 	sprite = wp_map[? "sprite"];
 	recoil = wp_map[? "recoil"];
-	kickback = wp_map[? "kickback"];
+	kickbackx = wp_map[? "kickbackx"];
+	kickbacky = wp_map[? "kickbacky"];
 	damage = wp_map[? "damage"];
 	startup = wp_map[? "startup"];
 	cooldown = wp_map[? "cooldown"];
@@ -28,7 +29,8 @@ function SetWeapon(argument0)
 	projectile = wp_map[? "projectile"];
 	projectilesprite = wp_map[? "projectilesprite"];
 	projectileamount = wp_map[? "projectileamount"];
-	projectilespeed = wp_map[? "projectilespeed"];
+	projectilespeedmin = wp_map[? "projectilespeedmin"];
+	projectilespeedmax = wp_map[? "projectilespeedmax"];
 	projectilelength = wp_map[? "projectilelength"];
 	#endregion
 	#region Shell
