@@ -1,5 +1,16 @@
 vsp += grv;
 
+//Calculate current status
+onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
+onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
+
+//Bounce Shell Horizontal
+if (onwall != 0)
+{
+	if (!donebouncehsp) hsp = random_range(oWeaponNew.shellbouncehspmin,oWeaponNew.shellbouncehspmax)*onwall;
+	donebouncehsp = 1;
+}
+
 //Horizontal Collision
 if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 {
@@ -9,17 +20,17 @@ if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
 }
 x += hsp;
 
-//Bounce Shell
-if (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision))
+//Bounce Shell Vertical
+if (onground)
 {
-	if (done)
+	if (!donebouncevsp) vsp = random_range(oWeaponNew.shellbouncevspmin,oWeaponNew.shellbouncevspmax);
+	if (donebouncevsp)
 	{
 		hsp = 0;
 		image_speed = 0;
 		image_index = 7;
 	}
-	if (!done) vsp -= 5;
-	done = 1;
+	donebouncevsp = 1;
 }
 
 //Vertical Collision

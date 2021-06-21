@@ -121,8 +121,8 @@ if (currentdelay == 0)
 			{
 				with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
 				{
-					hsp -= lengthdir_x(random_range(3,4), other.image_angle);
-					if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(4,5); else vsp = random_range(-4,-5);
+					hsp = lengthdir_x(random_range(oWeaponNew.shellhspmin,oWeaponNew.shellhspmax), other.image_angle);
+					if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeaponNew.shellvspmin,-oWeaponNew.shellvspmax); else vsp = random_range(oWeaponNew.shellvspmin,oWeaponNew.shellvspmax);
 					direction = other.image_angle;
 					image_xscale = other.image_yscale;
 					image_yscale = other.image_yscale;

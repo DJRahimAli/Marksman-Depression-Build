@@ -37,6 +37,14 @@ ds_map_add(weapons[weaponid],"projectilelength",0);
 ds_map_add(weapons[weaponid],"shell",-1);
 ds_map_add(weapons[weaponid],"shellamount",0);
 ds_map_add(weapons[weaponid],"shelllength",0);
+ds_map_add(weapons[weaponid],"shellhspmin",0);
+ds_map_add(weapons[weaponid],"shellhspmax",0);
+ds_map_add(weapons[weaponid],"shellvspmin",0);
+ds_map_add(weapons[weaponid],"shellvspmax",0);
+ds_map_add(weapons[weaponid],"shellbouncehspmin",0);
+ds_map_add(weapons[weaponid],"shellbouncehspmax",0);
+ds_map_add(weapons[weaponid],"shellbouncevspmin",0);
+ds_map_add(weapons[weaponid],"shellbouncevspmax",0);
 #endregion
 #region Crosshair
 ds_map_add(weapons[weaponid],"crosshair",false);
@@ -98,6 +106,14 @@ ds_map_add(weapons[weaponid],"projectilelength",24);
 ds_map_add(weapons[weaponid],"shell",oShell);
 ds_map_add(weapons[weaponid],"shellamount",1);
 ds_map_add(weapons[weaponid],"shelllength",0);
+ds_map_add(weapons[weaponid],"shellhspmin",-3);
+ds_map_add(weapons[weaponid],"shellhspmax",-4);
+ds_map_add(weapons[weaponid],"shellvspmin",-4);
+ds_map_add(weapons[weaponid],"shellvspmax",-5);
+ds_map_add(weapons[weaponid],"shellbouncehspmin",-1);
+ds_map_add(weapons[weaponid],"shellbouncehspmax",-4);
+ds_map_add(weapons[weaponid],"shellbouncevspmin",-3);
+ds_map_add(weapons[weaponid],"shellbouncevspmax",-5);
 #endregion
 #region Crosshair
 ds_map_add(weapons[weaponid],"crosshair",true);
@@ -159,6 +175,14 @@ ds_map_add(weapons[weaponid],"projectilelength",24);
 ds_map_add(weapons[weaponid],"shell",oShell);
 ds_map_add(weapons[weaponid],"shellamount",1);
 ds_map_add(weapons[weaponid],"shelllength",0);
+ds_map_add(weapons[weaponid],"shellhspmin",-3);
+ds_map_add(weapons[weaponid],"shellhspmax",-4);
+ds_map_add(weapons[weaponid],"shellvspmin",-4);
+ds_map_add(weapons[weaponid],"shellvspmax",-5);
+ds_map_add(weapons[weaponid],"shellbouncehspmin",-1);
+ds_map_add(weapons[weaponid],"shellbouncehspmax",-4);
+ds_map_add(weapons[weaponid],"shellbouncevspmin",-3);
+ds_map_add(weapons[weaponid],"shellbouncevspmax",-5);
 #endregion
 #region Crosshair
 ds_map_add(weapons[weaponid],"crosshair",true);
@@ -187,10 +211,6 @@ ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
 #endregion
 #endregion
 
-weapon = 0;
-// ammo = -1; is infinite ammo
-ammo[array_length(weapons)-1] = 0; // Default ammo
-ammo[0] = -1; // Set unarmed ammo
 pointdir = 0;
 mouseangle = 0;
 controllerangle = 0;
@@ -200,6 +220,10 @@ delta = 0;
 minmaxangle = 60;
 rspeed = 0.25; // Max = 1 or else things will glitch the fuck out
 currentrspeed = 0;
+weapon = 0;
+// ammo = -1; is infinite ammo
+ammo[array_length(weapons)-1] = 0; // Default ammo
+ammo[0] = -1; // Set unarmed ammo
 
 SetWeapon(2);
 
