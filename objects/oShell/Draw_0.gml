@@ -1,7 +1,7 @@
-if (oWeapon.shellsprite != -1)
+if (sprite != -1)
 {
 	draw_sprite_ext(
-	oWeapon.shellsprite,
+	sprite,
 	image_index,
 	x,
 	y,
