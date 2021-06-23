@@ -67,8 +67,8 @@ if (instance_exists(oPlayer))
 					image_index = 1;
 					recoil = 4;
 					//ScreenShake(2,10);
-					audio_sound_pitch(snd_PistolFire,(choose(0.98,1.0,1.02)));
-					audio_play_sound(snd_PistolFire,5,false);
+					audio_sound_pitch(snd_WeaponPistolPrimary,(choose(0.98,1.0,1.02)));
+					audio_play_sound(snd_WeaponPistolPrimary,5,false);
 					with (instance_create_layer(x,y,"Projectiles",oEnemyBullet))
 					{
 						spd = 15;

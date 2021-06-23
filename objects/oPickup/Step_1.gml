@@ -1,9 +1,20 @@
-if (place_meeting(x,y,oPlayer))
+/* Pickup Types
+1 = Weapon Pickup
+*/
+
+switch (pickuptype)
 {
-	with(oWeapon)
+	case 1:
+	if (place_meeting(x,y,oPlayer))
 	{
-		SetWeapon(oPickup.pickuptype);
-		ammo[oPickup.pickuptype] += 20;
+		with(oWeapon)
+		{
+			SetWeapon(oPickup.weapon);
+			/*currentprimary*/ammo[oPickup.weapon] += 18//primaryammo;
+			//currentsecondaryammo[oPickup.pickuptype] += secondaryammo;
+		}
+		instance_destroy();
 	}
-	instance_destroy();
+	break;
+	default: instance_destroy();
 }

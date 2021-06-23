@@ -79,8 +79,8 @@ if (!global.hascontrol) || (stopattack) primaryattack = false;
 
 if (primaryattack) if (currentcd == 0)
 {
-	currentcd = cooldown;
-	currentdelay = startup;
+	currentcd = random_range(cooldownmin,cooldownmax);
+	currentdelay = random_range(startupmin,startupmax);
 }
 
 if (currentdelay == 0)
@@ -89,6 +89,11 @@ if (currentdelay == 0)
 	{
 		image_speed = 1;
 		image_index = 1;
+		if (ironsights) currentrecoil = random_range(ironsightrecoilmin,ironsightrecoilmax); else currentrecoil = random_range(recoilmin,recoilmax);
+		currentkickbackx = lengthdir_x(random_range(kickbackxmin,kickbackxmax), image_angle);
+		currentkickbacky = lengthdir_y(random_range(kickbackymin,kickbackymax), image_angle);
+		Shake(oCrosshair.currentshakemagnitude,oCrosshair.currentshakelength,oCrosshair);
+		//Shake(2,10,oCamera);
 		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 		if (muzzleflash) with (oMuzzleflash)
 		{
@@ -115,12 +120,7 @@ if (currentdelay == 0)
 			direction = other.image_angle;
 			image_xscale = other.image_yscale;
 		}
-		currentkickbackx = lengthdir_x(kickbackx, image_angle);
-		currentkickbacky = lengthdir_y(kickbacky, image_angle);
-		Shake(oCrosshair.currentshakemagnitude,crosshairshakelength,oCrosshair);
-		//Shake(2,10,oCamera);
 		ammo[weapon] -= 1;
-		if (ironsights) currentrecoil = ironsightrecoil; else currentrecoil = recoil;
 	}
 	
 	if (ammo[weapon] == 0)
@@ -132,6 +132,7 @@ if (currentdelay == 0)
 
 currentdelay = max(-1,currentdelay-1);
 if (currentdelay == -1) currentcd = max(0,currentcd-1);
-currentrecoil = max(0,floor(currentrecoil*0.8));
+currentrecoil = max(0,currentrecoil*0.8);
+//currentrecoil = max(0,floor(currentrecoil*0.8));
 //ammo[weapon] = 1;//infinite ammo
 //depth = oPlayer.depth-1;
