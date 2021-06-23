@@ -1,14 +1,14 @@
-x = oWeaponNew.x;
-y = oWeaponNew.y;
+x = oWeapon.x;
+y = oWeapon.y;
 
-image_angle = oWeaponNew.image_angle;
-image_xscale = oWeaponNew.image_xscale;
-image_yscale = oWeaponNew.image_yscale;
+image_angle = oWeapon.image_angle;
+image_xscale = oWeapon.image_xscale;
+image_yscale = oWeapon.image_yscale;
 
-x += lengthdir_x(oWeaponNew.muzzleflashlength,image_angle);
-y += lengthdir_y(oWeaponNew.muzzleflashlength,image_angle);
+x += lengthdir_x(oWeapon.muzzleflashlength,image_angle);
+y += lengthdir_y(oWeapon.muzzleflashlength,image_angle);
 
-/*if (oWeaponNew.stopshooting)
+/*if (oWeapon.stopshooting)
 {
 	image_alpha = 0;
 }

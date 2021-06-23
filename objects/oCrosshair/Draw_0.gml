@@ -1,7 +1,7 @@
-if (oWeaponNew.crosshairsprite != -1)
+if (oWeapon.crosshairsprite != -1)
 {
 	draw_sprite_ext(
-	oWeaponNew.crosshairsprite,
+	oWeapon.crosshairsprite,
 	image_index,
 	x,
 	y,

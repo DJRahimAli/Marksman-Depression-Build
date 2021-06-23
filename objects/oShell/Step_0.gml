@@ -7,7 +7,7 @@ onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (plac
 //Bounce Shell Horizontal
 if (onwall != 0)
 {
-	if (!donebouncehsp) hsp = random_range(oWeaponNew.shellbouncehspmin,oWeaponNew.shellbouncehspmax)*onwall;
+	if (!donebouncehsp) hsp = random_range(oWeapon.shellbouncehspmin,oWeapon.shellbouncehspmax)*onwall;
 	donebouncehsp = 1;
 }
 
@@ -23,7 +23,7 @@ x += hsp;
 //Bounce Shell Vertical
 if (onground)
 {
-	if (!donebouncevsp) vsp = random_range(oWeaponNew.shellbouncevspmin,oWeaponNew.shellbouncevspmax);
+	if (!donebouncevsp) vsp = random_range(oWeapon.shellbouncevspmin,oWeapon.shellbouncevspmax);
 	if (donebouncevsp)
 	{
 		hsp = 0;

@@ -12,21 +12,21 @@ else
 	if (oPlayer.onwall == 0)
 	{
 		minmaxangle = 360;
-		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeaponNew.pointdir, 0)));
+		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir, 0)));
 		direction += angle_difference(delta, direction) * currentrspeed;
 	}
 	
 	if (oPlayer.onwall < 0)
 	{
 		minmaxangle = 60;
-		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeaponNew.pointdir, 0)));
+		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir, 0)));
 		direction += angle_difference(delta, direction) * currentrspeed;
 	}
 	
 	if (oPlayer.onwall > 0)
 	{
 		minmaxangle = 60;
-		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeaponNew.pointdir - 180, 0)));
+		delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
 		direction += angle_difference(delta, direction - 180) * currentrspeed;
 	}
 //}
@@ -34,18 +34,18 @@ else
 if (direction > 360) direction -= 360;
 if (direction < 0) direction += 360;
 	
-if (oWeaponNew.ironsights)
+if (oWeapon.ironsights)
 {
-	currentdistance = lerp(currentdistance, oWeaponNew.crosshairironsightdistance, oWeaponNew.crosshairironsightspeed);
-	currentshakemagnitude = oWeaponNew.crosshairironsightshakemagnitude;
-	currentshakelength = oWeaponNew.crosshairironsightshakelength;
+	currentdistance = lerp(currentdistance, oWeapon.crosshairironsightdistance, oWeapon.crosshairironsightspeed);
+	currentshakemagnitude = oWeapon.crosshairironsightshakemagnitude;
+	currentshakelength = oWeapon.crosshairironsightshakelength;
 }
 else
 {
-	//currentdistance = lerp(currentdistance, oWeaponNew.crosshairdistance, oWeaponNew.crosshairironsightspeed);
-	currentdistance = oWeaponNew.crosshairdistance;
-	currentshakemagnitude = oWeaponNew.crosshairshakemagnitude;
-	currentshakelength = oWeaponNew.crosshairshakelength;
+	//currentdistance = lerp(currentdistance, oWeapon.crosshairdistance, oWeapon.crosshairironsightspeed);
+	currentdistance = oWeapon.crosshairdistance;
+	currentshakemagnitude = oWeapon.crosshairshakemagnitude;
+	currentshakelength = oWeapon.crosshairshakelength;
 }
 
 x += lengthdir_x(currentdistance,direction);
@@ -56,6 +56,6 @@ x += random_range(-shake_remain,shake_remain);
 y += random_range(-shake_remain,shake_remain);
 shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
 	
-if (oWeaponNew.stopattack) image_alpha = 0; else image_alpha = 1;
+if (oWeapon.stopattack) image_alpha = 0; else image_alpha = 1;
 
 //if (oWeapon.ironsights) crosshaircrouchdistance = lerp(crosshaircrouchdistance, crosshaircrouchdistancerate, 0.5); else crosshaircrouchdistance = lerp(crosshaircrouchdistance, 0, 0.5);
