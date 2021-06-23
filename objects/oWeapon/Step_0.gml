@@ -1,20 +1,6 @@
 x = oPlayer.x;
 y = oPlayer.y+8;
 
-if keyboard_check_pressed(ord("G"))
-{
-	currentweapon -= 1;
-	if (currentweapon < 0) currentweapon = array_length(weapons)-1;
-	SetWeapon(currentweapon);
-}
-
-if keyboard_check_pressed(ord("H"))
-{
-	currentweapon += 1;
-	if (currentweapon >= array_length(weapons)) currentweapon = 0;
-	SetWeapon(currentweapon);
-}
-
 //Set angle of weapon
 if (global.controller == 0) if (global.hascontrol)
 {
@@ -112,20 +98,20 @@ if (currentdelay == 0)
 		}
 		if (projectile != -1) repeat(projectileamount) with (instance_create_layer(x+lengthdir_x(projectilelength,image_angle),y+lengthdir_y(projectilelength,image_angle),"Projectiles",projectile))
 		{
-			if (oWeaponNew.ironsights) oWeaponNew.currentspread = random_range(oWeaponNew.ironsightspreadmin,oWeaponNew.ironsightspreadmax); else oWeaponNew.currentspread = random_range(oWeaponNew.spreadmin,oWeaponNew.spreadmax);
-			direction = other.image_angle + oWeaponNew.currentspread;
+			if (oWeapon.ironsights) oWeapon.currentspread = random_range(oWeapon.ironsightspreadmin,oWeapon.ironsightspreadmax); else oWeapon.currentspread = random_range(oWeapon.spreadmin,oWeapon.spreadmax);
+			direction = other.image_angle + oWeapon.currentspread;
 			image_angle = direction;
-			life = random_range(oWeaponNew.projectilelifemin,oWeaponNew.projectilelifemax);
-			alphalength = oWeaponNew.projectilealphalength;
-			spd = random_range(oWeaponNew.projectilespeedmin,oWeaponNew.projectilespeedmax);
+			life = random_range(oWeapon.projectilelifemin,oWeapon.projectilelifemax);
+			alphalength = oWeapon.projectilealphalength;
+			spd = random_range(oWeapon.projectilespeedmin,oWeapon.projectilespeedmax);
 		}
 		if (shell != -1) repeat(shellamount) with (instance_create_layer(x+lengthdir_x(shelllength,image_angle),y+lengthdir_y(shelllength,image_angle),"Shells",shell))
 		{
-			life = random_range(oWeaponNew.shelllifemin,oWeaponNew.shelllifemax);
-			alphalength = oWeaponNew.shellalphalength;
-			hsp = lengthdir_x(random_range(oWeaponNew.shellhspmin,oWeaponNew.shellhspmax), other.image_angle);
-			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeaponNew.shellvspmin,-oWeaponNew.shellvspmax); else vsp = random_range(oWeaponNew.shellvspmin,oWeaponNew.shellvspmax);
-			grv = oWeaponNew.shellgrv;
+			life = random_range(oWeapon.shelllifemin,oWeapon.shelllifemax);
+			alphalength = oWeapon.shellalphalength;
+			hsp = lengthdir_x(random_range(oWeapon.shellhspmin,oWeapon.shellhspmax), other.image_angle);
+			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.shellvspmin,-oWeapon.shellvspmax); else vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
+			grv = oWeapon.shellgrv;
 			direction = other.image_angle;
 			image_xscale = other.image_yscale;
 		}

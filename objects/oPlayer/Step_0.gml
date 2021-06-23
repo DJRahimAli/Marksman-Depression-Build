@@ -34,17 +34,17 @@ if (walljumpdelay == 0)
 {
 	var dir = (global.key_right_held - global.key_left_held);
 
-	if (global.fly) oWeaponNew.currentkickbackx = 0;
+	if (global.fly) oWeapon.currentkickbackx = 0;
 	hsp += dir * accel;
 	if (dir == 0)
 	{
 		var hspfricfinal = hspfricground;
 		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
-		hsp = lerp(hsp,0,hspfricfinal) + oWeaponNew.currentkickbackx;
+		hsp = lerp(hsp,0,hspfricfinal) + oWeapon.currentkickbackx;
 	}
 	hsp = clamp(hsp,-walksp,walksp);
 }
-oWeaponNew.currentkickbackx = 0;
+oWeapon.currentkickbackx = 0;
 
 //Wall jump
 if (vsp > 0 || global.fly) walljumpheight = 0;
@@ -136,8 +136,8 @@ if (!global.fly)
 		grvfinal = grvwall;
 		if (vsp > 0) vspmaxfinal = vspmaxwall;
 	}
-	vsp = (vsp + grvfinal) + oWeaponNew.currentkickbacky;
-	oWeaponNew.currentkickbacky = 0;
+	vsp = (vsp + grvfinal) + oWeapon.currentkickbacky;
+	oWeapon.currentkickbacky = 0;
 	vsp = clamp(vsp,-vspmaxfinal,vspmaxfinal);
 
 	if (jumpbuffer > 0 || place_meeting(x,y+1,oSpring)) multijump = multijumpmax;
@@ -242,12 +242,12 @@ if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
 hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 
-if instance_exists(oWeaponNew)
+if instance_exists(oWeapon)
 {
-	if (crouch) && (onground) && (oWeaponNew.ironsight) oWeaponNew.ironsights = true; else oWeaponNew.ironsights = false;
+	if (crouch) && (onground) && (oWeapon.ironsight) oWeapon.ironsights = true; else oWeapon.ironsights = false;
 	
 	//Aimside Types
-	switch (oWeaponNew.aimsidetype)
+	switch (oWeapon.aimsidetype)
 	{
 		case "hsp":
 		if (hspnodec != 0)
@@ -265,7 +265,7 @@ if instance_exists(oWeaponNew)
 		case "direction":
 		/*if (!oWeapon.holstered)
 		{*/
-			if (oWeaponNew.image_angle > 90) && (oWeaponNew.image_angle < 270) aimside = -1; else aimside = 1;
+			if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
 			image_xscale = aimside;
 		//}
 		break;
@@ -285,12 +285,12 @@ if instance_exists(oWeaponNew)
 
 	if (onwall != 0 && aimside == onwall)
 	{
-		oWeaponNew.currentrspeed = 1;
+		oWeapon.currentrspeed = 1;
 		oCrosshair.currentrspeed = 1;
 	}
 	else
 	{
-		oWeaponNew.currentrspeed = oWeaponNew.rspeed;
+		oWeapon.currentrspeed = oWeapon.rspeed;
 		oCrosshair.currentrspeed = oCrosshair.rspeed;
 	}
 }

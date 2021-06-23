@@ -1,7 +1,7 @@
-if (oWeaponNew.projectilesprite != -1)
+if (oWeapon.projectilesprite != -1)
 {
 	draw_sprite_ext(
-	oWeaponNew.projectilesprite,
+	oWeapon.projectilesprite,
 	image_index,
 	x,
 	y,

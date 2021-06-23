@@ -1,4 +1,4 @@
-oPickup.sprite = ds_map_find_value(oWeaponNew.weapons[oPickup.pickuptype],"sprite");
+oPickup.sprite = ds_map_find_value(oWeapon.weapons[oPickup.pickuptype],"sprite");
 
 if (sprite != -1)
 {

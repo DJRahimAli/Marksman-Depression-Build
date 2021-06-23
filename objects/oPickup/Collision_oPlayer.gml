@@ -1,5 +1,4 @@
-/// @desc ?
-with(oWeaponNew)
+with(oWeapon)
 {
 	SetWeapon(oPickup.pickuptype);
 	ammo[oPickup.pickuptype] += 20;
