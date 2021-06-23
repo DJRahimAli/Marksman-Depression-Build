@@ -114,18 +114,6 @@ if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
 }
 #endregion
 
-#region Holstering
-if (global.key_holster_pressed) && instance_exists(oWeapon)
-{
-	oWeapon.holstered = !oWeapon.holstered;
-}
-
-if (global.key_gun_pressed) && instance_exists(oWeapon)
-{
-	oWeapon.holstered = false;
-}
-#endregion
-
 //Calculate vertical movement "Jumping or Fly Up/Down"
 if (!global.fly)
 {

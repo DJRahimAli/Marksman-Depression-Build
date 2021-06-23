@@ -7,12 +7,17 @@ function SetWeapon(argument0)
 	#region Weapon
 	//sprite = ds_map_find_value(wp_map,"sprite");
 	sprite = wp_map[? "sprite"];
-	recoil = wp_map[? "recoil"];
-	kickbackx = wp_map[? "kickbackx"];
-	kickbacky = wp_map[? "kickbacky"];
+	recoilmin = wp_map[? "recoilmin"];
+	recoilmax = wp_map[? "recoilmax"];
+	kickbackxmin = wp_map[? "kickbackxmin"];
+	kickbackxmax = wp_map[? "kickbackxmax"];
+	kickbackymin = wp_map[? "kickbackymin"];
+	kickbackymax = wp_map[? "kickbackymax"];
 	damage = wp_map[? "damage"];
-	startup = wp_map[? "startup"];
-	cooldown = wp_map[? "cooldown"];
+	startupmin = wp_map[? "startupmin"];
+	startupmax = wp_map[? "startupmax"];
+	cooldownmin = wp_map[? "cooldownmin"];
+	cooldownmax = wp_map[? "cooldownmax"];
 	firemodetype = wp_map[? "firemodetype"];
 	aimsidetype = wp_map[? "aimsidetype"];
 	distance = wp_map[? "distance"];
@@ -21,7 +26,8 @@ function SetWeapon(argument0)
 	ironsight = wp_map[? "ironsight"];
 	ironsightspeed = wp_map[? "ironsightspeed"];
 	ironsightdistance = wp_map[? "ironsightdistance"];
-	ironsightrecoil = wp_map[? "ironsightrecoil"];
+	ironsightrecoilmin = wp_map[? "ironsightrecoilmin"];
+	ironsightrecoilmax = wp_map[? "ironsightrecoilmax"];
 	ironsightspreadmin = wp_map[? "ironsightspreadmin"];
 	ironsightspreadmax = wp_map[? "ironsightspreadmax"];
 	#endregion
@@ -62,12 +68,16 @@ function SetWeapon(argument0)
 	#region Crosshair
 	crosshairsprite = wp_map[? "crosshairsprite"];
 	crosshairdistance = wp_map[? "crosshairdistance"];
-	crosshairshakemagnitude = wp_map[? "crosshairshakemagnitude"];
-	crosshairshakelength = wp_map[? "crosshairshakelength"];
+	crosshairshakemagnitudemin = wp_map[? "crosshairshakemagnitudemin"];
+	crosshairshakemagnitudemax = wp_map[? "crosshairshakemagnitudemax"];
+	crosshairshakelengthmin = wp_map[? "crosshairshakelengthmin"];
+	crosshairshakelengthmax = wp_map[? "crosshairshakelengthmax"];
 	crosshairironsightspeed = wp_map[? "crosshairironsightspeed"];
 	crosshairironsightdistance = wp_map[? "crosshairironsightdistance"];
-	crosshairironsightshakemagnitude = wp_map[? "crosshairironsightshakemagnitude"];
-	crosshairironsightshakelength = wp_map[? "crosshairironsightshakelength"];
+	crosshairironsightshakemagnitudemin = wp_map[? "crosshairironsightshakemagnitudemin"];
+	crosshairironsightshakemagnitudemax = wp_map[? "crosshairironsightshakemagnitudemax"];
+	crosshairironsightshakelengthmin = wp_map[? "crosshairironsightshakelengthmin"];
+	crosshairironsightshakelengthmax = wp_map[? "crosshairironsightshakelengthmax"];
 	#endregion
 	#region Sound
 	soundprimary = wp_map[? "soundprimary"];

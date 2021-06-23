@@ -9,12 +9,17 @@ var weaponid = 0;
 weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",-1);
-ds_map_add(weapons[weaponid],"recoil",0);
-ds_map_add(weapons[weaponid],"kickbackx",0);
-ds_map_add(weapons[weaponid],"kickbacky",0);
+ds_map_add(weapons[weaponid],"recoilmin",0);
+ds_map_add(weapons[weaponid],"recoilmax",0);
+ds_map_add(weapons[weaponid],"kickbackxmin",0);
+ds_map_add(weapons[weaponid],"kickbackxmax",0);
+ds_map_add(weapons[weaponid],"kickbackymin",0);
+ds_map_add(weapons[weaponid],"kickbackymax",0);
 ds_map_add(weapons[weaponid],"damage",0);
-ds_map_add(weapons[weaponid],"startup",0);
-ds_map_add(weapons[weaponid],"cooldown",0);
+ds_map_add(weapons[weaponid],"startupmin",0);
+ds_map_add(weapons[weaponid],"startupmax",0);
+ds_map_add(weapons[weaponid],"cooldownmin",0);
+ds_map_add(weapons[weaponid],"cooldownmax",0);
 ds_map_add(weapons[weaponid],"firemodetype","single");
 ds_map_add(weapons[weaponid],"aimsidetype","hsp");
 ds_map_add(weapons[weaponid],"distance",0);
@@ -23,7 +28,8 @@ ds_map_add(weapons[weaponid],"spreadmax",0);
 ds_map_add(weapons[weaponid],"ironsight",false);
 ds_map_add(weapons[weaponid],"ironsightspeed",0);
 ds_map_add(weapons[weaponid],"ironsightdistance",0);
-ds_map_add(weapons[weaponid],"ironsightrecoil",0);
+ds_map_add(weapons[weaponid],"ironsightrecoilmin",0);
+ds_map_add(weapons[weaponid],"ironsightrecoilmax",0);
 ds_map_add(weapons[weaponid],"ironsightspreadmin",0);
 ds_map_add(weapons[weaponid],"ironsightspreadmax",0);
 #endregion
@@ -34,7 +40,7 @@ ds_map_add(weapons[weaponid],"projectileamount",0);
 ds_map_add(weapons[weaponid],"projectilelength",0);
 ds_map_add(weapons[weaponid],"projectilelifemin",0);
 ds_map_add(weapons[weaponid],"projectilelifemax",0);
-ds_map_add(weapons[weaponid],"projectilealphalength",0)
+ds_map_add(weapons[weaponid],"projectilealphalength",0);
 ds_map_add(weapons[weaponid],"projectilespeedmin",0);
 ds_map_add(weapons[weaponid],"projectilespeedmax",0);
 #endregion
@@ -64,12 +70,16 @@ ds_map_add(weapons[weaponid],"muzzleflashlength",0);
 #region Crosshair
 ds_map_add(weapons[weaponid],"crosshairsprite",-1);
 ds_map_add(weapons[weaponid],"crosshairdistance",0);
-ds_map_add(weapons[weaponid],"crosshairshakemagnitude",0);
-ds_map_add(weapons[weaponid],"crosshairshakelength",0);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitudemin",0);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitudemax",0);
+ds_map_add(weapons[weaponid],"crosshairshakelengthmin",0);
+ds_map_add(weapons[weaponid],"crosshairshakelengthmax",0);
 ds_map_add(weapons[weaponid],"crosshairironsightspeed",0);
 ds_map_add(weapons[weaponid],"crosshairironsightdistance",0);
-ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitude",0);
-ds_map_add(weapons[weaponid],"crosshairironsightshakelength",0);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitudemin",0);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitudemax",0);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmin",0);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmax",0);
 #endregion
 #region Sound
 ds_map_add(weapons[weaponid],"soundprimary",-1);
@@ -92,12 +102,17 @@ var weaponid = 1;
 weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
-ds_map_add(weapons[weaponid],"recoil",4);
-ds_map_add(weapons[weaponid],"kickbackx",-1.5);
-ds_map_add(weapons[weaponid],"kickbacky",-0.5);
+ds_map_add(weapons[weaponid],"recoilmin",4);
+ds_map_add(weapons[weaponid],"recoilmax",6);
+ds_map_add(weapons[weaponid],"kickbackxmin",-1.0);
+ds_map_add(weapons[weaponid],"kickbackxmax",-1.5);
+ds_map_add(weapons[weaponid],"kickbackymin",-0.2);
+ds_map_add(weapons[weaponid],"kickbackymax",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
-ds_map_add(weapons[weaponid],"startup",0);
-ds_map_add(weapons[weaponid],"cooldown",20);
+ds_map_add(weapons[weaponid],"startupmin",0);
+ds_map_add(weapons[weaponid],"startupmax",0);
+ds_map_add(weapons[weaponid],"cooldownmin",8);
+ds_map_add(weapons[weaponid],"cooldownmax",10);
 ds_map_add(weapons[weaponid],"firemodetype","single");
 ds_map_add(weapons[weaponid],"aimsidetype","direction");
 ds_map_add(weapons[weaponid],"distance",40);
@@ -106,7 +121,8 @@ ds_map_add(weapons[weaponid],"spreadmax",3);
 ds_map_add(weapons[weaponid],"ironsight",true);
 ds_map_add(weapons[weaponid],"ironsightspeed",0.5);
 ds_map_add(weapons[weaponid],"ironsightdistance",35);
-ds_map_add(weapons[weaponid],"ironsightrecoil",3);
+ds_map_add(weapons[weaponid],"ironsightrecoilmin",3);
+ds_map_add(weapons[weaponid],"ironsightrecoilmax",5);
 ds_map_add(weapons[weaponid],"ironsightspreadmin",-1);
 ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
 #endregion
@@ -117,7 +133,7 @@ ds_map_add(weapons[weaponid],"projectileamount",1);
 ds_map_add(weapons[weaponid],"projectilelength",24);
 ds_map_add(weapons[weaponid],"projectilelifemin",200);
 ds_map_add(weapons[weaponid],"projectilelifemax",200);
-ds_map_add(weapons[weaponid],"projectilealphalength",40)
+ds_map_add(weapons[weaponid],"projectilealphalength",40);
 ds_map_add(weapons[weaponid],"projectilespeedmin",20);
 ds_map_add(weapons[weaponid],"projectilespeedmax",25);
 #endregion
@@ -147,12 +163,16 @@ ds_map_add(weapons[weaponid],"muzzleflashlength",24);
 #region Crosshair
 ds_map_add(weapons[weaponid],"crosshairsprite",sCrosshair);
 ds_map_add(weapons[weaponid],"crosshairdistance",120);
-ds_map_add(weapons[weaponid],"crosshairshakemagnitude",2);
-ds_map_add(weapons[weaponid],"crosshairshakelength",10);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitudemin",2);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitudemax",2);
+ds_map_add(weapons[weaponid],"crosshairshakelengthmin",10);
+ds_map_add(weapons[weaponid],"crosshairshakelengthmax",10);
 ds_map_add(weapons[weaponid],"crosshairironsightspeed",0.5);
 ds_map_add(weapons[weaponid],"crosshairironsightdistance",125);
-ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitude",1);
-ds_map_add(weapons[weaponid],"crosshairironsightshakelength",5);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitudemin",1);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitudemax",1);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmin",5);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmax",5);
 #endregion
 #region Sound
 ds_map_add(weapons[weaponid],"soundprimary",snd_WeaponPistolPrimary);
@@ -175,12 +195,17 @@ var weaponid = 2;
 weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
-ds_map_add(weapons[weaponid],"recoil",4);
-ds_map_add(weapons[weaponid],"kickbackx",-1.5);
-ds_map_add(weapons[weaponid],"kickbacky",-0.5);
+ds_map_add(weapons[weaponid],"recoilmin",4);
+ds_map_add(weapons[weaponid],"recoilmax",6);
+ds_map_add(weapons[weaponid],"kickbackxmin",-1.0);
+ds_map_add(weapons[weaponid],"kickbackxmax",-1.5);
+ds_map_add(weapons[weaponid],"kickbackymin",-0.2);
+ds_map_add(weapons[weaponid],"kickbackymax",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
-ds_map_add(weapons[weaponid],"startup",0);
-ds_map_add(weapons[weaponid],"cooldown",20);
+ds_map_add(weapons[weaponid],"startupmin",0);
+ds_map_add(weapons[weaponid],"startupmax",0);
+ds_map_add(weapons[weaponid],"cooldownmin",20);
+ds_map_add(weapons[weaponid],"cooldownmax",20);
 ds_map_add(weapons[weaponid],"firemodetype","automatic");
 ds_map_add(weapons[weaponid],"aimsidetype","direction");
 ds_map_add(weapons[weaponid],"distance",40);
@@ -189,7 +214,8 @@ ds_map_add(weapons[weaponid],"spreadmax",3);
 ds_map_add(weapons[weaponid],"ironsight",true);
 ds_map_add(weapons[weaponid],"ironsightspeed",0.5);
 ds_map_add(weapons[weaponid],"ironsightdistance",35);
-ds_map_add(weapons[weaponid],"ironsightrecoil",3);
+ds_map_add(weapons[weaponid],"ironsightrecoilmin",3);
+ds_map_add(weapons[weaponid],"ironsightrecoilmax",5);
 ds_map_add(weapons[weaponid],"ironsightspreadmin",-1);
 ds_map_add(weapons[weaponid],"ironsightspreadmax",2);
 #endregion
@@ -200,7 +226,7 @@ ds_map_add(weapons[weaponid],"projectileamount",1);
 ds_map_add(weapons[weaponid],"projectilelength",24);
 ds_map_add(weapons[weaponid],"projectilelifemin",200);
 ds_map_add(weapons[weaponid],"projectilelifemax",200);
-ds_map_add(weapons[weaponid],"projectilealphalength",40)
+ds_map_add(weapons[weaponid],"projectilealphalength",40);
 ds_map_add(weapons[weaponid],"projectilespeedmin",20);
 ds_map_add(weapons[weaponid],"projectilespeedmax",25);
 #endregion
@@ -230,12 +256,16 @@ ds_map_add(weapons[weaponid],"muzzleflashlength",24);
 #region Crosshair
 ds_map_add(weapons[weaponid],"crosshairsprite",sCrosshair);
 ds_map_add(weapons[weaponid],"crosshairdistance",120);
-ds_map_add(weapons[weaponid],"crosshairshakemagnitude",2);
-ds_map_add(weapons[weaponid],"crosshairshakelength",10);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitudemin",2);
+ds_map_add(weapons[weaponid],"crosshairshakemagnitudemax",2);
+ds_map_add(weapons[weaponid],"crosshairshakelengthmin",10);
+ds_map_add(weapons[weaponid],"crosshairshakelengthmax",10);
 ds_map_add(weapons[weaponid],"crosshairironsightspeed",0.5);
 ds_map_add(weapons[weaponid],"crosshairironsightdistance",125);
-ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitude",1);
-ds_map_add(weapons[weaponid],"crosshairironsightshakelength",5);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitudemin",1);
+ds_map_add(weapons[weaponid],"crosshairironsightshakemagnitudemax",1);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmin",5);
+ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmax",5);
 #endregion
 #region Sound
 ds_map_add(weapons[weaponid],"soundprimary",snd_WeaponPistolPrimary);
