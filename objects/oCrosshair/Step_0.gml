@@ -42,7 +42,8 @@ if (oWeaponNew.ironsights)
 }
 else
 {
-	currentdistance = lerp(currentdistance, oWeaponNew.crosshairdistance, oWeaponNew.crosshairironsightspeed);
+	//currentdistance = lerp(currentdistance, oWeaponNew.crosshairdistance, oWeaponNew.crosshairironsightspeed);
+	currentdistance = oWeaponNew.crosshairdistance;
 	currentshakemagnitude = oWeaponNew.crosshairshakemagnitude;
 	currentshakelength = oWeaponNew.crosshairshakelength;
 }

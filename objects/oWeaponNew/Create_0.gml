@@ -93,7 +93,7 @@ weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
 ds_map_add(weapons[weaponid],"recoil",4);
-ds_map_add(weapons[weaponid],"kickbackx",1.5);
+ds_map_add(weapons[weaponid],"kickbackx",-1.5);
 ds_map_add(weapons[weaponid],"kickbacky",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
 ds_map_add(weapons[weaponid],"startup",0);
@@ -176,7 +176,7 @@ weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
 ds_map_add(weapons[weaponid],"recoil",4);
-ds_map_add(weapons[weaponid],"kickbackx",1.5);
+ds_map_add(weapons[weaponid],"kickbackx",-1.5);
 ds_map_add(weapons[weaponid],"kickbacky",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
 ds_map_add(weapons[weaponid],"startup",0);
@@ -267,8 +267,9 @@ weapon = 0;
 ammo[array_length(weapons)-1] = 0; // Default ammo
 ammo[0] = -1; // Set unarmed ammo
 
-SetWeapon(2);
+SetWeapon(0);
 
+currentweapon = weapon;
 currentcd = 0;
 currentdelay = -1;
 currentrecoil = 0;
