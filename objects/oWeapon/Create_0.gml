@@ -111,8 +111,8 @@ ds_map_add(weapons[weaponid],"kickbackymax",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
 ds_map_add(weapons[weaponid],"startupmin",0);
 ds_map_add(weapons[weaponid],"startupmax",0);
-ds_map_add(weapons[weaponid],"cooldownmin",8);
-ds_map_add(weapons[weaponid],"cooldownmax",10);
+ds_map_add(weapons[weaponid],"cooldownmin",6);
+ds_map_add(weapons[weaponid],"cooldownmax",8);
 ds_map_add(weapons[weaponid],"firemodetype","single");
 ds_map_add(weapons[weaponid],"aimsidetype","direction");
 ds_map_add(weapons[weaponid],"distance",40);
@@ -194,7 +194,7 @@ ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
 var weaponid = 2;
 weapons[weaponid] = ds_map_create();
 #region Weapon
-ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
+ds_map_add(weapons[weaponid],"sprite",sWeaponSMG);
 ds_map_add(weapons[weaponid],"recoilmin",4);
 ds_map_add(weapons[weaponid],"recoilmax",6);
 ds_map_add(weapons[weaponid],"kickbackxmin",-1.0);
@@ -204,8 +204,8 @@ ds_map_add(weapons[weaponid],"kickbackymax",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
 ds_map_add(weapons[weaponid],"startupmin",0);
 ds_map_add(weapons[weaponid],"startupmax",0);
-ds_map_add(weapons[weaponid],"cooldownmin",20);
-ds_map_add(weapons[weaponid],"cooldownmax",20);
+ds_map_add(weapons[weaponid],"cooldownmin",6);
+ds_map_add(weapons[weaponid],"cooldownmax",8);
 ds_map_add(weapons[weaponid],"firemodetype","automatic");
 ds_map_add(weapons[weaponid],"aimsidetype","direction");
 ds_map_add(weapons[weaponid],"distance",40);
@@ -293,9 +293,9 @@ minmaxangle = 60;
 rspeed = 0.25; // Max = 1 or else things will glitch the fuck out
 currentrspeed = 0;
 weapon = 0;
-// ammo = -1; is infinite ammo
-ammo[array_length(weapons)-1] = 0; // Default ammo
-ammo[0] = -1; // Set unarmed ammo
+// currentprimaryammo = -1; is infinite ammo
+currentprimaryammo[array_length(weapons)-1] = 0; // Default ammo
+currentprimaryammo[0] = -1; // Set unarmed currentprimaryammo
 
 SetWeapon(0);
 
@@ -307,5 +307,5 @@ currentkickbackx = 0;
 currentkickbacky = 0;
 currentspread = 0;
 currentdistance = 0;
-currentprimaryammo = 0;
-currentsecondaryammo = 0;
+currentprimarycurrentprimaryammo = 0;
+currentsecondarycurrentprimaryammo = 0;

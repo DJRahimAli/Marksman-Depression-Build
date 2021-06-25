@@ -1,13 +1,25 @@
-if keyboard_check_pressed(ord("G"))
+//Next Weapon
+if mouse_wheel_down()
 {
-	currentweapon -= 1;
-	if (currentweapon < 0) currentweapon = array_length(weapons)-1;
+	image_speed = 0;
+	image_index = 0;
+	currentweapon += 1;
+	if (currentweapon >= array_length(weapons)) currentweapon = 0;
 	SetWeapon(currentweapon);
 }
 
-if keyboard_check_pressed(ord("H"))
+//Previous Weapon
+if mouse_wheel_up()
 {
-	currentweapon += 1;
-	if (currentweapon >= array_length(weapons)) currentweapon = 0;
+	image_speed = 0;
+	image_index = 0;
+	if (muzzleflash) with (oMuzzleflash)
+	{
+		image_alpha = 0;
+		image_speed = 0;
+		image_index = 0;
+	}
+	currentweapon -= 1;
+	if (currentweapon < 0) currentweapon = array_length(weapons)-1;
 	SetWeapon(currentweapon);
 }

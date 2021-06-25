@@ -74,6 +74,7 @@
     {"id":{"name":"fText","path":"fonts/fText/fText.yy",},"order":1,},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":1,},
     {"id":{"name":"oDPadOutline","path":"objects/oDPadOutline/oDPadOutline.yy",},"order":2,},
+    {"id":{"name":"sWeaponSMG","path":"sprites/sWeaponSMG/sWeaponSMG.yy",},"order":1,},
     {"id":{"name":"sPlayerTrailAC","path":"sprites/sPlayerTrailAC/sPlayerTrailAC.yy",},"order":13,},
     {"id":{"name":"oTransition","path":"objects/oTransition/oTransition.yy",},"order":3,},
     {"id":{"name":"oEnemyShell","path":"objects/oEnemyShell/oEnemyShell.yy",},"order":8,},
