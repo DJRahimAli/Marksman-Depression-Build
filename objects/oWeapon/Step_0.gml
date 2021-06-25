@@ -85,7 +85,7 @@ if (primaryattack) if (currentcd == 0)
 
 if (currentdelay == 0)
 {
-	if (ammo[weapon] != 0)
+	if (currentprimaryammo[weapon] != 0)
 	{
 		image_speed = 1;
 		image_index = 1;
@@ -120,10 +120,10 @@ if (currentdelay == 0)
 			direction = other.image_angle;
 			image_xscale = other.image_yscale;
 		}
-		ammo[weapon] -= 1;
+		currentprimaryammo[weapon] -= 1;
 	}
 	
-	if (ammo[weapon] == 0)
+	if (currentprimaryammo[weapon] == 0)
 	{
 		//set reload key to true here for an autoreload?
 		if (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
@@ -134,5 +134,5 @@ currentdelay = max(-1,currentdelay-1);
 if (currentdelay == -1) currentcd = max(0,currentcd-1);
 currentrecoil = max(0,currentrecoil*0.8);
 //currentrecoil = max(0,floor(currentrecoil*0.8));
-//ammo[weapon] = 1;//infinite ammo
+//currentprimaryammo[weapon] = 1;//infinite ammo
 //depth = oPlayer.depth-1;

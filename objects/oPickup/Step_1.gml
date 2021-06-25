@@ -10,7 +10,7 @@ switch (pickuptype)
 		with(oWeapon)
 		{
 			SetWeapon(oPickup.weapon);
-			/*currentprimary*/ammo[oPickup.weapon] += 18//primaryammo;
+			currentprimaryammo[oPickup.weapon] += primaryammo;
 			//currentsecondaryammo[oPickup.pickuptype] += secondaryammo;
 		}
 		instance_destroy();
