@@ -1,6 +1,3 @@
-image_speed = 0;
-image_index = 0;
-
 instance_create_layer(x,y,"Crosshair",oCrosshair);
 instance_create_layer(x,y,"Weapon",oMuzzleflash);
 
@@ -9,6 +6,23 @@ var weaponid = 0;
 weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",-1);
+ds_map_add(weapons[weaponid],"spriteprimary",-1);
+ds_map_add(weapons[weaponid],"spritesecondary",-1);
+ds_map_add(weapons[weaponid],"spritestartup",-1);
+ds_map_add(weapons[weaponid],"spritereload",-1);
+ds_map_add(weapons[weaponid],"spriteempty",-1);
+ds_map_add(weapons[weaponid],"spritespeed",0);
+ds_map_add(weapons[weaponid],"spriteprimaryspeed",0);
+ds_map_add(weapons[weaponid],"spritesecondaryspeed",0);
+ds_map_add(weapons[weaponid],"spritestartupspeed",0);
+ds_map_add(weapons[weaponid],"spritereloadspeed",0);
+ds_map_add(weapons[weaponid],"spriteemptyspeed",0);
+ds_map_add(weapons[weaponid],"spritelooping",false);
+ds_map_add(weapons[weaponid],"spriteprimarylooping",false);
+ds_map_add(weapons[weaponid],"spritesecondarylooping",false);
+ds_map_add(weapons[weaponid],"spritestartuplooping",false);
+ds_map_add(weapons[weaponid],"spritereloadlooping",false);
+ds_map_add(weapons[weaponid],"spriteemptylooping",false);
 ds_map_add(weapons[weaponid],"recoilmin",0);
 ds_map_add(weapons[weaponid],"recoilmax",0);
 ds_map_add(weapons[weaponid],"kickbackxmin",0);
@@ -16,8 +30,7 @@ ds_map_add(weapons[weaponid],"kickbackxmax",0);
 ds_map_add(weapons[weaponid],"kickbackymin",0);
 ds_map_add(weapons[weaponid],"kickbackymax",0);
 ds_map_add(weapons[weaponid],"damage",0);
-ds_map_add(weapons[weaponid],"startupmin",0);
-ds_map_add(weapons[weaponid],"startupmax",0);
+ds_map_add(weapons[weaponid],"startup",0);
 ds_map_add(weapons[weaponid],"cooldownmin",0);
 ds_map_add(weapons[weaponid],"cooldownmax",0);
 ds_map_add(weapons[weaponid],"firemodetype","single");
@@ -84,12 +97,15 @@ ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmax",0);
 #region Sound
 ds_map_add(weapons[weaponid],"soundprimary",-1);
 ds_map_add(weapons[weaponid],"soundsecondary",-1);
+ds_map_add(weapons[weaponid],"soundstartup",-1);
 ds_map_add(weapons[weaponid],"soundreload",-1);
 ds_map_add(weapons[weaponid],"soundempty",-1);
 ds_map_add(weapons[weaponid],"soundprimarypitchmin",1);
 ds_map_add(weapons[weaponid],"soundprimarypitchmax",1);
 ds_map_add(weapons[weaponid],"soundsecondarypitchmin",1);
 ds_map_add(weapons[weaponid],"soundsecondarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundstartuppitchmin",1);
+ds_map_add(weapons[weaponid],"soundstartuppitchmax",1);
 ds_map_add(weapons[weaponid],"soundreloadpitchmin",1);
 ds_map_add(weapons[weaponid],"soundreloadpitchmax",1);
 ds_map_add(weapons[weaponid],"soundemptypitchmin",1);
@@ -102,6 +118,23 @@ var weaponid = 1;
 weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
+ds_map_add(weapons[weaponid],"spriteprimary",sWeaponPistolPrimary);
+ds_map_add(weapons[weaponid],"spritesecondary",-1);
+ds_map_add(weapons[weaponid],"spritestartup",sWeaponPistolStartup);
+ds_map_add(weapons[weaponid],"spritereload",-1);
+ds_map_add(weapons[weaponid],"spriteempty",sWeaponPistolEmpty);
+ds_map_add(weapons[weaponid],"spritespeed",1);
+ds_map_add(weapons[weaponid],"spriteprimaryspeed",1);
+ds_map_add(weapons[weaponid],"spritesecondaryspeed",1);
+ds_map_add(weapons[weaponid],"spritestartupspeed",1);
+ds_map_add(weapons[weaponid],"spritereloadspeed",1);
+ds_map_add(weapons[weaponid],"spriteemptyspeed",1);
+ds_map_add(weapons[weaponid],"spritelooping",false);
+ds_map_add(weapons[weaponid],"spriteprimarylooping",false);
+ds_map_add(weapons[weaponid],"spritesecondarylooping",false);
+ds_map_add(weapons[weaponid],"spritestartuplooping",true);
+ds_map_add(weapons[weaponid],"spritereloadlooping",false);
+ds_map_add(weapons[weaponid],"spriteemptylooping",true);
 ds_map_add(weapons[weaponid],"recoilmin",4);
 ds_map_add(weapons[weaponid],"recoilmax",6);
 ds_map_add(weapons[weaponid],"kickbackxmin",-1.0);
@@ -109,8 +142,7 @@ ds_map_add(weapons[weaponid],"kickbackxmax",-1.5);
 ds_map_add(weapons[weaponid],"kickbackymin",-0.2);
 ds_map_add(weapons[weaponid],"kickbackymax",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
-ds_map_add(weapons[weaponid],"startupmin",0);
-ds_map_add(weapons[weaponid],"startupmax",0);
+ds_map_add(weapons[weaponid],"startup",0);
 ds_map_add(weapons[weaponid],"cooldownmin",6);
 ds_map_add(weapons[weaponid],"cooldownmax",8);
 ds_map_add(weapons[weaponid],"firemodetype","single");
@@ -177,12 +209,15 @@ ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmax",5);
 #region Sound
 ds_map_add(weapons[weaponid],"soundprimary",snd_WeaponPistolPrimary);
 ds_map_add(weapons[weaponid],"soundsecondary",-1);
+ds_map_add(weapons[weaponid],"soundstartup",snd_PlayerDeath);
 ds_map_add(weapons[weaponid],"soundreload",-1);
 ds_map_add(weapons[weaponid],"soundempty",snd_WeaponPistolEmpty);
 ds_map_add(weapons[weaponid],"soundprimarypitchmin",0.98);
 ds_map_add(weapons[weaponid],"soundprimarypitchmax",1.02);
 ds_map_add(weapons[weaponid],"soundsecondarypitchmin",1);
 ds_map_add(weapons[weaponid],"soundsecondarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundstartuppitchmin",1);
+ds_map_add(weapons[weaponid],"soundstartuppitchmax",1);
 ds_map_add(weapons[weaponid],"soundreloadpitchmin",1);
 ds_map_add(weapons[weaponid],"soundreloadpitchmax",1);
 ds_map_add(weapons[weaponid],"soundemptypitchmin",1);
@@ -195,6 +230,23 @@ var weaponid = 2;
 weapons[weaponid] = ds_map_create();
 #region Weapon
 ds_map_add(weapons[weaponid],"sprite",sWeaponSMG);
+ds_map_add(weapons[weaponid],"spriteprimary",sWeaponSMGPrimary);
+ds_map_add(weapons[weaponid],"spritesecondary",-1);
+ds_map_add(weapons[weaponid],"spritestartup",sWeaponSMGStartup);
+ds_map_add(weapons[weaponid],"spritereload",-1);
+ds_map_add(weapons[weaponid],"spriteempty",sWeaponSMGEmpty);
+ds_map_add(weapons[weaponid],"spritespeed",1);
+ds_map_add(weapons[weaponid],"spriteprimaryspeed",1);
+ds_map_add(weapons[weaponid],"spritesecondaryspeed",1);
+ds_map_add(weapons[weaponid],"spritestartupspeed",1);
+ds_map_add(weapons[weaponid],"spritereloadspeed",1);
+ds_map_add(weapons[weaponid],"spriteemptyspeed",1);
+ds_map_add(weapons[weaponid],"spritelooping",false);
+ds_map_add(weapons[weaponid],"spriteprimarylooping",false);
+ds_map_add(weapons[weaponid],"spritesecondarylooping",false);
+ds_map_add(weapons[weaponid],"spritestartuplooping",true);
+ds_map_add(weapons[weaponid],"spritereloadlooping",false);
+ds_map_add(weapons[weaponid],"spriteemptylooping",true);
 ds_map_add(weapons[weaponid],"recoilmin",4);
 ds_map_add(weapons[weaponid],"recoilmax",6);
 ds_map_add(weapons[weaponid],"kickbackxmin",-1.0);
@@ -202,8 +254,7 @@ ds_map_add(weapons[weaponid],"kickbackxmax",-1.5);
 ds_map_add(weapons[weaponid],"kickbackymin",-0.2);
 ds_map_add(weapons[weaponid],"kickbackymax",-0.5);
 ds_map_add(weapons[weaponid],"damage",8);
-ds_map_add(weapons[weaponid],"startupmin",0);
-ds_map_add(weapons[weaponid],"startupmax",0);
+ds_map_add(weapons[weaponid],"startup",0);
 ds_map_add(weapons[weaponid],"cooldownmin",6);
 ds_map_add(weapons[weaponid],"cooldownmax",8);
 ds_map_add(weapons[weaponid],"firemodetype","automatic");
@@ -270,12 +321,15 @@ ds_map_add(weapons[weaponid],"crosshairironsightshakelengthmax",5);
 #region Sound
 ds_map_add(weapons[weaponid],"soundprimary",snd_WeaponPistolPrimary);
 ds_map_add(weapons[weaponid],"soundsecondary",-1);
+ds_map_add(weapons[weaponid],"soundstartup",snd_PlayerDeath);
 ds_map_add(weapons[weaponid],"soundreload",-1);
 ds_map_add(weapons[weaponid],"soundempty",snd_WeaponPistolEmpty);
 ds_map_add(weapons[weaponid],"soundprimarypitchmin",0.98);
 ds_map_add(weapons[weaponid],"soundprimarypitchmax",1.02);
 ds_map_add(weapons[weaponid],"soundsecondarypitchmin",1);
 ds_map_add(weapons[weaponid],"soundsecondarypitchmax",1);
+ds_map_add(weapons[weaponid],"soundstartuppitchmin",1);
+ds_map_add(weapons[weaponid],"soundstartuppitchmax",1);
 ds_map_add(weapons[weaponid],"soundreloadpitchmin",1);
 ds_map_add(weapons[weaponid],"soundreloadpitchmax",1);
 ds_map_add(weapons[weaponid],"soundemptypitchmin",1);
@@ -293,19 +347,19 @@ minmaxangle = 60;
 rspeed = 0.25; // Max = 1 or else things will glitch the fuck out
 currentrspeed = 0;
 weapon = 0;
+switchdelay = 20;
+animationlooping = false;
 // currentprimaryammo = -1; is infinite ammo
-currentprimaryammo[array_length(weapons)-1] = 0; // Default ammo
-currentprimaryammo[0] = -1; // Set unarmed currentprimaryammo
+currentprimaryammo[array_length(weapons)-1] = 0; // Default Primary ammo
+//currentprimaryammo[0] = -1; // Set unarmed currentprimaryammo
+currentsecondaryammo[array_length(weapons)-1] = 0; // Default Secondary ammo
 
 SetWeapon(0);
 
 currentweapon = weapon;
-currentcd = 0;
-currentdelay = -1;
 currentrecoil = 0;
 currentkickbackx = 0;
 currentkickbacky = 0;
 currentspread = 0;
 currentdistance = 0;
-currentprimarycurrentprimaryammo = 0;
-currentsecondarycurrentprimaryammo = 0;
+currentswitchdelay = 0;

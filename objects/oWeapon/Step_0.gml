@@ -1,5 +1,5 @@
-x = oPlayer.x;
-y = oPlayer.y+8;
+x = oPlayer.x-3;
+y = oPlayer.y+12;
 
 //Set angle of weapon
 if (global.controller == 0) if (global.hascontrol)
@@ -48,23 +48,16 @@ if (oPlayer.onwall > 0)
 if (image_angle > 360) image_angle -= 360;
 if (image_angle < 0) image_angle += 360;
 
-if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
+//if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
 
 if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, ironsightspeed); else currentdistance = distance; //else currentdistance = lerp(currentdistance, distance, ironsightspeed);
 
 x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
-if (place_meeting(x,y,oWall) || place_meeting(x,y,oBulletWall) || place_meeting(x,y,oCollision))
-{
-	stopattack = true;
-	image_alpha = 0.5;
-}
-else
-{
-	stopattack = false;
-	image_alpha = 1;
-}
+if (place_meeting(x,y,oWall) || place_meeting(x,y,oBulletWall) || place_meeting(x,y,oCollision)) stopattack = true;
+
+if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
 var primaryattack;
 //Firemodes
@@ -75,20 +68,32 @@ switch (firemodetype)
 	default: primaryattack = global.key_primaryattack_pressed;
 }
 
-if (!global.hascontrol) || (stopattack) primaryattack = false;
-
-if (primaryattack) if (currentcd == 0)
+if (primaryattack) if (!global.hascontrol || !stopattack) && (currentcd == 0)
 {
 	currentcd = random_range(cooldownmin,cooldownmax);
-	currentdelay = random_range(startupmin,startupmax);
+	currentdelay = startup;
+	
+	if (currentprimaryammo[weapon] == 0)
+	{
+		if (spriteemptylooping) animationlooping = true; else animationlooping = false;
+		currentsprite = spriteempty;
+		sprite_index = currentsprite;
+		image_speed = spriteemptyspeed;
+		image_index = 0;
+		//set reload key to true here for an autoreload?
+		if (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
+	}
 }
 
 if (currentdelay == 0)
 {
 	if (currentprimaryammo[weapon] != 0)
 	{
-		image_speed = 1;
-		image_index = 1;
+		if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
+		currentsprite = spriteprimary;
+		sprite_index = currentsprite;
+		image_speed = spriteprimaryspeed;
+		image_index = 0;
 		if (ironsights) currentrecoil = random_range(ironsightrecoilmin,ironsightrecoilmax); else currentrecoil = random_range(recoilmin,recoilmax);
 		currentkickbackx = lengthdir_x(random_range(kickbackxmin,kickbackxmax), image_angle);
 		currentkickbacky = lengthdir_y(random_range(kickbackymin,kickbackymax), image_angle);
@@ -122,12 +127,16 @@ if (currentdelay == 0)
 		}
 		currentprimaryammo[weapon] -= 1;
 	}
-	
-	if (currentprimaryammo[weapon] == 0)
-	{
-		//set reload key to true here for an autoreload?
-		if (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
-	}
+}
+
+if (currentprimaryammo[weapon] != 0) && (startup != 0) && (currentdelay == startup)
+{
+	if (spritestartuplooping) animationlooping = true; else animationlooping = false;
+	currentsprite = spritestartup;
+	sprite_index = currentsprite;
+	image_speed = spritestartupspeed;
+	image_index = 0;
+	if (soundstartup != -1) audio_sound_pitch(audio_play_sound(soundstartup,5,false),(random_range(soundstartuppitchmin,soundstartuppitchmax)));
 }
 
 currentdelay = max(-1,currentdelay-1);

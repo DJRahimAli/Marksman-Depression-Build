@@ -7,6 +7,23 @@ function SetWeapon(argument0)
 	#region Weapon
 	//sprite = ds_map_find_value(wp_map,"sprite");
 	sprite = wp_map[? "sprite"];
+	spriteprimary = wp_map[? "spriteprimary"];
+	spritesecondary = wp_map[? "spritesecondary"];
+	spritestartup = wp_map[? "spritestartup"];
+	spritereload = wp_map[? "spritereload"];
+	spriteempty = wp_map[? "spriteempty"];
+	spritespeed = wp_map[? "spritespeed"];
+	spriteprimaryspeed = wp_map[? "spriteprimaryspeed"];
+	spritesecondaryspeed = wp_map[? "spritesecondaryspeed"];
+	spritestartupspeed = wp_map[? "spritestartupspeed"];
+	spritereloadspeed = wp_map[? "spritereloadspeed"];
+	spriteemptyspeed = wp_map[? "spriteemptyspeed"];
+	spritelooping = wp_map[? "spritelooping"];
+	spriteprimarylooping = wp_map[? "spriteprimarylooping"];
+	spritesecondarylooping = wp_map[? "spritesecondarylooping"];
+	spritestartuplooping = wp_map[? "spritestartuplooping"];
+	spritereloadlooping = wp_map[? "spritereloadlooping"];
+	spriteemptylooping = wp_map[? "spriteemptylooping"];
 	recoilmin = wp_map[? "recoilmin"];
 	recoilmax = wp_map[? "recoilmax"];
 	kickbackxmin = wp_map[? "kickbackxmin"];
@@ -14,8 +31,7 @@ function SetWeapon(argument0)
 	kickbackymin = wp_map[? "kickbackymin"];
 	kickbackymax = wp_map[? "kickbackymax"];
 	damage = wp_map[? "damage"];
-	startupmin = wp_map[? "startupmin"];
-	startupmax = wp_map[? "startupmax"];
+	startup = wp_map[? "startup"];
 	cooldownmin = wp_map[? "cooldownmin"];
 	cooldownmax = wp_map[? "cooldownmax"];
 	firemodetype = wp_map[? "firemodetype"];
@@ -82,15 +98,24 @@ function SetWeapon(argument0)
 	#region Sound
 	soundprimary = wp_map[? "soundprimary"];
 	soundsecondary = wp_map[? "soundsecondary"];
+	soundstartup = wp_map[? "soundstartup"];
 	soundreload = wp_map[? "soundreload"];
 	soundempty = wp_map[? "soundempty"];
 	soundprimarypitchmin = wp_map[? "soundprimarypitchmin"];
 	soundprimarypitchmax = wp_map[? "soundprimarypitchmax"];
 	soundsecondarypitchmin = wp_map[? "soundsecondarypitchmin"];
 	soundsecondarypitchmax = wp_map[? "soundsecondarypitchmax"];
+	soundstartuppitchmin = wp_map[? "soundstartuppitchmin"];
+	soundstartuppitchmax = wp_map[? "soundstartuppitchmax"];
 	soundreloadpitchmin = wp_map[? "soundreloadpitchmin"];
 	soundreloadpitchmax = wp_map[? "soundreloadpitchmax"];
 	soundemptypitchmin = wp_map[? "soundemptypitchmin"];
 	soundemptypitchmax = wp_map[? "soundemptypitchmax"];
 	#endregion
+	currentcd = 0;
+	currentdelay = -1;
+	currentsprite = sprite;
+	sprite_index = currentsprite;
+	image_speed = spritespeed;
+	image_index = 0;
 }

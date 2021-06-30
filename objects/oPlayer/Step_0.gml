@@ -55,7 +55,7 @@ if (!global.fly)
 	
 	if (walljumpheight > 0) walljumpheight-=0.05;
 	
-	if (wallsliding) walljumpdirection = onwall;
+	if (onwall != 0) walljumpdirection = onwall;
 	
 	if (global.key_jump_pressed) && (walljumpbuffer > 0) && (walljumpdelay < walljumpdelaymax-6.5)
 	{
@@ -241,33 +241,33 @@ if instance_exists(oWeapon)
 		if (hspnodec != 0)
 		{
 			aimside = sign(hsp);
-			image_xscale = aimside;
+			image_xscale = aimside*1.5;
 		}
 		
 		if (hsp < 1 && onwall != 0) 
 		{
 			aimside = -onwall;
-			image_xscale = aimside;
+			image_xscale = aimside*1.5;
 		}
 		break;
 		case "direction":
 		/*if (!oWeapon.holstered)
 		{*/
 			if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
-			image_xscale = aimside;
+			image_xscale = aimside*1.5;
 		//}
 		break;
 		default:
 		if (hspnodec != 0)
 		{
 			aimside = sign(hsp);
-			image_xscale = aimside;
+			image_xscale = aimside*1.5;
 		}
 		
 		if (hsp < 1 && onwall != 0) 
 		{
 			aimside = -onwall;
-			image_xscale = aimside;
+			image_xscale = aimside*1.5;
 		};
 	}
 
@@ -287,13 +287,13 @@ else
 	if (hspnodec != 0)
 	{
 		aimside = sign(hsp);
-		image_xscale = aimside;
+		image_xscale = aimside*1.5;
 	}
 		
 	if (hsp < 1 && onwall != 0) 
 	{
 		aimside = -onwall;
-		image_xscale = aimside;
+		image_xscale = aimside*1.5;
 	}
 }
 
