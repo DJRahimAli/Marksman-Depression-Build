@@ -1,2 +1,7 @@
-image_speed = 0;
-image_index = 0;
+if (currentsprite != sprite) && (!animationlooping)
+{
+	currentsprite = sprite;
+	sprite_index = currentsprite;
+	image_speed = spritespeed;
+	image_index = 0;
+}
