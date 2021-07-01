@@ -43,10 +43,9 @@ if (walljumpdelay == 0)
 		hsp = lerp(hsp,0,hspfricfinal) + oWeapon.currentkickbackx;
 		hsp = clamp(hsp,-walksp,walksp);
 	}
-	
-	if (dir != 0)
+	else
 	{
-		if (abs(hsp) >= walksp) hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir));
+		if (abs(hsp) >= walksp) && (aimside != sign(hsp)) hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir));
 		else hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir)) + oWeapon.currentkickbackx;
 	}
 }
