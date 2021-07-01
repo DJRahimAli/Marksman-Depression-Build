@@ -1,4 +1,4 @@
-x = oPlayer.x-3;
+x = oPlayer.x+-3;
 y = oPlayer.y+12;
 
 //Set angle of weapon
