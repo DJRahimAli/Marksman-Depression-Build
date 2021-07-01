@@ -41,8 +41,13 @@ if (walljumpdelay == 0)
 		var hspfricfinal = hspfricground;
 		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
 		hsp = lerp(hsp,0,hspfricfinal) + oWeapon.currentkickbackx;
+		hsp = clamp(hsp,-walksp,walksp);
 	}
-	else hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir));
+	else
+	{
+		hsp += oWeapon.currentkickbackx;
+		hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir));
+	}
 }
 oWeapon.currentkickbackx = 0;
 
