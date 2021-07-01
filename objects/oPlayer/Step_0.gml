@@ -42,7 +42,7 @@ if (walljumpdelay == 0)
 		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
 		hsp = lerp(hsp,0,hspfricfinal) + oWeapon.currentkickbackx;
 	}
-	hsp = clamp(hsp,-walksp,walksp);
+	else hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir));
 }
 oWeapon.currentkickbackx = 0;
 
@@ -352,30 +352,32 @@ else
 				}
 			}
 		}*/
-		if (!moving)
+		if (hsp == 0 || dir == 0)
 		{
 			if (!crouch)
 			{
+				image_speed = 0;
 				sprite_index = sPlayer;
 			}
 			else
 			{
+				image_speed = 0;
 				sprite_index = sPlayerC;
 			}
 		}
-		else
+		if (onwall == 0) && (abs(hsp) || abs(dir))
 		{
 			if (!crouch) && (!global.noclip)
 			{
-				image_speed = (1 * hsp/4);
+				image_speed = clamp(abs(hsp)/walkspmax,0.2,1);
 				sprite_index = sPlayerR;
-				if (hspnodec != 0 && aimside != sign(hsp)) sprite_index = sPlayerRB;
+				//if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
-				image_speed = (1 * hsp/4);
+				image_speed = clamp(abs(hsp)/walkspcrouchmax,0.2,1);
 				sprite_index = sPlayerRC;
-				if (hspnodec != 0 && aimside != sign(hsp)) sprite_index = sPlayerRBC;
+				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
 	}
