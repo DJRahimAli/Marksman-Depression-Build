@@ -28,6 +28,8 @@ function SetWeapon(argument0)
 	spritestartuplooping = wp_map[? "spritestartuplooping"];
 	spritereloadlooping = wp_map[? "spritereloadlooping"];
 	spriteemptylooping = wp_map[? "spriteemptylooping"];
+	xfollowspeed = wp_map[? "xfollowspeed"];
+	yfollowspeed = wp_map[? "yfollowspeed"];
 	recoilmin = wp_map[? "recoilmin"];
 	recoilmax = wp_map[? "recoilmax"];
 	kickbackxmin = wp_map[? "kickbackxmin"];
