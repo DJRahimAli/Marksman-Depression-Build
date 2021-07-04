@@ -1,7 +1,15 @@
 if (image_angle > 90) && (image_angle < 270) currentxoffset = -xoffset; else currentxoffset = xoffset;
 
-x = oPlayer.x+currentxoffset;
-y = oPlayer.y+currentyoffset;
+if (currentswitchdelay < switchdelay)
+{
+	x = lerp(x,oPlayer.x+currentxoffset,xfollowspeed);
+	y = lerp(y,oPlayer.y+currentyoffset,yfollowspeed);
+}
+else
+{
+	x = oPlayer.x+currentxoffset;
+	y = oPlayer.y+currentyoffset;
+}
 
 //Set angle of weapon
 if (global.controller == 0) if (global.hascontrol)
@@ -126,25 +134,19 @@ if (currentdelay == 0)
 		}
 		#endregion
 		#region Shell
-		if (shell != -1) repeat(shellamount) with (instance_create_layer(x+lengthdir_x(shelllength,image_angle)+shellxoffset,y+lengthdir_y(shelllength,image_angle)+shellyoffset,"Shells",shell))
+		var shellangleoffset = point_direction(0, 0, shellxoffset, shellyoffset);
+		var shelldistanceoffset = point_distance(0, 0, shellxoffset, shellyoffset);
+		var shellx = x+lengthdir_x(shelldistanceoffset,image_angle+shellangleoffset);
+		var shelly = y+lengthdir_y(shelldistanceoffset,image_angle+shellangleoffset);
+		if (shell != -1) repeat(shellamount) with (instance_create_layer(shellx,shelly,"Shells",shell))
 		{
 			//direction = other.image_angle;
 			life = random_range(oWeapon.shelllifemin,oWeapon.shelllifemax);
 			alphalength = oWeapon.shellalphalength;
-			//hsp = lengthdir_x(random_range(oWeapon.shellhspmin,oWeapon.shellhspmax), direction);
-			if (direction > 90) && (direction < 270)
-			{
-				hsp = -random_range(oWeapon.shellhspmin,oWeapon.shellhspmax);
-				image_xscale = -oWeapon.shellxscale;
-			}
-			else
-			{
-				hsp = random_range(oWeapon.shellhspmin,oWeapon.shellhspmax);
-				image_xscale = oWeapon.shellxscale;
-			}
-			//if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.shellvspmin,-oWeapon.shellvspmax); else vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
-			vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
+			hsp = lengthdir_x(random_range(oWeapon.shellhspmin,oWeapon.shellhspmax),other.image_angle);
+			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.shellvspmin,-oWeapon.shellvspmax); else vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
 			grv = oWeapon.shellgrv;
+			if (direction > 90) && (direction < 270) image_xscale = -oWeapon.shellxscale; else image_xscale = oWeapon.shellxscale;
 			image_yscale = oWeapon.shellyscale;
 		}
 		#endregion
