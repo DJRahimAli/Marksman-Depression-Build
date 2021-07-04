@@ -1,3 +1,39 @@
+//Change Weapon
+if (currentswitchdelay > 0) currentswitchdelay--;
+
+if (currentswitchdelay == 0)
+{
+	stopattack = false;
+	//Next Weapon
+	if mouse_wheel_down()
+	{
+		image_speed = 0;
+		image_index = 0;
+		currentweapon += 1;
+		if (currentweapon >= array_length(weapons)) currentweapon = 0;
+		SetWeapon(currentweapon);
+		currentswitchdelay = switchdelay;
+	}
+
+	//Previous Weapon
+	if mouse_wheel_up()
+	{
+		image_speed = 0;
+		image_index = 0;
+		if (muzzleflash) with (oMuzzleflash)
+		{
+			image_alpha = 0;
+			image_speed = 0;
+			image_index = 0;
+		}
+		currentweapon -= 1;
+		if (currentweapon < 0) currentweapon = array_length(weapons)-1;
+		SetWeapon(currentweapon);
+		currentswitchdelay = switchdelay;
+	}
+}
+else stopattack = true; image_alpha = 0.5;
+
 if (image_angle > 90) && (image_angle < 270) currentxoffset = -xoffset; else currentxoffset = xoffset;
 
 if (currentswitchdelay < switchdelay)
@@ -60,7 +96,7 @@ if (image_angle < 0) image_angle += 360;
 
 //if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
 
-if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, ironsightspeed); else currentdistance = distance; //else currentdistance = lerp(currentdistance, distance, ironsightspeed);
+if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, ironsightspeed); else currentdistance = lerp(currentdistance, distance, ironsightspeed);
 
 x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 y += lengthdir_y(currentdistance-currentrecoil,image_angle);
