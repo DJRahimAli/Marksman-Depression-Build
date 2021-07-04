@@ -237,7 +237,7 @@ vspnodec = string_format(vsp, 0, 0);
 
 if instance_exists(oWeapon)
 {
-	if (crouch) && (onground) && (oWeapon.ironsight) oWeapon.ironsights = true; else oWeapon.ironsights = false;
+	if (crouch) && (onground) oWeapon.ironsights = true; else oWeapon.ironsights = false;
 	
 	//Aimside Types
 	switch (oWeapon.aimsidetype)
