@@ -1,6 +1,6 @@
 /// @desc Follow player and copy weapon angle
-x = oPlayer.x;
-y = oPlayer.y+10;
+x = oPlayer.x+oWeapon.crosshairxoffset;
+y = oPlayer.y+oWeapon.crosshairyoffset;
 	
 /*if (oWeapon.holstered)
 {

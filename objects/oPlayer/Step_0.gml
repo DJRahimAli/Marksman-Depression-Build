@@ -376,13 +376,13 @@ else
 			{
 				image_speed = clamp(abs(hsp)/walkspmax,0.2,1);
 				sprite_index = sPlayerR;
-				//if (aimside != sign(hsp)) sprite_index = sPlayerRB;
+				if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
 				image_speed = clamp(abs(hsp)/walkspcrouchmax,0.2,1);
 				sprite_index = sPlayerRC;
-				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
+				if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
 	}

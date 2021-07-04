@@ -6,6 +6,10 @@ function SetWeapon(argument0)
 	var wp_map = weapons[weapon];
 	#region Weapon
 	//sprite = ds_map_find_value(wp_map,"sprite");
+	xoffset = wp_map[? "xoffset"];
+	yoffset = wp_map[? "yoffset"];
+	xscale = wp_map[? "xscale"];
+	yscale = wp_map[? "yscale"];
 	sprite = wp_map[? "sprite"];
 	spriteprimary = wp_map[? "spriteprimary"];
 	spritesecondary = wp_map[? "spritesecondary"];
@@ -49,9 +53,12 @@ function SetWeapon(argument0)
 	#endregion
 	#region Projectile
 	projectile = wp_map[? "projectile"];
+	projectilexoffset = wp_map[? "projectilexoffset"];
+	projectileyoffset = wp_map[? "projectileyoffset"];
+	projectilexscale = wp_map[? "projectilexscale"];
+	projectileyscale = wp_map[? "projectileyscale"];
 	projectilesprite = wp_map[? "projectilesprite"];
 	projectileamount = wp_map[? "projectileamount"];
-	projectilelength = wp_map[? "projectilelength"];
 	projectilelifemin = wp_map[? "projectilelifemin"];
 	projectilelifemax = wp_map[? "projectilelifemax"];
 	projectilealphalength = wp_map[? "projectilealphalength"];
@@ -60,9 +67,12 @@ function SetWeapon(argument0)
 	#endregion
 	#region Shell
 	shell = wp_map[? "shell"];
+	shellxoffset = wp_map[? "shellxoffset"];
+	shellyoffset = wp_map[? "shellyoffset"];
+	shellxscale = wp_map[? "shellxscale"];
+	shellyscale = wp_map[? "shellyscale"];
 	shellsprite = wp_map[? "shellsprite"];
 	shellamount = wp_map[? "shellamount"];
-	shelllength = wp_map[? "shelllength"];
 	shelllifemin = wp_map[? "shelllifemin"];
 	shelllifemax = wp_map[? "shelllifemax"];
 	shellalphalength = wp_map[? "shellalphalength"];
@@ -78,10 +88,18 @@ function SetWeapon(argument0)
 	#endregion
 	#region Muzzleflash
 	muzzleflash = wp_map[? "muzzleflash"];
+	muzzleflashxoffset = wp_map[? "muzzleflashxoffset"];
+	muzzleflashyoffset = wp_map[? "muzzleflashyoffset"];
+	muzzleflashxscale = wp_map[? "muzzleflashxscale"];
+	muzzleflashyscale = wp_map[? "muzzleflashyscale"];
 	muzzleflashsprite = wp_map[? "muzzleflashsprite"];
-	muzzleflashlength = wp_map[? "muzzleflashlength"];
+	muzzleflashspritespeed = wp_map[? "muzzleflashspritespeed"];
 	#endregion
 	#region Crosshair
+	crosshairxoffset = wp_map[? "crosshairxoffset"];
+	crosshairyoffset = wp_map[? "crosshairyoffset"];
+	crosshairxscale = wp_map[? "crosshairxscale"];
+	crosshairyscale = wp_map[? "crosshairyscale"];
 	crosshairsprite = wp_map[? "crosshairsprite"];
 	crosshairdistance = wp_map[? "crosshairdistance"];
 	crosshairshakemagnitudemin = wp_map[? "crosshairshakemagnitudemin"];
@@ -114,7 +132,11 @@ function SetWeapon(argument0)
 	#endregion
 	currentcd = 0;
 	currentdelay = -1;
+	//currentxoffset = xoffset;
+	currentyoffset = yoffset;
 	currentsprite = sprite;
+	image_xscale = xscale;
+	image_yscale = yscale;
 	sprite_index = currentsprite;
 	image_speed = spritespeed;
 	image_index = 0;
