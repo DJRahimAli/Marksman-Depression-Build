@@ -96,7 +96,14 @@ if (image_angle < 0) image_angle += 360;
 
 //if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
 
-if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, ironsightspeed); else currentdistance = lerp(currentdistance, distance, ironsightspeed);
+if (currentswitchdelay < switchdelay)
+{
+	if (ironsights) currentdistance = lerp(currentdistance, ironsightdistance, ironsightspeed); else currentdistance = lerp(currentdistance, distance, ironsightspeed);
+}
+else
+{
+	if (ironsights) currentdistance = ironsightdistance; else currentdistance = distance;
+}
 
 x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 y += lengthdir_y(currentdistance-currentrecoil,image_angle);

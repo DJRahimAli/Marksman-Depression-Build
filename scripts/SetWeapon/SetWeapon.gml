@@ -37,6 +37,7 @@ function SetWeapon(argument0)
 	kickbackymin = wp_map[? "kickbackymin"];
 	kickbackymax = wp_map[? "kickbackymax"];
 	damage = wp_map[? "damage"];
+	switchdelay = wp_map[? "switchdelay"];
 	startup = wp_map[? "startup"];
 	cooldownmin = wp_map[? "cooldownmin"];
 	cooldownmax = wp_map[? "cooldownmax"];
@@ -45,7 +46,6 @@ function SetWeapon(argument0)
 	distance = wp_map[? "distance"];
 	spreadmin = wp_map[? "spreadmin"];
 	spreadmax = wp_map[? "spreadmax"];
-	ironsight = wp_map[? "ironsight"];
 	ironsightspeed = wp_map[? "ironsightspeed"];
 	ironsightdistance = wp_map[? "ironsightdistance"];
 	ironsightrecoilmin = wp_map[? "ironsightrecoilmin"];
