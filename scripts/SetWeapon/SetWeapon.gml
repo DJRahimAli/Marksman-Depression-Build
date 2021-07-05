@@ -30,6 +30,9 @@ function SetWeapon(argument0)
 	spriteemptylooping = wp_map[? "spriteemptylooping"];
 	xfollowspeed = wp_map[? "xfollowspeed"];
 	yfollowspeed = wp_map[? "yfollowspeed"];
+	rspeed = wp_map[? "rspeed"];
+	hspminmaxangle = wp_map[? "hspminmaxangle"];
+	wallminmaxangle = wp_map[? "wallminmaxangle"];
 	recoilmin = wp_map[? "recoilmin"];
 	recoilmax = wp_map[? "recoilmax"];
 	kickbackxmin = wp_map[? "kickbackxmin"];
@@ -103,6 +106,7 @@ function SetWeapon(argument0)
 	crosshairxscale = wp_map[? "crosshairxscale"];
 	crosshairyscale = wp_map[? "crosshairyscale"];
 	crosshairsprite = wp_map[? "crosshairsprite"];
+	crosshairrspeed = wp_map[? "crosshairrspeed"];
 	crosshairdistance = wp_map[? "crosshairdistance"];
 	crosshairshakemagnitudemin = wp_map[? "crosshairshakemagnitudemin"];
 	crosshairshakemagnitudemax = wp_map[? "crosshairshakemagnitudemax"];

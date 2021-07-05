@@ -2,27 +2,43 @@
 x = oPlayer.x+oWeapon.crosshairxoffset;
 y = oPlayer.y+oWeapon.crosshairyoffset;
 
-if (oPlayer.onwall == 0)
+if (oPlayer.onwall == 0) && (oWeapon.aimsidetype != "movedirection")
 {
-	minmaxangle = 360;
-	delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir, 0)));
+	currentminmaxangle = 360;
+	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
 	direction += angle_difference(delta, direction) * currentrspeed;
-}
-	
-if (oPlayer.onwall < 0)
-{
-	minmaxangle = 60;
-	delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir, 0)));
-	direction += angle_difference(delta, direction) * currentrspeed;
-}
-	
-if (oPlayer.onwall > 0)
-{
-	minmaxangle = 60;
-	delta = max(-minmaxangle, min(minmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
-	direction += angle_difference(delta, direction - 180) * currentrspeed;
 }
 
+if (oWeapon.aimsidetype == "movedirection") && (oPlayer.onwall == 0)
+{
+	currentminmaxangle = oWeapon.hspminmaxangle;
+	if (oPlayer.aimside >= 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
+		direction += angle_difference(delta, direction) * currentrspeed;
+	}
+	if (oPlayer.aimside == -1)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
+		direction += angle_difference(delta, direction - 180) * currentrspeed;
+	}
+}
+
+if (oPlayer.onwall != 0)
+{
+	currentminmaxangle = oWeapon.wallminmaxangle;
+	if (oPlayer.onwall < 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
+		direction += angle_difference(delta, direction) * currentrspeed;
+	}
+	if (oPlayer.onwall > 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
+		direction += angle_difference(delta, direction - 180) * currentrspeed;
+	}
+}
+	
 if (direction > 360) direction -= 360;
 if (direction < 0) direction += 360;
 
