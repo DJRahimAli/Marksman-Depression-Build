@@ -12,7 +12,7 @@ if (oPlayer.onwall == 0) && (oWeapon.aimsidetype != "movedirection")
 if (oWeapon.aimsidetype == "movedirection") && (oPlayer.onwall == 0)
 {
 	currentminmaxangle = oWeapon.hspminmaxangle;
-	if (oPlayer.aimside >= 0)
+	if (oPlayer.aimside == 1)
 	{
 		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
 		direction += angle_difference(delta, direction) * currentrspeed;
