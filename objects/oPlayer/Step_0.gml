@@ -385,6 +385,19 @@ else
 				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
+		if (onwall == 0) && (movedir == 0) && (abs(hsp) || abs(movedir))
+		{
+			if (!crouch) && (!global.noclip)
+			{
+				image_speed = 0;
+				//if (aimside != sign(hsp)) sprite_index = sPlayerRB;
+			}
+			else
+			{
+				image_speed = 0;
+				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
+			}
+		}
 	}
 	if (audio_is_playing(snd_Sliding) == true)
 	{
