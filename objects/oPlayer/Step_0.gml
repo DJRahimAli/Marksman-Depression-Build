@@ -32,11 +32,11 @@ if (!onwallground) && (!global.fly)
 
 if (walljumpdelay == 0)
 {
-	var dir = (global.key_right_held - global.key_left_held);
+	movedir = (global.key_right_held - global.key_left_held);
 
 	if (global.fly) oWeapon.currentkickbackx = 0;
-	hsp += dir * accel;
-	if (dir == 0)
+	hsp += movedir * accel;
+	if (movedir == 0)
 	{
 		var hspfricfinal = hspfricground;
 		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
@@ -45,8 +45,8 @@ if (walljumpdelay == 0)
 	}
 	else
 	{
-		if (abs(hsp) >= walksp) && (aimside != sign(hsp)) hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir));
-		else hsp = clamp(hsp,-walksp*abs(dir),walksp*abs(dir)) + oWeapon.currentkickbackx;
+		if (abs(hsp) >= walksp) && (aimside != sign(hsp)) hsp = clamp(hsp,-walksp*abs(movedir),walksp*abs(movedir));
+		else hsp = clamp(hsp,-walksp*abs(movedir),walksp*abs(movedir)) + oWeapon.currentkickbackx;
 	}
 }
 oWeapon.currentkickbackx = 0;
@@ -245,7 +245,7 @@ if instance_exists(oWeapon)
 		case "movedirection":
 		if (hspnodec != 0)
 		{
-			if (dir != 0) aimside = sign(hsp);
+			if (movedir != 0) aimside = sign(hsp);
 			image_xscale = aimside*1.5;
 		}
 		
@@ -357,7 +357,7 @@ else
 				}
 			}
 		}*/
-		if (hsp == 0 || dir == 0)
+		if (hsp == 0 || movedir == 0)
 		{
 			if (!crouch)
 			{
@@ -370,7 +370,7 @@ else
 				sprite_index = sPlayerC;
 			}
 		}
-		if (onwall == 0) && (abs(hsp) || abs(dir))
+		if (onwall == 0) && (movedir != 0) && (abs(hsp) || abs(movedir))
 		{
 			if (!crouch) && (!global.noclip)
 			{

@@ -38,12 +38,15 @@ if (image_angle > 90) && (image_angle < 270) currentxoffset = -xoffset; else cur
 
 if (currentswitchdelay < switchdelay)
 {
-	x = lerp(x,oPlayer.x+currentxoffset,xfollowspeed);
-	y = lerp(y,oPlayer.y+currentyoffset,yfollowspeed);
+	if (xoffset == lastxoffset) currentxfollowspeed = xfollowspeed; else if (xfollowspeed != 0) currentxfollowspeed = 1;
+	if (yoffset == lastyoffset) currentyfollowspeed = yfollowspeed; else if (yfollowspeed != 0) currentyfollowspeed = 1;
+	lastxoffset = currentxoffset;
+	lastyoffset = currentyoffset;
+	x = lerp(x,oPlayer.x+currentxoffset,currentxfollowspeed);
+	y = lerp(y,oPlayer.y+currentyoffset,currentyfollowspeed);
 }
 else
 {
-
 	x = oPlayer.x+currentxoffset;
 	y = oPlayer.y+currentyoffset;
 }
@@ -81,7 +84,7 @@ if (oPlayer.onwall == 0) && (aimsidetype != "movedirection")
 if (aimsidetype == "movedirection") && (oPlayer.onwall == 0)
 {
 	currentminmaxangle = hspminmaxangle;
-	if (oPlayer.aimside >= 0)
+	if (oPlayer.aimside == 1)
 	{
 		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
 		image_angle += angle_difference(delta, image_angle) * currentrspeed;
@@ -122,8 +125,8 @@ else
 	if (ironsights) currentdistance = ironsightdistance; else currentdistance = distance;
 }
 
-x += lengthdir_x(currentdistance-currentrecoil,image_angle);
-y += lengthdir_y(currentdistance-currentrecoil,image_angle);
+if (xfollowspeed != 0) x += lengthdir_x(currentdistance-currentrecoil,image_angle);
+if (yfollowspeed != 0) y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
 if (place_meeting(x,y,oWall) || place_meeting(x,y,oBulletWall) || place_meeting(x,y,oCollision)) stopattack = true;
 
