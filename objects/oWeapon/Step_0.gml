@@ -43,6 +43,7 @@ if (currentswitchdelay < switchdelay)
 }
 else
 {
+
 	x = oPlayer.x+currentxoffset;
 	y = oPlayer.y+currentyoffset;
 }
@@ -70,25 +71,41 @@ if (global.controller == 1)
 	}
 }
 
-if (oPlayer.onwall == 0)
+if (oPlayer.onwall == 0) && (aimsidetype != "movedirection")
 {
-	minmaxangle = 360;
-	delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir, 0)));
+	currentminmaxangle = 360;
+	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
 	image_angle += angle_difference(delta, image_angle) * currentrspeed;
 }
 		
-if (oPlayer.onwall < 0)
+if (aimsidetype == "movedirection") && (oPlayer.onwall == 0)
 {
-	minmaxangle = 60;
-	delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir, 0)));
-	image_angle += angle_difference(delta, image_angle) * currentrspeed;
+	currentminmaxangle = hspminmaxangle;
+	if (oPlayer.aimside >= 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
+		image_angle += angle_difference(delta, image_angle) * currentrspeed;
+	}
+	if (oPlayer.aimside == -1)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
+		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
+	}
 }
-	
-if (oPlayer.onwall > 0)
+
+if (oPlayer.onwall != 0)
 {
-	minmaxangle = 60;
-	delta = max(-minmaxangle, min(minmaxangle, angle_difference(pointdir - 180, 0)));
-	image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
+	currentminmaxangle = wallminmaxangle;
+	if (oPlayer.onwall < 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
+		image_angle += angle_difference(delta, image_angle) * currentrspeed;
+	}
+	if (oPlayer.onwall > 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
+		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
+	}
 }
 
 if (image_angle > 360) image_angle -= 360;

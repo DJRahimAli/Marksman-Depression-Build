@@ -242,10 +242,10 @@ if instance_exists(oWeapon)
 	//Aimside Types
 	switch (oWeapon.aimsidetype)
 	{
-		case "hsp":
+		case "movedirection":
 		if (hspnodec != 0)
 		{
-			aimside = sign(hsp);
+			if (dir != 0) aimside = sign(hsp);
 			image_xscale = aimside*1.5;
 		}
 		
@@ -255,7 +255,7 @@ if instance_exists(oWeapon)
 			image_xscale = aimside*1.5;
 		}
 		break;
-		case "direction":
+		case "weapondirection":
 		/*if (!oWeapon.holstered)
 		{*/
 			if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
@@ -284,7 +284,7 @@ if instance_exists(oWeapon)
 	else
 	{
 		oWeapon.currentrspeed = oWeapon.rspeed;
-		oCrosshair.currentrspeed = oCrosshair.rspeed;
+		oCrosshair.currentrspeed = oWeapon.crosshairrspeed;
 	}
 }
 else
@@ -376,13 +376,13 @@ else
 			{
 				image_speed = clamp(abs(hsp)/walkspmax,0.2,1);
 				sprite_index = sPlayerR;
-				if (aimside != sign(hsp)) sprite_index = sPlayerRB;
+				//if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
 				image_speed = clamp(abs(hsp)/walkspcrouchmax,0.2,1);
 				sprite_index = sPlayerRC;
-				if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
+				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
 		}
 	}
