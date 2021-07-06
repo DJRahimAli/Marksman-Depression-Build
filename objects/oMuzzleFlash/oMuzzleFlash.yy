@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sMuzzleflashPistol",
-    "path": "sprites/sMuzzleflashPistol/sMuzzleflashPistol.yy",
+    "name": "sMuzzleflash",
+    "path": "sprites/sMuzzleflash/sMuzzleflash.yy",
   },
   "solid": false,
   "visible": true,
