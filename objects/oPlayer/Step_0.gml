@@ -292,13 +292,13 @@ else
 	if (hspnodec != 0)
 	{
 		aimside = sign(hsp);
-		image_xscale = aimside*1.5;
+		image_xscale *= aimside*1.5;
 	}
 		
 	if (hsp < 1 && onwall != 0) 
 	{
 		aimside = -onwall;
-		image_xscale = aimside*1.5;
+		image_xscale *= aimside*1.5;
 	}
 }
 
