@@ -128,7 +128,7 @@ else
 if (xfollowspeed != 0) x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 if (yfollowspeed != 0) y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
-if (place_meeting(x,y,oWall) || place_meeting(x,y,oBulletWall) || place_meeting(x,y,oCollision)) stopattack = true;
+if (place_meeting_ext(x,y,[oWall,oBulletWall])) stopattack = true;
 
 if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
