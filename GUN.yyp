@@ -162,6 +162,7 @@
     {"id":{"name":"snd_WeaponPistolEmpty","path":"sounds/snd_WeaponPistolEmpty/snd_WeaponPistolEmpty.yy",},"order":1,},
     {"id":{"name":"oTriggerBase","path":"objects/oTriggerBase/oTriggerBase.yy",},"order":2,},
     {"id":{"name":"sClouds","path":"sprites/sClouds/sClouds.yy",},"order":37,},
+    {"id":{"name":"MovementTutorial","path":"rooms/MovementTutorial/MovementTutorial.yy",},"order":3,},
     {"id":{"name":"fSign","path":"fonts/fSign/fSign.yy",},"order":2,},
     {"id":{"name":"snd_Text","path":"sounds/snd_Text/snd_Text.yy",},"order":9,},
     {"id":{"name":"oEnemyDead","path":"objects/oEnemyDead/oEnemyDead.yy",},"order":7,},
@@ -186,6 +187,7 @@
     {"roomId":{"name":"rLevel2","path":"rooms/rLevel2/rLevel2.yy",},},
     {"roomId":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},},
     {"roomId":{"name":"rEnding","path":"rooms/rEnding/rEnding.yy",},},
+    {"roomId":{"name":"MovementTutorial","path":"rooms/MovementTutorial/MovementTutorial.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
