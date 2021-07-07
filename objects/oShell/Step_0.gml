@@ -1,8 +1,8 @@
 vsp += grv;
 
 //Calculate current status
-onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
-onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
+onground = (place_meeting_ext(x,y+1,[oWall,oCollision]));
+onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,y,[oWall,oCollision]));
 
 //Bounce Shell Horizontal
 if (onwall != 0)
@@ -12,10 +12,10 @@ if (onwall != 0)
 }
 
 //Horizontal Collision
-if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision))
+if (place_meeting_ext(x+hsp,y,[oWall,oCollision]))
 {
 	var onepixel = sign(hsp);
-	while !(place_meeting(x+onepixel,y,oWall) || place_meeting(x+onepixel,y,oCollision)) x += onepixel;
+	while (!place_meeting_ext(x+onepixel,y,[oWall,oCollision])) x += onepixel;
 	hsp = 0;
 }
 x += hsp;
@@ -34,7 +34,7 @@ if (onground)
 }
 
 //Vertical Collision
-/*if (place_meeting(x,y+1,oWall)) || (place_meeting(x,y,oBulletWall))
+/*if (place_meeting_ext(x,y+1,[oWall,oCollision]))
 {
 	if (vsp > 0)
 	{
@@ -43,14 +43,14 @@ if (onground)
 	}
 }*/
 
-if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision))
+if (place_meeting_ext(x,y+vsp,[oWall,oCollision]))
 {
 	/*if (vsp > 0)
 	{
 		done = 1;
 	}*/
 	var onepixel = sign(vsp);
-	while !(place_meeting(x,y+onepixel,oWall) || place_meeting(x,y+onepixel,oCollision)) y += onepixel;
+	while (!place_meeting_ext(x,y+onepixel,[oWall,oCollision])) y += onepixel;
 	vsp = 0;
 }
 y += vsp;

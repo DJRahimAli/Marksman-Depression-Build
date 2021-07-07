@@ -2,9 +2,10 @@ global.hp = string_format(global.hp, 0, 0);
 if (global.hp < 0) global.hp = 0;
 
 //Calculate current status
-onground = (place_meeting(x,y+1,oWall) || place_meeting(x,y+1,oCollision));
-onwall = (place_meeting(x+1,y,oWall) || place_meeting(x+1,y,oCollision)) - (place_meeting(x-1,y,oWall) || place_meeting(x-1,y,oCollision));
-wallsliding = (collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-6, oWall, false, true) || collision_rectangle(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-6, oCollision, false, true));
+onground = (place_meeting_ext(x,y+1,[oWall,oCollision]));
+onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,y,[oWall,oCollision]));
+wallsliding = (collision_rectangle_ext(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-6, [oWall,oCollision], false, true));
+
 if (!global.fly)
 {
 	if (onground) jumpbuffer = 5+1;
@@ -101,14 +102,14 @@ if (global.key_crouch_released)
 
 if (crouch) && (onground) walksp = walkspcrouchmax; else walksp = walkspmax;
 
-if (place_meeting(x,y-8,oWall) && (onground) || place_meeting(x,y-8,oCollision)) && (!global.noclip)
+if (place_meeting_ext(x,y-8,[oWall,oCollision])) && (onground) && (!global.noclip)
 {
 	crouchstuck = true;
 	crouch = true;
 	walksp = walkspcrouchmax;
 }
 
-if !place_meeting(x,y-16,oWall) && !place_meeting(x,y-16,oCollision)
+if (!place_meeting_ext(x,y-16,[oWall,oCollision]))
 {
 	crouchstuck = false;
 	if (!global.key_crouch_held)
@@ -169,15 +170,21 @@ if (!global.fly)
 }
 else
 {
-	var dirfly = (global.key_down_held - (global.key_up_held || global.key_jump_held));
-	
-	vsp += dirfly * accel;
-	if (dirfly == 0)
+	var flydir = (global.key_down_held - global.key_up_held);
+	if (global.key_jump_held) && (flydir <= 0) var flydir = -1;
+
+	vsp += flydir * accel;
+	if (flydir == 0)
 	{
 		var vspfricfinal = hspfricground;
-		vsp = lerp(vsp,0,vspfricfinal);
+		vsp = lerp(vsp,0,vspfricfinal) + oWeapon.currentkickbacky;
+		vsp = clamp(vsp,-walksp,walksp);
 	}
-	vsp = clamp(vsp,-walksp,walksp);
+	else
+	{
+		if (abs(vsp) >= walksp) vsp = clamp(vsp,-walksp*abs(flydir),walksp*abs(flydir));
+		else vsp = clamp(vsp,-walksp*abs(flydir),walksp*abs(flydir)) + oWeapon.currentkickbacky;
+	}
 	
 	//Detect when moving
 	if (hspnodec != 0) || (vspnodec != 0) moving = true; else moving = false;
@@ -209,20 +216,20 @@ if (wallsliding) && (!global.fly)
 }
 
 //Horizontal Collision
-if (place_meeting(x+hsp,y,oWall) || place_meeting(x+hsp,y,oCollision)) && (!global.noclip)
+if (place_meeting_ext(x+hsp,y,[oWall,oCollision])) && (!global.noclip) 
 {
 	var onepixel = sign(hsp);
-	while !(place_meeting(x+onepixel,y,oWall) || place_meeting(x+onepixel,y,oCollision)) x += onepixel;
+	while (!place_meeting_ext(x+onepixel,y,[oWall,oCollision])) x += onepixel;
 	hsp = 0;
 	hspfrac = 0;
 }
 x += hsp;
 
 //Vertical Collision
-if (place_meeting(x,y+vsp,oWall) || place_meeting(x,y+vsp,oCollision)) && (!global.noclip)
+if (place_meeting_ext(x,y+vsp,[oWall,oCollision])) && (!global.noclip)
 {
 	var onepixel = sign(vsp);
-	while !(place_meeting(x,y+onepixel,oWall) || place_meeting(x,y+onepixel,oCollision)) y += onepixel;
+	while (!place_meeting_ext(x,y+onepixel,[oWall,oCollision])) y += onepixel;
 	vsp = 0;
 	vspfrac = 0;
 }
@@ -235,71 +242,56 @@ if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
 hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 
-if instance_exists(oWeapon)
-{
-	if (crouch) && (onground) oWeapon.ironsights = true; else oWeapon.ironsights = false;
+if (crouch) && (onground) oWeapon.ironsights = true; else oWeapon.ironsights = false;
 	
-	//Aimside Types
-	switch (oWeapon.aimsidetype)
-	{
-		case "movedirection":
-		if (hspnodec != 0)
-		{
-			if (movedir != 0) aimside = sign(hsp);
-			image_xscale = aimside*1.5;
-		}
-		
-		if (hsp < 1 && onwall != 0) 
-		{
-			aimside = -onwall;
-			image_xscale = aimside*1.5;
-		}
-		break;
-		case "weapondirection":
-		/*if (!oWeapon.holstered)
-		{*/
-			if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
-			image_xscale = aimside*1.5;
-		//}
-		break;
-		default:
-		if (hspnodec != 0)
-		{
-			aimside = sign(hsp);
-			image_xscale = aimside*1.5;
-		}
-		
-		if (hsp < 1 && onwall != 0) 
-		{
-			aimside = -onwall;
-			image_xscale = aimside*1.5;
-		};
-	}
+//Aimside Types
+var playersize = 1.5;
 
-	if (onwall != 0 && aimside == onwall)
-	{
-		oWeapon.currentrspeed = 1;
-		oCrosshair.currentrspeed = 1;
-	}
-	else
-	{
-		oWeapon.currentrspeed = oWeapon.rspeed;
-		oCrosshair.currentrspeed = oWeapon.crosshairrspeed;
-	}
-}
-else
+switch (oWeapon.aimsidetype)
 {
+	case "movedirection":
 	if (hspnodec != 0)
 	{
-		aimside = sign(hsp);
-		image_xscale = aimside*1.5;
+		if (movedir != 0) aimside = sign(hsp);
+		image_xscale = aimside*playersize;
 	}
 		
 	if (hsp < 1 && onwall != 0) 
 	{
 		aimside = -onwall;
-		image_xscale = aimside*1.5;
+		image_xscale = aimside*playersize;
 	}
+	break;
+	case "weapondirection":
+	/*if (!oWeapon.holstered)
+	{*/
+		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
+		image_xscale = aimside*playersize;
+	//}
+	break;
+	default:
+	if (hspnodec != 0)
+	{
+		aimside = sign(hsp);
+		image_xscale = aimside*playersize;
+	}
+		
+	if (hsp < 1 && onwall != 0) 
+	{
+		aimside = -onwall;
+		image_xscale = aimside*playersize;
+	};
+}
+
+if (onwall != 0 && aimside == onwall)
+{
+	oWeapon.currentrspeed = 1;
+	oCrosshair.currentrspeed = 1;
+}
+else
+{
+	oWeapon.currentrspeed = oWeapon.rspeed;
+	oCrosshair.currentrspeed = oWeapon.crosshairrspeed;
 }
 
 if (!onground)
