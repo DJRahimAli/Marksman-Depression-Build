@@ -173,6 +173,7 @@ else
 	var flydir = (global.key_down_held - global.key_up_held);
 	if (global.key_jump_held) && (flydir <= 0) var flydir = -1;
 
+	if (global.fly) oWeapon.currentkickbacky = 0;
 	vsp += flydir * accel;
 	if (flydir == 0)
 	{
@@ -185,6 +186,7 @@ else
 		if (abs(vsp) >= walksp) vsp = clamp(vsp,-walksp*abs(flydir),walksp*abs(flydir));
 		else vsp = clamp(vsp,-walksp*abs(flydir),walksp*abs(flydir)) + oWeapon.currentkickbacky;
 	}
+	oWeapon.currentkickbacky = 0;
 	
 	//Detect when moving
 	if (hspnodec != 0) || (vspnodec != 0) moving = true; else moving = false;
