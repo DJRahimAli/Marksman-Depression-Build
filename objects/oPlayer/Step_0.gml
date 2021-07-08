@@ -102,7 +102,7 @@ if (global.key_crouch_released)
 
 if (crouch) && (onground) walksp = walkspcrouchmax; else walksp = walkspmax;
 
-if (place_meeting_ext(x,y-8,[oWall,oCollision])) && (onground) && (!global.noclip)
+if (place_meeting_ext(x,y-6,[oWall,oCollision])) && (onground) && (!global.noclip)
 {
 	crouchstuck = true;
 	crouch = true;
