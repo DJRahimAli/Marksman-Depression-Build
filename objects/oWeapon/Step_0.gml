@@ -205,8 +205,16 @@ if (currentdelay == 0)
 			image_index = 0;
 		}
 		#region Projectile
-		var projectileangleoffset = point_direction(0, 0, projectilexoffset, projectileyoffset);
-		var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, projectileyoffset);
+		if (aimside == -1)
+		{
+			var projectileangleoffset = point_direction(0, 0, projectilexoffset, -projectileyoffset);
+			var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, -projectileyoffset);
+		}
+		if (aimside == 1)
+		{
+			var projectileangleoffset = point_direction(0, 0, projectilexoffset, projectileyoffset);
+			var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, projectileyoffset);
+		}
 		var projectilex = x+lengthdir_x(projectiledistanceoffset,image_angle+projectileangleoffset);
 		var projectiley = y+lengthdir_y(projectiledistanceoffset,image_angle+projectileangleoffset);
 		if (projectile != -1) repeat(projectileamount) with (instance_create_layer(projectilex,projectiley,"Projectiles",projectile))
@@ -222,8 +230,16 @@ if (currentdelay == 0)
 		}
 		#endregion
 		#region Shell
-		var shellangleoffset = point_direction(0, 0, shellxoffset, shellyoffset);
-		var shelldistanceoffset = point_distance(0, 0, shellxoffset, shellyoffset);
+		if (aimside == -1)
+		{
+			var shellangleoffset = point_direction(0, 0, shellxoffset, -shellyoffset);
+			var shelldistanceoffset = point_distance(0, 0, shellxoffset, -shellyoffset);
+		}
+		if (aimside == 1)
+		{
+			var shellangleoffset = point_direction(0, 0, shellxoffset, shellyoffset);
+			var shelldistanceoffset = point_distance(0, 0, shellxoffset, shellyoffset);
+		}
 		var shellx = x+lengthdir_x(shelldistanceoffset,image_angle+shellangleoffset);
 		var shelly = y+lengthdir_y(shelldistanceoffset,image_angle+shellangleoffset);
 		if (shell != -1) repeat(shellamount) with (instance_create_layer(shellx,shelly,"Shells",shell))
