@@ -267,7 +267,7 @@ switch (oWeapon.aimsidetype)
 	case "weapondirection":
 	/*if (!oWeapon.holstered)
 	{*/
-		if (oWeapon.image_angle > 90) && (oWeapon.image_angle < 270) aimside = -1; else aimside = 1;
+		aimside = oWeapon.aimside;
 		image_xscale = aimside*playersize;
 	//}
 	break;
