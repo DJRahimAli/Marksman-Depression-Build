@@ -3,7 +3,7 @@ if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) &
 	nearby = true;
 	if (global.key_interact_pressed)
 	{
-		with (instance_create_layer(x,y-64,layer,oText))
+		with (instance_create_layer(x,y-64,0,oText))
 		{
 			text = other.text;
 			length = string_length(text);

@@ -1,0 +1,1 @@
+currentsprite = -1;

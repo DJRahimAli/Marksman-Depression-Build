@@ -10,12 +10,40 @@ function SetWeapon(argument0)
 	yoffset = wp_map[? "yoffset"];
 	xscale = wp_map[? "xscale"];
 	yscale = wp_map[? "yscale"];
-	sprite = wp_map[? "sprite"];
-	spriteprimary = wp_map[? "spriteprimary"];
-	spritesecondary = wp_map[? "spritesecondary"];
-	spritestartup = wp_map[? "spritestartup"];
-	spritereload = wp_map[? "spritereload"];
-	spriteempty = wp_map[? "spriteempty"];
+	#region Sprites
+	#region Left Side Sprites
+	spriteleft = wp_map[? "spriteleft"];
+	spriteprimaryleft = wp_map[? "spriteprimaryleft"];
+	spritesecondaryleft = wp_map[? "spritesecondaryleft"];
+	spritestartupleft = wp_map[? "spritestartupleft"];
+	spritereloadleft = wp_map[? "spritereloadleft"];
+	spriteemptyleft = wp_map[? "spriteemptyleft"];
+	#endregion
+	#region Right Side Sprites
+	spriteright = wp_map[? "spriteright"];
+	spriteprimaryright = wp_map[? "spriteprimaryright"];
+	spritesecondaryright = wp_map[? "spritesecondaryright"];
+	spritestartupright = wp_map[? "spritestartupright"];
+	spritereloadright = wp_map[? "spritereloadright"];
+	spriteemptyright = wp_map[? "spriteemptyright"];
+	#endregion
+	#region Left Side Arm Sprites
+	armspriteleft = wp_map[? "armspriteleft"];
+	armspriteprimaryleft = wp_map[? "armspriteprimaryleft"];
+	armspritesecondaryleft = wp_map[? "armspritesecondaryleft"];
+	armspritestartupleft = wp_map[? "armspritestartupleft"];
+	armspritereloadleft = wp_map[? "armspritereloadleft"];
+	armspriteemptyleft = wp_map[? "armspriteemptyleft"];
+	#endregion
+	#region Right Side Arm Sprites
+	armspriteright = wp_map[? "armspriteright"];
+	armspriteprimaryright = wp_map[? "armspriteprimaryright"];
+	armspritesecondaryright = wp_map[? "armspritesecondaryright"];
+	armspritestartupright = wp_map[? "armspritestartupright"];
+	armspritereloadright = wp_map[? "armspritereloadright"];
+	armspriteemptyright = wp_map[? "armspriteemptyright"];
+	#endregion
+	#endregion
 	spritespeed = wp_map[? "spritespeed"];
 	spriteprimaryspeed = wp_map[? "spriteprimaryspeed"];
 	spritesecondaryspeed = wp_map[? "spritesecondaryspeed"];
@@ -140,7 +168,16 @@ function SetWeapon(argument0)
 	currentdelay = -1;
 	//currentxoffset = xoffset;
 	currentyoffset = yoffset;
-	currentsprite = sprite;
+	if (oPlayer.aimside == -1)
+	{
+		currentsprite = spriteleft;
+		oArm.currentsprite = armspriteleft;
+	}
+	if (oPlayer.aimside == 1)
+	{
+		currentsprite = spriteright;
+		oArm.currentsprite = armspriteright;
+	}
 	image_xscale = xscale;
 	image_yscale = yscale;
 	sprite_index = currentsprite;

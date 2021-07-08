@@ -9,12 +9,40 @@ ds_map_add(weapons[weaponid],"xoffset",0);
 ds_map_add(weapons[weaponid],"yoffset",0);
 ds_map_add(weapons[weaponid],"xscale",0);
 ds_map_add(weapons[weaponid],"yscale",0);
-ds_map_add(weapons[weaponid],"sprite",-1);
-ds_map_add(weapons[weaponid],"spriteprimary",-1);
-ds_map_add(weapons[weaponid],"spritesecondary",-1);
-ds_map_add(weapons[weaponid],"spritestartup",-1);
-ds_map_add(weapons[weaponid],"spritereload",-1);
-ds_map_add(weapons[weaponid],"spriteempty",-1);
+#region Sprites
+#region Left Side Sprites
+ds_map_add(weapons[weaponid],"spriteleft",-1);
+ds_map_add(weapons[weaponid],"spriteprimaryleft",-1);
+ds_map_add(weapons[weaponid],"spritesecondaryleft",-1);
+ds_map_add(weapons[weaponid],"spritestartupleft",-1);
+ds_map_add(weapons[weaponid],"spritereloadleft",-1);
+ds_map_add(weapons[weaponid],"spriteemptyleft",-1);
+#endregion
+#region Right Side Sprites
+ds_map_add(weapons[weaponid],"spriteright",-1);
+ds_map_add(weapons[weaponid],"spriteprimaryright",-1);
+ds_map_add(weapons[weaponid],"spritesecondaryright",-1);
+ds_map_add(weapons[weaponid],"spritestartupright",-1);
+ds_map_add(weapons[weaponid],"spritereloadright",-1);
+ds_map_add(weapons[weaponid],"spriteemptyright",-1);
+#endregion
+#region Left Side Arm Sprites
+ds_map_add(weapons[weaponid],"armspriteleft",-1);
+ds_map_add(weapons[weaponid],"armspriteprimaryleft",-1);
+ds_map_add(weapons[weaponid],"armspritesecondaryleft",-1);
+ds_map_add(weapons[weaponid],"armspritestartupleft",-1);
+ds_map_add(weapons[weaponid],"armspritereloadleft",-1);
+ds_map_add(weapons[weaponid],"armspriteemptyleft",-1);
+#endregion
+#region Right Side Arm Sprites
+ds_map_add(weapons[weaponid],"armspriteright",-1);
+ds_map_add(weapons[weaponid],"armspriteprimaryright",-1);
+ds_map_add(weapons[weaponid],"armspritesecondaryright",-1);
+ds_map_add(weapons[weaponid],"armspritestartupright",-1);
+ds_map_add(weapons[weaponid],"armspritereloadright",-1);
+ds_map_add(weapons[weaponid],"armspriteemptyright",-1);
+#endregion
+#endregion
 ds_map_add(weapons[weaponid],"spritespeed",0);
 ds_map_add(weapons[weaponid],"spriteprimaryspeed",0);
 ds_map_add(weapons[weaponid],"spritesecondaryspeed",0);
@@ -146,12 +174,40 @@ ds_map_add(weapons[weaponid],"xoffset",-3);
 ds_map_add(weapons[weaponid],"yoffset",12);
 ds_map_add(weapons[weaponid],"xscale",1.5);
 ds_map_add(weapons[weaponid],"yscale",1.5);
-ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
-ds_map_add(weapons[weaponid],"spriteprimary",sWeaponPistolPrimary);
-ds_map_add(weapons[weaponid],"spritesecondary",-1);
-ds_map_add(weapons[weaponid],"spritestartup",sWeaponPistolStartup);
-ds_map_add(weapons[weaponid],"spritereload",-1);
-ds_map_add(weapons[weaponid],"spriteempty",sWeaponPistolEmpty);
+#region Sprites
+#region Left Side Sprites
+ds_map_add(weapons[weaponid],"spriteleft",sWeaponPistolLeft);
+ds_map_add(weapons[weaponid],"spriteprimaryleft",sWeaponPistolPrimaryLeft);
+ds_map_add(weapons[weaponid],"spritesecondaryleft",-1);
+ds_map_add(weapons[weaponid],"spritestartupleft",-1);
+ds_map_add(weapons[weaponid],"spritereloadleft",-1);
+ds_map_add(weapons[weaponid],"spriteemptyleft",sWeaponPistolEmptyLeft);
+#endregion
+#region Right Side Sprites
+ds_map_add(weapons[weaponid],"spriteright",sWeaponPistolRight);
+ds_map_add(weapons[weaponid],"spriteprimaryright",sWeaponPistolPrimaryRight);
+ds_map_add(weapons[weaponid],"spritesecondaryright",-1);
+ds_map_add(weapons[weaponid],"spritestartupright",-1);
+ds_map_add(weapons[weaponid],"spritereloadright",-1);
+ds_map_add(weapons[weaponid],"spriteemptyright",sWeaponPistolEmptyRight);
+#endregion
+#region Left Side Arm Sprites
+ds_map_add(weapons[weaponid],"armspriteleft",sArmPistolLeft);
+ds_map_add(weapons[weaponid],"armspriteprimaryleft",sArmPistolPrimaryLeft);
+ds_map_add(weapons[weaponid],"armspritesecondaryleft",-1);
+ds_map_add(weapons[weaponid],"armspritestartupleft",-1);
+ds_map_add(weapons[weaponid],"armspritereloadleft",-1);
+ds_map_add(weapons[weaponid],"armspriteemptyleft",sArmPistolEmptyLeft);
+#endregion
+#region Right Side Arm Sprites
+ds_map_add(weapons[weaponid],"armspriteright",sArmPistolRight);
+ds_map_add(weapons[weaponid],"armspriteprimaryright",sArmPistolPrimaryRight);
+ds_map_add(weapons[weaponid],"armspritesecondaryright",-1);
+ds_map_add(weapons[weaponid],"armspritestartupright",-1);
+ds_map_add(weapons[weaponid],"armspritereloadright",-1);
+ds_map_add(weapons[weaponid],"armspriteemptyright",sArmPistolEmptyRight);
+#endregion
+#endregion
 ds_map_add(weapons[weaponid],"spritespeed",1);
 ds_map_add(weapons[weaponid],"spriteprimaryspeed",1);
 ds_map_add(weapons[weaponid],"spritesecondaryspeed",1);
@@ -282,12 +338,40 @@ ds_map_add(weapons[weaponid],"xoffset",-3);
 ds_map_add(weapons[weaponid],"yoffset",12);
 ds_map_add(weapons[weaponid],"xscale",1.5);
 ds_map_add(weapons[weaponid],"yscale",1.5);
-ds_map_add(weapons[weaponid],"sprite",sWeaponPistol);
-ds_map_add(weapons[weaponid],"spriteprimary",sWeaponPistolPrimary);
-ds_map_add(weapons[weaponid],"spritesecondary",-1);
-ds_map_add(weapons[weaponid],"spritestartup",sWeaponPistolStartup);
-ds_map_add(weapons[weaponid],"spritereload",-1);
-ds_map_add(weapons[weaponid],"spriteempty",sWeaponPistolEmpty);
+#region Sprites
+#region Left Side Sprites
+ds_map_add(weapons[weaponid],"spriteleft",sWeaponPistolLeft);
+ds_map_add(weapons[weaponid],"spriteprimaryleft",sWeaponPistolPrimaryLeft);
+ds_map_add(weapons[weaponid],"spritesecondaryleft",-1);
+ds_map_add(weapons[weaponid],"spritestartupleft",-1);
+ds_map_add(weapons[weaponid],"spritereloadleft",-1);
+ds_map_add(weapons[weaponid],"spriteemptyleft",sWeaponPistolEmptyLeft);
+#endregion
+#region Right Side Sprites
+ds_map_add(weapons[weaponid],"spriteright",sWeaponPistolRight);
+ds_map_add(weapons[weaponid],"spriteprimaryright",sWeaponPistolPrimaryRight);
+ds_map_add(weapons[weaponid],"spritesecondaryright",-1);
+ds_map_add(weapons[weaponid],"spritestartupright",-1);
+ds_map_add(weapons[weaponid],"spritereloadright",-1);
+ds_map_add(weapons[weaponid],"spriteemptyright",sWeaponPistolEmptyRight);
+#endregion
+#region Left Side Arm Sprites
+ds_map_add(weapons[weaponid],"armspriteleft",sArmPistolLeft);
+ds_map_add(weapons[weaponid],"armspriteprimaryleft",sArmPistolPrimaryLeft);
+ds_map_add(weapons[weaponid],"armspritesecondaryleft",-1);
+ds_map_add(weapons[weaponid],"armspritestartupleft",-1);
+ds_map_add(weapons[weaponid],"armspritereloadleft",-1);
+ds_map_add(weapons[weaponid],"armspriteemptyleft",sArmPistolEmptyLeft);
+#endregion
+#region Right Side Arm Sprites
+ds_map_add(weapons[weaponid],"armspriteright",sArmPistolRight);
+ds_map_add(weapons[weaponid],"armspriteprimaryright",sArmPistolPrimaryRight);
+ds_map_add(weapons[weaponid],"armspritesecondaryright",-1);
+ds_map_add(weapons[weaponid],"armspritestartupright",-1);
+ds_map_add(weapons[weaponid],"armspritereloadright",-1);
+ds_map_add(weapons[weaponid],"armspriteemptyright",sArmPistolEmptyRight);
+#endregion
+#endregion
 ds_map_add(weapons[weaponid],"spritespeed",1);
 ds_map_add(weapons[weaponid],"spriteprimaryspeed",1);
 ds_map_add(weapons[weaponid],"spritesecondaryspeed",1);
@@ -413,11 +497,13 @@ ds_map_add(weapons[weaponid],"soundemptypitchmax",1);
 pointdir = 0;
 mouseangle = 0;
 controllerangle = 0;
+aimside = 1;
 stopattack = false;
 ironsights = false;
 delta = 0;
 weapon = 0;
 switchdelay = 20;
+animationplaying = false;
 animationlooping = false;
 lastxoffset = 0;
 lastyoffset = 0;

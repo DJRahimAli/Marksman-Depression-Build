@@ -34,7 +34,11 @@ if (currentswitchdelay == 0)
 }
 else stopattack = true; image_alpha = 0.5;
 
-if (image_angle > 90) && (image_angle < 270) currentxoffset = -xoffset; else currentxoffset = xoffset;
+if (image_angle > 90) && (image_angle < 270) aimside = -1; else aimside = 1;
+
+currentxoffset = xoffset*aimside;
+
+image_yscale = aimside*1.5;
 
 if (currentswitchdelay < switchdelay)
 {
@@ -84,12 +88,12 @@ if (oPlayer.onwall == 0) && (aimsidetype != "movedirection")
 if (aimsidetype == "movedirection") && (oPlayer.onwall == 0)
 {
 	currentminmaxangle = hspminmaxangle;
-	if (oPlayer.aimside == 1)
+	if (aimside == 1)
 	{
 		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
 		image_angle += angle_difference(delta, image_angle) * currentrspeed;
 	}
-	if (oPlayer.aimside == -1)
+	if (aimside == -1)
 	{
 		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
 		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
@@ -145,25 +149,46 @@ if (primaryattack) if (!global.hascontrol || !stopattack) && (currentcd == 0)
 {
 	currentcd = random_range(cooldownmin,cooldownmax);
 	currentdelay = startup;
-	
-	if (currentprimaryammo[weapon] == 0)
+}
+
+if (currentprimaryammo[weapon] == 0)
+{
+	animationplaying = true;
+	if (spriteemptylooping) animationlooping = true; else animationlooping = false;
+	if (aimside == -1)
 	{
-		if (spriteemptylooping) animationlooping = true; else animationlooping = false;
-		currentsprite = spriteempty;
-		sprite_index = currentsprite;
-		image_speed = spriteemptyspeed;
-		image_index = 0;
-		//set reload key to true here for an autoreload?
-		if (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
+		currentsprite = spriteemptyleft;
+		oArm.currentsprite = armspriteemptyleft;
 	}
+	if (aimside == 1)
+	{
+		currentsprite = spriteemptyright;
+		oArm.currentsprite = armspriteemptyright;
+	}
+	sprite_index = currentsprite;
+	image_speed = spriteemptyspeed;
+	image_index = 0;
+	//set reload key to true here for an autoreload?
 }
 
 if (currentdelay == 0)
 {
+	if (currentprimaryammo[weapon] == 0) && (global.key_primaryattack_pressed) && (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
+	if (currentprimaryammo[weapon] == 1) && (primaryattack) && (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
 	if (currentprimaryammo[weapon] != 0)
 	{
+		animationplaying = true;
 		if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
-		currentsprite = spriteprimary;
+		if (aimside == -1)
+		{
+			currentsprite = spriteprimaryleft;
+			oArm.currentsprite = armspriteprimaryleft;
+		}
+		if (aimside == 1)
+		{
+			currentsprite = spriteprimaryright;
+			oArm.currentsprite = armspriteprimaryright;
+		}
 		sprite_index = currentsprite;
 		image_speed = spriteprimaryspeed;
 		image_index = 0;
@@ -219,12 +244,39 @@ if (currentdelay == 0)
 
 if (currentprimaryammo[weapon] != 0) && (startup != 0) && (currentdelay == startup)
 {
+	animationplaying = true;
 	if (spritestartuplooping) animationlooping = true; else animationlooping = false;
-	currentsprite = spritestartup;
+	if (aimside == -1)
+	{
+		currentsprite = spritestartupleft;
+		oArm.currentsprite = armspritestartupleft;
+	}
+	if (aimside == 1)
+	{
+		currentsprite = spritestartupright;
+		oArm.currentsprite = armspritestartupright;
+	}
 	sprite_index = currentsprite;
 	image_speed = spritestartupspeed;
 	image_index = 0;
 	if (soundstartup != -1) audio_sound_pitch(audio_play_sound(soundstartup,5,false),(random_range(soundstartuppitchmin,soundstartuppitchmax)));
+}
+
+if (!animationplaying) && (!animationlooping)
+{
+	if (aimside == -1)
+	{
+		currentsprite = spriteleft;
+		oArm.currentsprite = armspriteleft;
+	}
+	if (aimside == 1)
+	{
+		currentsprite = spriteright;
+		oArm.currentsprite = armspriteright;
+	}
+	sprite_index = currentsprite;
+	image_speed = spritespeed;
+	image_index = 0;
 }
 
 currentdelay = max(-1,currentdelay-1);
