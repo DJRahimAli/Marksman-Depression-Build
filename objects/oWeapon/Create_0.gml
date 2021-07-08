@@ -1,4 +1,4 @@
-instance_create_layer(x,y,"Crosshair",oCrosshair);
+instance_create_layer(x,y,"Instances",oCrosshair);
 instance_create_layer(x,y,"Particles",oMuzzleflash);
 
 #region Unarmed (0)
