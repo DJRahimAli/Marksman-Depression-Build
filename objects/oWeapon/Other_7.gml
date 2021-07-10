@@ -1,2 +1,1 @@
-animationplaying = false;
-animationlooping = false;
+if (!animationlooping) animationplaying = false;
