@@ -73,7 +73,6 @@ ds_map_add(weapons[weapontype],"armspritestartupright",-1);
 ds_map_add(weapons[weapontype],"armspritereloadright",-1);
 ds_map_add(weapons[weapontype],"armspriteemptyright",-1);
 #endregion
-#endregion
 ds_map_add(weapons[weapontype],"spritespeed",0);
 ds_map_add(weapons[weapontype],"spriteprimaryspeed",0);
 ds_map_add(weapons[weapontype],"spritesecondaryspeed",0);
@@ -85,6 +84,7 @@ ds_map_add(weapons[weapontype],"spritesecondarylooping",false);
 ds_map_add(weapons[weapontype],"spritestartuplooping",false);
 ds_map_add(weapons[weapontype],"spritereloadlooping",false);
 ds_map_add(weapons[weapontype],"spriteemptylooping",false);
+#endregion
 ds_map_add(weapons[weapontype],"xfollowspeed",0);
 ds_map_add(weapons[weapontype],"yfollowspeed",0);
 ds_map_add(weapons[weapontype],"rspeed",0);
@@ -237,7 +237,6 @@ ds_map_add(weapons[weapontype],"armspritestartupright",sArmPistolRight);
 ds_map_add(weapons[weapontype],"armspritereloadright",-1);
 ds_map_add(weapons[weapontype],"armspriteemptyright",sArmPistolRight);
 #endregion
-#endregion
 ds_map_add(weapons[weapontype],"spritespeed",1);
 ds_map_add(weapons[weapontype],"spriteprimaryspeed",1);
 ds_map_add(weapons[weapontype],"spritesecondaryspeed",1);
@@ -249,6 +248,7 @@ ds_map_add(weapons[weapontype],"spritesecondarylooping",false);
 ds_map_add(weapons[weapontype],"spritestartuplooping",true);
 ds_map_add(weapons[weapontype],"spritereloadlooping",false);
 ds_map_add(weapons[weapontype],"spriteemptylooping",true);
+#endregion
 ds_map_add(weapons[weapontype],"xfollowspeed",0.9);
 ds_map_add(weapons[weapontype],"yfollowspeed",0.9);
 ds_map_add(weapons[weapontype],"rspeed",0.25);
@@ -256,8 +256,8 @@ ds_map_add(weapons[weapontype],"hspminmaxangle",75);
 ds_map_add(weapons[weapontype],"wallminmaxangle",60);
 ds_map_add(weapons[weapontype],"recoilmin",0);
 ds_map_add(weapons[weapontype],"recoilmax",0);
-ds_map_add(weapons[weapontype],"kickbackxmin",-1.0);
-ds_map_add(weapons[weapontype],"kickbackxmax",-1.5);
+ds_map_add(weapons[weapontype],"kickbackxmin",-0.2);
+ds_map_add(weapons[weapontype],"kickbackxmax",-0.5);
 ds_map_add(weapons[weapontype],"kickbackymin",-0.2);
 ds_map_add(weapons[weapontype],"kickbackymax",-0.5);
 ds_map_add(weapons[weapontype],"damage",8);
@@ -400,7 +400,6 @@ ds_map_add(weapons[weapontype],"armspritestartupright",sArmPistolRight);
 ds_map_add(weapons[weapontype],"armspritereloadright",-1);
 ds_map_add(weapons[weapontype],"armspriteemptyright",sArmPistolRight);
 #endregion
-#endregion
 ds_map_add(weapons[weapontype],"spritespeed",1);
 ds_map_add(weapons[weapontype],"spriteprimaryspeed",1);
 ds_map_add(weapons[weapontype],"spritesecondaryspeed",1);
@@ -412,6 +411,7 @@ ds_map_add(weapons[weapontype],"spritesecondarylooping",false);
 ds_map_add(weapons[weapontype],"spritestartuplooping",true);
 ds_map_add(weapons[weapontype],"spritereloadlooping",false);
 ds_map_add(weapons[weapontype],"spriteemptylooping",true);
+#endregion
 ds_map_add(weapons[weapontype],"xfollowspeed",0.9);
 ds_map_add(weapons[weapontype],"yfollowspeed",0.9);
 ds_map_add(weapons[weapontype],"rspeed",0.25);
@@ -419,8 +419,8 @@ ds_map_add(weapons[weapontype],"hspminmaxangle",75);
 ds_map_add(weapons[weapontype],"wallminmaxangle",60);
 ds_map_add(weapons[weapontype],"recoilmin",0);
 ds_map_add(weapons[weapontype],"recoilmax",0);
-ds_map_add(weapons[weapontype],"kickbackxmin",-1.0);
-ds_map_add(weapons[weapontype],"kickbackxmax",-1.5);
+ds_map_add(weapons[weapontype],"kickbackxmin",-0.2);
+ds_map_add(weapons[weapontype],"kickbackxmax",-0.5);
 ds_map_add(weapons[weapontype],"kickbackymin",-0.2);
 ds_map_add(weapons[weapontype],"kickbackymax",-0.5);
 ds_map_add(weapons[weapontype],"damage",8);
