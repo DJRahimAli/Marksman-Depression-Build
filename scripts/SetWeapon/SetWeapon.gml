@@ -15,6 +15,7 @@ function SetWeapon(argument0)
 	spriteleft = wp_map[? "spriteleft"];
 	spriteprimaryleft = wp_map[? "spriteprimaryleft"];
 	spritesecondaryleft = wp_map[? "spritesecondaryleft"];
+	spritepumpleft = wp_map[? "spritepumpleft"];
 	spritestartupleft = wp_map[? "spritestartupleft"];
 	spritereloadleft = wp_map[? "spritereloadleft"];
 	spriteemptyleft = wp_map[? "spriteemptyleft"];
@@ -23,6 +24,7 @@ function SetWeapon(argument0)
 	spriteright = wp_map[? "spriteright"];
 	spriteprimaryright = wp_map[? "spriteprimaryright"];
 	spritesecondaryright = wp_map[? "spritesecondaryright"];
+	spritepumpright = wp_map[? "spritepumpright"];
 	spritestartupright = wp_map[? "spritestartupright"];
 	spritereloadright = wp_map[? "spritereloadright"];
 	spriteemptyright = wp_map[? "spriteemptyright"];
@@ -31,6 +33,7 @@ function SetWeapon(argument0)
 	armspriteleft = wp_map[? "armspriteleft"];
 	armspriteprimaryleft = wp_map[? "armspriteprimaryleft"];
 	armspritesecondaryleft = wp_map[? "armspritesecondaryleft"];
+	armspritepumpleft = wp_map[? "armspritepumpleft"];
 	armspritestartupleft = wp_map[? "armspritestartupleft"];
 	armspritereloadleft = wp_map[? "armspritereloadleft"];
 	armspriteemptyleft = wp_map[? "armspriteemptyleft"];
@@ -39,6 +42,7 @@ function SetWeapon(argument0)
 	armspriteright = wp_map[? "armspriteright"];
 	armspriteprimaryright = wp_map[? "armspriteprimaryright"];
 	armspritesecondaryright = wp_map[? "armspritesecondaryright"];
+	armspritepumpright = wp_map[? "armspritepumpright"];
 	armspritestartupright = wp_map[? "armspritestartupright"];
 	armspritereloadright = wp_map[? "armspritereloadright"];
 	armspriteemptyright = wp_map[? "armspriteemptyright"];
@@ -47,11 +51,13 @@ function SetWeapon(argument0)
 	spritespeed = wp_map[? "spritespeed"];
 	spriteprimaryspeed = wp_map[? "spriteprimaryspeed"];
 	spritesecondaryspeed = wp_map[? "spritesecondaryspeed"];
+	spritepumpspeed = wp_map[? "spritepumpspeed"];
 	spritestartupspeed = wp_map[? "spritestartupspeed"];
 	spritereloadspeed = wp_map[? "spritereloadspeed"];
 	spriteemptyspeed = wp_map[? "spriteemptyspeed"];
 	spriteprimarylooping = wp_map[? "spriteprimarylooping"];
 	spritesecondarylooping = wp_map[? "spritesecondarylooping"];
+	spritepumplooping = wp_map[? "spritepumplooping"];
 	spritestartuplooping = wp_map[? "spritestartuplooping"];
 	spritereloadlooping = wp_map[? "spritereloadlooping"];
 	spriteemptylooping = wp_map[? "spriteemptylooping"];
@@ -149,6 +155,7 @@ function SetWeapon(argument0)
 	#region Sound
 	soundprimary = wp_map[? "soundprimary"];
 	soundsecondary = wp_map[? "soundsecondary"];
+	soundpump = wp_map[? "soundpump"];
 	soundstartup = wp_map[? "soundstartup"];
 	soundreload = wp_map[? "soundreload"];
 	soundempty = wp_map[? "soundempty"];
@@ -156,6 +163,8 @@ function SetWeapon(argument0)
 	soundprimarypitchmax = wp_map[? "soundprimarypitchmax"];
 	soundsecondarypitchmin = wp_map[? "soundsecondarypitchmin"];
 	soundsecondarypitchmax = wp_map[? "soundsecondarypitchmax"];
+	soundpumppitchmin = wp_map[? "soundpumppitchmin"];
+	soundpumppitchmax = wp_map[? "soundpumppitchmax"];
 	soundstartuppitchmin = wp_map[? "soundstartuppitchmin"];
 	soundstartuppitchmax = wp_map[? "soundstartuppitchmax"];
 	soundreloadpitchmin = wp_map[? "soundreloadpitchmin"];

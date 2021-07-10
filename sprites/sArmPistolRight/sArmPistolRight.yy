@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Right",
-    "path": "folders/Sprites/Arms/Right.yy",
+    "path": "folders/Sprites/Arms/Pistol/Right.yy",
   },
   "resourceVersion": "1.0",
   "name": "sArmPistolRight",

@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Right",
-    "path": "folders/Sprites/Weapons/Right.yy",
+    "path": "folders/Sprites/Weapons/Pistol/Right.yy",
   },
   "resourceVersion": "1.0",
   "name": "sWeaponPistolStartupRight",

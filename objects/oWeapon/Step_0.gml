@@ -1,6 +1,6 @@
 switch (animstate)
 {
-	case animstates.idle: 
+	case animstates.idle:
 	if (aimside == -1)
 	{
 		currentsprite = spriteleft;
@@ -14,7 +14,7 @@ switch (animstate)
 	sprite_index = currentsprite;
 	image_speed = spritespeed;
 	break;
-	case animstates.primary: 
+	case animstates.primary:
 	if (aimside == -1)
 	{
 		currentsprite = spriteprimaryleft;
@@ -29,6 +29,20 @@ switch (animstate)
 	image_speed = spriteprimaryspeed;
 	break;
 	case animstates.secondary: break;
+	case animstates.pump:
+	if (aimside == -1)
+	{
+		currentsprite = spritepumpleft;
+		oArm.currentsprite = armspritepumpleft;
+	}
+	if (aimside == 1)
+	{
+		currentsprite = spritepumpright;
+		oArm.currentsprite = armspritepumpright;
+	}
+	sprite_index = currentsprite;
+	image_speed = spritepumpspeed;
+	break;
 	case animstates.startup: 
 	if (aimside == -1)
 	{
@@ -43,7 +57,8 @@ switch (animstate)
 	sprite_index = currentsprite;
 	image_speed = spritestartupspeed;
 	break;
-	case animstates.empty: 
+	case animstates.reload: break;
+	case animstates.empty:
 	if (aimside == -1)
 	{
 		currentsprite = spriteemptyleft;
@@ -242,6 +257,10 @@ switch (firemodetype)
 {
 	case firemodetypes.single: primaryattack = global.key_primaryattack_pressed; break;
 	case firemodetypes.automatic: primaryattack = global.key_primaryattack_held; break;
+	case firemodetypes.burstsingle: primaryattack = global.key_primaryattack_pressed; break;
+	case firemodetypes.burstautomatic: primaryattack = global.key_primaryattack_held; break;
+	case firemodetypes.pumpsingle: primaryattack = global.key_primaryattack_pressed; break;
+	case firemodetypes.pumpautomatic: primaryattack = global.key_primaryattack_held; break;
 	default: primaryattack = global.key_primaryattack_pressed;
 }
 
@@ -264,75 +283,126 @@ if (currentdelay == 0) && (currentprimaryammo[weapon] == 1) && (global.key_prima
 
 if (currentdelay == 0)
 {
-	if (currentprimaryammo[weapon] != 0)
+	if (firemodetype == firemodetypes.single) || (firemodetype == firemodetypes.automatic)
 	{
-		animationplaying = true;
-		if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
-		animstate = animstates.primary;
-		image_index = 0;
-		if (ironsights) currentrecoil = random_range(ironsightrecoilmin,ironsightrecoilmax); else currentrecoil = random_range(recoilmin,recoilmax);
-		currentkickbackx = lengthdir_x(random_range(kickbackxmin,kickbackxmax), image_angle);
-		currentkickbacky = lengthdir_y(random_range(kickbackymin,kickbackymax), image_angle);
-		Shake(oCrosshair.currentshakemagnitude,oCrosshair.currentshakelength,oCrosshair);
-		//Shake(2,10,oCamera);
-		if (muzzleflash) with (oMuzzleflash)
+		if (currentprimaryammo[weapon] != 0)
 		{
-			image_alpha = 1;
-			image_speed = oWeapon.muzzleflashspritespeed;
+			animationplaying = true;
+			if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
+			animstate = animstates.primary;
 			image_index = 0;
+			if (ironsights) currentrecoil = random_range(ironsightrecoilmin,ironsightrecoilmax); else currentrecoil = random_range(recoilmin,recoilmax);
+			currentkickbackx = lengthdir_x(random_range(kickbackxmin,kickbackxmax), image_angle);
+			currentkickbacky = lengthdir_y(random_range(kickbackymin,kickbackymax), image_angle);
+			Shake(oCrosshair.currentshakemagnitude,oCrosshair.currentshakelength,oCrosshair);
+			//Shake(2,10,oCamera);
+			if (muzzleflash) with (oMuzzleflash)
+			{
+				image_alpha = 1;
+				image_speed = oWeapon.muzzleflashspritespeed;
+				image_index = 0;
+			}
+			#region Projectile
+			if (aimside == -1)
+			{
+				var projectileangleoffset = point_direction(0, 0, projectilexoffset, -projectileyoffset);
+				var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, -projectileyoffset);
+			}
+			if (aimside == 1)
+			{
+				var projectileangleoffset = point_direction(0, 0, projectilexoffset, projectileyoffset);
+				var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, projectileyoffset);
+			}
+			var projectilex = x+lengthdir_x(projectiledistanceoffset,image_angle+projectileangleoffset);
+			var projectiley = y+lengthdir_y(projectiledistanceoffset,image_angle+projectileangleoffset);
+			if (projectile != -1) repeat(projectileamount) with (instance_create_layer(projectilex,projectiley,"Projectiles",projectile))
+			{
+				if (oWeapon.ironsights) oWeapon.currentspread = random_range(oWeapon.ironsightspreadmin,oWeapon.ironsightspreadmax); else oWeapon.currentspread = random_range(oWeapon.spreadmin,oWeapon.spreadmax);
+				direction = other.image_angle + oWeapon.currentspread;
+				image_angle = direction;
+				life = random_range(oWeapon.projectilelifemin,oWeapon.projectilelifemax);
+				alphalength = oWeapon.projectilealphalength;
+				spd = random_range(oWeapon.projectilespeedmin,oWeapon.projectilespeedmax);
+				image_xscale = oWeapon.projectilexscale;
+				if (image_angle > 90) && (image_angle < 270) image_yscale = -oWeapon.projectileyscale; else image_yscale = oWeapon.projectileyscale;
+			}
+			#endregion
+			#region Shell
+			if (aimside == -1)
+			{
+				var shellangleoffset = point_direction(0, 0, shellxoffset, -shellyoffset);
+				var shelldistanceoffset = point_distance(0, 0, shellxoffset, -shellyoffset);
+			}
+			if (aimside == 1)
+			{
+				var shellangleoffset = point_direction(0, 0, shellxoffset, shellyoffset);
+				var shelldistanceoffset = point_distance(0, 0, shellxoffset, shellyoffset);
+			}
+			var shellx = x+lengthdir_x(shelldistanceoffset,image_angle+shellangleoffset);
+			var shelly = y+lengthdir_y(shelldistanceoffset,image_angle+shellangleoffset);
+			if (shell != -1) repeat(shellamount) with (instance_create_layer(shellx,shelly,"Shells",shell))
+			{
+				//direction = other.image_angle;
+				life = random_range(oWeapon.shelllifemin,oWeapon.shelllifemax);
+				alphalength = oWeapon.shellalphalength;
+				hsp = lengthdir_x(random_range(oWeapon.shellhspmin,oWeapon.shellhspmax),other.image_angle);
+				if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.shellvspmin,-oWeapon.shellvspmax); else vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
+				grv = oWeapon.shellgrv;
+				if (direction > 90) && (direction < 270) image_xscale = -oWeapon.shellxscale; else image_xscale = oWeapon.shellxscale;
+				image_yscale = oWeapon.shellyscale;
+			}
+			#endregion
+			currentprimaryammo[weapon] -= 1;
+			if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 		}
-		#region Projectile
-		if (aimside == -1)
+	}
+	if (firemodetype == firemodetypes.pumpsingle) || (firemodetype == firemodetypes.pumpautomatic)
+	{
+		if (currentprimaryammo[weapon] != 0)
 		{
-			var projectileangleoffset = point_direction(0, 0, projectilexoffset, -projectileyoffset);
-			var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, -projectileyoffset);
+			animationplaying = true;
+			if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
+			animstate = animstates.primary;
+			image_index = 0;
+			if (ironsights) currentrecoil = random_range(ironsightrecoilmin,ironsightrecoilmax); else currentrecoil = random_range(recoilmin,recoilmax);
+			currentkickbackx = lengthdir_x(random_range(kickbackxmin,kickbackxmax), image_angle);
+			currentkickbacky = lengthdir_y(random_range(kickbackymin,kickbackymax), image_angle);
+			Shake(oCrosshair.currentshakemagnitude,oCrosshair.currentshakelength,oCrosshair);
+			//Shake(2,10,oCamera);
+			if (muzzleflash) with (oMuzzleflash)
+			{
+				image_alpha = 1;
+				image_speed = oWeapon.muzzleflashspritespeed;
+				image_index = 0;
+			}
+			#region Projectile
+			if (aimside == -1)
+			{
+				var projectileangleoffset = point_direction(0, 0, projectilexoffset, -projectileyoffset);
+				var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, -projectileyoffset);
+			}
+			if (aimside == 1)
+			{
+				var projectileangleoffset = point_direction(0, 0, projectilexoffset, projectileyoffset);
+				var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, projectileyoffset);
+			}
+			var projectilex = x+lengthdir_x(projectiledistanceoffset,image_angle+projectileangleoffset);
+			var projectiley = y+lengthdir_y(projectiledistanceoffset,image_angle+projectileangleoffset);
+			if (projectile != -1) repeat(projectileamount) with (instance_create_layer(projectilex,projectiley,"Projectiles",projectile))
+			{
+				if (oWeapon.ironsights) oWeapon.currentspread = random_range(oWeapon.ironsightspreadmin,oWeapon.ironsightspreadmax); else oWeapon.currentspread = random_range(oWeapon.spreadmin,oWeapon.spreadmax);
+				direction = other.image_angle + oWeapon.currentspread;
+				image_angle = direction;
+				life = random_range(oWeapon.projectilelifemin,oWeapon.projectilelifemax);
+				alphalength = oWeapon.projectilealphalength;
+				spd = random_range(oWeapon.projectilespeedmin,oWeapon.projectilespeedmax);
+				image_xscale = oWeapon.projectilexscale;
+				if (image_angle > 90) && (image_angle < 270) image_yscale = -oWeapon.projectileyscale; else image_yscale = oWeapon.projectileyscale;
+			}
+			#endregion
+			currentprimaryammo[weapon] -= 1;
+			if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 		}
-		if (aimside == 1)
-		{
-			var projectileangleoffset = point_direction(0, 0, projectilexoffset, projectileyoffset);
-			var projectiledistanceoffset = point_distance(0, 0, projectilexoffset, projectileyoffset);
-		}
-		var projectilex = x+lengthdir_x(projectiledistanceoffset,image_angle+projectileangleoffset);
-		var projectiley = y+lengthdir_y(projectiledistanceoffset,image_angle+projectileangleoffset);
-		if (projectile != -1) repeat(projectileamount) with (instance_create_layer(projectilex,projectiley,"Projectiles",projectile))
-		{
-			if (oWeapon.ironsights) oWeapon.currentspread = random_range(oWeapon.ironsightspreadmin,oWeapon.ironsightspreadmax); else oWeapon.currentspread = random_range(oWeapon.spreadmin,oWeapon.spreadmax);
-			direction = other.image_angle + oWeapon.currentspread;
-			image_angle = direction;
-			life = random_range(oWeapon.projectilelifemin,oWeapon.projectilelifemax);
-			alphalength = oWeapon.projectilealphalength;
-			spd = random_range(oWeapon.projectilespeedmin,oWeapon.projectilespeedmax);
-			image_xscale = oWeapon.projectilexscale;
-			if (image_angle > 90) && (image_angle < 270) image_yscale = -oWeapon.projectileyscale; else image_yscale = oWeapon.projectileyscale;
-		}
-		#endregion
-		#region Shell
-		if (aimside == -1)
-		{
-			var shellangleoffset = point_direction(0, 0, shellxoffset, -shellyoffset);
-			var shelldistanceoffset = point_distance(0, 0, shellxoffset, -shellyoffset);
-		}
-		if (aimside == 1)
-		{
-			var shellangleoffset = point_direction(0, 0, shellxoffset, shellyoffset);
-			var shelldistanceoffset = point_distance(0, 0, shellxoffset, shellyoffset);
-		}
-		var shellx = x+lengthdir_x(shelldistanceoffset,image_angle+shellangleoffset);
-		var shelly = y+lengthdir_y(shelldistanceoffset,image_angle+shellangleoffset);
-		if (shell != -1) repeat(shellamount) with (instance_create_layer(shellx,shelly,"Shells",shell))
-		{
-			//direction = other.image_angle;
-			life = random_range(oWeapon.shelllifemin,oWeapon.shelllifemax);
-			alphalength = oWeapon.shellalphalength;
-			hsp = lengthdir_x(random_range(oWeapon.shellhspmin,oWeapon.shellhspmax),other.image_angle);
-			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.shellvspmin,-oWeapon.shellvspmax); else vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
-			grv = oWeapon.shellgrv;
-			if (direction > 90) && (direction < 270) image_xscale = -oWeapon.shellxscale; else image_xscale = oWeapon.shellxscale;
-			image_yscale = oWeapon.shellyscale;
-		}
-		#endregion
-		currentprimaryammo[weapon] -= 1;
-		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 	}
 }
 
