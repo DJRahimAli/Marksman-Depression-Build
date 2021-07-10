@@ -13,8 +13,8 @@
   "soundFile": "snd_WeaponPistolEmpty.wav",
   "duration": 0.505313,
   "parent": {
-    "name": "Weapons",
-    "path": "folders/Sounds/Weapons.yy",
+    "name": "Pistol",
+    "path": "folders/Sounds/Weapons/Pistol.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_WeaponPistolEmpty",
