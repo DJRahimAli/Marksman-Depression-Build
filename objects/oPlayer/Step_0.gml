@@ -193,7 +193,7 @@ else
 }
 
 //Variable Jump
-if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal*2; //0.45;
+if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal*2.5; //0.45;
 
 //Spring Jump
 if place_meeting(x,y+1,oSpring) && (!crouch)
@@ -245,45 +245,6 @@ hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 
 if (crouch) && (onground) oWeapon.ironsights = true; else oWeapon.ironsights = false;
-	
-//Aimside Types
-var playersize = 1.5;
-
-switch (oWeapon.aimsidetype)
-{
-	case 0:
-	if (hspnodec != 0)
-	{
-		if (movedir != 0) aimside = sign(hsp);
-		image_xscale = aimside*playersize;
-	}
-		
-	if (hsp < 1 && onwall != 0) 
-	{
-		aimside = -onwall;
-		image_xscale = aimside*playersize;
-	}
-	break;
-	case 1:
-	/*if (!oWeapon.holstered)
-	{*/
-		aimside = oWeapon.aimside;
-		image_xscale = aimside*playersize;
-	//}
-	break;
-	default:
-	if (hspnodec != 0)
-	{
-		aimside = sign(hsp);
-		image_xscale = aimside*playersize;
-	}
-		
-	if (hsp < 1 && onwall != 0) 
-	{
-		aimside = -onwall;
-		image_xscale = aimside*playersize;
-	};
-}
 
 if (onwall != 0 && aimside == onwall)
 {
