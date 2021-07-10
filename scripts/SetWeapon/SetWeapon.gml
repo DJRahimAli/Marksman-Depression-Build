@@ -50,7 +50,6 @@ function SetWeapon(argument0)
 	spritestartupspeed = wp_map[? "spritestartupspeed"];
 	spritereloadspeed = wp_map[? "spritereloadspeed"];
 	spriteemptyspeed = wp_map[? "spriteemptyspeed"];
-	spritelooping = wp_map[? "spritelooping"];
 	spriteprimarylooping = wp_map[? "spriteprimarylooping"];
 	spritesecondarylooping = wp_map[? "spritesecondarylooping"];
 	spritestartuplooping = wp_map[? "spritestartuplooping"];

@@ -148,7 +148,7 @@ switch (firemodetype)
 if (primaryattack) if (!global.hascontrol || !stopattack) && (currentcd == 0)
 {
 	currentcd = random_range(cooldownmin,cooldownmax);
-	currentdelay = startup;
+	if (currentprimaryammo[weapon] != 0) currentdelay = startup;
 }
 
 if (currentprimaryammo[weapon] == 0)
@@ -171,33 +171,24 @@ if (currentprimaryammo[weapon] == 0)
 	//set reload key to true here for an autoreload?
 }
 
-if (currentdelay == 0)
+if (currentdelay == -1)
 {
 	if (currentprimaryammo[weapon] == 0) && (global.key_primaryattack_pressed) && (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
 	if (currentprimaryammo[weapon] == 1) && (primaryattack) && (soundempty != -1) audio_sound_pitch(audio_play_sound(soundempty,5,false),(random_range(soundemptypitchmin,soundemptypitchmax)));
+}
+
+if (currentdelay == 0)
+{
 	if (currentprimaryammo[weapon] != 0)
 	{
 		animationplaying = true;
 		if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
-		if (aimside == -1)
-		{
-			currentsprite = spriteprimaryleft;
-			oArm.currentsprite = armspriteprimaryleft;
-		}
-		if (aimside == 1)
-		{
-			currentsprite = spriteprimaryright;
-			oArm.currentsprite = armspriteprimaryright;
-		}
-		sprite_index = currentsprite;
-		image_speed = spriteprimaryspeed;
 		image_index = 0;
 		if (ironsights) currentrecoil = random_range(ironsightrecoilmin,ironsightrecoilmax); else currentrecoil = random_range(recoilmin,recoilmax);
 		currentkickbackx = lengthdir_x(random_range(kickbackxmin,kickbackxmax), image_angle);
 		currentkickbacky = lengthdir_y(random_range(kickbackymin,kickbackymax), image_angle);
 		Shake(oCrosshair.currentshakemagnitude,oCrosshair.currentshakelength,oCrosshair);
 		//Shake(2,10,oCamera);
-		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 		if (muzzleflash) with (oMuzzleflash)
 		{
 			image_alpha = 1;
@@ -255,10 +246,27 @@ if (currentdelay == 0)
 		}
 		#endregion
 		currentprimaryammo[weapon] -= 1;
+		if (soundprimary != -1) audio_sound_pitch(audio_play_sound(soundprimary,5,false),(random_range(soundprimarypitchmin,soundprimarypitchmax)));
 	}
 }
 
-if (currentprimaryammo[weapon] != 0) && (startup != 0) && (currentdelay == startup)
+if (currentprimaryammo[weapon] != 0) && (animationplaying)
+{
+	if (aimside == -1)
+	{
+		currentsprite = spriteprimaryleft;
+		oArm.currentsprite = armspriteprimaryleft;
+	}
+	if (aimside == 1)
+	{
+		currentsprite = spriteprimaryright;
+		oArm.currentsprite = armspriteprimaryright;
+	}
+	sprite_index = currentsprite;
+	image_speed = spriteprimaryspeed;
+}
+
+if (startup != 0) && (currentdelay > 0)
 {
 	animationplaying = true;
 	if (spritestartuplooping) animationlooping = true; else animationlooping = false;
@@ -275,8 +283,9 @@ if (currentprimaryammo[weapon] != 0) && (startup != 0) && (currentdelay == start
 	sprite_index = currentsprite;
 	image_speed = spritestartupspeed;
 	image_index = 0;
-	if (soundstartup != -1) audio_sound_pitch(audio_play_sound(soundstartup,5,false),(random_range(soundstartuppitchmin,soundstartuppitchmax)));
 }
+
+if (startup != 0) && (currentdelay == startup) && (soundstartup != -1) audio_sound_pitch(audio_play_sound(soundstartup,5,false),(random_range(soundstartuppitchmin,soundstartuppitchmax)));
 
 if (!animationplaying) && (!animationlooping)
 {
