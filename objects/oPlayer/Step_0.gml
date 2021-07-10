@@ -251,7 +251,7 @@ var playersize = 1.5;
 
 switch (oWeapon.aimsidetype)
 {
-	case "movedirection":
+	case 0:
 	if (hspnodec != 0)
 	{
 		if (movedir != 0) aimside = sign(hsp);
@@ -264,7 +264,7 @@ switch (oWeapon.aimsidetype)
 		image_xscale = aimside*playersize;
 	}
 	break;
-	case "weapondirection":
+	case 1:
 	/*if (!oWeapon.holstered)
 	{*/
 		aimside = oWeapon.aimside;
