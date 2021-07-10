@@ -6,7 +6,9 @@ enum animstates
 	idle,
 	primary,
 	secondary,
+	pump,
 	startup,
+	reload,
 	empty
 }
 

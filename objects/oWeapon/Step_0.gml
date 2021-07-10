@@ -101,6 +101,45 @@ currentxoffset = xoffset*aimside;
 
 image_yscale = aimside*1.5;
 
+//Aimside Types
+var playersize = 1.5;
+
+with (oPlayer) switch (oWeapon.aimsidetype)
+{
+	case 0:
+	if (hspnodec != 0)
+	{
+		if (movedir != 0) aimside = sign(hsp);
+		image_xscale = aimside*playersize;
+	}
+		
+	if (hsp < 1 && onwall != 0) 
+	{
+		aimside = -onwall;
+		image_xscale = aimside*playersize;
+	}
+	break;
+	case 1:
+	/*if (!oWeapon.holstered)
+	{*/
+		aimside = oWeapon.aimside;
+		image_xscale = aimside*playersize;
+	//}
+	break;
+	default:
+	if (hspnodec != 0)
+	{
+		aimside = sign(hsp);
+		image_xscale = aimside*playersize;
+	}
+		
+	if (hsp < 1 && onwall != 0) 
+	{
+		aimside = -onwall;
+		image_xscale = aimside*playersize;
+	};
+}
+
 if (currentswitchdelay < switchdelay)
 {
 	if (xoffset == lastxoffset) currentxfollowspeed = xfollowspeed; else if (xfollowspeed != 0) currentxfollowspeed = 1;
