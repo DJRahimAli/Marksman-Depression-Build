@@ -167,19 +167,7 @@ function SetWeapon(argument0)
 	currentdelay = -1;
 	//currentxoffset = xoffset;
 	currentyoffset = yoffset;
-	if (oPlayer.aimside == -1)
-	{
-		currentsprite = spriteleft;
-		oArm.currentsprite = armspriteleft;
-	}
-	if (oPlayer.aimside == 1)
-	{
-		currentsprite = spriteright;
-		oArm.currentsprite = armspriteright;
-	}
+	animstate = animstates.idle;
 	image_xscale = xscale;
 	image_yscale = yscale;
-	sprite_index = currentsprite;
-	image_speed = spritespeed;
-	image_index = 0;
 }
