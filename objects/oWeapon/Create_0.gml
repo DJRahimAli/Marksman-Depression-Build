@@ -623,19 +623,19 @@ ds_map_add(weapons[weapontype],"kickbackymax",-0.5);
 ds_map_add(weapons[weapontype],"damage",8);
 ds_map_add(weapons[weapontype],"switchdelay",20);
 ds_map_add(weapons[weapontype],"startup",0);
-ds_map_add(weapons[weapontype],"cooldownmin",6);
-ds_map_add(weapons[weapontype],"cooldownmax",8);
-ds_map_add(weapons[weapontype],"firemodetype",firemodetypes.pumpsingle);
+ds_map_add(weapons[weapontype],"cooldownmin",44);
+ds_map_add(weapons[weapontype],"cooldownmax",46);
+ds_map_add(weapons[weapontype],"firemodetype",firemodetypes.pumpautomatic);
 ds_map_add(weapons[weapontype],"aimsidetype",aimsidetypes.weapondirection);
 ds_map_add(weapons[weapontype],"distance",0);
-ds_map_add(weapons[weapontype],"spreadmin",-2);
-ds_map_add(weapons[weapontype],"spreadmax",3);
+ds_map_add(weapons[weapontype],"spreadmin",-8);
+ds_map_add(weapons[weapontype],"spreadmax",8);
 ds_map_add(weapons[weapontype],"ironsightspeed",0.5);
 ds_map_add(weapons[weapontype],"ironsightdistance",-1);
 ds_map_add(weapons[weapontype],"ironsightrecoilmin",0);
 ds_map_add(weapons[weapontype],"ironsightrecoilmax",0);
-ds_map_add(weapons[weapontype],"ironsightspreadmin",-1);
-ds_map_add(weapons[weapontype],"ironsightspreadmax",2);
+ds_map_add(weapons[weapontype],"ironsightspreadmin",-6);
+ds_map_add(weapons[weapontype],"ironsightspreadmax",6);
 #endregion
 #region Projectile
 ds_map_add(weapons[weapontype],"projectile",oBullet);//oHitscan);
@@ -722,7 +722,6 @@ ds_map_add(weapons[weapontype],"soundemptypitchmax",1);
 #endregion
 #endregion
 
-animstate = animstates.idle;
 pointdir = 0;
 mouseangle = 0;
 controllerangle = 0;
@@ -732,10 +731,9 @@ ironsights = false;
 delta = 0;
 weapon = 0;
 switchdelay = 20;
-animationplaying = false;
-animationlooping = false;
 lastxoffset = 0;
 lastyoffset = 0;
+primaryattack = false;
 
 // currentprimaryammo = -1; is infinite ammo
 currentprimaryammo[array_length(weapons)-1] = 0; // Default Primary ammo

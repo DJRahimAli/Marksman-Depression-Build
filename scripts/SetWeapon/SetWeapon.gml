@@ -176,6 +176,8 @@ function SetWeapon(argument0)
 	currentdelay = -1;
 	//currentxoffset = xoffset;
 	currentyoffset = yoffset;
+	animationplaying = false;
+	animationlooping = false;
 	animstate = animstates.idle;
 	image_xscale = xscale;
 	image_yscale = yscale;

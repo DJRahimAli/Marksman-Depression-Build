@@ -285,9 +285,9 @@ if (!onground)
 	else
 	{
 		dust = 0;
-		if (!crouch) sprite_index = sPlayerA; else sprite_index = sPlayerAC;
 		image_speed = 0;
 		image_index = (vspnodec > 0);
+		if (!crouch) sprite_index = sPlayerA; else sprite_index = sPlayerAC;
 		if (audio_is_playing(snd_Sliding) == true)
 		{
 			audio_stop_sound(snd_Sliding);

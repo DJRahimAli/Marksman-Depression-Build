@@ -169,8 +169,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Player.yy",
+    "name": "Marksman",
+    "path": "folders/Sprites/Player/Marksman.yy",
   },
   "resourceVersion": "1.0",
   "name": "sPlayerSP",
