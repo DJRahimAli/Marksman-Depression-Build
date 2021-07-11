@@ -14,7 +14,7 @@ if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) &
 			follow = other.id;
 		}
 		global.hascontrol = false;
-		oPlayer.hsp = 0;
+		oPlayer.hsp = lerp(oPlayer.hsp,0,0.8);
 	}
 }else nearby = false;
 
