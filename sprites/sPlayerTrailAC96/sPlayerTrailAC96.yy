@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"sPlayerTrailAC96","path":"sprites/sPlayerTrailAC96/sPlayerTrailAC96.yy",},
     "resourceVersion": "1.3",
-    "name": "sPlayerTrailAC",
+    "name": "sPlayerTrailAC96",
     "tags": [],
     "resourceType": "GMSequence",
   },

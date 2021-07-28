@@ -4,5 +4,5 @@ image_index = random_range(3,6);
 //vsp = random_range(-2,2);
 hsp = 0;
 vsp = 0;
-image_xscale = choose(1,-1);
-image_yscale = choose(1,-1);
+image_xscale = choose(2,-2);
+image_yscale = choose(2,-2);
