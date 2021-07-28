@@ -1,7 +1,7 @@
-if (sprite != -1)
+if (currentsprite != -1)
 {
 	draw_sprite_ext(
-	sprite,
+	currentsprite,
 	image_index,
 	x,
 	y,

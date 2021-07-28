@@ -8,6 +8,6 @@ grv = 0;
 donebouncehsp = 0;
 donebouncevsp = 0;
 
-sprite = oWeapon.shellsprite;
+currentsprite = -1;
 
 //my_angle = 0;

@@ -4,26 +4,26 @@ if (global.hp < 0) global.hp = 0;
 //Calculate current status
 onground = (place_meeting_ext(x,y+1,[oWall,oCollision]));
 onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,y,[oWall,oCollision]));
-wallsliding = (collision_rectangle_ext(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-6, [oWall,oCollision], false, true));
+if (collision_rectangle_ext(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-6, [oWall,oCollision], false, true)) wallsliding = true; else wallsliding = false;	
 
 if (!global.fly)
 {
-	if (onground) jumpbuffer = 5+1;
-	if (wallsliding) walljumpbuffer = walljumpbuffermax+1;
-	if (onground && onwall != 0 || crouch) walljumpbuffer = 0;
+	if (onground) currentjumpbuffer = jumpbuffer+1;
+	if (wallsliding) currentwalljumpbuffer = walljumpbuffer+1;
+	if (onground && onwall != 0 || crouch) currentwalljumpbuffer = 0;
 }
 else
 {
-	jumpbuffer = -2;
-	walljumpbuffer = 0;
+	currentjumpbuffer = -2;
+	currentwalljumpbuffer = 0;
 }
-if (crouch) wallsliding = 0;
+if (crouch) wallsliding = false;
 
 //Calculate horizontal movement
 /*walkspmax = 4;
 walkspcrouchmax = 2;*/
-walljumpdelay = max(walljumpdelay-1,0);
-if (!global.key_jump_held && walljumpdelay <= walljumpdelaymax/2) walljumpdelay /= 2;
+currentwalljumpdelay = max(currentwalljumpdelay-1,0);
+if (!global.key_jump_held) && (currentwalljumpdelay <= walljumpdelay/2) currentwalljumpdelay /= 2;
 /*
 if (!onwallground) && (!global.fly)
 {
@@ -31,7 +31,7 @@ if (!onwallground) && (!global.fly)
 	//walkspcrouchmax = walkspcrouchmax/1.1;
 }*/
 
-if (walljumpdelay == 0)
+if (currentwalljumpdelay == 0)
 {
 	movedir = (global.key_right_held - global.key_left_held);
 
@@ -42,12 +42,12 @@ if (walljumpdelay == 0)
 		var hspfricfinal = hspfricground;
 		if (!onground) && (!global.fly) hspfricfinal = hspfricair;
 		hsp = lerp(hsp,0,hspfricfinal) + oWeapon.currentkickbackx;
-		hsp = clamp(hsp,-walksp,walksp);
+		hsp = clamp(hsp,-currentwalksp,currentwalksp);
 	}
 	else
 	{
-		if (abs(hsp) >= walksp) && (aimside != sign(hsp)) hsp = clamp(hsp,-walksp*abs(movedir),walksp*abs(movedir));
-		else hsp = clamp(hsp,-walksp*abs(movedir),walksp*abs(movedir)) + oWeapon.currentkickbackx;
+		if (abs(hsp) >= currentwalksp) && (aimside != sign(hsp)) hsp = clamp(hsp,-currentwalksp*abs(movedir),currentwalksp*abs(movedir));
+		else hsp = clamp(hsp,-currentwalksp*abs(movedir),currentwalksp*abs(movedir)) + oWeapon.currentkickbackx;
 	}
 }
 oWeapon.currentkickbackx = 0;
@@ -57,16 +57,16 @@ if (vsp > 0 || global.fly) walljumpheight = 0;
 
 if (!global.fly)
 {
-	if (walljumpbuffer > 0) walljumpbuffer--;
+	if (currentwalljumpbuffer > 0) currentwalljumpbuffer--;
 	
-	if (walljumpheight > 0) walljumpheight-=0.05;
+	if (walljumpheight > 0) walljumpheight -= 0.05;
 	
 	if (onwall != 0) walljumpdirection = onwall;
 	
-	if (global.key_jump_pressed) && (walljumpbuffer > 0) && (walljumpdelay < walljumpdelaymax-6.5)
+	if (global.key_jump_pressed) && (currentwalljumpbuffer > 0) && (currentwalljumpdelay < walljumpdelay-6.5)
 	{
-		walljumpbuffer = 0;
-		walljumpdelay = walljumpdelaymax;
+		currentwalljumpbuffer = 0;
+		currentwalljumpdelay = walljumpdelay;
 		hsp = walljumpdirection * -(jumpheightwall+walljumpheight/2);
 		vsp = -(jumpheightwall+walljumpheight);
 		walljumpheight += 1;
@@ -87,7 +87,7 @@ if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
 #region Crouching
 if (global.key_crouch_pressed)
 {
-	if (onground) || (crouchstuck) || (global.fly) walksp = walkspcrouchmax;
+	if (onground) || (crouchstuck) || (global.fly) currentwalksp = walkspcrouch;
 }
 
 if (global.key_crouch_pressed)
@@ -97,16 +97,16 @@ if (global.key_crouch_pressed)
 
 if (global.key_crouch_released)
 {
-	if (!crouchstuck) walksp = walkspcrouchmax;
+	if (!crouchstuck) currentwalksp = walkspcrouch;
 }
 
-if (crouch) && (onground) walksp = walkspcrouchmax; else walksp = walkspmax;
+if (crouch) && (onground) currentwalksp = walkspcrouch; else currentwalksp = walksp;
 
 if (place_meeting_ext(x,y-4,[oWall,oCollision])) && (onground) && (!global.noclip)
 {
 	crouchstuck = true;
 	crouch = true;
-	walksp = walkspcrouchmax;
+	currentwalksp = walkspcrouch;
 }
 
 if (!place_meeting_ext(x,y-6,[oWall,oCollision]))
@@ -115,7 +115,7 @@ if (!place_meeting_ext(x,y-6,[oWall,oCollision]))
 	if (!global.key_crouch_held)
 	{
 		crouch = false;
-		walksp = walkspmax;
+		currentwalksp = walksp;
 	}
 }
 #endregion
@@ -125,7 +125,7 @@ if (!global.fly)
 {
 	var grvfinal = grv;
 	var vspmaxfinal = vspmax;
-	if (wallsliding)
+	if (currentwalljumpbuffer)
 	{
 		grvfinal = grvwall;
 		if (vsp > 0) vspmaxfinal = vspmaxwall;
@@ -134,15 +134,15 @@ if (!global.fly)
 	oWeapon.currentkickbacky = 0;
 	vsp = clamp(vsp,-vspmaxfinal,vspmaxfinal);
 
-	if (jumpbuffer > 0 || place_meeting(x,y+1,oSpring)) multijump = multijumpmax;
+	if (currentjumpbuffer > 0 || place_meeting(x,y+1,oSpring)) currentmultijump = multijump;
 
-	if (jumpbuffer > -1) jumpbuffer--;
+	if (currentjumpbuffer > -1) currentjumpbuffer--;
 
-	if (global.key_jump_pressed) && (jumpbuffer > 0) && (!crouchstuck)
+	if (global.key_jump_pressed) && (currentjumpbuffer > 0) && (!crouchstuck)
 	{
 		if (!crouch)
 		{
-			jumpbuffer = 0;
+			currentjumpbuffer = 0;
 			vsp = -jumpheight;
 			vspfrac = 0;
 			audio_play_sound(snd_Jump,10,false);
@@ -150,23 +150,23 @@ if (!global.fly)
 		
 		if (crouch)
 		{
-			jumpbuffer = 0;
+			currentjumpbuffer = 0;
 			vsp = -jumpheightcrouch;
 			vspfrac = 0;
 			audio_play_sound(snd_Jump,10,false);
 		}
 	}
 	
-	if (global.key_jump_pressed) && (multijump > 0) && (jumpbuffer == -1) && (wallsliding == 0)
+	if (global.key_jump_pressed) && (currentmultijump > 0) && (currentjumpbuffer == -1) && (currentwalljumpbuffer == 0)
 	{
-		multijump--;
+		currentmultijump--;
 		vsp = -jumpheightmulti;
 		audio_play_sound(snd_MultiJump,10,false);
 	}
 	//vsp = clamp(vsp,-vspmax,vspmax);
 
 	//Detect when moving
-	if (hspnodec != 0) || (jumpbuffer < 0) moving = true; else moving = false;
+	if (hspnodec != 0) || (currentjumpbuffer < 0) moving = true; else moving = false;
 }
 else
 {
@@ -179,12 +179,12 @@ else
 	{
 		var vspfricfinal = hspfricground;
 		vsp = lerp(vsp,0,vspfricfinal) + oWeapon.currentkickbacky;
-		vsp = clamp(vsp,-walksp,walksp);
+		vsp = clamp(vsp,-currentwalksp,currentwalksp);
 	}
 	else
 	{
-		if (abs(vsp) >= walksp) vsp = clamp(vsp,-walksp*abs(flydir),walksp*abs(flydir));
-		else vsp = clamp(vsp,-walksp*abs(flydir),walksp*abs(flydir)) + oWeapon.currentkickbacky;
+		if (abs(vsp) >= currentwalksp) vsp = clamp(vsp,-currentwalksp*abs(flydir),currentwalksp*abs(flydir));
+		else vsp = clamp(vsp,-currentwalksp*abs(flydir),currentwalksp*abs(flydir)) + oWeapon.currentkickbacky;
 	}
 	oWeapon.currentkickbacky = 0;
 	
@@ -193,12 +193,12 @@ else
 }
 
 //Variable Jump
-if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal*2.5; //0.45;
+if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal*2.2; //0.45;
 
 //Spring Jump
 if place_meeting(x,y+1,oSpring) && (!crouch)
 {
-	jumpbuffer = 0;
+	currentjumpbuffer = 0;
 	vsp = -jumpheightspring;
 	vspfrac = 0;
 }
@@ -210,7 +210,7 @@ hspfrac = frac(hsp);
 hsp -= hspfrac;
 */
 
-if (wallsliding) && (!global.fly)
+if (currentwalljumpbuffer) && (!onground) && (!global.fly)
 {
 	vsp += vspfrac;
 	vspfrac = frac(vsp);
@@ -244,22 +244,9 @@ if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
 hspnodec = string_format(hsp, 0, 0);
 vspnodec = string_format(vsp, 0, 0);
 
-if (crouch) && (onground) oWeapon.ironsights = true; else oWeapon.ironsights = false;
-
-if (onwall != 0 && aimside == onwall)
-{
-	oWeapon.currentrspeed = 1;
-	oCrosshair.currentrspeed = 1;
-}
-else
-{
-	oWeapon.currentrspeed = oWeapon.rspeed;
-	oCrosshair.currentrspeed = oWeapon.crosshairrspeed;
-}
-
 if (!onground)
 {
-	if (wallsliding)
+	if (currentwalljumpbuffer)
 	{
 		if (!global.fly)
 		{
@@ -269,12 +256,11 @@ if (!onground)
 			var side = bbox_left;
 			if (onwall == 1) side = bbox_right;
 			dust++;
-			if ((dust > 2) && (vsp > 0)) with (instance_create_layer(side,y,"Particles",oDust))
+			if ((dust > 4) && (vsp > 0)) with (instance_create_layer(side,y,"Particles",oDust))
 			{
 				other.dust = 0;
-				hsp = -other.onwall*random_range(0.08,0.6);
-				hsp = -other.onwall*random_range(0.08,0.6);
-				vsp = random_range(-0.4,0.4);
+				hsp = -other.onwall*random_range(0.16,1.2);
+				vsp = random_range(-0.8,0.8);
 				if (audio_is_playing(snd_Sliding) == false)
 				{
 					audio_play_sound(snd_Sliding, 10, true);
@@ -329,13 +315,13 @@ else
 		{
 			if (!crouch) && (!global.noclip)
 			{
-				image_speed = clamp(abs(hsp)/walkspmax,0.2,1);
+				image_speed = clamp(abs(hsp)/walksp,0.2,1);
 				sprite_index = sPlayerR;
 				//if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
-				image_speed = clamp(abs(hsp)/walkspcrouchmax,0.2,1);
+				image_speed = clamp(abs(hsp)/walkspcrouch,0.2,1);
 				sprite_index = sPlayerRC;
 				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
@@ -369,7 +355,7 @@ if (global.fly) && (audio_is_playing(snd_Sliding) == true)
 //Suicide
 if (global.key_suicide_pressed)
 {
-	suicide = 1;
+	suicide = true;
 	global.hp = 0;
 	lasthp = 0;
 }

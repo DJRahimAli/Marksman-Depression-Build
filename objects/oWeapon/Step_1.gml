@@ -12,6 +12,15 @@ if (currentswitchdelay == 0)
 			stopattack = true;
 			image_speed = 0;
 			image_index = 0;
+			if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
+			{
+				image_alpha = 0;
+				image_speed = 0;
+				image_index = 0;
+				currentxoffset = 0;
+				currentyoffset = 0;
+				currentsprite = -1;
+			}
 			currentweapon += 1;
 			if (currentweapon >= array_length(weapons)) currentweapon = 0;
 			SetWeapon(currentweapon);
@@ -24,11 +33,14 @@ if (currentswitchdelay == 0)
 			stopattack = true;
 			image_speed = 0;
 			image_index = 0;
-			if (muzzleflash) with (oMuzzleflash)
+			if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
 			{
 				image_alpha = 0;
 				image_speed = 0;
 				image_index = 0;
+				currentxoffset = 0;
+				currentyoffset = 0;
+				currentsprite = -1;
 			}
 			currentweapon -= 1;
 			if (currentweapon < 0) currentweapon = array_length(weapons)-1;
@@ -37,9 +49,9 @@ if (currentswitchdelay == 0)
 		}
 	}
 }
-else stopattack = true; image_alpha = 0.5;
+else stopattack = true;
 
-if (firemodetype == firemodetypes.pumpsingle) || (firemodetype == firemodetypes.pumpautomatic)
+if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == firemodetypes.pumpautomatic)
 {
 	if (animationplaying == false) && (animstate == animstates.primary)
 	{

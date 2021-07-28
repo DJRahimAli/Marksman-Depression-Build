@@ -45,14 +45,14 @@ if (direction < 0) direction += 360;
 if (oWeapon.ironsights)
 {
 	currentdistance = lerp(currentdistance, oWeapon.crosshairironsightdistance, oWeapon.crosshairironsightspeed);
-	currentshakemagnitude = random_range(oWeapon.crosshairironsightshakemagnitudemin,oWeapon.crosshairironsightshakemagnitudemax);
-	currentshakelength = random_range(oWeapon.crosshairironsightshakelengthmin,oWeapon.crosshairironsightshakelengthmax);
+	currentshakemagnitude = random_range(oWeapon.primarycrosshairironsightshakemagnitudemin,oWeapon.primarycrosshairironsightshakemagnitudemax);
+	currentshakelength = random_range(oWeapon.primarycrosshairironsightshakelengthmin,oWeapon.primarycrosshairironsightshakelengthmax);
 }
 else
 {
 	currentdistance = lerp(currentdistance, oWeapon.crosshairdistance, oWeapon.crosshairironsightspeed);
-	currentshakemagnitude = random_range(oWeapon.crosshairshakemagnitudemin,oWeapon.crosshairshakemagnitudemax);
-	currentshakelength = random_range(oWeapon.crosshairshakelengthmin,oWeapon.crosshairshakelengthmax);
+	currentshakemagnitude = random_range(oWeapon.primarycrosshairshakemagnitudemin,oWeapon.primarycrosshairshakemagnitudemax);
+	currentshakelength = random_range(oWeapon.primarycrosshairshakelengthmin,oWeapon.primarycrosshairshakelengthmax);
 }
 
 x += lengthdir_x(currentdistance,direction);

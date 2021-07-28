@@ -11,7 +11,7 @@
     "path": "audiogroups/agSfx",
   },
   "soundFile": "snd_WeaponShotgunPump.wav",
-  "duration": 0.356021,
+  "duration": 0.351021,
   "parent": {
     "name": "Shotgun",
     "path": "folders/Sounds/Weapons/Shotgun.yy",

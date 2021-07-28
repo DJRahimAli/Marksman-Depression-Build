@@ -1,7 +1,7 @@
-if (oWeapon.muzzleflashsprite != -1)
+if (currentsprite != -1)
 {
 	draw_sprite_ext(
-	oWeapon.muzzleflashsprite,
+	currentsprite,
 	image_index,
 	x,
 	y,

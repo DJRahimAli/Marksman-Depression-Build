@@ -1,6 +1,6 @@
 switch (pickuptype)
 {
-	case 1: sprite = ds_map_find_value(oWeapon.weapons[weapon],"spriteright"); break;
+	case pickuptypes.pistol: sprite = sWeaponPistolRight; break;
 }
 
 if (sprite != -1)
