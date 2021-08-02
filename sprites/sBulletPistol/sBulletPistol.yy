@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"196e4317-a287-4d67-9d43-171676304b89","path":"sprites/sBullet/sBullet.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"196e4317-a287-4d67-9d43-171676304b89","path":"sprites/sBullet/sBullet.yy",},"LayerId":{"name":"ae86a0bf-2c71-4c1b-bb86-13405a5d2d90","path":"sprites/sBullet/sBullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},"resourceVersion":"1.0","name":"196e4317-a287-4d67-9d43-171676304b89","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"196e4317-a287-4d67-9d43-171676304b89","path":"sprites/sBulletPistol/sBulletPistol.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"196e4317-a287-4d67-9d43-171676304b89","path":"sprites/sBulletPistol/sBulletPistol.yy",},"LayerId":{"name":"ae86a0bf-2c71-4c1b-bb86-13405a5d2d90","path":"sprites/sBulletPistol/sBulletPistol.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sBulletPistol","path":"sprites/sBulletPistol/sBulletPistol.yy",},"resourceVersion":"1.0","name":"196e4317-a287-4d67-9d43-171676304b89","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},
+    "spriteId": {"name":"sBulletPistol","path":"sprites/sBulletPistol/sBulletPistol.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 60.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1e3cd35d-5727-42f2-bb27-e37be3b7afcd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"196e4317-a287-4d67-9d43-171676304b89","path":"sprites/sBullet/sBullet.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3160dabf-0b23-48be-82d3-afe6464adb2a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"196e4317-a287-4d67-9d43-171676304b89","path":"sprites/sBulletPistol/sBulletPistol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 5,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},
+    "parent": {"name":"sBulletPistol","path":"sprites/sBulletPistol/sBulletPistol.yy",},
     "resourceVersion": "1.3",
-    "name": "sBullet",
+    "name": "sBulletPistol",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/Projectiles.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sBullet",
+  "name": "sBulletPistol",
   "tags": [],
   "resourceType": "GMSprite",
 }

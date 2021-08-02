@@ -1,3 +1,6 @@
+if (hsp != 0) image_xscale = sign(hsp) * -currentshellxscale;
+image_yscale = currentshellyscale;
+
 vsp += grv;
 
 //Calculate current status
@@ -7,7 +10,7 @@ onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,
 //Bounce Shell Horizontal
 if (onwall != 0)
 {
-	if (!donebouncehsp) hsp = random_range(oWeapon.shellbouncehspmin,oWeapon.shellbouncehspmax)*onwall;
+	if (!donebouncehsp) hsp = random_range(currentshellbouncevspmin,currentshellbouncehspmax)*onwall;
 	donebouncehsp = 1;
 }
 
@@ -23,7 +26,7 @@ x += hsp;
 //Bounce Shell Vertical
 if (onground)
 {
-	if (!donebouncevsp) vsp = random_range(oWeapon.shellbouncevspmin,oWeapon.shellbouncevspmax);
+	if (!donebouncevsp) vsp = random_range(currentshellbouncevspmin,currentshellbouncevspmax);
 	if (donebouncevsp)
 	{
 		hsp = 0;

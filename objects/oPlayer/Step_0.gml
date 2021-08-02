@@ -4,7 +4,7 @@ if (global.hp < 0) global.hp = 0;
 //Calculate current status
 onground = (place_meeting_ext(x,y+1,[oWall,oCollision]));
 onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,y,[oWall,oCollision]));
-if (collision_rectangle_ext(bbox_left-1, bbox_top+6, bbox_right+1, bbox_bottom-6, [oWall,oCollision], false, true)) wallsliding = true; else wallsliding = false;	
+if (collision_rectangle_ext(bbox_left-1, bbox_top+12, bbox_right+1, bbox_bottom-12, [oWall,oCollision], false, true)) wallsliding = true; else wallsliding = false;	
 
 if (!global.fly)
 {

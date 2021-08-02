@@ -194,8 +194,7 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryreservedammo",0);
 			ds_map_add(weapons[weapontype],"primaryammospent",0);
 			
-			ds_map_add(weapons[weapontype],"secondaryammo",0);
-			ds_map_add(weapons[weapontype],"secondaryreservedammo",0);
+			ds_map_add(weapons[weapontype],"secondaryammo",0); //-2 means use primary ammo
 			ds_map_add(weapons[weapontype],"secondaryammospent",0);
 		#endregion
 
@@ -279,6 +278,35 @@ enum firemodetypes
 		#endregion
 	#endregion
 
+	#region Camera
+		#region Primary
+			ds_map_add(weapons[weapontype],"primarycamerashakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"primarycamerashakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycamerashakelengthmin",0);
+			ds_map_add(weapons[weapontype],"primarycamerashakelengthmax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakelengthmax",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondarycamerashakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"secondarycamerashakemagnitudemax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarycamerashakelengthmin",0);
+			ds_map_add(weapons[weapontype],"secondarycamerashakelengthmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakelengthmax",0);
+		#endregion
+	#endregion
+
 	#region Projectile
 		#region Primary
 			ds_map_add(weapons[weapontype],"primaryprojectile",-1);//oHitscan);
@@ -324,6 +352,33 @@ enum firemodetypes
 		#endregion
 	#endregion
 
+	#region Hitspark
+		#region Primary
+			ds_map_add(weapons[weapontype],"primaryhitspark",-1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparkxscale",1);
+			ds_map_add(weapons[weapontype],"primaryhitsparkyscale",1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparkalpha",1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparksprite",-1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparkspritespeed",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondaryhitspark",-1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparkxscale",1);
+			ds_map_add(weapons[weapontype],"secondaryhitsparkyscale",1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparkalpha",1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparksprite",-1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparkspritespeed",0);
+		#endregion
+	#endregion
+
 	#region Shell
 		#region Primary
 			ds_map_add(weapons[weapontype],"primaryshell",-1);
@@ -331,8 +386,8 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryshellxoffset",0);
 			ds_map_add(weapons[weapontype],"primaryshellyoffset",0);
 			
-			ds_map_add(weapons[weapontype],"primaryshellxscale",0);
-			ds_map_add(weapons[weapontype],"primaryshellyscale",0);
+			ds_map_add(weapons[weapontype],"primaryshellxscale",1);
+			ds_map_add(weapons[weapontype],"primaryshellyscale",1);
 			
 			ds_map_add(weapons[weapontype],"primaryshellsprite",-1);
 			
@@ -363,8 +418,8 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"secondaryshellxoffset",0);
 			ds_map_add(weapons[weapontype],"secondaryshellyoffset",0);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellxscale",0);
-			ds_map_add(weapons[weapontype],"secondaryshellyscale",0);
+			ds_map_add(weapons[weapontype],"secondaryshellxscale",1);
+			ds_map_add(weapons[weapontype],"secondaryshellyscale",1);
 			
 			ds_map_add(weapons[weapontype],"secondaryshellsprite",-1);
 			
@@ -398,8 +453,10 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primarymuzzleflashxoffset",0);
 			ds_map_add(weapons[weapontype],"primarymuzzleflashyoffset",0);
 			
-			ds_map_add(weapons[weapontype],"primarymuzzleflashxscale",0);
-			ds_map_add(weapons[weapontype],"primarymuzzleflashyscale",0);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashxscale",1);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashyscale",1);
+			
+			ds_map_add(weapons[weapontype],"primarymuzzleflashalpha",1);
 			
 			ds_map_add(weapons[weapontype],"primarymuzzleflashsprite",-1);
 			
@@ -411,8 +468,10 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashxoffset",0);
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashyoffset",0);
 			
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashxscale",0);
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashyscale",0);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashxscale",1);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashyscale",1);
+			
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashalpha",1);
 			
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashsprite",-1);
 			
@@ -424,8 +483,8 @@ enum firemodetypes
 		ds_map_add(weapons[weapontype],"crosshairxoffset",0);
 		ds_map_add(weapons[weapontype],"crosshairyoffset",0);
 		
-		ds_map_add(weapons[weapontype],"crosshairxscale",0);
-		ds_map_add(weapons[weapontype],"crosshairyscale",0);
+		ds_map_add(weapons[weapontype],"crosshairxscale",1);
+		ds_map_add(weapons[weapontype],"crosshairyscale",1);
 		
 		ds_map_add(weapons[weapontype],"crosshairsprite",-1);
 		
@@ -470,8 +529,496 @@ enum firemodetypes
 	weapons[weapontype] = ds_map_create();
 	#region Weapon
 		#region Position
-			ds_map_add(weapons[weapontype],"xoffset",-3);
-			ds_map_add(weapons[weapontype],"yoffset",12);
+			ds_map_add(weapons[weapontype],"xoffset",-4);
+			ds_map_add(weapons[weapontype],"yoffset",16);
+			
+			ds_map_add(weapons[weapontype],"crouchxoffset",-4);
+			ds_map_add(weapons[weapontype],"crouchyoffset",18);
+		
+			ds_map_add(weapons[weapontype],"xscale",2);
+			ds_map_add(weapons[weapontype],"yscale",2);
+		
+			ds_map_add(weapons[weapontype],"xfollowspeed",0);
+			ds_map_add(weapons[weapontype],"yfollowspeed",0);
+		
+			ds_map_add(weapons[weapontype],"primaryrecoilmin",0);
+			ds_map_add(weapons[weapontype],"primaryrecoilmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryrecoilmin",0);
+			ds_map_add(weapons[weapontype],"secondaryrecoilmax",0);
+		
+			ds_map_add(weapons[weapontype],"distance",0);
+		
+			ds_map_add(weapons[weapontype],"ironsightspeed",0);
+		
+			ds_map_add(weapons[weapontype],"ironsightdistance",0);
+		
+			ds_map_add(weapons[weapontype],"primaryironsightrecoilmin",0);
+			ds_map_add(weapons[weapontype],"primaryironsightrecoilmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryironsightrecoilmin",0);
+			ds_map_add(weapons[weapontype],"secondaryironsightrecoilmax",0);
+		#endregion
+
+		#region Sprites
+			#region Left Side Sprites
+				ds_map_add(weapons[weapontype],"spriteleft",-1);
+				
+				ds_map_add(weapons[weapontype],"spriteprimaryleft",-1);
+				
+				ds_map_add(weapons[weapontype],"spritesecondaryleft",-1);
+				
+				ds_map_add(weapons[weapontype],"spritepumpleft",-1);
+				
+				ds_map_add(weapons[weapontype],"spritestartupleft",-1);
+				
+				ds_map_add(weapons[weapontype],"spritereloadleft",-1);
+				
+				ds_map_add(weapons[weapontype],"spriteemptyleft",-1);
+			#endregion
+			#region Right Side Sprites
+				ds_map_add(weapons[weapontype],"spriteright",-1);
+				
+				ds_map_add(weapons[weapontype],"spriteprimaryright",-1);
+				
+				ds_map_add(weapons[weapontype],"spritesecondaryright",-1);
+				
+				ds_map_add(weapons[weapontype],"spritepumpright",-1);
+				
+				ds_map_add(weapons[weapontype],"spritestartupright",-1);
+				
+				ds_map_add(weapons[weapontype],"spritereloadright",-1);
+				
+				ds_map_add(weapons[weapontype],"spriteemptyright",-1);
+			#endregion
+			#region Left Side Arm Sprites
+				ds_map_add(weapons[weapontype],"armspriteleft",-1);
+				
+				ds_map_add(weapons[weapontype],"armspriteprimaryleft",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritesecondaryleft",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritepumpleft",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritestartupleft",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritereloadleft",-1);
+				
+				ds_map_add(weapons[weapontype],"armspriteemptyleft",-1);
+			#endregion
+			#region Right Side Arm Sprites
+				ds_map_add(weapons[weapontype],"armspriteright",-1);
+				
+				ds_map_add(weapons[weapontype],"armspriteprimaryright",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritesecondaryright",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritepumpright",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritestartupright",-1);
+				
+				ds_map_add(weapons[weapontype],"armspritereloadright",-1);
+				
+				ds_map_add(weapons[weapontype],"armspriteemptyright",-1);
+			#endregion
+			#region Sprite Speed
+				ds_map_add(weapons[weapontype],"spritespeed",1);
+				
+				ds_map_add(weapons[weapontype],"spriteprimaryspeed",1);
+				
+				ds_map_add(weapons[weapontype],"spritesecondaryspeed",1);
+				
+				ds_map_add(weapons[weapontype],"spritepumpspeed",1);
+				
+				ds_map_add(weapons[weapontype],"spritestartupspeed",1);
+				
+				ds_map_add(weapons[weapontype],"spritereloadspeed",1);
+				
+				ds_map_add(weapons[weapontype],"spriteemptyspeed",1);
+			#endregion
+			#region Sprite Looping
+				ds_map_add(weapons[weapontype],"spriteprimarylooping",false);
+				
+				ds_map_add(weapons[weapontype],"spritesecondarylooping",false);
+				
+				ds_map_add(weapons[weapontype],"spritepumplooping",false);
+				
+				ds_map_add(weapons[weapontype],"spritestartuplooping",false);
+				
+				ds_map_add(weapons[weapontype],"spritereloadlooping",false);
+				
+				ds_map_add(weapons[weapontype],"spriteemptylooping",false);
+			#endregion
+		#endregion
+
+		#region Rotation/Angle
+			ds_map_add(weapons[weapontype],"rspeed",0);
+			
+			ds_map_add(weapons[weapontype],"hspminmaxangle",0);
+			ds_map_add(weapons[weapontype],"wallminmaxangle",0);
+		#endregion
+
+		#region Types
+			ds_map_add(weapons[weapontype],"primaryfiremodetype",firemodetypes.single);
+			ds_map_add(weapons[weapontype],"secondaryfiremodetype",firemodetypes.single);
+			
+			ds_map_add(weapons[weapontype],"aimsidetype",aimsidetypes.movedirection);
+		#endregion
+
+		#region Delay
+			ds_map_add(weapons[weapontype],"switchdelay",20);
+			
+			ds_map_add(weapons[weapontype],"primarystartup",0);
+			ds_map_add(weapons[weapontype],"primarycooldownmin",0);
+			ds_map_add(weapons[weapontype],"primarycooldownmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarystartup",0);
+			ds_map_add(weapons[weapontype],"secondarycooldownmin",0);
+			ds_map_add(weapons[weapontype],"secondarycooldownmax",0);
+		#endregion
+
+		#region Ammo
+			ds_map_add(weapons[weapontype],"primaryammo",0);
+			ds_map_add(weapons[weapontype],"primaryreservedammo",0);
+			ds_map_add(weapons[weapontype],"primaryammospent",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryammo",0); //-2 means use primary ammo
+			ds_map_add(weapons[weapontype],"secondaryammospent",0);
+		#endregion
+
+		#region Spread
+			ds_map_add(weapons[weapontype],"primaryspreadmin",0);
+			ds_map_add(weapons[weapontype],"primaryspreadmax",0);
+			
+			ds_map_add(weapons[weapontype],"primaryironsightspreadmin",0);
+			ds_map_add(weapons[weapontype],"primaryironsightspreadmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryspreadmin",0);
+			ds_map_add(weapons[weapontype],"secondaryspreadmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryironsightspreadmin",0);
+			ds_map_add(weapons[weapontype],"secondaryironsightspreadmax",0);
+		#endregion
+
+		#region Kickback
+			ds_map_add(weapons[weapontype],"primarykickbackxmin",0);
+			ds_map_add(weapons[weapontype],"primarykickbackxmax",0);
+				
+			ds_map_add(weapons[weapontype],"primarykickbackymin",0);
+			ds_map_add(weapons[weapontype],"primarykickbackymax",0);
+
+			ds_map_add(weapons[weapontype],"secondarykickbackxmin",0);
+			ds_map_add(weapons[weapontype],"secondarykickbackxmax",0);
+				
+			ds_map_add(weapons[weapontype],"secondarykickbackymin",0);
+			ds_map_add(weapons[weapontype],"secondarykickbackymax",0);
+		#endregion
+
+		#region Damage
+			ds_map_add(weapons[weapontype],"primarydamage",0);
+			ds_map_add(weapons[weapontype],"secondarydamage",0);
+		#endregion
+
+		#region Sound
+			#region Sounds
+				ds_map_add(weapons[weapontype],"soundprimary",-1);
+				
+				ds_map_add(weapons[weapontype],"soundsecondary",-1);
+				
+				ds_map_add(weapons[weapontype],"soundstartup",-1);
+				
+				ds_map_add(weapons[weapontype],"soundreload",-1);
+				
+				ds_map_add(weapons[weapontype],"soundempty",-1);
+			#endregion
+			#region Gain
+				ds_map_add(weapons[weapontype],"soundprimarygainmin",1);
+				ds_map_add(weapons[weapontype],"soundprimarygainmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundsecondarygainmin",1);
+				ds_map_add(weapons[weapontype],"soundsecondarygainmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundstartupgainmin",1);
+				ds_map_add(weapons[weapontype],"soundstartupgainmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadgainmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundemptygainmin",1);
+				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
+			#endregion
+			#region Pitch
+				ds_map_add(weapons[weapontype],"soundprimarypitchmin",1);
+				ds_map_add(weapons[weapontype],"soundprimarypitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundsecondarypitchmin",1);
+				ds_map_add(weapons[weapontype],"soundsecondarypitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundstartuppitchmin",1);
+				ds_map_add(weapons[weapontype],"soundstartuppitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadpitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundemptypitchmin",1);
+				ds_map_add(weapons[weapontype],"soundemptypitchmax",1);
+			#endregion
+		#endregion
+	#endregion
+
+	#region Camera
+		#region Primary
+			ds_map_add(weapons[weapontype],"primarycamerashakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"primarycamerashakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycamerashakelengthmin",0);
+			ds_map_add(weapons[weapontype],"primarycamerashakelengthmax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"primarycameraironsightshakelengthmax",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondarycamerashakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"secondarycamerashakemagnitudemax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarycamerashakelengthmin",0);
+			ds_map_add(weapons[weapontype],"secondarycamerashakelengthmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"secondarycameraironsightshakelengthmax",0);
+		#endregion
+	#endregion
+
+	#region Projectile
+		#region Primary
+			ds_map_add(weapons[weapontype],"primaryprojectile",-1);//oHitscan);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectilexoffset",0);
+			ds_map_add(weapons[weapontype],"primaryprojectileyoffset",0);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectilexscale",0);
+			ds_map_add(weapons[weapontype],"primaryprojectileyscale",0);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectilesprite",-1);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectileamount",0);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectilelifemin",0);
+			ds_map_add(weapons[weapontype],"primaryprojectilelifemax",0);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectilealphalength",0);
+		
+			ds_map_add(weapons[weapontype],"primaryprojectilespeedmin",0);
+			ds_map_add(weapons[weapontype],"primaryprojectilespeedmax",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondaryprojectile",-1);//oHitscan);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectilexoffset",0);
+			ds_map_add(weapons[weapontype],"secondaryprojectileyoffset",0);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectilexscale",0);
+			ds_map_add(weapons[weapontype],"secondaryprojectileyscale",0);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectilesprite",-1);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectileamount",0);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectilelifemin",0);
+			ds_map_add(weapons[weapontype],"secondaryprojectilelifemax",0);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectilealphalength",0);
+		
+			ds_map_add(weapons[weapontype],"secondaryprojectilespeedmin",0);
+			ds_map_add(weapons[weapontype],"secondaryprojectilespeedmax",0);
+		#endregion
+	#endregion
+
+	#region Hitspark
+		#region Primary
+			ds_map_add(weapons[weapontype],"primaryhitspark",-1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparkxscale",1);
+			ds_map_add(weapons[weapontype],"primaryhitsparkyscale",1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparkalpha",1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparksprite",-1);
+			
+			ds_map_add(weapons[weapontype],"primaryhitsparkspritespeed",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondaryhitspark",-1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparkxscale",1);
+			ds_map_add(weapons[weapontype],"secondaryhitsparkyscale",1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparkalpha",1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparksprite",-1);
+			
+			ds_map_add(weapons[weapontype],"secondaryhitsparkspritespeed",0);
+		#endregion
+	#endregion
+
+	#region Shell
+		#region Primary
+			ds_map_add(weapons[weapontype],"primaryshell",-1);
+			
+			ds_map_add(weapons[weapontype],"primaryshellxoffset",0);
+			ds_map_add(weapons[weapontype],"primaryshellyoffset",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellxscale",1);
+			ds_map_add(weapons[weapontype],"primaryshellyscale",1);
+			
+			ds_map_add(weapons[weapontype],"primaryshellsprite",-1);
+			
+			ds_map_add(weapons[weapontype],"primaryshellamount",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshelllifemin",0);
+			ds_map_add(weapons[weapontype],"primaryshelllifemax",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellalphalength",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellhspmin",0);
+			ds_map_add(weapons[weapontype],"primaryshellhspmax",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellvspmin",0);
+			ds_map_add(weapons[weapontype],"primaryshellvspmax",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellgrv",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellbouncehspmin",0);
+			ds_map_add(weapons[weapontype],"primaryshellbouncehspmax",0);
+			
+			ds_map_add(weapons[weapontype],"primaryshellbouncevspmin",0);
+			ds_map_add(weapons[weapontype],"primaryshellbouncevspmax",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondaryshell",-1);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellxoffset",0);
+			ds_map_add(weapons[weapontype],"secondaryshellyoffset",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellxscale",1);
+			ds_map_add(weapons[weapontype],"secondaryshellyscale",1);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellsprite",-1);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellamount",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshelllifemin",0);
+			ds_map_add(weapons[weapontype],"secondaryshelllifemax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellalphalength",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellhspmin",0);
+			ds_map_add(weapons[weapontype],"secondaryshellhspmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellvspmin",0);
+			ds_map_add(weapons[weapontype],"secondaryshellvspmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellgrv",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellbouncehspmin",0);
+			ds_map_add(weapons[weapontype],"secondaryshellbouncehspmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondaryshellbouncevspmin",0);
+			ds_map_add(weapons[weapontype],"secondaryshellbouncevspmax",0);
+		#endregion
+	#endregion
+
+	#region Muzzleflash
+		#region Primary
+			ds_map_add(weapons[weapontype],"primarymuzzleflash",false);
+			
+			ds_map_add(weapons[weapontype],"primarymuzzleflashxoffset",0);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashyoffset",0);
+			
+			ds_map_add(weapons[weapontype],"primarymuzzleflashxscale",1);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashyscale",1);
+			
+			ds_map_add(weapons[weapontype],"primarymuzzleflashalpha",1);
+			
+			ds_map_add(weapons[weapontype],"primarymuzzleflashsprite",-1);
+			
+			ds_map_add(weapons[weapontype],"primarymuzzleflashspritespeed",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondarymuzzleflash",false);
+			
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashxoffset",0);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashyoffset",0);
+			
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashxscale",1);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashyscale",1);
+			
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashalpha",1);
+			
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashsprite",-1);
+			
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashspritespeed",0);
+		#endregion
+	#endregion
+
+	#region Crosshair
+		ds_map_add(weapons[weapontype],"crosshairxoffset",0);
+		ds_map_add(weapons[weapontype],"crosshairyoffset",0);
+		
+		ds_map_add(weapons[weapontype],"crosshairxscale",1);
+		ds_map_add(weapons[weapontype],"crosshairyscale",1);
+		
+		ds_map_add(weapons[weapontype],"crosshairsprite",-1);
+		
+		ds_map_add(weapons[weapontype],"crosshairrspeed",0);
+		
+		ds_map_add(weapons[weapontype],"crosshairdistance",0);
+		
+		ds_map_add(weapons[weapontype],"crosshairironsightspeed",0);
+		
+		ds_map_add(weapons[weapontype],"crosshairironsightdistance",0);
+		#region Primary
+			ds_map_add(weapons[weapontype],"primarycrosshairshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"primarycrosshairshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycrosshairshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"primarycrosshairshakelengthmax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycrosshairironsightshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"primarycrosshairironsightshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"primarycrosshairironsightshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"primarycrosshairironsightshakelengthmax",0);
+		#endregion
+		#region Secondary
+			ds_map_add(weapons[weapontype],"secondarycrosshairshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"secondarycrosshairshakemagnitudemax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarycrosshairshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"secondarycrosshairshakelengthmax",0);
+			
+			ds_map_add(weapons[weapontype],"secondarycrosshairironsightshakemagnitudemin",0);
+			ds_map_add(weapons[weapontype],"secondarycrosshairironsightshakemagnitudemax",0);
+		
+			ds_map_add(weapons[weapontype],"secondarycrosshairironsightshakelengthmin",0);
+			ds_map_add(weapons[weapontype],"secondarycrosshairironsightshakelengthmax",0);
+		#endregion
+	#endregion
+#endregion
+
+#region Pistol (1)
+	var weapontype = weapontypes.pistol;
+	weapons[weapontype] = ds_map_create();
+	#region Weapon
+		#region Position
+			ds_map_add(weapons[weapontype],"xoffset",-4);
+			ds_map_add(weapons[weapontype],"yoffset",16);
 			
 			ds_map_add(weapons[weapontype],"crouchxoffset",0);
 			ds_map_add(weapons[weapontype],"crouchyoffset",0);
@@ -601,7 +1148,7 @@ enum firemodetypes
 
 		#region Types
 			ds_map_add(weapons[weapontype],"primaryfiremodetype",firemodetypes.single);
-			ds_map_add(weapons[weapontype],"secondaryfiremodetype",firemodetypes.single);
+			ds_map_add(weapons[weapontype],"secondaryfiremodetype",firemodetypes.automatic);
 			
 			ds_map_add(weapons[weapontype],"aimsidetype",aimsidetypes.weapondirection);
 		#endregion
@@ -614,8 +1161,8 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primarycooldownmax",8);
 			
 			ds_map_add(weapons[weapontype],"secondarystartup",0);
-			ds_map_add(weapons[weapontype],"secondarycooldownmin",0);
-			ds_map_add(weapons[weapontype],"secondarycooldownmax",0);
+			ds_map_add(weapons[weapontype],"secondarycooldownmin",6);
+			ds_map_add(weapons[weapontype],"secondarycooldownmax",8);
 		#endregion
 
 		#region Ammo
@@ -623,8 +1170,7 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryreservedammo",36);
 			ds_map_add(weapons[weapontype],"primaryammospent",1);
 			
-			ds_map_add(weapons[weapontype],"secondaryammo",0);
-			ds_map_add(weapons[weapontype],"secondaryreservedammo",36);
+			ds_map_add(weapons[weapontype],"secondaryammo",-2); //-2 means use primary ammo
 			ds_map_add(weapons[weapontype],"secondaryammospent",1);
 		#endregion
 
@@ -712,13 +1258,13 @@ enum firemodetypes
 		#region Primary
 			ds_map_add(weapons[weapontype],"primaryprojectile",oBullet);//oHitscan);
 		
-			ds_map_add(weapons[weapontype],"primaryprojectilexoffset",0);
-			ds_map_add(weapons[weapontype],"primaryprojectileyoffset",0);
+			ds_map_add(weapons[weapontype],"primaryprojectilexoffset",28);
+			ds_map_add(weapons[weapontype],"primaryprojectileyoffset",-8);
 		
-			ds_map_add(weapons[weapontype],"primaryprojectilexscale",1);
-			ds_map_add(weapons[weapontype],"primaryprojectileyscale",1);
+			ds_map_add(weapons[weapontype],"primaryprojectilexscale",2);
+			ds_map_add(weapons[weapontype],"primaryprojectileyscale",2);
 		
-			ds_map_add(weapons[weapontype],"primaryprojectilesprite",sBullet);
+			ds_map_add(weapons[weapontype],"primaryprojectilesprite",sBulletPistol);
 		
 			ds_map_add(weapons[weapontype],"primaryprojectileamount",1);
 		
@@ -727,19 +1273,19 @@ enum firemodetypes
 		
 			ds_map_add(weapons[weapontype],"primaryprojectilealphalength",40);
 		
-			ds_map_add(weapons[weapontype],"primaryprojectilespeedmin",0);
-			ds_map_add(weapons[weapontype],"primaryprojectilespeedmax",0);
+			ds_map_add(weapons[weapontype],"primaryprojectilespeedmin",20);
+			ds_map_add(weapons[weapontype],"primaryprojectilespeedmax",25);
 		#endregion
 		#region Secondary
 			ds_map_add(weapons[weapontype],"secondaryprojectile",oBullet);//oHitscan);
 		
-			ds_map_add(weapons[weapontype],"secondaryprojectilexoffset",0);
-			ds_map_add(weapons[weapontype],"secondaryprojectileyoffset",0);
+			ds_map_add(weapons[weapontype],"secondaryprojectilexoffset",28);
+			ds_map_add(weapons[weapontype],"secondaryprojectileyoffset",-8);
 		
-			ds_map_add(weapons[weapontype],"secondaryprojectilexscale",1);
-			ds_map_add(weapons[weapontype],"secondaryprojectileyscale",1);
+			ds_map_add(weapons[weapontype],"secondaryprojectilexscale",2);
+			ds_map_add(weapons[weapontype],"secondaryprojectileyscale",2);
 		
-			ds_map_add(weapons[weapontype],"secondaryprojectilesprite",sBullet);
+			ds_map_add(weapons[weapontype],"secondaryprojectilesprite",sBulletPistol);
 		
 			ds_map_add(weapons[weapontype],"secondaryprojectileamount",1);
 		
@@ -748,8 +1294,8 @@ enum firemodetypes
 		
 			ds_map_add(weapons[weapontype],"secondaryprojectilealphalength",40);
 		
-			ds_map_add(weapons[weapontype],"secondaryprojectilespeedmin",0);
-			ds_map_add(weapons[weapontype],"secondaryprojectilespeedmax",0);
+			ds_map_add(weapons[weapontype],"secondaryprojectilespeedmin",20);
+			ds_map_add(weapons[weapontype],"secondaryprojectilespeedmax",25);
 		#endregion
 	#endregion
 
@@ -757,8 +1303,8 @@ enum firemodetypes
 		#region Primary
 			ds_map_add(weapons[weapontype],"primaryshell",oShell);
 			
-			ds_map_add(weapons[weapontype],"primaryshellxoffset",0);
-			ds_map_add(weapons[weapontype],"primaryshellyoffset",0);
+			ds_map_add(weapons[weapontype],"primaryshellxoffset",22);
+			ds_map_add(weapons[weapontype],"primaryshellyoffset",-8);
 			
 			ds_map_add(weapons[weapontype],"primaryshellxscale",1);
 			ds_map_add(weapons[weapontype],"primaryshellyscale",1);
@@ -767,30 +1313,30 @@ enum firemodetypes
 			
 			ds_map_add(weapons[weapontype],"primaryshellamount",1);
 			
-			ds_map_add(weapons[weapontype],"primaryshelllifemin",0);
-			ds_map_add(weapons[weapontype],"primaryshelllifemax",0);
+			ds_map_add(weapons[weapontype],"primaryshelllifemin",200);
+			ds_map_add(weapons[weapontype],"primaryshelllifemax",200);
 			
 			ds_map_add(weapons[weapontype],"primaryshellalphalength",40);
 			
-			ds_map_add(weapons[weapontype],"primaryshellhspmin",0);
-			ds_map_add(weapons[weapontype],"primaryshellhspmax",0);
+			ds_map_add(weapons[weapontype],"primaryshellhspmin",-3);
+			ds_map_add(weapons[weapontype],"primaryshellhspmax",-4);
 			
-			ds_map_add(weapons[weapontype],"primaryshellvspmin",0);
-			ds_map_add(weapons[weapontype],"primaryshellvspmax",0);
+			ds_map_add(weapons[weapontype],"primaryshellvspmin",-4);
+			ds_map_add(weapons[weapontype],"primaryshellvspmax",-5);
 			
-			ds_map_add(weapons[weapontype],"primaryshellgrv",0);
+			ds_map_add(weapons[weapontype],"primaryshellgrv",0.3);
 			
-			ds_map_add(weapons[weapontype],"primaryshellbouncehspmin",0);
-			ds_map_add(weapons[weapontype],"primaryshellbouncehspmax",0);
+			ds_map_add(weapons[weapontype],"primaryshellbouncehspmin",-1);
+			ds_map_add(weapons[weapontype],"primaryshellbouncehspmax",-4);
 			
-			ds_map_add(weapons[weapontype],"primaryshellbouncevspmin",0);
-			ds_map_add(weapons[weapontype],"primaryshellbouncevspmax",0);
+			ds_map_add(weapons[weapontype],"primaryshellbouncevspmin",-3);
+			ds_map_add(weapons[weapontype],"primaryshellbouncevspmax",-5);
 		#endregion
 		#region Secondary
-			ds_map_add(weapons[weapontype],"secondaryshell",-1);
+			ds_map_add(weapons[weapontype],"secondaryshell",oShell);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellxoffset",0);
-			ds_map_add(weapons[weapontype],"secondaryshellyoffset",0);
+			ds_map_add(weapons[weapontype],"secondaryshellxoffset",22);
+			ds_map_add(weapons[weapontype],"secondaryshellyoffset",-8);
 			
 			ds_map_add(weapons[weapontype],"secondaryshellxscale",1);
 			ds_map_add(weapons[weapontype],"secondaryshellyscale",1);
@@ -799,49 +1345,49 @@ enum firemodetypes
 			
 			ds_map_add(weapons[weapontype],"secondaryshellamount",1);
 			
-			ds_map_add(weapons[weapontype],"secondaryshelllifemin",0);
-			ds_map_add(weapons[weapontype],"secondaryshelllifemax",0);
+			ds_map_add(weapons[weapontype],"secondaryshelllifemin",200);
+			ds_map_add(weapons[weapontype],"secondaryshelllifemax",200);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellalphalength",0);
+			ds_map_add(weapons[weapontype],"secondaryshellalphalength",40);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellhspmin",0);
-			ds_map_add(weapons[weapontype],"secondaryshellhspmax",0);
+			ds_map_add(weapons[weapontype],"secondaryshellhspmin",-3);
+			ds_map_add(weapons[weapontype],"secondaryshellhspmax",-4);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellvspmin",0);
-			ds_map_add(weapons[weapontype],"secondaryshellvspmax",0);
+			ds_map_add(weapons[weapontype],"secondaryshellvspmin",-4);
+			ds_map_add(weapons[weapontype],"secondaryshellvspmax",-5);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellgrv",0);
+			ds_map_add(weapons[weapontype],"secondaryshellgrv",0.3);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellbouncehspmin",0);
-			ds_map_add(weapons[weapontype],"secondaryshellbouncehspmax",0);
+			ds_map_add(weapons[weapontype],"secondaryshellbouncehspmin",-1);
+			ds_map_add(weapons[weapontype],"secondaryshellbouncehspmax",-4);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellbouncevspmin",0);
-			ds_map_add(weapons[weapontype],"secondaryshellbouncevspmax",0);
+			ds_map_add(weapons[weapontype],"secondaryshellbouncevspmin",-3);
+			ds_map_add(weapons[weapontype],"secondaryshellbouncevspmax",-5);
 		#endregion
 	#endregion
 
 	#region Muzzleflash
 		#region Primary
-			ds_map_add(weapons[weapontype],"primarymuzzleflash",false);
+			ds_map_add(weapons[weapontype],"primarymuzzleflash",true);
 			
 			ds_map_add(weapons[weapontype],"primarymuzzleflashxoffset",0);
 			ds_map_add(weapons[weapontype],"primarymuzzleflashyoffset",0);
 			
-			ds_map_add(weapons[weapontype],"primarymuzzleflashxscale",0);
-			ds_map_add(weapons[weapontype],"primarymuzzleflashyscale",0);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashxscale",2);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashyscale",2);
 			
-			ds_map_add(weapons[weapontype],"primarymuzzleflashsprite",-1);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashsprite",sMuzzleflashPistol);
 			
-			ds_map_add(weapons[weapontype],"primarymuzzleflashspritespeed",0);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashspritespeed",1);
 		#endregion
 		#region Secondary
-			ds_map_add(weapons[weapontype],"secondarymuzzleflash",false);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflash",true);
 			
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashxoffset",0);
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashyoffset",0);
 			
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashxscale",0);
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashyscale",0);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashxscale",2);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashyscale",2);
 			
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashsprite",-1);
 			
@@ -1259,10 +1805,7 @@ currentprimaryammo[array_length(weapons)-1] = 0; // Default Primary ammo
 currentprimaryreservedammo[array_length(weapons)-1] = 0; // Default Primary reserved ammo
 //currentprimaryammo[0] = -1; // Set unarmed currentprimaryammo
 currentsecondaryammo[array_length(weapons)-1] = 0; // Default Secondary ammo
-currentsecondaryreservedammo[array_length(weapons)-1] = 0; // Default Secondary reserved ammo
-SetWeapon(0);
 
-currentweapon = weapon;
 currentxoffset = 0;
 currentyoffset = 0;
 currentxoffsetspeed = 0;
@@ -1275,3 +1818,7 @@ currentkickbacky = 0;
 currentspread = 0;
 currentdistance = 0;
 currentswitchdelay = 0;
+
+SetWeapon(weapontypes.unarmed);
+
+currentweapon = weapon;

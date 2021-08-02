@@ -1,7 +1,8 @@
 x += lengthdir_x(spd,direction);
 y += lengthdir_y(spd,direction);
 
-if (image_angle > 90) && (image_angle < 270) image_yscale = -1; else image_yscale = 1;
+image_xscale = currentprojectilexscale;
+if (image_angle > 90) && (image_angle < 270) image_yscale = -currentprojectileyscale; else image_yscale = currentprojectileyscale;
 
 image_angle = direction;
 
@@ -26,7 +27,7 @@ if (place_meeting(x,y,oWall))
 		y -= lengthdir_y(1,direction);
 	}
 	spd = 0;
-	instance_change(oHitSpark,true);
+	instance_change(currenthitspark,true);
 	layer_add_instance("ForegroundTiles",id);
 	depth += 1;
 }

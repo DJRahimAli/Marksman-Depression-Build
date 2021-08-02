@@ -48,7 +48,7 @@ function SetWeapon(argument0)
 				
 				spritepumpleft = wp_map[? "spritepumpleft"];
 				
-				spritepumpleft = wp_map[? "spritepumpleft"];
+				spritestartupleft = wp_map[? "spritestartupleft"];
 				
 				spritereloadleft = wp_map[? "spritereloadleft"];
 				
@@ -63,7 +63,7 @@ function SetWeapon(argument0)
 				
 				spritepumpright = wp_map[? "spritepumpright"];
 				
-				spritepumpright = wp_map[? "spritepumpright"];
+				spritestartupright = wp_map[? "spritestartupright"];
 				
 				spritereloadright = wp_map[? "spritereloadright"];
 				
@@ -78,7 +78,7 @@ function SetWeapon(argument0)
 				
 				armspritepumpleft = wp_map[? "armspritepumpleft"];
 				
-				armspritepumpleft = wp_map[? "armspritepumpleft"];
+				armspritestartupleft = wp_map[? "armspritestartupleft"];
 				
 				armspritereloadleft = wp_map[? "armspritereloadleft"];
 				
@@ -93,7 +93,7 @@ function SetWeapon(argument0)
 				
 				armspritepumpright = wp_map[? "armspritepumpright"];
 				
-				armspritepumpright = wp_map[? "armspritepumpright"];
+				armspritestartupright = wp_map[? "armspritestartupright"];
 				
 				armspritereloadright = wp_map[? "armspritereloadright"];
 				
@@ -165,7 +165,6 @@ function SetWeapon(argument0)
 			primaryammospent = wp_map[? "primaryammospent"];
 			
 			secondaryammo = wp_map[? "secondaryammo"];
-			secondaryreservedammo = wp_map[? "secondaryreservedammo"];
 			secondaryammospent = wp_map[? "secondaryammospent"];
 		#endregion
 		
@@ -255,6 +254,35 @@ function SetWeapon(argument0)
 		#endregion
 	#endregion
 	
+	#region Camera
+		#region Primary
+			primarycamerashakemagnitudemin = wp_map[? "primarycamerashakemagnitudemin"];
+			primarycamerashakemagnitudemax = wp_map[? "primarycamerashakemagnitudemax"];
+			
+			primarycamerashakelengthmin = wp_map[? "primarycamerashakelengthmin"];
+			primarycamerashakelengthmax = wp_map[? "primarycamerashakelengthmax"];
+			
+			primarycameraironsightshakemagnitudemin = wp_map[? "primarycameraironsightshakemagnitudemin"];
+			primarycameraironsightshakemagnitudemax = wp_map[? "primarycameraironsightshakemagnitudemax"];
+			
+			primarycameraironsightshakelengthmin = wp_map[? "primarycameraironsightshakelengthmin"];
+			primarycameraironsightshakelengthmax = wp_map[? "primarycameraironsightshakelengthmax"];
+		#endregion
+		#region Secondary
+			secondarycamerashakemagnitudemin = wp_map[? "secondarycamerashakemagnitudemin"];
+			secondarycamerashakemagnitudemax = wp_map[? "secondarycamerashakemagnitudemax"];
+			
+			secondarycamerashakelengthmin = wp_map[? "secondarycamerashakelengthmin"];
+			secondarycamerashakelengthmax = wp_map[? "secondarycamerashakelengthmax"];
+			
+			secondarycameraironsightshakemagnitudemin = wp_map[? "secondarycameraironsightshakemagnitudemin"];
+			secondarycameraironsightshakemagnitudemax = wp_map[? "secondarycameraironsightshakemagnitudemax"];
+			
+			secondarycameraironsightshakelengthmin = wp_map[? "secondarycameraironsightshakelengthmin"];
+			secondarycameraironsightshakelengthmax = wp_map[? "secondarycameraironsightshakelengthmax"];
+		#endregion
+	#endregion
+	
 	#region Projectile
 		#region Primary
 			primaryprojectile = wp_map[? "primaryprojectile"];
@@ -297,6 +325,33 @@ function SetWeapon(argument0)
 		
 			secondaryprojectilespeedmin = wp_map[? "secondaryprojectilespeedmin"];
 			secondaryprojectilespeedmax = wp_map[? "secondaryprojectilespeedmax"];
+		#endregion
+	#endregion
+	
+	#region Hitspark
+		#region Primary
+			primaryhitspark = wp_map[? "primaryhitspark"];
+			
+			primaryhitsparkxscale = wp_map[? "primaryhitsparkxscale"];
+			primaryhitsparkyscale = wp_map[? "primaryhitsparkyscale"];
+			
+			primaryhitsparkalpha = wp_map[? "primaryhitsparkalpha"];
+			
+			primaryhitsparksprite = wp_map[? "primaryhitsparksprite"];
+			
+			primaryhitsparkspritespeed = wp_map[? "primaryhitsparkspritespeed"];
+		#endregion
+		#region Secondary
+			secondaryhitspark = wp_map[? "secondaryhitspark"];
+			
+			secondaryhitsparkxscale = wp_map[? "secondaryhitsparkxscale"];
+			secondaryhitsparkyscale = wp_map[? "secondaryhitsparkyscale"];
+			
+			secondaryhitsparkalpha = wp_map[? "secondaryhitsparkalpha"];
+			
+			secondaryhitsparksprite = wp_map[? "secondaryhitsparksprite"];
+			
+			secondaryhitsparkspritespeed = wp_map[? "secondaryhitsparkspritespeed"];
 		#endregion
 	#endregion
 	
@@ -377,6 +432,8 @@ function SetWeapon(argument0)
 			primarymuzzleflashxscale = wp_map[? "primarymuzzleflashxscale"];
 			primarymuzzleflashyscale = wp_map[? "primarymuzzleflashyscale"];
 			
+			primarymuzzleflashalpha = wp_map[? "primarymuzzleflashalpha"];
+			
 			primarymuzzleflashsprite = wp_map[? "primarymuzzleflashsprite"];
 			
 			primarymuzzleflashspritespeed = wp_map[? "primarymuzzleflashspritespeed"];
@@ -389,6 +446,8 @@ function SetWeapon(argument0)
 			
 			secondarymuzzleflashxscale = wp_map[? "secondarymuzzleflashxscale"];
 			secondarymuzzleflashyscale = wp_map[? "secondarymuzzleflashyscale"];
+			
+			secondarymuzzleflashalpha = wp_map[? "secondarymuzzleflashalpha"];
 			
 			secondarymuzzleflashsprite = wp_map[? "secondarymuzzleflashsprite"];
 			
