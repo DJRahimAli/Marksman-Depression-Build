@@ -2,14 +2,14 @@
 x = oPlayer.x+oWeapon.crosshairxoffset;
 y = oPlayer.y+oWeapon.crosshairyoffset;
 
-if (oPlayer.onwall == 0) && (oWeapon.aimsidetype != "movedirection")
+if (oPlayer.onwall == 0) && (oWeapon.aimsidetype != aimsidetypes.movedirection)
 {
 	currentminmaxangle = 360;
 	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
 	direction += angle_difference(delta, direction) * currentrspeed;
 }
 
-if (oWeapon.aimsidetype == "movedirection") && (oPlayer.onwall == 0)
+if (oWeapon.aimsidetype == aimsidetypes.movedirection) && (oPlayer.onwall == 0)
 {
 	currentminmaxangle = oWeapon.hspminmaxangle;
 	if (oPlayer.aimside == 1)
@@ -45,14 +45,10 @@ if (direction < 0) direction += 360;
 if (oWeapon.ironsights)
 {
 	currentdistance = lerp(currentdistance, oWeapon.crosshairironsightdistance, oWeapon.crosshairironsightspeed);
-	currentshakemagnitude = random_range(oWeapon.primarycrosshairironsightshakemagnitudemin,oWeapon.primarycrosshairironsightshakemagnitudemax);
-	currentshakelength = random_range(oWeapon.primarycrosshairironsightshakelengthmin,oWeapon.primarycrosshairironsightshakelengthmax);
 }
 else
 {
 	currentdistance = lerp(currentdistance, oWeapon.crosshairdistance, oWeapon.crosshairironsightspeed);
-	currentshakemagnitude = random_range(oWeapon.primarycrosshairshakemagnitudemin,oWeapon.primarycrosshairshakemagnitudemax);
-	currentshakelength = random_range(oWeapon.primarycrosshairshakelengthmin,oWeapon.primarycrosshairshakelengthmax);
 }
 
 x += lengthdir_x(currentdistance,direction);
