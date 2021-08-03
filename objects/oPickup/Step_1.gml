@@ -1,20 +1,30 @@
-/* Pickup Types
-1 = Weapon Pickup
-*/
-
-switch (pickuptype)
+if (place_meeting(x,y,oPlayer))
 {
-	case 1:
-	if (place_meeting(x,y,oPlayer))
+	switch (pickuptype)
 	{
-		with(oWeapon)
-		{
-			SetWeapon(oPickup.weapon);
-			currentprimaryammo[oPickup.weapon] += primaryammo;
-			//currentsecondaryammo[oPickup.pickuptype] += secondaryammo;
-		}
-		instance_destroy();
+		case pickuptypes.pistol:
+			with(oWeapon)
+			{
+				stopattack = true;
+				image_speed = 0;
+				image_index = 0;
+				if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
+				{
+					image_alpha = 0;
+					image_speed = 0;
+					image_index = 0;
+					currentxoffset = 0;
+					currentyoffset = 0;
+					currentsprite = -1;
+				}
+				SetWeapon(weapontypes.pistol);
+				currentswitchdelay = switchdelay;
+				currentprimaryammo[weapontypes.pistol] += primaryammo;
+				currentprimaryreservedammo[weapontypes.pistol] += primaryreservedammo;
+				currentsecondaryammo[weapontypes.pistol] = -2;
+			}
+			instance_destroy();
+		break;
+		default: instance_destroy();
 	}
-	break;
-	default: instance_destroy();
 }
