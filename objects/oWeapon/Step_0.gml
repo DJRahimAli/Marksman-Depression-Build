@@ -89,7 +89,16 @@ switch (animstate)
 
 if (image_angle > 90) && (image_angle < 270) aimside = -1; else aimside = 1;
 
-currentxoffset = xoffset*aimside;
+if (oPlayer.crouch)
+{
+	currentxoffset = crouchxoffset*aimside;
+	currentyoffset = crouchyoffset;
+}
+else
+{
+	currentxoffset = xoffset*aimside;
+	currentyoffset = yoffset;
+}
 
 image_yscale = aimside*yscale;
 
@@ -105,7 +114,7 @@ with (oPlayer) switch (oWeapon.aimsidetype)
 		image_xscale = aimside*playersize;
 	}
 		
-	if (hsp < 1 && onwall != 0) 
+	if (hsp < 1 && wallsliding != 0) 
 	{
 		aimside = -onwall;
 		image_xscale = aimside*playersize;
@@ -125,7 +134,7 @@ with (oPlayer) switch (oWeapon.aimsidetype)
 		image_xscale = aimside*playersize;
 	}
 		
-	if (hsp < 1 && onwall != 0) 
+	if (hsp < 1 && wallsliding != 0) 
 	{
 		aimside = -onwall;
 		image_xscale = aimside*playersize;
@@ -134,7 +143,7 @@ with (oPlayer) switch (oWeapon.aimsidetype)
 
 if (oPlayer.crouch) && (oPlayer.onground) ironsights = true; else ironsights = false;
 
-if (oPlayer.onwall != 0 && oPlayer.aimside == oPlayer.onwall)
+if (oPlayer.wallsliding != 0) && (oPlayer.aimside == oPlayer.onwall)
 {
 	currentrspeed = 1;
 	oCrosshair.currentrspeed = 1;
@@ -147,8 +156,8 @@ else
 
 if (currentswitchdelay < switchdelay)
 {
-	if (xoffset == lastxoffset) currentxfollowspeed = xfollowspeed; else if (xfollowspeed != 0) currentxfollowspeed = 1;
-	if (yoffset == lastyoffset) currentyfollowspeed = yfollowspeed; else if (yfollowspeed != 0) currentyfollowspeed = 1;
+	if (currentxoffset == lastxoffset) currentxfollowspeed = xfollowspeed; else if (xfollowspeed != 0) currentxfollowspeed = 1;
+	if (currentyoffset == lastyoffset) currentyfollowspeed = yfollowspeed; else if (yfollowspeed != 0) currentyfollowspeed = 1;
 	lastxoffset = currentxoffset;
 	lastyoffset = currentyoffset;
 	x = lerp(x,oPlayer.x+currentxoffset,currentxfollowspeed);
@@ -183,14 +192,14 @@ if (global.controller == 1)
 	}
 }
 
-if (oPlayer.onwall == 0) && (aimsidetype != aimsidetypes.movedirection)
+if (oPlayer.wallsliding == 0) && (aimsidetype != aimsidetypes.movedirection)
 {
 	currentminmaxangle = 360;
 	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
 	image_angle += angle_difference(delta, image_angle) * currentrspeed;
 }
 		
-if (aimsidetype == aimsidetypes.movedirection) && (oPlayer.onwall == 0)
+if (aimsidetype == aimsidetypes.movedirection) &&  (oPlayer.wallsliding == 0)
 {
 	currentminmaxangle = hspminmaxangle;
 	if (oPlayer.aimside == 1)
@@ -205,7 +214,7 @@ if (aimsidetype == aimsidetypes.movedirection) && (oPlayer.onwall == 0)
 	}
 }
 
-if (oPlayer.onwall != 0)
+if (oPlayer.wallsliding != 0)
 {
 	currentminmaxangle = wallminmaxangle;
 	if (oPlayer.onwall < 0)

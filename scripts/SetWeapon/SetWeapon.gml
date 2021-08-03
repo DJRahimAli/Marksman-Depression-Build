@@ -501,8 +501,16 @@ function SetWeapon(argument0)
 	
 	currentcd = 0;
 	currentdelay = -1;
-	currentxoffset = xoffset*aimside;
-	currentyoffset = yoffset;
+	if (oPlayer.crouch)
+	{
+		currentxoffset = crouchxoffset*aimside;
+		currentyoffset = crouchyoffset;
+	}
+	else
+	{
+		currentxoffset = xoffset*aimside;
+		currentyoffset = yoffset;
+	}
 	animationplaying = false;
 	animationlooping = false;
 	animstate = animstates.idle;
