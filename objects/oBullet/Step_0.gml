@@ -27,7 +27,7 @@ if (place_meeting(x,y,oWall))
 		y -= lengthdir_y(1,direction);
 	}
 	spd = 0;
-	instance_change(currenthitspark,true);
+	if (currenthitspark != -1) instance_change(currenthitspark,true); else instance_destroy();
 	layer_add_instance("ForegroundTiles",id);
 	depth += 1;
 }
