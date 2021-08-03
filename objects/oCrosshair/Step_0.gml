@@ -2,14 +2,14 @@
 x = oPlayer.x+oWeapon.crosshairxoffset;
 y = oPlayer.y+oWeapon.crosshairyoffset;
 
-if (oPlayer.onwall == 0) && (oWeapon.aimsidetype != aimsidetypes.movedirection)
+if (oPlayer.wallsliding == 0) && (oWeapon.aimsidetype != aimsidetypes.movedirection)
 {
 	currentminmaxangle = 360;
 	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
 	direction += angle_difference(delta, direction) * currentrspeed;
 }
 
-if (oWeapon.aimsidetype == aimsidetypes.movedirection) && (oPlayer.onwall == 0)
+if (oWeapon.aimsidetype == aimsidetypes.movedirection) && (oPlayer.wallsliding == 0)
 {
 	currentminmaxangle = oWeapon.hspminmaxangle;
 	if (oPlayer.aimside == 1)
@@ -24,7 +24,7 @@ if (oWeapon.aimsidetype == aimsidetypes.movedirection) && (oPlayer.onwall == 0)
 	}
 }
 
-if (oPlayer.onwall != 0)
+if (oPlayer.wallsliding != 0)
 {
 	currentminmaxangle = oWeapon.wallminmaxangle;
 	if (oPlayer.onwall < 0)
