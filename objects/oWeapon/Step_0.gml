@@ -350,6 +350,8 @@ if (attacktype == -1)
 					currentsprite = oWeapon.primaryprojectilesprite;
 					currentprojectilexscale = oWeapon.primaryprojectilexscale;
 					currentprojectileyscale = oWeapon.primaryprojectileyscale;
+					currentprojectiledamage = oWeapon.primarydamage;
+					
 					currenthitspark = oWeapon.primaryhitspark;
 					currenthitsparksprite = oWeapon.primaryhitsparksprite;
 					currenthitsparkspritespeed = oWeapon.primaryhitsparkspritespeed;
@@ -492,6 +494,8 @@ if (attacktype == 1)
 						currentsprite = oWeapon.secondaryprojectilesprite;
 						currentprojectilexscale = oWeapon.secondaryprojectilexscale;
 						currentprojectileyscale = oWeapon.secondaryprojectileyscale;
+						currentprojectiledamage = oWeapon.secondarydamage;
+						
 						currenthitspark = oWeapon.secondaryhitspark;
 						currenthitsparksprite = oWeapon.secondaryhitsparksprite;
 						currenthitsparkspritespeed = oWeapon.secondaryhitsparkspritespeed;
@@ -622,6 +626,8 @@ if (attacktype == 1)
 						currentsprite = oWeapon.secondaryprojectilesprite;
 						currentprojectilexscale = oWeapon.secondaryprojectilexscale;
 						currentprojectileyscale = oWeapon.secondaryprojectileyscale;
+						currentprojectiledamage = oWeapon.primarydamage;
+						
 						currenthitspark = oWeapon.secondaryhitspark;
 						currenthitsparksprite = oWeapon.secondaryhitsparksprite;
 						currenthitsparkspritespeed = oWeapon.secondaryhitsparkspritespeed;
