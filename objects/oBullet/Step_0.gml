@@ -10,7 +10,7 @@ if (place_meeting(x,y,pShootable))
 {
 	with (instance_place(x,y,pShootable))
 	{
-		hp -= currentprojectiledamage;
+		hp -= other.currentprojectiledamage;
 		flash = 3;
 		hitfrom = other.direction;
 	}
