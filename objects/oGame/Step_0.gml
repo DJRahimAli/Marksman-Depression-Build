@@ -111,21 +111,23 @@ if (global.hascontrol)
 	}
 	
 		global.key_jump_held = gamepad_button_check(0,gp_shoulderl);
-		global.key_crouch_held = gamepad_button_check(0,gp_shoulderlb);
+		global.key_crouch_held = gamepad_button_check(0,gp_shoulderr);
 		global.key_primaryattack_held = gamepad_button_check(0,gp_shoulderrb);
+		global.key_secondaryattack_held = gamepad_button_check(0,gp_shoulderlb);
 		#endregion
 		
 		#region Pressed
 		global.key_jump_pressed = gamepad_button_check_pressed(0,gp_shoulderl);
-		global.key_crouch_pressed = gamepad_button_check_pressed(0,gp_shoulderlb);
+		global.key_crouch_pressed = gamepad_button_check_pressed(0,gp_shoulderr);
 		global.key_primaryattack_pressed = gamepad_button_check_pressed(0,gp_shoulderrb);
+		global.key_primaryattack_pressed = gamepad_button_check_pressed(0,gp_shoulderlb);
 		global.key_suicide_pressed = gamepad_button_check_pressed(0,gp_face4);
 		global.key_holster_pressed = gamepad_button_check_pressed(0,gp_padd);
 		global.key_gun_pressed = gamepad_button_check_pressed(0,gp_padr);
 		#endregion
 		
 		#region Released
-		global.key_crouch_released = gamepad_button_check_released(0,gp_shoulderlb);
+		global.key_crouch_released = gamepad_button_check_released(0,gp_shoulderr);
 		#endregion
 	}
 	#endregion

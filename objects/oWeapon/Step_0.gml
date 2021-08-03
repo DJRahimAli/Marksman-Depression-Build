@@ -326,7 +326,7 @@ if (attacktype == -1)
 			#region Muzzleflash
 				if (primarymuzzleflash) with (oMuzzleflash)
 				{
-					image_alpha = 1;
+					image_alpha = oWeapon.primarymuzzleflashalpha;
 					image_speed = oWeapon.primarymuzzleflashspritespeed;
 					image_index = 0;
 					currentxoffset = oWeapon.primarymuzzleflashxoffset;
@@ -470,7 +470,7 @@ if (attacktype == 1)
 				#region Muzzleflash
 					if (secondarymuzzleflash) with (oMuzzleflash)
 					{
-						image_alpha = 1;
+						image_alpha = oWeapon.secondarymuzzleflashalpha;
 						image_speed = oWeapon.secondarymuzzleflashspritespeed;
 						image_index = 0;
 						currentxoffset = oWeapon.secondarymuzzleflashxoffset;
@@ -602,7 +602,7 @@ if (attacktype == 1)
 				#region Muzzleflash
 					if (secondarymuzzleflash) with (oMuzzleflash)
 					{
-						image_alpha = 1;
+						image_alpha = oWeapon.secondarymuzzleflashalpha;
 						image_speed = oWeapon.secondarymuzzleflashspritespeed;
 						image_index = 0;
 						currentxoffset = oWeapon.secondarymuzzleflashxoffset;
