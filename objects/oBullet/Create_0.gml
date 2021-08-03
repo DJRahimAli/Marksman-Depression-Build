@@ -4,6 +4,7 @@ spd = 0;
 currentsprite = -1;
 currentprojectilexscale = 0;
 currentprojectileyscale = 0;
+currentprojectiledamage = 0;
 
 currenthitspark = 0;
 currenthitsparksprite = 0;
