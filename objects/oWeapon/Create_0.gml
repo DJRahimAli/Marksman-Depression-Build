@@ -748,11 +748,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
 			#endregion
 			#region Pitch
-				ds_map_add(weapons[weapontype],"soundprimarypitchmin",1);
-				ds_map_add(weapons[weapontype],"soundprimarypitchmax",1);
+				ds_map_add(weapons[weapontype],"soundprimarypitchmin",0.98);
+				ds_map_add(weapons[weapontype],"soundprimarypitchmax",1.02);
 				
-				ds_map_add(weapons[weapontype],"soundsecondarypitchmin",1);
-				ds_map_add(weapons[weapontype],"soundsecondarypitchmax",1);
+				ds_map_add(weapons[weapontype],"soundsecondarypitchmin",0.98);
+				ds_map_add(weapons[weapontype],"soundsecondarypitchmax",1.02);
 				
 				ds_map_add(weapons[weapontype],"soundstartuppitchmin",1);
 				ds_map_add(weapons[weapontype],"soundstartuppitchmax",1);
