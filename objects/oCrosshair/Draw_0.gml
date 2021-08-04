@@ -3,8 +3,8 @@ if (oWeapon.crosshairsprite != -1)
 	draw_sprite_ext(
 	oWeapon.crosshairsprite,
 	image_index,
-	x,
-	y,
+	drawnx,
+	drawny,
 	image_xscale,
 	image_yscale,
 	image_angle,
