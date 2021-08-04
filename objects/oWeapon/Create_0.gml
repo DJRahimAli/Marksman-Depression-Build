@@ -871,7 +871,7 @@ enum firemodetypes
 		#region Primary
 			ds_map_add(weapons[weapontype],"primaryshell",oShell);
 			
-			ds_map_add(weapons[weapontype],"primaryshellxoffset",22);
+			ds_map_add(weapons[weapontype],"primaryshellxoffset",28);
 			ds_map_add(weapons[weapontype],"primaryshellyoffset",-8);
 			
 			ds_map_add(weapons[weapontype],"primaryshellxscale",1);
@@ -903,7 +903,7 @@ enum firemodetypes
 		#region Secondary
 			ds_map_add(weapons[weapontype],"secondaryshell",oShell);
 			
-			ds_map_add(weapons[weapontype],"secondaryshellxoffset",22);
+			ds_map_add(weapons[weapontype],"secondaryshellxoffset",28);
 			ds_map_add(weapons[weapontype],"secondaryshellyoffset",-8);
 			
 			ds_map_add(weapons[weapontype],"secondaryshellxscale",1);
@@ -938,13 +938,13 @@ enum firemodetypes
 		#region Primary
 			ds_map_add(weapons[weapontype],"primarymuzzleflash",true);
 			
-			ds_map_add(weapons[weapontype],"primarymuzzleflashxoffset",0);
-			ds_map_add(weapons[weapontype],"primarymuzzleflashyoffset",0);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashxoffset",55);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashyoffset",-8);
 			
 			ds_map_add(weapons[weapontype],"primarymuzzleflashxscale",2);
 			ds_map_add(weapons[weapontype],"primarymuzzleflashyscale",2);
 			
-			ds_map_add(weapons[weapontype],"primarymuzzleflashalpha",1);
+			ds_map_add(weapons[weapontype],"primarymuzzleflashalpha",0.8);
 			
 			ds_map_add(weapons[weapontype],"primarymuzzleflashsprite",sMuzzleflashPistol);
 			
@@ -953,13 +953,13 @@ enum firemodetypes
 		#region Secondary
 			ds_map_add(weapons[weapontype],"secondarymuzzleflash",true);
 			
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashxoffset",0);
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashyoffset",0);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashxoffset",55);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashyoffset",-8);
 			
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashxscale",2);
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashyscale",2);
 			
-			ds_map_add(weapons[weapontype],"secondarymuzzleflashalpha",1);
+			ds_map_add(weapons[weapontype],"secondarymuzzleflashalpha",0.8);
 			
 			ds_map_add(weapons[weapontype],"secondarymuzzleflashsprite",sMuzzleflashPistol);
 			
@@ -1186,9 +1186,9 @@ ds_map_add(weapons[weapontype],"soundemptypitchmax",1);
 #endregion
 */
 
+pointx = 0;
+pointy = 0;
 pointdir = 0;
-mouseangle = 0;
-controllerangle = 0;
 aimside = 1;
 stopattack = false;
 ironsights = false;

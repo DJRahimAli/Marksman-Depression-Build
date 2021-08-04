@@ -1,6 +1,6 @@
 /// @desc Follow player and copy weapon angle
-x = oPlayer.x+oWeapon.crosshairxoffset;
-y = oPlayer.y+oWeapon.crosshairyoffset;
+x = oPlayer.x;//+oWeapon.crosshairxoffset;
+y = oPlayer.y;//+oWeapon.crosshairyoffset;
 
 if (oPlayer.wallsliding == 0) && (oWeapon.aimsidetype != aimsidetypes.movedirection)
 {
@@ -55,8 +55,11 @@ x += lengthdir_x(currentdistance,direction);
 y += lengthdir_y(currentdistance,direction);
 
 //Crosshair Shake
-x += random_range(-shake_remain,shake_remain);
-y += random_range(-shake_remain,shake_remain);
+drawnx = x;
+drawny = y;
+
+drawnx += random_range(-shake_remain,shake_remain);
+drawny += random_range(-shake_remain,shake_remain);
 shake_remain = max(0,shake_remain-((1/shake_length)*shake_magnitude));
 	
 if (oWeapon.stopattack) image_alpha = 0; else image_alpha = 1;

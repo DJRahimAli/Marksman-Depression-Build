@@ -87,20 +87,24 @@ switch (animstate)
 	break;
 }
 
-if (image_angle > 90) && (image_angle < 270) aimside = -1; else aimside = 1;
+//if (image_angle > 90) && (image_angle < 270) aimside = -1; else aimside = 1;
+if sign(oCrosshair.x - oPlayer.x) aimside = 1; else aimside = -1;
 
-if (oPlayer.crouch)
+if (aimside != 0)
 {
-	currentxoffset = crouchxoffset*aimside;
-	currentyoffset = crouchyoffset;
-}
-else
-{
-	currentxoffset = xoffset*aimside;
-	currentyoffset = yoffset;
-}
+	if (oPlayer.crouch)
+	{
+		currentxoffset = crouchxoffset*aimside;
+		currentyoffset = crouchyoffset;
+	}
+	else
+	{
+		currentxoffset = xoffset*aimside;
+		currentyoffset = yoffset;
+	}
 
-image_yscale = aimside*yscale;
+	image_yscale = aimside*yscale;
+}
 
 //Aimside Types
 var playersize = 2;
@@ -124,7 +128,7 @@ with (oPlayer) switch (oWeapon.aimsidetype)
 	/*if (!oWeapon.holstered)
 	{*/
 		aimside = oWeapon.aimside;
-		image_xscale = aimside*playersize;
+		if (oWeapon.aimside != 0) image_xscale = aimside*playersize;
 	//}
 	break;
 	default:
@@ -138,7 +142,7 @@ with (oPlayer) switch (oWeapon.aimsidetype)
 	{
 		aimside = -onwall;
 		image_xscale = aimside*playersize;
-	};
+	}
 }
 
 if (oPlayer.crouch) && (oPlayer.onground) ironsights = true; else ironsights = false;
@@ -170,10 +174,11 @@ else
 }
 
 //Set angle of weapon
-if (global.controller == 0) if (global.hascontrol)
+if (global.controller == 0) && (global.hascontrol)
 {
-	mouseangle = point_direction(x,y,mouse_x,mouse_y);
-	pointdir = mouseangle;
+	pointx = mouse_x;
+	pointy = mouse_y;
+	pointdir = point_direction(oPlayer.x,oPlayer.y,pointx,pointy);
 	//image_angle = clamp(image_angle, 0, 360);
 	//image_angle = image_angle mod 360;
 }
@@ -186,8 +191,9 @@ if (global.controller == 1)
 	{
 		if (abs(controllerh) > global.deadzone) || (abs(controllerv) > global.deadzone)
 		{
-			controllerangle = point_direction(0,0,controllerh,controllerv);
-			pointdir = controllerangle;
+			pointx = controllerh;
+			pointy = controllerv;
+			pointdir = point_direction(0,0,pointx,pointy);
 		}
 	}
 }
@@ -329,6 +335,8 @@ if (attacktype == -1)
 					image_alpha = oWeapon.primarymuzzleflashalpha;
 					image_speed = oWeapon.primarymuzzleflashspritespeed;
 					image_index = 0;
+					currentxscale = oWeapon.primarymuzzleflashxscale;
+					currentyscale = oWeapon.primarymuzzleflashyscale;
 					currentxoffset = oWeapon.primarymuzzleflashxoffset;
 					currentyoffset = oWeapon.primarymuzzleflashyoffset;
 					currentsprite = oWeapon.primarymuzzleflashsprite;
@@ -473,6 +481,8 @@ if (attacktype == 1)
 						image_alpha = oWeapon.secondarymuzzleflashalpha;
 						image_speed = oWeapon.secondarymuzzleflashspritespeed;
 						image_index = 0;
+						currentxscale = oWeapon.secondarymuzzleflashxscale;
+						currentyscale = oWeapon.secondarymuzzleflashyscale;
 						currentxoffset = oWeapon.secondarymuzzleflashxoffset;
 						currentyoffset = oWeapon.secondarymuzzleflashyoffset;
 						currentsprite = oWeapon.secondarymuzzleflashsprite;
@@ -605,6 +615,8 @@ if (attacktype == 1)
 						image_alpha = oWeapon.secondarymuzzleflashalpha;
 						image_speed = oWeapon.secondarymuzzleflashspritespeed;
 						image_index = 0;
+						currentxscale = oWeapon.secondarymuzzleflashxscale;
+						currentyscale = oWeapon.secondarymuzzleflashyscale;
 						currentxoffset = oWeapon.secondarymuzzleflashxoffset;
 						currentyoffset = oWeapon.secondarymuzzleflashyoffset;
 						currentsprite = oWeapon.secondarymuzzleflashsprite;
