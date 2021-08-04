@@ -1,6 +1,6 @@
 /// @desc Follow player and copy weapon angle
-x = oPlayer.x;//+oWeapon.crosshairxoffset;
-y = oPlayer.y;//+oWeapon.crosshairyoffset;
+x = oPlayer.x+oWeapon.crosshairxoffset;
+y = oPlayer.y+oWeapon.crosshairyoffset;
 
 if (oPlayer.wallsliding == 0) && (oWeapon.aimsidetype != aimsidetypes.movedirection)
 {
