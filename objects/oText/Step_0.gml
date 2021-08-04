@@ -9,7 +9,7 @@ w = string_width(text_current);
 //Destroy when done
 if(instance_exists(oPlayer))
 {
-	if (letters >= length) && (global.key_interact_pressed)
+	if (letters >= length) && (global.key_interact_pressed) || (oPlayer.moving)
 	{
 		instance_destroy();
 		with (oCamera) follow = oPlayer;
