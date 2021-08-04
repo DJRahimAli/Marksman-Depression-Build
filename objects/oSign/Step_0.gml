@@ -1,4 +1,4 @@
-if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) && (!instance_exists(oText))
+if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,64)) && (!oPlayer.moving) && (!instance_exists(oText))
 {
 	nearby = true;
 	if (global.key_interact_pressed)
@@ -14,7 +14,7 @@ if (instance_exists(oPlayer)) && (point_in_circle(oPlayer.x,oPlayer.y,x,y,32)) &
 			follow = other.id;
 		}
 		global.hascontrol = false;
-		oPlayer.hsp = lerp(oPlayer.hsp,0,0.8);
+		//oPlayer.hsp = lerp(oPlayer.hsp,0,0.8);
 	}
 }else nearby = false;
 
