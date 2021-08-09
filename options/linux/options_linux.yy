@@ -1,7 +1,7 @@
 {
-  "option_linux_display_name": "GUN: a 2D Shooter",
+  "option_linux_display_name": "Marksman: a 2D Shooter",
   "option_linux_version": "1.0.0.0",
-  "option_linux_maintainer_email": "Mali3523@gmail.com",
+  "option_linux_maintainer_email": "discjockeygames@protonmail.com",
   "option_linux_homepage": "",
   "option_linux_short_desc": "",
   "option_linux_long_desc": "",
@@ -13,7 +13,7 @@
   "option_linux_interpolate_pixels": false,
   "option_linux_display_cursor": true,
   "option_linux_sync": false,
-  "option_linux_resize_window": false,
+  "option_linux_resize_window": true,
   "option_linux_scale": 0,
   "option_linux_texture_page": "2048x2048",
   "option_linux_enable_steam": false,
