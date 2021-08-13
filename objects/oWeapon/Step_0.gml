@@ -147,7 +147,7 @@ with (oPlayer) switch (oWeapon.aimsidetype)
 
 if (oPlayer.crouch) && (oPlayer.onground) ironsights = true; else ironsights = false;
 
-if (oPlayer.wallsliding != 0) && (oPlayer.aimside == oPlayer.onwall)
+if (oPlayer.aimside == oPlayer.onwall)
 {
 	currentrspeed = 1;
 	oCrosshair.currentrspeed = 1;
