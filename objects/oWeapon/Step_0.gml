@@ -31,7 +31,7 @@ with (oPlayer)
 			image_xscale = aimside*playersize;
 		}
 		
-		if (hsp == 0) && (wallsliding != 0) 
+		if (hsp == 0) && (wallsliding != 0) && (!global.noclip)
 		{
 			aimside = -onwall;
 			image_xscale = aimside*playersize;
@@ -44,18 +44,6 @@ with (oPlayer)
 			if (oWeapon.aimside != 0) image_xscale = aimside*playersize;
 		//}
 		break;
-		default:
-		if (hspnodec != 0)
-		{
-			aimside = sign(hsp);
-			image_xscale = aimside*playersize;
-		}
-		
-		if (hsp < 1 && wallsliding != 0) 
-		{
-			aimside = -onwall;
-			image_xscale = aimside*playersize;
-		}
 	}
 }
 
