@@ -87,7 +87,7 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 	}
 }
 
-if (oPlayer.wallsliding == 0) && (aimsidetype != aimsidetypes.movedirection)
+if (oPlayer.wallsliding == 0) || (global.noclip) && (aimsidetype != aimsidetypes.movedirection) 
 {
 	currentminmaxangle = 360;
 	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
