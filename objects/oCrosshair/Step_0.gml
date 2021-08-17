@@ -1,43 +1,8 @@
 /// @desc Follow player and copy weapon angle
-x = oPlayer.x+oWeapon.crosshairxoffset;
-y = oPlayer.y+oWeapon.crosshairyoffset;
+x = oPlayer.x;
+y = oPlayer.y;
 
-if (oPlayer.wallsliding == 0) && (oWeapon.aimsidetype != aimsidetypes.movedirection)
-{
-	currentminmaxangle = 360;
-	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
-	direction += angle_difference(delta, direction) * currentrspeed;
-}
-
-if (oWeapon.aimsidetype == aimsidetypes.movedirection) && (oPlayer.wallsliding == 0)
-{
-	currentminmaxangle = oWeapon.hspminmaxangle;
-	if (oPlayer.aimside == 1)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
-		direction += angle_difference(delta, direction) * currentrspeed;
-	}
-	if (oPlayer.aimside == -1)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
-		direction += angle_difference(delta, direction - 180) * currentrspeed;
-	}
-}
-
-if (oPlayer.wallsliding != 0)
-{
-	currentminmaxangle = oWeapon.wallminmaxangle;
-	if (oPlayer.onwall < 0)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir, 0)));
-		direction += angle_difference(delta, direction) * currentrspeed;
-	}
-	if (oPlayer.onwall > 0)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(oWeapon.pointdir - 180, 0)));
-		direction += angle_difference(delta, direction - 180) * currentrspeed;
-	}
-}
+direction = oWeapon.image_angle;
 	
 if (direction > 360) direction -= 360;
 if (direction < 0) direction += 360;
@@ -51,12 +16,15 @@ else
 	currentdistance = lerp(currentdistance, oWeapon.crosshairdistance, oWeapon.crosshairironsightspeed);
 }
 
-x += lengthdir_x(currentdistance,direction);
-y += lengthdir_y(currentdistance,direction);
+x += lengthdir_x(1,direction);
+y += lengthdir_y(1,direction);
 
 //Crosshair Shake
-drawnx = x;
-drawny = y;
+drawnx = x+oWeapon.crosshairxoffset;
+drawny = y+oWeapon.crosshairyoffset;
+
+drawnx += lengthdir_x(currentdistance,direction);
+drawny += lengthdir_y(currentdistance,direction);
 
 drawnx += random_range(-shake_remain,shake_remain);
 drawny += random_range(-shake_remain,shake_remain);

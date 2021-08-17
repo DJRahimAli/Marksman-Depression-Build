@@ -1,6 +1,5 @@
 delta = 0;
 currentminmaxangle = 0;
-currentrspeed = 0;
 currentdistance = 0;
 shake_length = 0;
 shake_magnitude = 0;

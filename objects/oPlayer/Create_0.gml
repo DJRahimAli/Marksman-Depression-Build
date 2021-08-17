@@ -27,6 +27,9 @@ currentwalksp = 0;
 onground = false;
 onwall = 0;
 
+walltouching = false;
+wallsliding = false;
+
 dust = 0;
 
 grv = 0.2;

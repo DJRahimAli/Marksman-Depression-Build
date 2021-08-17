@@ -4,6 +4,7 @@ if (global.hp < 0) global.hp = 0;
 //Calculate current status
 onground = (place_meeting_ext(x,y+1,[oWall,oCollision]));
 onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,y,[oWall,oCollision]));
+if (collision_rectangle_ext(bbox_left-1, bbox_top, bbox_right+1, bbox_bottom, [oWall,oCollision], false, true)) walltouching = true; else walltouching = false;
 if (collision_rectangle_ext(bbox_left-1, bbox_top+12, bbox_right+1, bbox_bottom-12, [oWall,oCollision], false, true)) wallsliding = true; else wallsliding = false;	
 
 if (!global.fly)
@@ -255,8 +256,9 @@ if (!onground)
 			
 			var side = bbox_left;
 			if (onwall == 1) side = bbox_right;
+			
 			dust++;
-			if ((dust > 4) && (vsp > 0)) with (instance_create_layer(side,y,"Particles",oDust))
+			if (dust > 4) && (vsp > 0) with (instance_create_layer(side,y,"Particles",oDust))
 			{
 				other.dust = 0;
 				hsp = -other.onwall*random_range(0.16,1.2);
