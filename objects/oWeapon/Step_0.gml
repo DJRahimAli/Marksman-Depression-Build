@@ -31,7 +31,7 @@ with (oPlayer)
 			image_xscale = aimside*playersize;
 		}
 		
-		if (hsp < 1 && wallsliding != 0) 
+		if (hsp == 0) && (wallsliding != 0) 
 		{
 			aimside = -onwall;
 			image_xscale = aimside*playersize;
