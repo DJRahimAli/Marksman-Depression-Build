@@ -11,7 +11,7 @@ if (!global.fly)
 {
 	if (onground) currentjumpbuffer = jumpbuffer+1;
 	if (wallsliding) currentwalljumpbuffer = walljumpbuffer+1;
-	if (onground && onwall != 0 || crouch) currentwalljumpbuffer = 0;
+	if (onground) || (crouch) currentwalljumpbuffer = 0;
 }
 else
 {
