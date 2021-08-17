@@ -86,3 +86,40 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 		if (soundpump != -1) audio_sound_pitch(audio_play_sound(soundpump,5,false),(random_range(soundpumppitchmin,soundpumppitchmax)));
 	}
 }
+
+if (oPlayer.wallsliding == 0) && (aimsidetype != aimsidetypes.movedirection)
+{
+	currentminmaxangle = 360;
+	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
+	image_angle += angle_difference(delta, image_angle) * currentrspeed;
+}
+		
+if (aimsidetype == aimsidetypes.movedirection) &&  (oPlayer.wallsliding == 0)
+{
+	currentminmaxangle = hspminmaxangle;
+	if (oPlayer.aimside == 1)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
+		image_angle += angle_difference(delta, image_angle) * currentrspeed;
+	}
+	if (oPlayer.aimside == -1)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
+		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
+	}
+}
+
+if (oPlayer.wallsliding != 0)
+{
+	currentminmaxangle = wallminmaxangle;
+	if (oPlayer.onwall < 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
+		image_angle += angle_difference(delta, image_angle) * currentrspeed;
+	}
+	if (oPlayer.onwall > 0)
+	{
+		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
+		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
+	}
+}

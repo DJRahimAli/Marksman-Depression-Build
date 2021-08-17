@@ -464,8 +464,6 @@ function SetWeapon(argument0)
 			
 		crosshairsprite = wp_map[? "crosshairsprite"];
 			
-		crosshairrspeed = wp_map[? "crosshairrspeed"];
-			
 		crosshairdistance = wp_map[? "crosshairdistance"];
 		
 		crosshairironsightspeed = wp_map[? "crosshairironsightspeed"];
@@ -514,7 +512,8 @@ function SetWeapon(argument0)
 	animationplaying = false;
 	animationlooping = false;
 	animstate = animstates.idle;
-	if (aimside) image_angle = 300; else image_angle = 240;
+	//if (aimside) image_angle = 300; else image_angle = 240;
 	image_xscale = xscale;
 	image_yscale = yscale;
 }
+        

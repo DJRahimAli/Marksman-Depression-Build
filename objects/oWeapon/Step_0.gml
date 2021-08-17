@@ -1,92 +1,3 @@
-switch (animstate)
-{
-	case animstates.idle:
-	if (aimside == -1)
-	{
-		currentsprite = spriteleft;
-		oArm.currentsprite = armspriteleft;
-	}
-	if (aimside == 1)
-	{
-		currentsprite = spriteright;
-		oArm.currentsprite = armspriteright;
-	}
-	sprite_index = currentsprite;
-	image_speed = spritespeed;
-	break;
-	case animstates.primary:
-	if (aimside == -1)
-	{
-		currentsprite = spriteprimaryleft;
-		oArm.currentsprite = armspriteprimaryleft;
-	}
-	if (aimside == 1)
-	{
-		currentsprite = spriteprimaryright;
-		oArm.currentsprite = armspriteprimaryright;
-	}
-	sprite_index = currentsprite;
-	image_speed = spriteprimaryspeed;
-	break;
-	case animstates.secondary:
-	if (aimside == -1)
-	{
-		currentsprite = spritesecondaryleft;
-		oArm.currentsprite = armspritesecondaryleft;
-	}
-	if (aimside == 1)
-	{
-		currentsprite = spritesecondaryright;
-		oArm.currentsprite = armspritesecondaryright;
-	}
-	sprite_index = currentsprite;
-	image_speed = spritesecondaryspeed;
-	break;
-	case animstates.pump:
-	if (aimside == -1)
-	{
-		currentsprite = spritepumpleft;
-		oArm.currentsprite = armspritepumpleft;
-	}
-	if (aimside == 1)
-	{
-		currentsprite = spritepumpright;
-		oArm.currentsprite = armspritepumpright;
-	}
-	sprite_index = currentsprite;
-	image_speed = spritepumpspeed;
-	break;
-	case animstates.startup: 
-	if (aimside == -1)
-	{
-		currentsprite = spritestartupleft;
-		oArm.currentsprite = armspritestartupleft;
-	}
-	if (aimside == 1)
-	{
-		currentsprite = spritestartupright;
-		oArm.currentsprite = armspritestartupright;
-	}
-	sprite_index = currentsprite;
-	image_speed = spritestartupspeed;
-	break;
-	case animstates.reload: break;
-	case animstates.empty:
-	if (aimside == -1)
-	{
-		currentsprite = spriteemptyleft;
-		oArm.currentsprite = armspriteemptyleft;
-	}
-	if (aimside == 1)
-	{
-		currentsprite = spriteemptyright;
-		oArm.currentsprite = armspriteemptyright;
-	}
-	sprite_index = currentsprite;
-	image_speed = spriteemptyspeed;
-	break;
-}
-
 //if (image_angle > 90) && (image_angle < 270) aimside = -1; else aimside = 1;
 if sign(oCrosshair.x - oPlayer.x) aimside = 1; else aimside = -1;
 
@@ -109,39 +20,42 @@ if (aimside != 0)
 //Aimside Types
 var playersize = 2;
 
-with (oPlayer) switch (oWeapon.aimsidetype)
+with (oPlayer) 
 {
-	case aimsidetypes.movedirection:
-	if (hspnodec != 0)
+	switch (oWeapon.aimsidetype)
 	{
-		if (movedir != 0) aimside = sign(hsp);
-		image_xscale = aimside*playersize;
-	}
+		case aimsidetypes.movedirection:
+		if (hspnodec != 0)
+		{
+			if (movedir != 0) aimside = sign(hsp);
+			image_xscale = aimside*playersize;
+		}
 		
-	if (hsp < 1 && wallsliding != 0) 
-	{
-		aimside = -onwall;
-		image_xscale = aimside*playersize;
-	}
-	break;
-	case aimsidetypes.weapondirection:
-	/*if (!oWeapon.holstered)
-	{*/
-		aimside = oWeapon.aimside;
-		if (oWeapon.aimside != 0) image_xscale = aimside*playersize;
-	//}
-	break;
-	default:
-	if (hspnodec != 0)
-	{
-		aimside = sign(hsp);
-		image_xscale = aimside*playersize;
-	}
+		if (hsp < 1 && wallsliding != 0) 
+		{
+			aimside = -onwall;
+			image_xscale = aimside*playersize;
+		}
+		break;
+		case aimsidetypes.weapondirection:
+		/*if (!oWeapon.holstered)
+		{*/
+			aimside = oWeapon.aimside;
+			if (oWeapon.aimside != 0) image_xscale = aimside*playersize;
+		//}
+		break;
+		default:
+		if (hspnodec != 0)
+		{
+			aimside = sign(hsp);
+			image_xscale = aimside*playersize;
+		}
 		
-	if (hsp < 1 && wallsliding != 0) 
-	{
-		aimside = -onwall;
-		image_xscale = aimside*playersize;
+		if (hsp < 1 && wallsliding != 0) 
+		{
+			aimside = -onwall;
+			image_xscale = aimside*playersize;
+		}
 	}
 }
 
@@ -150,13 +64,8 @@ if (oPlayer.crouch) && (oPlayer.onground) ironsights = true; else ironsights = f
 if (oPlayer.wallsliding != 0) && (oPlayer.aimside == oPlayer.onwall)
 {
 	currentrspeed = 1;
-	oCrosshair.currentrspeed = 1;
 }
-else
-{
-	currentrspeed = rspeed;
-	oCrosshair.currentrspeed = crosshairrspeed;
-}
+else currentrspeed = rspeed;
 
 if (currentswitchdelay < switchdelay)
 {
@@ -195,43 +104,6 @@ if (global.controller == 1)
 			pointy = controllerv;
 			pointdir = point_direction(0,0,pointx,pointy);
 		}
-	}
-}
-
-if (oPlayer.wallsliding == 0) && (aimsidetype != aimsidetypes.movedirection)
-{
-	currentminmaxangle = 360;
-	delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
-	image_angle += angle_difference(delta, image_angle) * currentrspeed;
-}
-		
-if (aimsidetype == aimsidetypes.movedirection) &&  (oPlayer.wallsliding == 0)
-{
-	currentminmaxangle = hspminmaxangle;
-	if (oPlayer.aimside == 1)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
-		image_angle += angle_difference(delta, image_angle) * currentrspeed;
-	}
-	if (oPlayer.aimside == -1)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
-		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
-	}
-}
-
-if (oPlayer.wallsliding != 0)
-{
-	currentminmaxangle = wallminmaxangle;
-	if (oPlayer.onwall < 0)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir, 0)));
-		image_angle += angle_difference(delta, image_angle) * currentrspeed;
-	}
-	if (oPlayer.onwall > 0)
-	{
-		delta = max(-currentminmaxangle, min(currentminmaxangle, angle_difference(pointdir - 180, 0)));
-		image_angle += angle_difference(delta, image_angle - 180) * currentrspeed;
 	}
 }
 

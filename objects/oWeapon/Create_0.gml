@@ -166,8 +166,8 @@ enum firemodetypes
 		#region Rotation/Angle
 			ds_map_add(weapons[weapontype],"rspeed",0);
 			
-			ds_map_add(weapons[weapontype],"hspminmaxangle",0);
-			ds_map_add(weapons[weapontype],"wallminmaxangle",0);
+			ds_map_add(weapons[weapontype],"hspminmaxangle",360);
+			ds_map_add(weapons[weapontype],"wallminmaxangle",360);
 		#endregion
 
 		#region Types
@@ -487,8 +487,6 @@ enum firemodetypes
 		ds_map_add(weapons[weapontype],"crosshairyscale",1);
 		
 		ds_map_add(weapons[weapontype],"crosshairsprite",-1);
-		
-		ds_map_add(weapons[weapontype],"crosshairrspeed",0);
 		
 		ds_map_add(weapons[weapontype],"crosshairdistance",0);
 		
@@ -976,8 +974,6 @@ enum firemodetypes
 		
 		ds_map_add(weapons[weapontype],"crosshairsprite",sCrosshair);
 		
-		ds_map_add(weapons[weapontype],"crosshairrspeed",0.45);
-		
 		ds_map_add(weapons[weapontype],"crosshairdistance",120);
 		
 		ds_map_add(weapons[weapontype],"crosshairironsightspeed",0.5);
@@ -1222,3 +1218,5 @@ currentswitchdelay = 0;
 SetWeapon(weapontypes.unarmed);
 
 currentweapon = weapon;
+
+test = 0;
