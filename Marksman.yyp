@@ -143,6 +143,7 @@
     {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},"order":0,},
     {"id":{"name":"sArmPistolLeft","path":"sprites/sArmPistolLeft/sArmPistolLeft.yy",},"order":0,},
     {"id":{"name":"GMTwerk_Itinerary","path":"scripts/GMTwerk_Itinerary/GMTwerk_Itinerary.yy",},"order":4,},
+    {"id":{"name":"rTest","path":"rooms/rTest/rTest.yy",},"order":4,},
     {"id":{"name":"SaveGame","path":"scripts/SaveGame/SaveGame.yy",},"order":3,},
     {"id":{"name":"sDirtMenu","path":"sprites/sDirtMenu/sDirtMenu.yy",},"order":14,},
     {"id":{"name":"sPlayerRBC90","path":"sprites/sPlayerRBC90/sPlayerRBC90.yy",},"order":5,},
@@ -223,6 +224,7 @@
     {"roomId":{"name":"rLevel3","path":"rooms/rLevel3/rLevel3.yy",},},
     {"roomId":{"name":"rEnding","path":"rooms/rEnding/rEnding.yy",},},
     {"roomId":{"name":"MovementTutorial","path":"rooms/MovementTutorial/MovementTutorial.yy",},},
+    {"roomId":{"name":"rTest","path":"rooms/rTest/rTest.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

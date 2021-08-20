@@ -151,7 +151,7 @@ if (attacktype == -1)
 	if (currentcd == 0)
 	{
 		currentcd = random_range(primarycooldownmin,primarycooldownmax);
-		if (currentprimaryammo[weapon] != 0) currentdelay = primarystartup;
+		if (currentprimaryammo[weapon] >= primaryammospent) currentdelay = primarystartup;
 	}
 
 	if (currentdelay == -1) && (currentprimaryammo[weapon] == 0) && (global.key_primaryattack_pressed)
@@ -169,7 +169,7 @@ if (attacktype == -1)
 
 	if (currentdelay == 0)
 	{
-		if (currentprimaryammo[weapon] != 0)
+		if (currentprimaryammo[weapon] >= primaryammospent)
 		{
 			animationplaying = true;
 			if (spriteprimarylooping) animationlooping = true; else animationlooping = false;
@@ -273,7 +273,7 @@ if (attacktype == -1)
 					}
 				}
 			#endregion
-			if (currentprimaryammo[weapon] > 0) currentprimaryammo[weapon] -= primaryammospent;
+			currentprimaryammo[weapon] -= primaryammospent;
 			if (soundprimary != -1)
 			{
 				audio_sound_gain(soundprimary,random_range(soundprimarygainmin,soundprimarygainmax),0);
@@ -294,12 +294,12 @@ if (attacktype == -1)
 	
 if (attacktype == 1)
 {
-	if (currentsecondaryammo[weapon] != -2)
+	if (currentsecondaryammo[weapon] != -1)
 	{
 		if (currentcd == 0)
 		{
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
-			if (currentsecondaryammo[weapon] != 0) currentdelay = secondarystartup;
+			if (currentsecondaryammo[weapon] >= secondaryammospent) currentdelay = secondarystartup;
 		}
 		if (currentdelay == -1) && (currentsecondaryammo[weapon] == 0) && (global.key_secondaryattack_pressed)
 		{
@@ -315,7 +315,7 @@ if (attacktype == 1)
 		}
 		if (currentdelay == 0)
 		{
-			if (currentsecondaryammo[weapon] != 0)
+			if (currentsecondaryammo[weapon] >= secondaryammospent)
 			{
 				animationplaying = true;
 				if (spritesecondarylooping) animationlooping = true; else animationlooping = false;
@@ -419,7 +419,7 @@ if (attacktype == 1)
 						}
 					}
 				#endregion
-				if (currentsecondaryammo[weapon] > 0) currentsecondaryammo[weapon] -= secondaryammospent;
+				currentsecondaryammo[weapon] -= secondaryammospent;
 				if (soundsecondary != -1)
 				{
 					audio_sound_gain(soundsecondary,random_range(soundsecondarygainmin,soundsecondarygainmax),0);
@@ -433,7 +433,7 @@ if (attacktype == 1)
 		if (currentcd == 0)
 		{
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
-			if (currentprimaryammo[weapon] != 0) currentdelay = secondarystartup;
+			if (currentprimaryammo[weapon] >= primaryammospent) currentdelay = secondarystartup;
 		}
 		if (currentdelay == -1) && (currentprimaryammo[weapon] == 0) && (global.key_secondaryattack_pressed)
 		{
@@ -449,7 +449,7 @@ if (attacktype == 1)
 		}
 		if (currentdelay == 0)
 		{
-			if (currentprimaryammo[weapon] != 0)
+			if (currentprimaryammo[weapon] >= primaryammospent)
 			{
 				animationplaying = true;
 				if (spritesecondarylooping) animationlooping = true; else animationlooping = false;
@@ -553,7 +553,7 @@ if (attacktype == 1)
 						}
 					}
 				#endregion
-				if (currentprimaryammo[weapon] > 0) currentprimaryammo[weapon] -= primaryammospent;
+				currentprimaryammo[weapon] -= primaryammospent;
 				if (soundsecondary != -1)
 				{
 					audio_sound_gain(soundsecondary,random_range(soundsecondarygainmin,soundsecondarygainmax),0);
