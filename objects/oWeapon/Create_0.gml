@@ -194,7 +194,7 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryreservedammo",0);
 			ds_map_add(weapons[weapontype],"primaryammospent",0);
 			
-			ds_map_add(weapons[weapontype],"secondaryammo",0); //-2 means use primary ammo
+			ds_map_add(weapons[weapontype],"secondaryammo",0); //-1 means use primary ammo
 			ds_map_add(weapons[weapontype],"secondaryammospent",0);
 		#endregion
 
@@ -680,7 +680,7 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryreservedammo",72);
 			ds_map_add(weapons[weapontype],"primaryammospent",1);
 			
-			ds_map_add(weapons[weapontype],"secondaryammo",-2); //-2 means use primary ammo
+			ds_map_add(weapons[weapontype],"secondaryammo",-2); //-1 means use primary ammo
 			ds_map_add(weapons[weapontype],"secondaryammospent",1);
 		#endregion
 
