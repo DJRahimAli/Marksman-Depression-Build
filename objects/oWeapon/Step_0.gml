@@ -154,7 +154,7 @@ if (attacktype == -1)
 		if (currentprimaryammo[weapon] >= primaryammospent) currentdelay = primarystartup;
 	}
 
-	if (currentdelay == -1) && (currentprimaryammo[weapon] == 0) && (global.key_primaryattack_pressed)
+	if (currentdelay == -1) && (currentprimaryammo[weapon] == 0) && (primaryammospent != 0) && (global.key_primaryattack_pressed)
 	{
 		animationplaying = true;
 		if (spriteemptylooping) animationlooping = true; else animationlooping = false;
@@ -301,7 +301,7 @@ if (attacktype == 1)
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
 			if (currentsecondaryammo[weapon] >= secondaryammospent) currentdelay = secondarystartup;
 		}
-		if (currentdelay == -1) && (currentsecondaryammo[weapon] == 0) && (global.key_secondaryattack_pressed)
+		if (currentdelay == -1) && (currentsecondaryammo[weapon] == 0) && (secondaryammospent != 0) && (global.key_secondaryattack_pressed)
 		{
 			animationplaying = true;
 			if (spriteemptylooping) animationlooping = true; else animationlooping = false;
@@ -435,7 +435,7 @@ if (attacktype == 1)
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
 			if (currentprimaryammo[weapon] >= primaryammospent) currentdelay = secondarystartup;
 		}
-		if (currentdelay == -1) && (currentprimaryammo[weapon] == 0) && (global.key_secondaryattack_pressed)
+		if (currentdelay == -1) && (currentprimaryammo[weapon] == 0) && (primaryammospent != 0) && (global.key_secondaryattack_pressed)
 		{
 			animationplaying = true;
 			if (spriteemptylooping) animationlooping = true; else animationlooping = false;

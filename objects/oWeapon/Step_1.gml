@@ -61,29 +61,40 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 		#region Shell
 		if (aimside == -1)
 		{
-			var shellangleoffset = point_direction(0, 0, shellxoffset, -shellyoffset);
-			var shelldistanceoffset = point_distance(0, 0, shellxoffset, -shellyoffset);
+			var shellangleoffset = point_direction(0, 0, secondaryshellxoffset, -secondaryshellyoffset);
+			var shelldistanceoffset = point_distance(0, 0, secondaryshellxoffset, -secondaryshellyoffset);
 		}
 		if (aimside == 1)
 		{
-			var shellangleoffset = point_direction(0, 0, shellxoffset, shellyoffset);
-			var shelldistanceoffset = point_distance(0, 0, shellxoffset, shellyoffset);
+			var shellangleoffset = point_direction(0, 0, secondaryshellxoffset, secondaryshellyoffset);
+			var shelldistanceoffset = point_distance(0, 0, secondaryshellxoffset, secondaryshellyoffset);
 		}
 		var shellx = x+lengthdir_x(shelldistanceoffset,image_angle+shellangleoffset);
 		var shelly = y+lengthdir_y(shelldistanceoffset,image_angle+shellangleoffset);
-		if (shell != -1) repeat(shellamount) with (instance_create_layer(shellx,shelly,"Shells",shell))
+		if (secondaryshell != -1) repeat(secondaryshellamount) with (instance_create_layer(shellx,shelly,"Shells",secondaryshell))
 		{
 			//direction = other.image_angle;
-			life = random_range(oWeapon.shelllifemin,oWeapon.shelllifemax);
-			alphalength = oWeapon.shellalphalength;
-			hsp = lengthdir_x(random_range(oWeapon.shellhspmin,oWeapon.shellhspmax),other.image_angle);
-			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.shellvspmin,-oWeapon.shellvspmax); else vsp = random_range(oWeapon.shellvspmin,oWeapon.shellvspmax);
-			grv = oWeapon.shellgrv;
-			if (direction > 90) && (direction < 270) image_xscale = -oWeapon.shellxscale; else image_xscale = oWeapon.shellxscale;
-			image_yscale = oWeapon.shellyscale;
+			life = random_range(oWeapon.secondaryshelllifemin,oWeapon.secondaryshelllifemax);
+			alphalength = oWeapon.secondaryshellalphalength;
+			hsp = lengthdir_x(random_range(oWeapon.secondaryshellhspmin,oWeapon.secondaryshellhspmax),other.image_angle);
+			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.secondaryshellvspmin,-oWeapon.secondaryshellvspmax); else vsp = random_range(oWeapon.secondaryshellvspmin,oWeapon.secondaryshellvspmax);
+			currentshellbouncehspmin = oWeapon.secondaryshellbouncehspmin;
+			currentshellbouncehspmax = oWeapon.secondaryshellbouncehspmax;
+						
+			currentshellbouncevspmin = oWeapon.secondaryshellbouncevspmin;
+			currentshellbouncevspmax = oWeapon.secondaryshellbouncevspmax;
+			grv = oWeapon.secondaryshellgrv;
+			currentsprite = oWeapon.secondaryshellsprite;
+			//if (direction > 90) && (direction < 270) image_xscale = -oWeapon.secondaryshellxscale; else image_xscale = oWeapon.secondaryshellxscale;
+			currentshellxscale = oWeapon.secondaryshellxscale;
+			currentshellyscale = oWeapon.secondaryshellyscale;
 		}
 		#endregion
-		if (soundpump != -1) audio_sound_pitch(audio_play_sound(soundpump,5,false),(random_range(soundpumppitchmin,soundpumppitchmax)));
+		if (soundpump != -1)
+		{
+			audio_sound_gain(soundpump,random_range(soundpumpgainmin,soundpumpgainmax),0);
+			audio_sound_pitch(audio_play_sound(soundpump,5,false),(random_range(soundpumppitchmin,soundpumppitchmax)));
+		}
 	}
 }
 
