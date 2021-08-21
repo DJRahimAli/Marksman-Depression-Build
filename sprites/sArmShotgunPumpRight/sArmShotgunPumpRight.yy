@@ -27,6 +27,9 @@
     {"compositeImage":{"FrameId":{"name":"9880ac04-eefc-4350-9994-48507f49ef43","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"9880ac04-eefc-4350-9994-48507f49ef43","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"LayerId":{"name":"32c37307-7634-4da9-a7a1-9a2d9373b90c","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sArmShotgunPumpRight","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"resourceVersion":"1.0","name":"9880ac04-eefc-4350-9994-48507f49ef43","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6b75e1d1-6f5d-4f06-95a1-d5a90fe9e84d","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6b75e1d1-6f5d-4f06-95a1-d5a90fe9e84d","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"LayerId":{"name":"32c37307-7634-4da9-a7a1-9a2d9373b90c","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sArmShotgunPumpRight","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"resourceVersion":"1.0","name":"6b75e1d1-6f5d-4f06-95a1-d5a90fe9e84d","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sArmShotgunPumpRight","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},
@@ -36,12 +39,13 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 2.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"2b3d1c99-d72a-4f3a-bb37-b6d956ac6481","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9880ac04-eefc-4350-9994-48507f49ef43","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fb6b71c1-7316-45bd-881c-d900f3861fb9","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6b75e1d1-6f5d-4f06-95a1-d5a90fe9e84d","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
