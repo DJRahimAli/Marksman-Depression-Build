@@ -1,8 +1,8 @@
 enum pickuptypes
 {
 	pistol,
-	smg,
-	shotgun
+	shotgun,
+	smg
 }
 
 /*
