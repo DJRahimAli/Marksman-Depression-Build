@@ -10,14 +10,14 @@
     "name": "agSfx",
     "path": "audiogroups/agSfx",
   },
-  "soundFile": "snd_WeaponShotgunPrimary.wav",
-  "duration": 1.483265,
+  "soundFile": "snd_WeaponShotgunPumpOld.wav",
+  "duration": 0.351021,
   "parent": {
     "name": "Shotgun",
     "path": "folders/Sounds/Weapons/Shotgun.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_WeaponShotgunPrimary",
+  "name": "snd_WeaponShotgunPumpOld",
   "tags": [],
   "resourceType": "GMSound",
 }
