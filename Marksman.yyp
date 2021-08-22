@@ -292,6 +292,10 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Controls.txt","resourceType":"GMIncludedFile",},
+    {"CopyToMask":128,"filePath":"datafiles/lib","resourceVersion":"1.0","name":"libcrypto.so.1.0.0","resourceType":"GMIncludedFile",},
+    {"CopyToMask":128,"filePath":"datafiles/lib","resourceVersion":"1.0","name":"libssl.so.1.0.0","resourceType":"GMIncludedFile",},
+    {"CopyToMask":128,"filePath":"datafiles/lib","resourceVersion":"1.0","name":"libcurl.so.4","resourceType":"GMIncludedFile",},
+    {"CopyToMask":128,"filePath":"datafiles","resourceVersion":"1.0","name":"steamrun.sh","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",
