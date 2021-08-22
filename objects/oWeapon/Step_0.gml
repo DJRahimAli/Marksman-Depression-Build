@@ -146,7 +146,7 @@ else
 
 attacktype = (secondaryattack - primaryattack);
 
-if (attacktype == -1)
+if (attacktype == -1)//Primary Fire
 {
 	if (currentcd == 0)
 	{
@@ -292,7 +292,7 @@ if (attacktype == -1)
 	}
 }
 	
-if (attacktype == 1)
+if (attacktype == 1)//Secondary Fire
 {
 	if (currentsecondaryammo[weapon] != -1)
 	{
