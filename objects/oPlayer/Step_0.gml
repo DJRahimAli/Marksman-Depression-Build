@@ -53,32 +53,6 @@ if (currentwalljumpdelay == 0)
 }
 oWeapon.currentkickbackx = 0;
 
-//Wall jump
-if (vsp > 0 || global.fly) walljumpheight = 0;
-
-if (!global.fly)
-{
-	if (currentwalljumpbuffer > 0) currentwalljumpbuffer--;
-	
-	if (walljumpheight > 0) walljumpheight -= 0.05;
-	
-	if (onwall != 0) walljumpdirection = onwall;
-	
-	if (global.key_jump_pressed) && (currentwalljumpbuffer > 0) && (currentwalljumpdelay < walljumpdelay-6.5)
-	{
-		currentwalljumpbuffer = 0;
-		currentwalljumpdelay = walljumpdelay;
-		hsp = walljumpdirection * -(jumpheightwall+walljumpheight/2);
-		vsp = -(jumpheightwall+walljumpheight);
-		walljumpheight += 1;
-		hspfrac = 0;
-		vspfrac = 0;
-		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
-		audio_play_sound(snd_Landing,4,false);
-		audio_play_sound(snd_MultiJump,10,false);
-	}
-}
-
 #region awful smb1 type movement
 /*
 if (sign(vsp) = 0) hsp = lerp(hsp, move, accel);
@@ -195,6 +169,32 @@ else
 
 //Variable Jump
 if (vsp < 0) && (!global.key_jump_held) && (!global.fly) vsp += grvfinal*2; //0.45;
+
+//Wall jump
+if (vsp > 0 || global.fly) walljumpheight = 0;
+
+if (!global.fly)
+{
+	if (currentwalljumpbuffer > 0) currentwalljumpbuffer--;
+	
+	if (walljumpheight > 0) walljumpheight -= 0.05;
+	
+	if (onwall != 0) walljumpdirection = onwall;
+	
+	if (global.key_jump_pressed) && (currentwalljumpbuffer > 0) && (currentwalljumpdelay < walljumpdelay-6.5)
+	{
+		currentwalljumpbuffer = 0;
+		currentwalljumpdelay = walljumpdelay;
+		hsp = walljumpdirection * -(jumpheightwall+walljumpheight/2);
+		vsp = -(jumpheightwall+walljumpheight);
+		walljumpheight += 1;
+		hspfrac = 0;
+		vspfrac = 0;
+		audio_sound_pitch(snd_Landing,random_range(0.8, 1.2));
+		audio_play_sound(snd_Landing,4,false);
+		audio_play_sound(snd_MultiJump,10,false);
+	}
+}
 
 //Spring Jump
 if place_meeting(x,y+1,oSpring) && (!crouch)
