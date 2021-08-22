@@ -292,9 +292,6 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Controls.txt","resourceType":"GMIncludedFile",},
-    {"CopyToMask":128,"filePath":"datafiles","resourceVersion":"1.0","name":"libcurl.so.4","resourceType":"GMIncludedFile",},
-    {"CopyToMask":128,"filePath":"datafiles","resourceVersion":"1.0","name":"run.sh","resourceType":"GMIncludedFile",},
-    {"CopyToMask":128,"filePath":"datafiles","resourceVersion":"1.0","name":"libcurl.so.4.6.0","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",
