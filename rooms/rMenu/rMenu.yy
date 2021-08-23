@@ -31,9 +31,7 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"oMenu","path":"objects/oMenu/oMenu.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":16.0,"resourceVersion":"1.0","name":"inst_3D608464","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Menu","tags":[],"resourceType":"GMRInstanceLayer",},
-    {"instances":[
-        {"properties":[],"isDnd":false,"objectId":{"name":"oNekoPresence","path":"objects/oNekoPresence/oNekoPresence.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":32.0,"resourceVersion":"1.0","name":"inst_54235C30","tags":[],"resourceType":"GMRInstance",},
-      ],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"NekoPresence","tags":[],"resourceType":"GMRInstanceLayer",},
+    {"instances":[],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"NekoPresence","tags":[],"resourceType":"GMRInstanceLayer",},
     {"spriteId":{"name":"sDirtMenu","path":"sprites/sDirtMenu/sDirtMenu.yy",},"colour":4294967295,"x":0,"y":672,"htiled":true,"vtiled":false,"hspeed":-3.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"DirtMenu","tags":[],"resourceType":"GMRBackgroundLayer",},
     {"spriteId":{"name":"sBuildings","path":"sprites/sBuildings/sBuildings.yy",},"colour":4294967295,"x":0,"y":300,"htiled":true,"vtiled":false,"hspeed":-2.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"BuildingsMenu","tags":[],"resourceType":"GMRBackgroundLayer",},
     {"spriteId":{"name":"sSkyscrapers","path":"sprites/sSkyscrapers/sSkyscrapers.yy",},"colour":4294967295,"x":0,"y":200,"htiled":true,"vtiled":false,"hspeed":-1.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":700,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"SkyscrapersMenu","tags":[],"resourceType":"GMRBackgroundLayer",},
@@ -45,7 +43,6 @@
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_299C12E9","path":"rooms/rMenu/rMenu.yy",},
-    {"name":"inst_54235C30","path":"rooms/rMenu/rMenu.yy",},
     {"name":"inst_73230EBD","path":"rooms/rMenu/rMenu.yy",},
     {"name":"inst_7624548C","path":"rooms/rMenu/rMenu.yy",},
     {"name":"inst_3D608464","path":"rooms/rMenu/rMenu.yy",},
