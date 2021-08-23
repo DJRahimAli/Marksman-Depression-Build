@@ -1226,14 +1226,14 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundempty",snd_WeaponPistolEmpty);
 			#endregion
 			#region Gain
-				ds_map_add(weapons[weapontype],"soundprimarygainmin",1);
-				ds_map_add(weapons[weapontype],"soundprimarygainmax",1);
+				ds_map_add(weapons[weapontype],"soundprimarygainmin",0.2);
+				ds_map_add(weapons[weapontype],"soundprimarygainmax",0.2);
 				
 				ds_map_add(weapons[weapontype],"soundsecondarygainmin",1);
 				ds_map_add(weapons[weapontype],"soundsecondarygainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundpumpgainmin",1);
-				ds_map_add(weapons[weapontype],"soundpumpgainmax",1);
+				ds_map_add(weapons[weapontype],"soundpumpgainmin",0.2);
+				ds_map_add(weapons[weapontype],"soundpumpgainmax",0.2);
 				
 				ds_map_add(weapons[weapontype],"soundstartupgainmin",1);
 				ds_map_add(weapons[weapontype],"soundstartupgainmax",1);
