@@ -148,9 +148,6 @@ attacktype = (secondaryattack - primaryattack);
 
 if (attacktype == -1)//Primary Fire
 {
-	currentattacktype = attacktype;
-	currentfiremodetype = primaryfiremodetype;
-	
 	if (currentcd == 0)
 	{
 		currentcd = random_range(primarycooldownmin,primarycooldownmax);
@@ -172,6 +169,9 @@ if (attacktype == -1)//Primary Fire
 
 	if (currentdelay == 0)
 	{
+		currentattacktype = attacktype;
+		currentfiremodetype = primaryfiremodetype;
+	
 		if (currentprimaryammo[weapon] >= primaryammospent)
 		{
 			animationplaying = true;
@@ -300,9 +300,6 @@ if (attacktype == 1)//Secondary Fire
 {
 	if (currentsecondaryammo[weapon] != -1)
 	{
-		currentattacktype = attacktype;
-		currentfiremodetype = secondaryfiremodetype;
-		
 		if (currentcd == 0)
 		{
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
@@ -322,6 +319,9 @@ if (attacktype == 1)//Secondary Fire
 		}
 		if (currentdelay == 0)
 		{
+			currentattacktype = attacktype;
+			currentfiremodetype = secondaryfiremodetype;
+			
 			if (currentsecondaryammo[weapon] >= secondaryammospent)
 			{
 				animationplaying = true;
@@ -438,9 +438,6 @@ if (attacktype == 1)//Secondary Fire
 	}
 	else
 	{
-		currentattacktype = attacktype;
-		currentfiremodetype = secondaryfiremodetype;
-		
 		if (currentcd == 0)
 		{
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
@@ -460,6 +457,9 @@ if (attacktype == 1)//Secondary Fire
 		}
 		if (currentdelay == 0)
 		{
+			currentattacktype = attacktype;
+			currentfiremodetype = secondaryfiremodetype;
+		
 			if (currentprimaryammo[weapon] >= primaryammospent)
 			{
 				animationplaying = true;
