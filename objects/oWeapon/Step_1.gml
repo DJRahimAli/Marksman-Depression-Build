@@ -51,7 +51,7 @@ if (currentswitchdelay == 0)
 }
 else stopattack = true;
 
-if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == firemodetypes.pumpautomatic)
+if (currentattacktype == -1) && (currentfiremodetype == firemodetypes.pumpsingle) || (currentfiremodetype == firemodetypes.pumpautomatic)
 {
 	if (animationplaying == false) && (animstate == animstates.primary)
 	{
@@ -143,7 +143,7 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 	}
 }
 
-if (secondaryfiremodetype == firemodetypes.pumpsingle) || (secondaryfiremodetype == firemodetypes.pumpautomatic)
+if (currentattacktype == 1) && (currentfiremodetype == firemodetypes.pumpsingle) || (currentfiremodetype == firemodetypes.pumpautomatic)
 {
 	if (animationplaying == false) && (animstate == animstates.secondary)
 	{

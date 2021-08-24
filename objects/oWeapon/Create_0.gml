@@ -1716,6 +1716,8 @@ currentkickbacky = 0;
 currentspread = 0;
 currentdistance = 0;
 currentswitchdelay = 0;
+currentattacktype = 0;
+currentfiremodetype = 0;
 
 SetWeapon(weapontypes.unarmed);
 
