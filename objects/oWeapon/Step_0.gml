@@ -148,6 +148,9 @@ attacktype = (secondaryattack - primaryattack);
 
 if (attacktype == -1)//Primary Fire
 {
+	currentattacktype = attacktype;
+	currentfiremodetype = primaryfiremodetype;
+	
 	if (currentcd == 0)
 	{
 		currentcd = random_range(primarycooldownmin,primarycooldownmax);
@@ -239,7 +242,7 @@ if (attacktype == -1)//Primary Fire
 			#endregion
 		
 			#region Shell
-				if (primaryfiremodetype == firemodetypes.single) || (primaryfiremodetype == firemodetypes.automatic)
+				if (currentfiremodetype == firemodetypes.single) || (currentfiremodetype == firemodetypes.automatic)
 				{
 					if (aimside == -1)
 					{
@@ -297,6 +300,9 @@ if (attacktype == 1)//Secondary Fire
 {
 	if (currentsecondaryammo[weapon] != -1)
 	{
+		currentattacktype = attacktype;
+		currentfiremodetype = secondaryfiremodetype;
+		
 		if (currentcd == 0)
 		{
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
@@ -386,7 +392,7 @@ if (attacktype == 1)//Secondary Fire
 				#endregion
 		
 				#region Shell
-					if (secondaryfiremodetype == firemodetypes.single) || (secondaryfiremodetype == firemodetypes.automatic)
+					if (currentfiremodetype == firemodetypes.single) || (currentfiremodetype == firemodetypes.automatic)
 					{
 						if (aimside == -1)
 						{
@@ -432,6 +438,9 @@ if (attacktype == 1)//Secondary Fire
 	}
 	else
 	{
+		currentattacktype = attacktype;
+		currentfiremodetype = secondaryfiremodetype;
+		
 		if (currentcd == 0)
 		{
 			currentcd = random_range(secondarycooldownmin,secondarycooldownmax);
@@ -521,7 +530,7 @@ if (attacktype == 1)//Secondary Fire
 				#endregion
 		
 				#region Shell
-					if (secondaryfiremodetype == firemodetypes.single) || (secondaryfiremodetype == firemodetypes.automatic)
+					if (currentfiremodetype == firemodetypes.single) || (currentfiremodetype == firemodetypes.automatic)
 					{
 						if (aimside == -1)
 						{
