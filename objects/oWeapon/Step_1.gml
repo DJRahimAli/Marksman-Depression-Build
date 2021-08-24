@@ -79,9 +79,9 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 			hsp = lengthdir_x(random_range(oWeapon.primaryshellhspmin,oWeapon.primaryshellhspmax),other.image_angle);
 			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.primaryshellvspmin,-oWeapon.primaryshellvspmax); else vsp = random_range(oWeapon.primaryshellvspmin,oWeapon.primaryshellvspmax);
 			
-			currentshellbouncehspmin = lengthdir_x(oWeapon.primaryshellbouncehspmin,other.image_angle);
-			currentshellbouncehspmax = lengthdir_x(oWeapon.primaryshellbouncehspmax,other.image_angle);
-						
+			currentshellbouncehspmin = oWeapon.primaryshellbouncehspmin;
+			currentshellbouncehspmax = oWeapon.primaryshellbouncehspmax;
+			
 			currentshellbouncevspmin = oWeapon.primaryshellbouncevspmin;
 			currentshellbouncevspmax = oWeapon.primaryshellbouncevspmax;
 			grv = oWeapon.primaryshellgrv;
@@ -124,7 +124,7 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.secondaryshellvspmin,-oWeapon.secondaryshellvspmax); else vsp = random_range(oWeapon.secondaryshellvspmin,oWeapon.secondaryshellvspmax);
 			currentshellbouncehspmin = oWeapon.secondaryshellbouncehspmin;
 			currentshellbouncehspmax = oWeapon.secondaryshellbouncehspmax;
-						
+			
 			currentshellbouncevspmin = oWeapon.secondaryshellbouncevspmin;
 			currentshellbouncevspmax = oWeapon.secondaryshellbouncevspmax;
 			grv = oWeapon.secondaryshellgrv;
