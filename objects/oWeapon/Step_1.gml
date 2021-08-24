@@ -122,6 +122,7 @@ if (primaryfiremodetype == firemodetypes.pumpsingle) || (primaryfiremodetype == 
 			alphalength = oWeapon.secondaryshellalphalength;
 			hsp = lengthdir_x(random_range(oWeapon.secondaryshellhspmin,oWeapon.secondaryshellhspmax),other.image_angle);
 			if (other.image_angle >= 45) && (other.image_angle <= 135) vsp = random_range(-oWeapon.secondaryshellvspmin,-oWeapon.secondaryshellvspmax); else vsp = random_range(oWeapon.secondaryshellvspmin,oWeapon.secondaryshellvspmax);
+			
 			currentshellbouncehspmin = oWeapon.secondaryshellbouncehspmin;
 			currentshellbouncehspmax = oWeapon.secondaryshellbouncehspmax;
 			
