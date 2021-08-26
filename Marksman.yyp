@@ -52,6 +52,7 @@
     {"id":{"name":"rEnding","path":"rooms/rEnding/rEnding.yy",},"order":0,},
     {"id":{"name":"sTwinkle","path":"sprites/sTwinkle/sTwinkle.yy",},"order":46,},
     {"id":{"name":"sWeaponPistolEmptyRight","path":"sprites/sWeaponPistolEmptyRight/sWeaponPistolEmptyRight.yy",},"order":1,},
+    {"id":{"name":"oSplashOld","path":"objects/oSplashOld/oSplashOld.yy",},"order":0,},
     {"id":{"name":"sWeaponShotgunPrimaryLeft","path":"sprites/sWeaponShotgunPrimaryLeft/sWeaponShotgunPrimaryLeft.yy",},"order":0,},
     {"id":{"name":"sPlayerT","path":"sprites/sPlayerT/sPlayerT.yy",},"order":11,},
     {"id":{"name":"snd_PlayerDeath","path":"sounds/snd_PlayerDeath/snd_PlayerDeath.yy",},"order":4,},
