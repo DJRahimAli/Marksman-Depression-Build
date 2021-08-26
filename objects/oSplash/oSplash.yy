@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "sSplash",
-    "path": "sprites/sSplash/sSplash.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
