@@ -1,8 +1,7 @@
-F1 - Show Debug UI (Kinda lags game)
-F2 - Show FPS Counters
-F3 - Enable Cheats
-F4 - Unlock Camera
-F5 - Manually Save Anywhere (May Break Things)
+F1 - Show FPS Counters
+F2 - Enable Cheats
+F3 - Unlock Camera
+F4 - Manually Save Anywhere (May Break Things)
 F11 - Toggle Fullscreen Mode
 ` - Toggle Console
 
@@ -12,3 +11,6 @@ Zoom Out - Numpad -
 V - Fly Mode
 N - Noclip Mode
 G - God Mode
+
+Old Features
+F1 - Show Debug UI (Kinda lags game)

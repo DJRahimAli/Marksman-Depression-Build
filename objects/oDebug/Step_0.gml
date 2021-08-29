@@ -38,7 +38,7 @@ if (global.key_noclip) && (global.cheat) global.noclip = !global.noclip;
 
 if (global.key_god) && (global.cheat) global.god = !global.god;
 
-if (global.key_camclamp) && (global.cheat) oCamera.camclamp = !oCamera.camclamp;
+if instance_exists(oCamera) && (global.key_camclamp) && (global.cheat) oCamera.camclamp = !oCamera.camclamp;
 
 #endregion
 
@@ -48,7 +48,7 @@ if (!global.cheat)
 	global.fly = false;
 	global.noclip = false;
 	global.god = false;
-	oCamera.camclamp = true;
+	if instance_exists(oCamera) oCamera.camclamp = true;
 }
 
 //Set Visibility
