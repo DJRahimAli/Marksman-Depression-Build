@@ -83,8 +83,8 @@
   "backdropHeight": 1080,
   "backdropXOffset": 0.0,
   "backdropYOffset": 0.0,
-  "xorigin": 0,
-  "yorigin": 0,
+  "xorigin": -960,
+  "yorigin": -540,
   "eventToFunction": {},
   "eventStubScript": {
     "name": "seq_Splash_Events",
