@@ -14,8 +14,8 @@
   },
   "moments": {
     "Keyframes": [
-      {"id":"43c36a76-43aa-41ab-8de8-cc45ae3cb607","Key":299.9999,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Events":[
-              "seq_Splash_Moment",
+      {"id":"6a2835d9-5b64-4e93-bffc-ddbf5e40e5d0","Key":299.9999,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Events":[
+              "sqSplash_Moment",
             ],"resourceVersion":"1.0","resourceType":"MomentsEventKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<MomentsEventKeyframe>",},
     ],
     "resourceVersion": "1.0",
@@ -73,7 +73,10 @@
             ],"resourceVersion":"1.0","resourceType":"KeyframeStore<RealKeyframe>",},"trackColour":4293740786,"inheritsTrackColour":true,"builtinName":8,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":true,"resourceVersion":"1.0","name":"rotation","tags":[],"resourceType":"GMRealTrack",},
       ],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.1","name":"snd_Splash","tags":[],"resourceType":"GMAudioTrack",},
   ],
-  "visibleRange": null,
+  "visibleRange": {
+    "x": 0.0,
+    "y": 299.9999,
+  },
   "lockOrigin": false,
   "showBackdrop": true,
   "showBackdropImage": false,
@@ -87,15 +90,15 @@
   "yorigin": -540,
   "eventToFunction": {},
   "eventStubScript": {
-    "name": "seq_Splash_Events",
-    "path": "scripts/seq_Splash_Events/seq_Splash_Events.yy",
+    "name": "sqSplash_Events",
+    "path": "scripts/sqSplash_Events/sqSplash_Events.yy",
   },
   "parent": {
     "name": "Sequences",
     "path": "folders/Sequences.yy",
   },
   "resourceVersion": "1.3",
-  "name": "seq_Splash",
+  "name": "sqSplash",
   "tags": [],
   "resourceType": "GMSequence",
 }

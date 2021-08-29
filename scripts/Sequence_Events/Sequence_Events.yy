@@ -6,7 +6,7 @@
     "path": "folders/Sequences.yy",
   },
   "resourceVersion": "1.0",
-  "name": "seq_Splash_Events",
+  "name": "Sequence_Events",
   "tags": [],
   "resourceType": "GMScript",
 }

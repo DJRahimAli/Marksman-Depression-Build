@@ -59,7 +59,7 @@ if (menu_x > menu_x_target+50) && (menu_commited != -1)
 	{
 		case 2:
 		{
-			SlideTransition(TRANS_MODE.NEXT);
+			TransitionStart(rLevel1,sqFadeOut,sqFadeIn);
 			file_delete(SAVEFILE);
 		}
 		break;
@@ -67,7 +67,7 @@ if (menu_x > menu_x_target+50) && (menu_commited != -1)
 		{
 			if (!file_exists(SAVEFILE))
 			{
-				SlideTransition(TRANS_MODE.NEXT);
+				TransitionStart(rLevel1,sqFadeOut,sqFadeIn);
 			}
 			else
 			{
@@ -79,10 +79,10 @@ if (menu_x > menu_x_target+50) && (menu_commited != -1)
 				var ignore3 = file_text_read_real(file);
 				var target = file_text_read_real(file);
 				file_text_close(file);
-				SlideTransition(TRANS_MODE.GOTO,target);
+				TransitionStart(target,sqFadeOut,sqFadeIn);
 			}
 		}
 		break;
-		case 0: SlideTransition(TRANS_MODE.QUIT); break;
+		case 0: TransitionStart(rBlank,sqFadeOut,sqEnd); break;
 	}
 }
