@@ -1176,8 +1176,8 @@ enum firemodetypes
 		#endregion
 
 		#region Ammo
-			ds_map_add(weapons[weapontype],"primaryammo",18);
-			ds_map_add(weapons[weapontype],"primaryreservedammo",82);
+			ds_map_add(weapons[weapontype],"primaryammo",6);
+			ds_map_add(weapons[weapontype],"primaryreservedammo",12);
 			ds_map_add(weapons[weapontype],"primaryammospent",1);
 			
 			ds_map_add(weapons[weapontype],"secondaryammo",0); //-1 means use primary ammo
