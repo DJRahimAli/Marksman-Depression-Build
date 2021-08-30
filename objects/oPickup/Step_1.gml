@@ -21,7 +21,7 @@ if (place_meeting(x,y,oPlayer))
 				currentswitchdelay = switchdelay;
 				currentprimaryammo[weapontypes.pistol] += primaryammo;
 				currentprimaryreservedammo[weapontypes.pistol] += primaryreservedammo;
-				currentsecondaryammo[weapontypes.pistol] = secondaryammo;
+				currentsecondaryammo[weapontypes.pistol] += secondaryammo;
 			}
 			instance_destroy();
 		break;
