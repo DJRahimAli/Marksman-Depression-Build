@@ -70,7 +70,20 @@ switch (animstate)
 	sprite_index = currentsprite;
 	image_speed = spritestartupspeed;
 	break;
-	case animstates.reload: break;
+	case animstates.reload:
+	if (aimside == -1)
+	{
+		currentsprite = spritereloadleft;
+		oArm.currentsprite = armspritereloadleft;
+	}
+	if (aimside == 1)
+	{
+		currentsprite = spritereloadright;
+		oArm.currentsprite = armspritereloadright;
+	}
+	sprite_index = currentsprite;
+	image_speed = spritereloadspeed;
+	break;
 	case animstates.empty:
 	if (aimside == -1)
 	{
