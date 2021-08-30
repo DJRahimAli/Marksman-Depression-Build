@@ -1,6 +1,7 @@
 switch (pickuptype)
 {
 	case pickuptypes.pistol: sprite = sWeaponPistolRight; break;
+	case pickuptypes.shotgun: sprite = sWeaponShotgunRight; break;
 }
 
 if (sprite != -1)

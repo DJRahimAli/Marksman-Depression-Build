@@ -180,6 +180,8 @@ enum firemodetypes
 		#region Delay
 			ds_map_add(weapons[weapontype],"switchdelay",20);
 			
+			ds_map_add(weapons[weapontype],"reloaddelay",0);
+			
 			ds_map_add(weapons[weapontype],"primarystartup",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmin",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmax",0);
@@ -674,6 +676,8 @@ enum firemodetypes
 		#region Delay
 			ds_map_add(weapons[weapontype],"switchdelay",20);
 			
+			ds_map_add(weapons[weapontype],"reloaddelay",50);
+			
 			ds_map_add(weapons[weapontype],"primarystartup",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmin",10);
 			ds_map_add(weapons[weapontype],"primarycooldownmax",12);
@@ -685,7 +689,7 @@ enum firemodetypes
 
 		#region Ammo
 			ds_map_add(weapons[weapontype],"primaryammo",18);
-			ds_map_add(weapons[weapontype],"primaryreservedammo",72);
+			ds_map_add(weapons[weapontype],"primaryreservedammo",82);
 			ds_map_add(weapons[weapontype],"primaryammospent",1);
 			
 			ds_map_add(weapons[weapontype],"secondaryammo",-1); //-1 means use primary ammo
@@ -1064,7 +1068,7 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"spritestartupleft",-1);
 				
-				ds_map_add(weapons[weapontype],"spritereloadleft",-1);
+				ds_map_add(weapons[weapontype],"spritereloadleft",sWeaponShotgunReloadLeft);
 				
 				ds_map_add(weapons[weapontype],"spriteemptyleft",sWeaponShotgunLeft);
 			#endregion
@@ -1079,7 +1083,7 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"spritestartupright",-1);
 				
-				ds_map_add(weapons[weapontype],"spritereloadright",-1);
+				ds_map_add(weapons[weapontype],"spritereloadright",sWeaponShotgunReloadRight);
 				
 				ds_map_add(weapons[weapontype],"spriteemptyright",sWeaponShotgunRight);
 			#endregion
@@ -1094,7 +1098,7 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"armspritestartupleft",-1);
 				
-				ds_map_add(weapons[weapontype],"armspritereloadleft",-1);
+				ds_map_add(weapons[weapontype],"armspritereloadleft",sArmShotgunReloadLeft);
 				
 				ds_map_add(weapons[weapontype],"armspriteemptyleft",sArmShotgunRight);
 			#endregion
@@ -1109,7 +1113,7 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"armspritestartupright",-1);
 				
-				ds_map_add(weapons[weapontype],"armspritereloadright",-1);
+				ds_map_add(weapons[weapontype],"armspritereloadright",sArmShotgunReloadRight);
 				
 				ds_map_add(weapons[weapontype],"armspriteemptyright",sArmShotgunRight);
 			#endregion
@@ -1160,6 +1164,8 @@ enum firemodetypes
 		#region Delay
 			ds_map_add(weapons[weapontype],"switchdelay",20);
 			
+			ds_map_add(weapons[weapontype],"reloaddelay",50);
+			
 			ds_map_add(weapons[weapontype],"primarystartup",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmin",44);
 			ds_map_add(weapons[weapontype],"primarycooldownmax",46);
@@ -1171,7 +1177,7 @@ enum firemodetypes
 
 		#region Ammo
 			ds_map_add(weapons[weapontype],"primaryammo",18);
-			ds_map_add(weapons[weapontype],"primaryreservedammo",72);
+			ds_map_add(weapons[weapontype],"primaryreservedammo",82);
 			ds_map_add(weapons[weapontype],"primaryammospent",1);
 			
 			ds_map_add(weapons[weapontype],"secondaryammo",0); //-1 means use primary ammo
@@ -1697,6 +1703,7 @@ lastxoffset = 0;
 lastyoffset = 0;
 primaryattack = false;
 secondaryattack = false;
+reloading = false;
 
 //currentprimaryammo = -1; is infinite ammo
 currentprimaryammo[array_length(weapons)-1] = 0; // Default Primary ammo
@@ -1718,6 +1725,7 @@ currentdistance = 0;
 currentswitchdelay = 0;
 currentattacktype = 0;
 currentfiremodetype = 0;
+currentreloaddelay = 0;
 
 SetWeapon(weapontypes.unarmed);
 

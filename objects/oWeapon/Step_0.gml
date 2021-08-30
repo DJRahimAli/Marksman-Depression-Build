@@ -112,7 +112,7 @@ else
 if (xfollowspeed != 0) x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 if (yfollowspeed != 0) y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
-if (place_meeting_ext(x,y,[oWall,oBulletWall])) stopattack = true;
+if (place_meeting_ext(x,y,[oWall,oBulletWall])) || (reloading == true) stopattack = true;
 
 //if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
@@ -585,7 +585,26 @@ if (attacktype == 1)//Secondary Fire
 	}
 }
 
+if (global.key_reload_pressed) && (currentcd == 0) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0)
+{
+	reloading = true;
+	currentreloaddelay = reloaddelay;
+	animationplaying = true;
+	if (spritereloadlooping) animationlooping = true; else animationlooping = false;
+	animstate = animstates.reload;
+}
+
+if (currentreloaddelay == 0) && (reloading == true)
+{
+	reloading = false;
+	currentprimaryreservedammo[weapon] += currentprimaryammo[weapon];
+	currentprimaryammo[weapon] = min(primaryammo,currentprimaryreservedammo[weapon]);
+	currentprimaryreservedammo[weapon] -= currentprimaryammo[weapon];
+}
+
 if (!animationplaying) && (!animationlooping) animstate = animstates.idle;
+
+currentreloaddelay = max(0,currentreloaddelay-1);
 
 currentdelay = max(-1,currentdelay-1);
 if (currentdelay == -1) currentcd = max(0,currentcd-1);

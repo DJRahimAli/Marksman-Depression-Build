@@ -145,18 +145,18 @@ function SetWeapon(argument0)
 		
 		#region Delay
 			switchdelay = wp_map[? "switchdelay"];
-			#region Primary
-				primarystartup = wp_map[? "primarystartup"];
-				
-				primarycooldownmin = wp_map[? "primarycooldownmin"];
-				primarycooldownmax = wp_map[? "primarycooldownmax"];
-			#endregion
-			#region Secondary
-				secondarystartup = wp_map[? "secondarystartup"];
-				
-				secondarycooldownmin = wp_map[? "secondarycooldownmin"];
-				secondarycooldownmax = wp_map[? "secondarycooldownmax"];
-			#endregion
+			
+			reloaddelay = wp_map[? "reloaddelay"];
+			
+			primarystartup = wp_map[? "primarystartup"];
+			
+			primarycooldownmin = wp_map[? "primarycooldownmin"];
+			primarycooldownmax = wp_map[? "primarycooldownmax"];
+			
+			secondarystartup = wp_map[? "secondarystartup"];
+			
+			secondarycooldownmin = wp_map[? "secondarycooldownmin"];
+			secondarycooldownmax = wp_map[? "secondarycooldownmax"];
 		#endregion
 		
 		#region Ammo
@@ -505,6 +505,7 @@ function SetWeapon(argument0)
 		#endregion
 	#endregion
 	
+	currentreloaddelay = 0;
 	currentcd = 0;
 	currentdelay = -1;
 	if (oPlayer.crouch)

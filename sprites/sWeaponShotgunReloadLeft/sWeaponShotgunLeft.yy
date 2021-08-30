@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"9880ac04-eefc-4350-9994-48507f49ef43","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9880ac04-eefc-4350-9994-48507f49ef43","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},"LayerId":{"name":"32c37307-7634-4da9-a7a1-9a2d9373b90c","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sWeaponShotgunRight","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},"resourceVersion":"1.0","name":"9880ac04-eefc-4350-9994-48507f49ef43","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7a6c9612-127d-4268-a1a4-3754871b884a","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7a6c9612-127d-4268-a1a4-3754871b884a","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},"LayerId":{"name":"f2d688ae-d09b-49fc-af83-7854c8c995d1","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sWeaponShotgunLeft","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},"resourceVersion":"1.0","name":"7a6c9612-127d-4268-a1a4-3754871b884a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sWeaponShotgunRight","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},
+    "spriteId": {"name":"sWeaponShotgunLeft","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0a0af6ba-f74c-48b3-bb07-64c85ec5ef9e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9880ac04-eefc-4350-9994-48507f49ef43","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"293e8def-be04-4943-a9cd-c3a234729af6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7a6c9612-127d-4268-a1a4-3754871b884a","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,22 +58,22 @@
     "yorigin": 3,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sWeaponShotgunRight","path":"sprites/sWeaponShotgunRight/sWeaponShotgunRight.yy",},
+    "parent": {"name":"sWeaponShotgunLeft","path":"sprites/sWeaponShotgunLeft/sWeaponShotgunLeft.yy",},
     "resourceVersion": "1.3",
-    "name": "sWeaponShotgunRight",
+    "name": "sWeaponShotgunLeft",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"32c37307-7634-4da9-a7a1-9a2d9373b90c","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f2d688ae-d09b-49fc-af83-7854c8c995d1","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Right",
-    "path": "folders/Sprites/Weapons/Shotgun/Right.yy",
+    "name": "Left",
+    "path": "folders/Sprites/Weapons/Shotgun/Left.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sWeaponShotgunRight",
+  "name": "sWeaponShotgunLeft",
   "tags": [],
   "resourceType": "GMSprite",
 }
