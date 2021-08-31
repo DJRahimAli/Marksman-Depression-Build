@@ -20,12 +20,6 @@ enum weapontypes
 	smg
 }
 
-enum aimsidetypes
-{
-	movedirection,
-	weapondirection
-}
-
 enum firemodetypes
 {
 	single,
@@ -34,6 +28,18 @@ enum firemodetypes
 	burstautomatic,
 	pumpsingle,
 	pumpautomatic
+}
+
+enum reloadtypes
+{
+	magazine,
+	shell
+}
+
+enum aimsidetypes
+{
+	movedirection,
+	weapondirection
 }
 
 #region Unarmed (0)
@@ -174,6 +180,8 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryfiremodetype",firemodetypes.single);
 			ds_map_add(weapons[weapontype],"secondaryfiremodetype",firemodetypes.single);
 			
+			ds_map_add(weapons[weapontype],"reloadtype",reloadtypes.magazine);
+			
 			ds_map_add(weapons[weapontype],"aimsidetype",aimsidetypes.movedirection);
 		#endregion
 
@@ -243,7 +251,9 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"soundstartup",-1);
 				
-				ds_map_add(weapons[weapontype],"soundreload",-1);
+				ds_map_add(weapons[weapontype],"soundreloadstart",-1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadend",-1);
 				
 				ds_map_add(weapons[weapontype],"soundempty",-1);
 			#endregion
@@ -260,8 +270,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundstartupgainmin",1);
 				ds_map_add(weapons[weapontype],"soundstartupgainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadgainmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadgainmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartgainmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadendgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendgainmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptygainmin",1);
 				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
@@ -279,8 +292,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundstartuppitchmin",1);
 				ds_map_add(weapons[weapontype],"soundstartuppitchmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadpitchmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadpitchmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptypitchmin",1);
 				ds_map_add(weapons[weapontype],"soundemptypitchmax",1);
@@ -670,6 +686,8 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryfiremodetype",firemodetypes.automatic);
 			ds_map_add(weapons[weapontype],"secondaryfiremodetype",firemodetypes.automatic);
 			
+			ds_map_add(weapons[weapontype],"reloadtype",reloadtypes.magazine);
+			
 			ds_map_add(weapons[weapontype],"aimsidetype",aimsidetypes.weapondirection);
 		#endregion
 
@@ -737,7 +755,9 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"soundstartup",-1);
 				
-				ds_map_add(weapons[weapontype],"soundreload",-1);
+				ds_map_add(weapons[weapontype],"soundreloadstart",-1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadend",-1);
 				
 				ds_map_add(weapons[weapontype],"soundempty",snd_WeaponPistolEmpty);
 			#endregion
@@ -751,8 +771,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundstartupgainmin",1);
 				ds_map_add(weapons[weapontype],"soundstartupgainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadgainmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadgainmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptygainmin",1);
 				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
@@ -767,8 +790,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundstartuppitchmin",1);
 				ds_map_add(weapons[weapontype],"soundstartuppitchmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadpitchmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadpitchmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptypitchmin",1);
 				ds_map_add(weapons[weapontype],"soundemptypitchmax",1);
@@ -1158,13 +1184,15 @@ enum firemodetypes
 			ds_map_add(weapons[weapontype],"primaryfiremodetype",firemodetypes.pumpautomatic);
 			ds_map_add(weapons[weapontype],"secondaryfiremodetype",firemodetypes.single);
 			
+			ds_map_add(weapons[weapontype],"reloadtype",reloadtypes.shell);
+			
 			ds_map_add(weapons[weapontype],"aimsidetype",aimsidetypes.weapondirection);
 		#endregion
 
 		#region Delay
 			ds_map_add(weapons[weapontype],"switchdelay",20);
 			
-			ds_map_add(weapons[weapontype],"reloaddelay",50);
+			ds_map_add(weapons[weapontype],"reloaddelay",30);
 			
 			ds_map_add(weapons[weapontype],"primarystartup",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmin",44);
@@ -1227,7 +1255,9 @@ enum firemodetypes
 				
 				ds_map_add(weapons[weapontype],"soundstartup",-1);
 				
-				ds_map_add(weapons[weapontype],"soundreload",-1);
+				ds_map_add(weapons[weapontype],"soundreloadstart",-1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadend",snd_WeaponShotgunReloadEnd);
 				
 				ds_map_add(weapons[weapontype],"soundempty",snd_WeaponPistolEmpty);
 			#endregion
@@ -1244,8 +1274,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundstartupgainmin",1);
 				ds_map_add(weapons[weapontype],"soundstartupgainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadgainmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadgainmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartgainmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadendgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendgainmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptygainmin",1);
 				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
@@ -1263,8 +1296,11 @@ enum firemodetypes
 				ds_map_add(weapons[weapontype],"soundstartuppitchmin",1);
 				ds_map_add(weapons[weapontype],"soundstartuppitchmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadpitchmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadpitchmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartpitchmax",1);
+				
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendpitchmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptypitchmin",1);
 				ds_map_add(weapons[weapontype],"soundemptypitchmax",1);
