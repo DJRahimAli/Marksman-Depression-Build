@@ -140,6 +140,8 @@ function SetWeapon(argument0)
 			primaryfiremodetype = wp_map[? "primaryfiremodetype"];
 			secondaryfiremodetype = wp_map[? "secondaryfiremodetype"];
 			
+			reloadtype = wp_map[? "reloadtype"];
+			
 			aimsidetype = wp_map[? "aimsidetype"];
 		#endregion
 		
@@ -217,7 +219,9 @@ function SetWeapon(argument0)
 				
 				soundstartup = wp_map[? "soundstartup"];
 				
-				soundreload = wp_map[? "soundreload"];
+				soundreloadstart = wp_map[? "soundreloadstart"];
+				
+				soundreloadend = wp_map[? "soundreloadend"];
 				
 				soundempty = wp_map[? "soundempty"];
 			#endregion
@@ -234,8 +238,11 @@ function SetWeapon(argument0)
 				soundstartupgainmin = wp_map[? "soundstartupgainmin"];
 				soundstartupgainmax = wp_map[? "soundstartupgainmax"];
 				
-				soundsecondarygainmin = wp_map[? "soundsecondarygainmin"];
-				soundsecondarygainmax = wp_map[? "soundsecondarygainmax"];
+				soundreloadstartgainmin = wp_map[? "soundreloadstartgainmin"];
+				soundreloadstartgainmax = wp_map[? "soundreloadstartgainmax"];
+				
+				soundreloadendgainmin = wp_map[? "soundreloadendgainmin"];
+				soundreloadendgainmax = wp_map[? "soundreloadendgainmax"];
 				
 				soundemptygainmin = wp_map[? "soundemptygainmin"];
 				soundemptygainmax = wp_map[? "soundemptygainmax"];
@@ -250,8 +257,11 @@ function SetWeapon(argument0)
 				soundpumppitchmin = wp_map[? "soundpumppitchmin"];
 				soundpumppitchmax = wp_map[? "soundpumppitchmax"];
 				
-				soundstartuppitchmin = wp_map[? "soundstartuppitchmin"];
-				soundstartuppitchmax = wp_map[? "soundstartuppitchmax"];
+				soundreloadstartpitchmin = wp_map[? "soundreloadstartpitchmin"];
+				soundreloadstartpitchmax = wp_map[? "soundreloadstartpitchmax"];
+				
+				soundreloadendpitchmin = wp_map[? "soundreloadendpitchmin"];
+				soundreloadendpitchmax = wp_map[? "soundreloadendpitchmax"];
 				
 				soundsecondarypitchmin = wp_map[? "soundsecondarypitchmin"];
 				soundsecondarypitchmax = wp_map[? "soundsecondarypitchmax"];

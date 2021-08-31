@@ -589,6 +589,7 @@ if (attacktype == 1)//Secondary Fire
 	}
 }
 
+//Reload Start
 if (global.key_reload_pressed) && (currentcd == 0) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0)
 {
 	reloading = true;
@@ -596,14 +597,20 @@ if (global.key_reload_pressed) && (currentcd == 0) && (currentreloaddelay == 0) 
 	animationplaying = true;
 	if (spritereloadlooping) animationlooping = true; else animationlooping = false;
 	animstate = animstates.reload;
+	audio_sound_gain(soundreloadstart,random_range(soundreloadstartgainmin,soundreloadstartgainmax),0);
+	audio_sound_pitch(audio_play_sound(soundreloadstart,5,false),(random_range(soundreloadstartpitchmin,soundreloadstartpitchmax)));
 }
 
+
+//Reload End
 if (currentreloaddelay == 0) && (reloading == true)
 {
 	reloading = false;
 	currentprimaryreservedammo[weapon] += currentprimaryammo[weapon];
 	currentprimaryammo[weapon] = min(primaryammo,currentprimaryreservedammo[weapon]);
 	currentprimaryreservedammo[weapon] -= currentprimaryammo[weapon];
+	audio_sound_gain(soundreloadend,random_range(soundreloadendgainmin,soundreloadendgainmax),0);
+	audio_sound_pitch(audio_play_sound(soundreloadend,5,false),(random_range(soundreloadendpitchmin,soundreloadendpitchmax)));
 }
 
 if (!animationplaying) && (!animationlooping) animstate = animstates.idle;

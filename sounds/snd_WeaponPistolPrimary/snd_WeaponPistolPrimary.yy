@@ -11,7 +11,7 @@
     "path": "audiogroups/agSfx",
   },
   "soundFile": "snd_WeaponPistolPrimary.wav",
-  "duration": 0.372,
+  "duration": 0.367,
   "parent": {
     "name": "Pistol",
     "path": "folders/Sounds/Weapons/Pistol.yy",
