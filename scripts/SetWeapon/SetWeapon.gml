@@ -516,6 +516,8 @@ function SetWeapon(argument0)
 	#endregion
 	
 	currentreloaddelay = 0;
+	reloading = false;
+	
 	currentcd = 0;
 	currentdelay = -1;
 	if (oPlayer.crouch)
