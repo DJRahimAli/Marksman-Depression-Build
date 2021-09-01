@@ -19,9 +19,14 @@ if (place_meeting(x,y,oPlayer))
 				}
 				SetWeapon(weapontypes.pistol);
 				currentswitchdelay = switchdelay;
+				
 				currentprimaryammo[weapontypes.pistol] += primaryammo;
 				currentprimaryreservedammo[weapontypes.pistol] += primaryreservedammo;
 				currentsecondaryammo[weapontypes.pistol] += secondaryammo;
+				
+				currentprimaryammo[weapontypes.pistol] = clamp(currentprimaryammo[weapontypes.pistol],0,primaryammo);
+				currentprimaryreservedammo[weapontypes.pistol] = clamp(currentprimaryreservedammo[weapontypes.pistol],0,primaryreservedammo);
+				currentsecondaryammo[weapontypes.pistol] = clamp(currentsecondaryammo[weapontypes.pistol],0,secondaryammo);
 			}
 			instance_destroy();
 		break;
@@ -42,9 +47,14 @@ if (place_meeting(x,y,oPlayer))
 				}
 				SetWeapon(weapontypes.shotgun);
 				currentswitchdelay = switchdelay;
+				
 				currentprimaryammo[weapontypes.shotgun] += primaryammo;
 				currentprimaryreservedammo[weapontypes.shotgun] += primaryreservedammo;
 				currentsecondaryammo[weapontypes.shotgun] += secondaryammo;
+				
+				currentprimaryammo[weapontypes.shotgun] = clamp(currentprimaryammo[weapontypes.shotgun],0,primaryammo);
+				currentprimaryreservedammo[weapontypes.shotgun] = clamp(currentprimaryreservedammo[weapontypes.shotgun],0,primaryreservedammo);
+				currentsecondaryammo[weapontypes.shotgun] = clamp(currentsecondaryammo[weapontypes.shotgun],0,secondaryammo);
 			}
 			instance_destroy();
 		break;
