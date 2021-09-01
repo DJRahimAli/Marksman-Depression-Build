@@ -606,9 +606,13 @@ if (global.key_reload_pressed) && (currentcd == 0) && (currentreloaddelay == 0) 
 if (currentreloaddelay == 0) && (reloading == true)
 {
 	reloading = false;
+	
 	currentprimaryreservedammo[weapon] += currentprimaryammo[weapon];
+	
 	currentprimaryammo[weapon] = min(primaryammo,currentprimaryreservedammo[weapon]);
+	
 	currentprimaryreservedammo[weapon] -= currentprimaryammo[weapon];
+	
 	audio_sound_gain(soundreloadend,random_range(soundreloadendgainmin,soundreloadendgainmax),0);
 	audio_sound_pitch(audio_play_sound(soundreloadend,5,false),(random_range(soundreloadendpitchmin,soundreloadendpitchmax)));
 }
