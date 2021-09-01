@@ -771,11 +771,11 @@ enum aimsidetypes
 				ds_map_add(weapons[weapontype],"soundstartupgainmin",1);
 				ds_map_add(weapons[weapontype],"soundstartupgainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadstartpitchmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadstartpitchmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadstartgainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadendpitchmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadendpitchmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadendgainmin",1);
+				ds_map_add(weapons[weapontype],"soundreloadendgainmax",1);
 				
 				ds_map_add(weapons[weapontype],"soundemptygainmin",1);
 				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
