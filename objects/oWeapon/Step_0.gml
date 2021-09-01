@@ -116,10 +116,6 @@ if (place_meeting_ext(x,y,[oWall,oBulletWall])) || (reloading == true) stopattac
 
 //if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
-currentprimaryammo[weapon] = clamp(currentprimaryammo[weapon],0,primaryammo);
-currentprimaryreservedammo[weapon] = clamp(currentprimaryreservedammo[weapon],0,primaryreservedammo);
-currentsecondaryammo[weapon] = clamp(currentsecondaryammo[weapon],0,secondaryammo);
-
 //Firemodes
 if (global.hascontrol && !stopattack)
 {
