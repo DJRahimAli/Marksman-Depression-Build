@@ -1192,7 +1192,7 @@ enum aimsidetypes
 		#region Delay
 			ds_map_add(weapons[weapontype],"switchdelay",20);
 			
-			ds_map_add(weapons[weapontype],"reloaddelay",28);
+			ds_map_add(weapons[weapontype],"reloaddelay",20);
 			
 			ds_map_add(weapons[weapontype],"primarystartup",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmin",44);
