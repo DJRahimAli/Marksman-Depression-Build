@@ -56,8 +56,8 @@ enum aimsidetypes
 			ds_map_add(weapons[weapontype],"xscale",1);
 			ds_map_add(weapons[weapontype],"yscale",1);
 		
-			ds_map_add(weapons[weapontype],"xfollowspeed",0);
-			ds_map_add(weapons[weapontype],"yfollowspeed",0);
+			ds_map_add(weapons[weapontype],"xfollowspeed",1);
+			ds_map_add(weapons[weapontype],"yfollowspeed",1);
 		
 			ds_map_add(weapons[weapontype],"primaryrecoilmin",0);
 			ds_map_add(weapons[weapontype],"primaryrecoilmax",0);
@@ -1277,8 +1277,8 @@ enum aimsidetypes
 				ds_map_add(weapons[weapontype],"soundreloadstartgainmin",1);
 				ds_map_add(weapons[weapontype],"soundreloadstartgainmax",1);
 				
-				ds_map_add(weapons[weapontype],"soundreloadendgainmin",1);
-				ds_map_add(weapons[weapontype],"soundreloadendgainmax",1);
+				ds_map_add(weapons[weapontype],"soundreloadendgainmin",0.2);
+				ds_map_add(weapons[weapontype],"soundreloadendgainmax",0.2);
 				
 				ds_map_add(weapons[weapontype],"soundemptygainmin",1);
 				ds_map_add(weapons[weapontype],"soundemptygainmax",1);
