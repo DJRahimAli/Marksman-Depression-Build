@@ -628,8 +628,6 @@ if (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentpri
 	
 	currentreloaddelay = reloaddelay;
 	
-	if (currentprimaryammo[weapon] < primaryammo) reloadloop = true; else reloadloop = false;
-	
 	image_index = 0;
 	animationplaying = true;
 	if (spritereloadlooping) animationlooping = true; else animationlooping = false;
