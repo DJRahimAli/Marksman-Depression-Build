@@ -317,13 +317,13 @@ else
 		{
 			if (!crouch) && (!global.noclip)
 			{
-				image_speed = clamp(abs(hsp)/walksp,0.2,1);
+				image_speed = clamp(abs(hsp)/currentwalksp,0.2,1);
 				sprite_index = sPlayerR;
 				//if (aimside != sign(hsp)) sprite_index = sPlayerRB;
 			}
 			else
 			{
-				image_speed = clamp(abs(hsp)/walkspcrouch,0.2,1);
+				image_speed = clamp(abs(hsp)/currentwalksp,0.2,1);
 				sprite_index = sPlayerRC;
 				//if (aimside != sign(hsp)) sprite_index = sPlayerRBC;
 			}
