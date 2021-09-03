@@ -24,9 +24,6 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"d796883a-6fd2-4eff-9648-1a9904e554ac","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d796883a-6fd2-4eff-9648-1a9904e554ac","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"LayerId":{"name":"d107db0e-788e-427c-aa2d-3f7175c9fc8b","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sWeaponShotgunReloadRight","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","name":"d796883a-6fd2-4eff-9648-1a9904e554ac","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"e613add1-ab84-43a3-8b5e-d1765e8dabc8","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"e613add1-ab84-43a3-8b5e-d1765e8dabc8","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"LayerId":{"name":"d107db0e-788e-427c-aa2d-3f7175c9fc8b","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sWeaponShotgunReloadRight","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","name":"e613add1-ab84-43a3-8b5e-d1765e8dabc8","tags":[],"resourceType":"GMSpriteFrame",},
@@ -45,15 +42,14 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 4.0,
+    "length": 3.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1c374eb7-abec-4e85-8833-13a8108875cc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d796883a-6fd2-4eff-9648-1a9904e554ac","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"afb6316d-0fd8-4162-aa1b-79d09297ead8","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e613add1-ab84-43a3-8b5e-d1765e8dabc8","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"4c8ae6a0-2b20-4d05-9605-1388b4195a5b","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f877a03c-4879-41ee-b851-af3100037d82","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"20d14afe-d569-474a-a04c-39bdd1f914dd","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"99f979d3-6eb4-47b4-818a-5fe073425b12","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"afb6316d-0fd8-4162-aa1b-79d09297ead8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e613add1-ab84-43a3-8b5e-d1765e8dabc8","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4c8ae6a0-2b20-4d05-9605-1388b4195a5b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f877a03c-4879-41ee-b851-af3100037d82","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"20d14afe-d569-474a-a04c-39bdd1f914dd","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"99f979d3-6eb4-47b4-818a-5fe073425b12","path":"sprites/sWeaponShotgunReloadRight/sWeaponShotgunReloadRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
