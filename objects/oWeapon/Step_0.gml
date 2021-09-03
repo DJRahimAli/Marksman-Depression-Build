@@ -112,7 +112,7 @@ else
 if (xfollowspeed != 0) x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 if (yfollowspeed != 0) y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
-if (place_meeting_ext(x,y,[oWall,oBulletWall])) stopattack = true;
+if (place_meeting_ext(x,y,[oWall,oBulletWall])) || (currentreloaddelay != -2) stopattack = true;
 
 //if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
@@ -585,19 +585,10 @@ if (attacktype == 1)//Secondary Fire
 	}
 }
 
-//Cancel Reloading
-if (attacktype != 0)
-{
-	stopreload = true;
-	reloading = false;
-	reloadloop = false;
-	//currentreloaddelay = 0;
-}
-
 //Mag Reload Start
-if (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (stopreload == false) && (global.key_reload_pressed)
+if (reloadtype == reloadtypes.magazine) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (global.key_reload_pressed)
 //Auto Reloading
-|| (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (stopreload == false)
+|| (reloadtype == reloadtypes.magazine) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false)
 {
 	reloading = true;
 	
@@ -612,7 +603,7 @@ if (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (current
 }
 
 //Mag Reload End
-if (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (reloading == true) && (stopreload == false)
+if (reloadtype == reloadtypes.magazine) && (currentreloaddelay <= 0) && (reloading == true)
 {
 	reloading = false;
 	
@@ -627,17 +618,17 @@ if (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (reloadi
 }
 
 //Shell Reload Start
-if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false) && (stopreload == false) && (global.key_reload_pressed)
+if (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (global.key_reload_pressed)
 //Reload Loop
-|| (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == true) && (stopreload == false)
+|| (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == true)
 //Auto Reloading
-|| (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false) && (stopreload == false)
+|| (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false)
 {
 	reloading = true;
 	
 	currentreloaddelay = reloaddelay;
 	
-	if (currentprimaryammo[weapon] != primaryammo) && (attacktype == 0) reloadloop = true; else reloadloop = false;
+	if (currentprimaryammo[weapon] < primaryammo) reloadloop = true; else reloadloop = false;
 	
 	image_index = 0;
 	animationplaying = true;
@@ -649,7 +640,7 @@ if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentpri
 }
 
 //Shell Reload End
-if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (reloading == true) && (stopreload == false)
+if (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (reloading == true)
 {
 	reloading = false;
 	
@@ -657,7 +648,7 @@ if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (reloading 
 	
 	currentprimaryreservedammo[weapon]--;
 	
-	if (currentprimaryammo[weapon] != primaryammo) && (attacktype == 0) reloadloop = true; else reloadloop = false;
+	if (currentprimaryammo[weapon] < primaryammo) reloadloop = true; else reloadloop = false;
 	
 	audio_sound_gain(soundreloadend,random_range(soundreloadendgainmin,soundreloadendgainmax),0);
 	audio_sound_pitch(audio_play_sound(soundreloadend,5,false),(random_range(soundreloadendpitchmin,soundreloadendpitchmax)));
@@ -665,7 +656,7 @@ if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (reloading 
 
 if (!animationplaying) && (!animationlooping) animstate = animstates.idle;
 
-currentreloaddelay = max(0,currentreloaddelay-1);
+currentreloaddelay = max(-2,currentreloaddelay-1);
 
 currentdelay = max(-1,currentdelay-1);
 if (currentdelay == -1) currentcd = max(0,currentcd-1);
