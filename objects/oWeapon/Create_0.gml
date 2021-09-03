@@ -1192,7 +1192,7 @@ enum aimsidetypes
 		#region Delay
 			ds_map_add(weapons[weapontype],"switchdelay",20);
 			
-			ds_map_add(weapons[weapontype],"reloaddelay",30);
+			ds_map_add(weapons[weapontype],"reloaddelay",28);
 			
 			ds_map_add(weapons[weapontype],"primarystartup",0);
 			ds_map_add(weapons[weapontype],"primarycooldownmin",44);
@@ -1205,7 +1205,7 @@ enum aimsidetypes
 
 		#region Ammo
 			ds_map_add(weapons[weapontype],"primaryammo",6);
-			ds_map_add(weapons[weapontype],"primaryreservedammo",12);
+			ds_map_add(weapons[weapontype],"primaryreservedammo",24);
 			ds_map_add(weapons[weapontype],"primaryammospent",1);
 			
 			ds_map_add(weapons[weapontype],"secondaryammo",0); //-1 means use primary ammo
@@ -1741,7 +1741,6 @@ primaryattack = false;
 secondaryattack = false;
 reloading = false;
 reloadloop = false;
-stopreload = false;
 
 //currentprimaryammo = -1; is infinite ammo
 currentprimaryammo[array_length(weapons)-1] = 0; // Default Primary ammo
@@ -1763,7 +1762,6 @@ currentdistance = 0;
 currentswitchdelay = 0;
 currentattacktype = 0;
 currentfiremodetype = 0;
-currentreloaddelay = 0;
 
 SetWeapon(weapontypes.unarmed);
 

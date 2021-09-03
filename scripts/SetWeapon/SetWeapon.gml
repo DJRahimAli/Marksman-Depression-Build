@@ -515,7 +515,7 @@ function SetWeapon(argument0)
 		#endregion
 	#endregion
 	
-	currentreloaddelay = 0;
+	currentreloaddelay = -2;
 	reloading = false;
 	
 	currentcd = 0;
