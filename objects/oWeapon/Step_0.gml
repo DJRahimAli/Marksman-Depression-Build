@@ -112,7 +112,7 @@ else
 if (xfollowspeed != 0) x += lengthdir_x(currentdistance-currentrecoil,image_angle);
 if (yfollowspeed != 0) y += lengthdir_y(currentdistance-currentrecoil,image_angle);
 
-if (place_meeting_ext(x,y,[oWall,oBulletWall])) || (reloading == true) stopattack = true;
+if (place_meeting_ext(x,y,[oWall,oBulletWall])) stopattack = true;
 
 //if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
@@ -585,21 +585,34 @@ if (attacktype == 1)//Secondary Fire
 	}
 }
 
-//Reload Start
-if (global.key_reload_pressed) && (currentcd == 0) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0)
+//Cancel Reloading
+if (attacktype != 0)
+{
+	stopreload = true;
+	reloading = false;
+	reloadloop = false;
+	//currentreloaddelay = 0;
+}
+
+//Mag Reload Start
+if (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (stopreload == false) && (global.key_reload_pressed)
+//Auto Reloading
+|| (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (stopreload == false)
 {
 	reloading = true;
+	
 	currentreloaddelay = reloaddelay;
+	
 	animationplaying = true;
 	if (spritereloadlooping) animationlooping = true; else animationlooping = false;
 	animstate = animstates.reload;
+	
 	audio_sound_gain(soundreloadstart,random_range(soundreloadstartgainmin,soundreloadstartgainmax),0);
 	audio_sound_pitch(audio_play_sound(soundreloadstart,5,false),(random_range(soundreloadstartpitchmin,soundreloadstartpitchmax)));
 }
 
-
-//Reload End
-if (currentreloaddelay == 0) && (reloading == true)
+//Mag Reload End
+if (reloadtype == reloadtypes.magazine) && (currentreloaddelay == 0) && (reloading == true) && (stopreload == false)
 {
 	reloading = false;
 	
@@ -608,6 +621,43 @@ if (currentreloaddelay == 0) && (reloading == true)
 	currentprimaryammo[weapon] = min(primaryammo,currentprimaryreservedammo[weapon]);
 	
 	currentprimaryreservedammo[weapon] -= currentprimaryammo[weapon];
+	
+	audio_sound_gain(soundreloadend,random_range(soundreloadendgainmin,soundreloadendgainmax),0);
+	audio_sound_pitch(audio_play_sound(soundreloadend,5,false),(random_range(soundreloadendpitchmin,soundreloadendpitchmax)));
+}
+
+//Shell Reload Start
+if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false) && (stopreload == false) && (global.key_reload_pressed)
+//Reload Loop
+|| (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == true) && (stopreload == false)
+//Auto Reloading
+|| (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false) && (stopreload == false)
+{
+	reloading = true;
+	
+	currentreloaddelay = reloaddelay;
+	
+	if (currentprimaryammo[weapon] != primaryammo) && (attacktype == 0) reloadloop = true; else reloadloop = false;
+	
+	image_index = 0;
+	animationplaying = true;
+	if (spritereloadlooping) animationlooping = true; else animationlooping = false;
+	animstate = animstates.reload;
+	
+	audio_sound_gain(soundreloadstart,random_range(soundreloadstartgainmin,soundreloadstartgainmax),0);
+	audio_sound_pitch(audio_play_sound(snd_Death,5,false),(random_range(soundreloadstartpitchmin,soundreloadstartpitchmax)));
+}
+
+//Shell Reload End
+if (reloadtype == reloadtypes.shell) && (currentreloaddelay == 0) && (reloading == true) && (stopreload == false)
+{
+	reloading = false;
+	
+	currentprimaryammo[weapon]++;
+	
+	currentprimaryreservedammo[weapon]--;
+	
+	if (currentprimaryammo[weapon] != primaryammo) && (attacktype == 0) reloadloop = true; else reloadloop = false;
 	
 	audio_sound_gain(soundreloadend,random_range(soundreloadendgainmin,soundreloadendgainmax),0);
 	audio_sound_pitch(audio_play_sound(soundreloadend,5,false),(random_range(soundreloadendpitchmin,soundreloadendpitchmax)));
