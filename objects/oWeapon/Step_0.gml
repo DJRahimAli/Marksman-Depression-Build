@@ -634,7 +634,7 @@ if (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentpri
 	animstate = animstates.reload;
 	
 	audio_sound_gain(soundreloadstart,random_range(soundreloadstartgainmin,soundreloadstartgainmax),0);
-	audio_sound_pitch(audio_play_sound(snd_Death,5,false),(random_range(soundreloadstartpitchmin,soundreloadstartpitchmax)));
+	audio_sound_pitch(audio_play_sound(soundreloadstart,5,false),(random_range(soundreloadstartpitchmin,soundreloadstartpitchmax)));
 }
 
 //Shell Reload End
