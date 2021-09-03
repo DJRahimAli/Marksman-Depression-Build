@@ -1740,6 +1740,8 @@ lastyoffset = 0;
 primaryattack = false;
 secondaryattack = false;
 reloading = false;
+reloadloop = false;
+stopreload = false;
 
 //currentprimaryammo = -1; is infinite ammo
 currentprimaryammo[array_length(weapons)-1] = 0; // Default Primary ammo
