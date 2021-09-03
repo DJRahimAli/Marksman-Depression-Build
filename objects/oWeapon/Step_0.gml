@@ -588,7 +588,7 @@ if (attacktype == 1)//Secondary Fire
 //Mag Reload Start
 if (reloadtype == reloadtypes.magazine) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (global.key_reload_pressed)
 //Auto Reloading
-|| (reloadtype == reloadtypes.magazine) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false)
+|| (reloadtype == reloadtypes.magazine) && (currentreloaddelay <= 0) && (currentcd <= 5) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false)
 {
 	reloading = true;
 	
@@ -622,7 +622,7 @@ if (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentpri
 //Reload Loop
 || (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentprimaryammo[weapon] < primaryammo) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == true)
 //Auto Reloading
-|| (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentcd == 0) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false)
+|| (reloadtype == reloadtypes.shell) && (currentreloaddelay <= 0) && (currentcd <= 5) && (currentprimaryammo[weapon] == 0) && (currentprimaryreservedammo[weapon] != 0) && (reloading == false) && (reloadloop == false)
 {
 	reloading = true;
 	
