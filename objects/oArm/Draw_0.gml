@@ -2,13 +2,20 @@ if (currentsprite != -1)
 {
 	draw_sprite_ext(
 	currentsprite,
-	oWeapon.image_index,
-	oWeapon.x,
-	oWeapon.y,
-	oWeapon.image_xscale,
-	oWeapon.image_yscale,
-	oWeapon.image_angle,
-	oWeapon.image_blend,
-	oWeapon.image_alpha
+	image_index,
+	x,
+	y,
+	image_xscale,
+	image_yscale,
+	image_angle,
+	image_blend,
+	image_alpha
 	);
+}
+
+if (oPlayer.flash > 0)
+{
+	oPlayer.flash--;
+	shader_set(shWhite);
+	shader_reset();
 }

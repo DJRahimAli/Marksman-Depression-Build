@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "sArmPistolRight",
-    "path": "sprites/sArmPistolRight/sArmPistolRight.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
