@@ -1,5 +1,12 @@
 if (currentsprite != -1) draw_self();
 
+if (oPlayer.flash > 0)
+{
+	oPlayer.flash--;
+	shader_set(shWhite);
+	shader_reset();
+}
+
 /*if (currentsprite != -1)
 {
 	draw_sprite_ext(

@@ -239,7 +239,8 @@ if (place_meeting_ext(x,y+vsp,[oWall,oCollision])) && (!global.noclip)
 y += vsp;
 
 //Player Trail
-if (moving && playertrail) instance_create_layer(x,y,"Player",oParticle);
+if (moving && playertrail)
+with (instance_create_layer(x,y,"Player",oParticle)) particletype = particletypes.player;
 
 #region Animation
 hspnodec = string_format(hsp, 0, 0);

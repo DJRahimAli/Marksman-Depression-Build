@@ -116,6 +116,18 @@ if (place_meeting_ext(x,y,[oWall,oBulletWall])) || (currentreloaddelay != -2) st
 
 //if (stopattack) image_alpha = 0.5; else image_alpha = 1;
 
+with (instance_create_layer(x,y,oPlayer.layer+1,oParticle))
+{
+	particletype = particletypes.weapon;
+	image_angle = oWeapon.image_angle;
+}
+
+with (instance_create_layer(x,y,oPlayer.layer-1,oParticle))
+{
+	particletype = particletypes.arm;
+	image_angle = oArm.image_angle;
+}
+
 //Firemodes
 if (global.hascontrol && !stopattack)
 {
