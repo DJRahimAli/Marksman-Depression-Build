@@ -240,7 +240,7 @@ y += vsp;
 
 //Player Trail
 if (moving && playertrail)
-with (instance_create_layer(x,y,"Player",oParticle)) particletype = particletypes.player;
+with (instance_create_layer(x,y,layer+1,oParticle)) particletype = particletypes.player;
 
 #region Animation
 hspnodec = string_format(hsp, 0, 0);
