@@ -1,6 +1,6 @@
 if (particletype == particletypes.weapon) || (particletype == particletypes.arm)
 {
-	if (oWeapon.currentxoffset != oWeapon.lastxoffset) instance_destroy(oParticle);
+	if (oWeapon.currentxoffset != oWeapon.lastxoffset) instance_destroy();
 }
 
 if (particlelife == 0) || (image_alpha <= 0) instance_destroy();
