@@ -20,6 +20,7 @@
     {"id":{"name":"sArmPistolPrimaryLeft","path":"sprites/sArmPistolPrimaryLeft/sArmPistolPrimaryLeft.yy",},"order":1,},
     {"id":{"name":"sSpring","path":"sprites/sSpring/sSpring.yy",},"order":15,},
     {"id":{"name":"sDPadRight","path":"sprites/sDPadRight/sDPadRight.yy",},"order":33,},
+    {"id":{"name":"Wave","path":"scripts/Wave/Wave.yy",},"order":8,},
     {"id":{"name":"sDPadDown","path":"sprites/sDPadDown/sDPadDown.yy",},"order":31,},
     {"id":{"name":"sqEnd","path":"sequences/sqEnd/sqEnd.yy",},"order":5,},
     {"id":{"name":"sEnemyR","path":"sprites/sEnemyR/sEnemyR.yy",},"order":5,},
@@ -316,7 +317,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Controls.txt","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.3.574",
+    "IDEVersion": "2.3.4.580",
   },
   "resourceVersion": "1.4",
   "name": "Marksman",
