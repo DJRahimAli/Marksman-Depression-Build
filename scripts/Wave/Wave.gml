@@ -1,4 +1,4 @@
-/// @desc wave(from, to, duration, offset)
+/// @desc Wave(from, to, duration, offset)
 /// @arg from
 /// @arg to
 /// @arg duration
