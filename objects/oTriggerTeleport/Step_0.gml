@@ -1,8 +1,8 @@
 var triggertarget = instance_place(x,y,triggerobject);
 
-if (triggertarget != noone)
+if (triggertarget != noone) && (currenttriggertimer == 0)
 {
-	with (triggertarget)
+	currenttriggertimer = triggertimer;
 	{
 		x = targetx;
 		y = targety;
