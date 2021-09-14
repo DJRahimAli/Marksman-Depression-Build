@@ -1,12 +1,12 @@
 var triggertarget = instance_place(x,y,triggerobject);
 
-if (triggertarget != noone) && (currenttriggertimer == 0)
+if (triggertarget != noone) && (currenttriggerdelay == 0)
 {
-	currenttriggertimer = triggertimer;
+	currenttriggerdelay = triggerdelay;
 	{
 		x = targetx;
 		y = targety;
 	}
 }
 
-currenttriggertimer = max(0,currenttriggertimer-1);
+currenttriggerdelay = max(0,currenttriggerdelay-1);

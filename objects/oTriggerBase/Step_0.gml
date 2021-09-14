@@ -1,10 +1,10 @@
 var triggertarget = instance_place(x,y,triggerobject);
 
-if (triggertarget != noone) && (currenttriggertimer == 0)
+if (triggertarget != noone) && (currenttriggerdelay == 0)
 {
-	currenttriggertimer = triggertimer;
+	currenttriggerdelay = triggerdelay;
 	//Do thing
-	//Example: with (target) instance_destroy();
+	//Example: with (triggertarget) instance_destroy();
 }
 
-currenttriggertimer = max(0,currenttriggertimer-1);
+currenttriggerdelay = max(0,currenttriggerdelay-1);
