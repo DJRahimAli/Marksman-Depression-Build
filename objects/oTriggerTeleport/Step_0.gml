@@ -7,8 +7,8 @@ if (triggertarget != noone) && (currenttriggerdelay == 0)
 	currenttriggerdelay = triggerdelay;
 	with (triggerteleporttarget)
 	{
-		x = targetx;
-		y = targety;
+		x = other.targetx;
+		y = other.targety;
 	}
 }
 
