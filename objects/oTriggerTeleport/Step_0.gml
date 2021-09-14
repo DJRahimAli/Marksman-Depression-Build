@@ -8,3 +8,5 @@ if (triggertarget != noone) && (currenttriggertimer == 0)
 		y = targety;
 	}
 }
+
+currenttriggertimer = max(0,currenttriggertimer-1);
