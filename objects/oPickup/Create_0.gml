@@ -11,3 +11,5 @@ vsp = 0;
 grv = 0.3;
 */
 my_angle = 0;
+drawnx = 0;
+drawny = 0;
