@@ -10,7 +10,7 @@ if (sprite != -1)
 	sprite,
 	image_index,
 	x,
-	y,
+	drawny,
 	image_xscale,
 	image_yscale,
 	my_angle,
