@@ -2,6 +2,8 @@
 
 var triggertarget = instance_place(x,y,triggerobject);
 
+if (triggertarget == noone) && (currenttriggerdelay == -1) currenttriggerdelay = 0;
+
 if (triggertarget != noone) && (currenttriggerdelay == 0)
 {
 	currenttriggerdelay = triggerdelay;
