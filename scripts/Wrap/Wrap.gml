@@ -7,6 +7,6 @@
 
 function Wrap(value, min, max)
 {
-	while (argument0 < argument1) {argument0 += argument2;}
-	return argument0 % argument2;
+	var _mod = ( argument0 - argument1 ) mod ( argument2 - argument1 );
+	if ( _mod < 0 ) return _mod + argument2 else return _mod + argument1;
 }
