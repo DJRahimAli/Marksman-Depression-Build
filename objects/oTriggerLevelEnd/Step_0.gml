@@ -11,4 +11,4 @@ if (triggertarget != noone) && (currenttriggerdelay == 0)
 	global.hascontrol = false;
 }
 
-if (currenttriggerdelay != -1) currenttriggerdelay = max(0,currenttriggerdelay-1);
+if (currenttriggerdelay >= 0) currenttriggerdelay = max(0,currenttriggerdelay-1);

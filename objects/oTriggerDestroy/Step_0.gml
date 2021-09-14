@@ -8,4 +8,4 @@ if (triggertarget != noone) && (currenttriggerdelay == 0)
 	instance_destroy(triggerdestroytarget);
 }
 
-if (currenttriggerdelay != -1) currenttriggerdelay = max(0,currenttriggerdelay-1);
+if (currenttriggerdelay >= 0) currenttriggerdelay = max(0,currenttriggerdelay-1);
