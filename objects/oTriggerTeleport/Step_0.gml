@@ -5,6 +5,7 @@ if (triggertarget == noone) && (currenttriggerdelay == -1) currenttriggerdelay =
 if (triggertarget != noone) && (currenttriggerdelay == 0)
 {
 	currenttriggerdelay = triggerdelay;
+	with (triggerteleporttarget)
 	{
 		x = targetx;
 		y = targety;
