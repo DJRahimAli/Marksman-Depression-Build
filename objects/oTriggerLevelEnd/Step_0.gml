@@ -8,3 +8,5 @@ if (triggertarget != noone) && (currenttriggertimer == 0)
 	TransitionStart(target,sqFadeOut,sqFadeIn);
 	global.hascontrol = false;
 }
+
+currenttriggertimer = max(0,currenttriggertimer-1);
