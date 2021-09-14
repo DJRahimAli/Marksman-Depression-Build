@@ -9,4 +9,4 @@ if (triggertarget != noone) && (currenttriggerdelay == 0)
 	//Example: with (triggertarget) instance_destroy();
 }
 
-if (currenttriggerdelay != -1) currenttriggerdelay = max(0,currenttriggerdelay-1);
+if (currenttriggerdelay >= 0) currenttriggerdelay = max(0,currenttriggerdelay-1);
