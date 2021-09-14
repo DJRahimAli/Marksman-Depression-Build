@@ -154,6 +154,7 @@
     {"id":{"name":"sWeaponShotgunReloadLeft","path":"sprites/sWeaponShotgunReloadLeft/sWeaponShotgunReloadLeft.yy",},"order":3,},
     {"id":{"name":"Transitions","path":"scripts/Transitions/Transitions.yy",},"order":7,},
     {"id":{"name":"sPlayerR","path":"sprites/sPlayerR/sPlayerR.yy",},"order":2,},
+    {"id":{"name":"oTriggerTeleport","path":"objects/oTriggerTeleport/oTriggerTeleport.yy",},"order":3,},
     {"id":{"name":"sDPadLeft","path":"sprites/sDPadLeft/sDPadLeft.yy",},"order":32,},
     {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},"order":0,},
     {"id":{"name":"sArmPistolLeft","path":"sprites/sArmPistolLeft/sArmPistolLeft.yy",},"order":0,},
