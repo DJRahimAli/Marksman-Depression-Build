@@ -517,6 +517,7 @@ function SetWeapon(argument0)
 	
 	currentreloaddelay = -2;
 	reloading = false;
+	reloadloop = false;
 	
 	currentcd = 0;
 	currentdelay = -1;
