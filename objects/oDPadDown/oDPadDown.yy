@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Mobile Controls",
-    "path": "folders/Objects/Mobile Controls.yy",
+    "path": "folders/Objects/Archive/Mobile Controls.yy",
   },
   "resourceVersion": "1.0",
   "name": "oDPadDown",

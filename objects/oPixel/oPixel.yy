@@ -30,7 +30,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oFade",
+  "name": "oPixel",
   "tags": [],
   "resourceType": "GMObject",
 }
