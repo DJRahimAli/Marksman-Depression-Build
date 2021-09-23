@@ -1,6 +1,6 @@
 if (done == 0)
 {
-	instance_create_layer(x,y,"Player",oParticle);
+	with (instance_create_layer(x,y,layer,oParticle)) particletype = particletypes.playerdead;
 	vsp += grv;
 
 	//Horizontal Collision
@@ -48,9 +48,9 @@ if (done && keyboard_check_pressed(vk_anykey)
 || gamepad_button_check_pressed(0,gp_padu) || gamepad_button_check_pressed(0,gp_padd) || gamepad_button_check_pressed(0,gp_padl) || gamepad_button_check_pressed(0,gp_padr)
 || gamepad_button_check_pressed(0,gp_start) || gamepad_button_check_pressed(0,gp_select))
 {
-	SlideTransition(TRANS_MODE.GOTO,room);
+	TransitionStart(room,sqFadeOut,sqFadeIn);
 	var file = file_text_open_read(SAVEFILE);
-	global.hp = file_text_read_real(file);
+	currenthp = file_text_read_real(file);
 	file_text_close(file);
 	global.levelchanging = false;
 	global.hasweapon = false;

@@ -5,7 +5,8 @@ if (place_meeting(x,y,oPlayer))
 {
 	with (instance_place(x,y,oPlayer))
 	{
-		if (!global.god) global.hp-=8;
+		if (!global.god) currenthp -= 8;
+		currenthp = clamp(currenthp,0,hp);
 		flash = 3;
 		hitfrom = other.direction;
 	}

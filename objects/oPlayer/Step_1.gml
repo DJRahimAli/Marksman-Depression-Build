@@ -1,11 +1,11 @@
 //Hit Sound
-if (global.hp != lasthp)
+if (currenthp != lasthp)
 {
-	if (global.hp < lasthp) audio_play_sound(snd_PlayerHurt,10,false);
-	lasthp = global.hp;
+	if (currenthp < lasthp) audio_play_sound(snd_PlayerHurt,10,false);
+	lasthp = currenthp;
 }
 
-if (global.hp <= 0)
+if (currenthp <= 0)
 {
 /// @desc Death
 with (oWeapon) instance_destroy();
@@ -22,7 +22,7 @@ else
 	hsp = -sign(image_xscale)*random_range(5,6);
 	vsp = -random_range(3,4);
 }
-if (sign(hsp) != 0) image_xscale = sign(hsp);
+image_xscale = sign(hsp)*xscale;
 
 global.kills -= global.killsthisroom;
 }

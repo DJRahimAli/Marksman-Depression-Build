@@ -18,8 +18,6 @@ if (aimside != 0)
 }
 
 //Aimside Types
-var playersize = 2;
-
 with (oPlayer) 
 {
 	switch (oWeapon.aimsidetype)
@@ -28,20 +26,20 @@ with (oPlayer)
 		if (hspnodec != 0)
 		{
 			if (movedir != 0) aimside = sign(hsp);
-			image_xscale = aimside*playersize;
+			image_xscale = aimside*oPlayer.xscale;
 		}
 		
 		if (hsp == 0) && (wallsliding != 0) && (!global.noclip)
 		{
 			aimside = -onwall;
-			image_xscale = aimside*playersize;
+			image_xscale = aimside*oPlayer.xscale;
 		}
 		break;
 		case aimsidetypes.weapondirection:
 		/*if (!oWeapon.holstered)
 		{*/
 			aimside = oWeapon.aimside;
-			if (oWeapon.aimside != 0) image_xscale = aimside*playersize;
+			if (oWeapon.aimside != 0) image_xscale = aimside*oPlayer.xscale;
 		//}
 		break;
 	}

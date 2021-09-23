@@ -1,6 +1,3 @@
-global.hp = string_format(global.hp, 0, 0);
-if (global.hp < 0) global.hp = 0;
-
 //Calculate current status
 onground = (place_meeting_ext(x,y+1,[oWall,oCollision]));
 onwall = (place_meeting_ext(x+1,y,[oWall,oCollision])) - (place_meeting_ext(x-1,y,[oWall,oCollision]));
@@ -359,6 +356,6 @@ if (global.fly) && (audio_is_playing(snd_Sliding) == true)
 if (global.key_suicide_pressed)
 {
 	suicide = true;
-	global.hp = 0;
+	currenthp = 0;
 	lasthp = 0;
 }
