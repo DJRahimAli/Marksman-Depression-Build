@@ -79,8 +79,8 @@ playertrail = true;
 
 movedir = 0;
 
-healthbarwidth = 100;
-healthbarheight = 12;
+healthbarwidth = 200;
+healthbarheight = 24;
 
 healthbarx = (RES_W/2) - (healthbarwidth/2);
 healthbary = (RES_H/2);

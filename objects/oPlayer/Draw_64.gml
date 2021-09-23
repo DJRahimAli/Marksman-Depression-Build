@@ -1,5 +1,15 @@
 /// @desc Health Bar
-draw_sprite(sHealthBarBackground,0,healthbarx,healthbary);
+draw_sprite_ext(
+sHealthBarBackground,
+0,
+healthbarx,
+healthbary,
+2,
+2,
+0,
+c_white,
+1
+);
 
 drawnhp = lerp(drawnhp,currenthp,0.2);
 
@@ -14,4 +24,14 @@ MakeColorHSVTransition(drawnhp, hp, 0, 100, 255, 255, 255, 255),
 1
 );
 
-draw_sprite(sHealthBarBorder,0,healthbarx,healthbary);
+draw_sprite_ext(
+sHealthBarBorder,
+0,
+healthbarx,
+healthbary,
+2,
+2,
+0,
+c_white,
+1
+);
