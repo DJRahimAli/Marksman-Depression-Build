@@ -31,8 +31,8 @@
     {"propertyId":{"name":"hp","path":"objects/pShootable/pShootable.yy",},"objectId":{"name":"pShootable","path":"objects/pShootable/pShootable.yy",},"value":"100","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Entities",
-    "path": "folders/Objects/Entities.yy",
+    "name": "Temporary",
+    "path": "folders/Objects/Temporary.yy",
   },
   "resourceVersion": "1.0",
   "name": "oEnemyBig",

@@ -30,8 +30,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Entities",
-    "path": "folders/Objects/Entities.yy",
+    "name": "Temporary",
+    "path": "folders/Objects/Temporary.yy",
   },
   "resourceVersion": "1.0",
   "name": "oSign",

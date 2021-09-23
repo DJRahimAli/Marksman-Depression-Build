@@ -23,7 +23,7 @@
   },
   "tracks": [
     {"keyframes":{"Keyframes":[
-          {"id":"a75976a2-2678-4ba7-96e1-4a1793940327","Key":0.0,"Length":60.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"oFade","path":"objects/oFade/oFade.yy",},"resourceVersion":"1.0","resourceType":"AssetInstanceKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<AssetInstanceKeyframe>",},
+          {"id":"a75976a2-2678-4ba7-96e1-4a1793940327","Key":0.0,"Length":60.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"oPixel","path":"objects/oPixel/oPixel.yy",},"resourceVersion":"1.0","resourceType":"AssetInstanceKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<AssetInstanceKeyframe>",},
         ],"resourceVersion":"1.0","resourceType":"KeyframeStore<AssetInstanceKeyframe>",},"trackColour":4289153266,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[
         {"keyframes":{"Keyframes":[
               {"id":"17d7d1cc-3911-473e-a2d8-8903a17d21dd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"Colour":4278190080,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"ColourKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<ColourKeyframe>",},
@@ -41,7 +41,7 @@
         {"keyframes":{"Keyframes":[
               {"id":"068c5ff9-a9c4-4789-99dd-89abe676da2f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"RealValue":1920.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},"1":{"EmbeddedAnimCurve":null,"RealValue":1080.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<RealKeyframe>",},
             ],"resourceVersion":"1.0","resourceType":"KeyframeStore<RealKeyframe>",},"trackColour":4289153266,"inheritsTrackColour":true,"builtinName":15,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","name":"scale","tags":[],"resourceType":"GMRealTrack",},
-      ],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","name":"oFade","tags":[],"resourceType":"GMInstanceTrack",},
+      ],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","name":"oPixel","tags":[],"resourceType":"GMInstanceTrack",},
   ],
   "visibleRange": {
     "x": 0.0,
