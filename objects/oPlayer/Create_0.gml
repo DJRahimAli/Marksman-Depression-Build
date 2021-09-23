@@ -82,8 +82,8 @@ movedir = 0;
 healthbarwidth = 200;
 healthbarheight = 24;
 
-healthbarx = (RES_W/2) - (healthbarwidth/2);
-healthbary = (RES_H/2);
+healthbarx = 12;
+healthbary = (healthbarheight/2);
 
 //test = 0;
 
