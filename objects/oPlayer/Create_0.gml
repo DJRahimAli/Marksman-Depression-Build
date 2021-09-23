@@ -1,3 +1,9 @@
+xscale = 2;
+yscale = 2;
+
+image_xscale = xscale;
+image_yscale = yscale;
+
 hsp = 0;
 hspnodec = 0;
 hspfrac = 0;
@@ -46,6 +52,7 @@ moving = false;
 hp = 100;
 currenthp = hp;
 lasthp = currenthp;
+drawnhp = currenthp;
 
 hitfrom = 0;
 
@@ -72,11 +79,11 @@ playertrail = true;
 
 movedir = 0;
 
-xscale = 2;
-yscale = 2;
+healthbarwidth = 100;
+healthbarheight = 12;
 
-image_xscale = xscale;
-image_yscale = yscale;
+healthbarx = (RES_W/2) - (healthbarwidth/2);
+healthbary = (RES_H/2);
 
 //test = 0;
 
