@@ -72,7 +72,7 @@ if (menu_x > menu_x_target+50) && (menu_commited != -1)
 			else
 			{
 				var file = file_text_open_read(SAVEFILE);
-				global.hp = file_text_read_real(file);
+				oPlayer.currenthp = file_text_read_real(file);
 				global.kills = file_text_read_real(file);
 				var ignore = file_text_read_real(file);
 				var ignore2 = file_text_read_real(file);

@@ -89,7 +89,6 @@
     {"id":{"name":"GMTwerk_Tween","path":"scripts/GMTwerk_Tween/GMTwerk_Tween.yy",},"order":9,},
     {"id":{"name":"oSign","path":"objects/oSign/oSign.yy",},"order":7,},
     {"id":{"name":"__gmtwerk_host__","path":"objects/__gmtwerk_host__/__gmtwerk_host__.yy",},"order":0,},
-    {"id":{"name":"sBackground","path":"sprites/sBackground/sBackground.yy",},"order":36,},
     {"id":{"name":"oSound","path":"objects/oSound/oSound.yy",},"order":5,},
     {"id":{"name":"LightweightMaps","path":"scripts/LightweightMaps/LightweightMaps.yy",},"order":4,},
     {"id":{"name":"__GMTWERK_CONFIG__","path":"scripts/__GMTWERK_CONFIG__/__GMTWERK_CONFIG__.yy",},"order":0,},

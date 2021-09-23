@@ -43,7 +43,9 @@ crouchstuck = false;
 
 moving = false;
 
-lasthp = global.hp;
+hp = 100;
+currenthp = hp;
+lasthp = currenthp;
 
 hitfrom = 0;
 
@@ -70,6 +72,11 @@ playertrail = true;
 
 movedir = 0;
 
+xscale = 2;
+yscale = 2;
+
+image_xscale = xscale;
+image_yscale = yscale;
 
 //test = 0;
 
