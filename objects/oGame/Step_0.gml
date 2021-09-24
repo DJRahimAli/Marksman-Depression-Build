@@ -177,3 +177,7 @@ else
 	#endregion
 }
 #endregion
+
+if (global.rainbowtrail) && (rainbowhue == 0) rainbowhue = 255;
+
+rainbowhue = max(0,rainbowhue-1);

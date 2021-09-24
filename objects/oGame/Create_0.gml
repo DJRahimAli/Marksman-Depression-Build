@@ -91,6 +91,8 @@ global.kills = 0;
 global.killsthisroom = 0;
 killtextscale = 1;
 
+rainbowhue = 255;
+
 //window_set_cursor (cr_none)
 //cursor_sprite = sCursor;
 
