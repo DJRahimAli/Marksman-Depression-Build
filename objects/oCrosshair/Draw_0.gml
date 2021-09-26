@@ -1,4 +1,4 @@
-if (oWeapon.crosshairsprite != -1)
+if (oWeapon.crosshairsprite != -1) && (oWeapon.stopattack <= 1)
 {
 	draw_sprite_ext(
 	oWeapon.crosshairsprite,
