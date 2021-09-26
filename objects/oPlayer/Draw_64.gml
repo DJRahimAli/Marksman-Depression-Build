@@ -8,7 +8,7 @@ healthbary,
 2,
 0,
 c_white,
-1
+0.4
 );
 
 drawnhp = lerp(drawnhp,currenthp,0.2);
@@ -21,7 +21,7 @@ healthbary,
 (drawnhp/hp)*healthbarwidth,
 healthbarheight,
 MakeColorHSVTransition(drawnhp, hp, 0, 100, 255, 255, 255, 255),
-1
+0.8
 );
 
 draw_sprite_ext(
@@ -33,5 +33,5 @@ healthbary,
 2,
 0,
 c_white,
-1
+0.8
 );
