@@ -3,13 +3,13 @@ if (currentswitchdelay > 0) currentswitchdelay--;
 
 if (currentswitchdelay == 0)
 {
-	stopattack = false;
+	stopattack = 0;
 	if (global.hascontrol)
 	{
 		//Next Weapon
 		if mouse_wheel_down()
 		{
-			stopattack = true;
+			stopattack = 3;
 			image_speed = 0;
 			image_index = 0;
 			if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
@@ -30,7 +30,7 @@ if (currentswitchdelay == 0)
 		//Previous Weapon
 		if mouse_wheel_up()
 		{
-			stopattack = true;
+			stopattack = 3;
 			image_speed = 0;
 			image_index = 0;
 			if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
@@ -49,7 +49,7 @@ if (currentswitchdelay == 0)
 		}
 	}
 }
-else stopattack = true;
+else stopattack = 3;
 
 if (currentattacktype == -1) && (currentfiremodetype == firemodetypes.pumpsingle) || (currentfiremodetype == firemodetypes.pumpautomatic)
 {
