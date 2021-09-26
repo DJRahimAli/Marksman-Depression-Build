@@ -12,3 +12,5 @@ if (oWeapon.crosshairsprite != -1)
 	image_alpha
 	);
 }
+
+draw_circular_bar(drawnx, drawny, oWeapon.currentreloaddelay, oWeapon.reloaddelay, MakeColorHSVTransition(reloadbarcolour, oWeapon.reloaddelay, 0, 100, 255, 255, 255, 255), 14, 1, 4);

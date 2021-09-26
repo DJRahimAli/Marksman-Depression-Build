@@ -1768,5 +1768,3 @@ SetWeapon(weapontypes.unarmed);
 currentweapon = weapon;
 
 test = 0;
-
-reloadbarcolour = 0;
