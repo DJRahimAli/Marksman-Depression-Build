@@ -5,7 +5,7 @@ if (place_meeting(x,y,oPlayer))
 		case pickuptypes.pistol:
 			with(oWeapon)
 			{
-				stopattack = true;
+				stopattack = 3;
 				image_speed = 0;
 				image_index = 0;
 				if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
@@ -33,7 +33,7 @@ if (place_meeting(x,y,oPlayer))
 		case pickuptypes.shotgun:
 			with(oWeapon)
 			{
-				stopattack = true;
+				stopattack = 3;
 				image_speed = 0;
 				image_index = 0;
 				if (primarymuzzleflash) || (secondarymuzzleflash) with (oMuzzleflash)
