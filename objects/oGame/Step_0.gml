@@ -178,6 +178,12 @@ else
 }
 #endregion
 
-if (global.rainbowtrail) && (rainbowhue == 0) rainbowhue = 255;
-
-rainbowhue = max(0,rainbowhue-1);
+if (global.rainbowtrail)
+{
+	rainbowhue = max(-1,rainbowhue-1);
+	rainbowhue = Wrap(rainbowhue, 0, 255);
+}
+else
+{
+	rainbowhue = 0;
+}
