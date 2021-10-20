@@ -76,7 +76,6 @@
     {"id":{"name":"LightweightDataStructures","path":"extensions/LightweightDataStructures/LightweightDataStructures.yy",},"order":0,},
     {"id":{"name":"sShellShotgun","path":"sprites/sShellShotgun/sShellShotgun.yy",},"order":1,},
     {"id":{"name":"snd_Hurt","path":"sounds/snd_Hurt/snd_Hurt.yy",},"order":8,},
-    {"id":{"name":"oSplash","path":"objects/oSplash/oSplash.yy",},"order":13,},
     {"id":{"name":"sPlayerRC","path":"sprites/sPlayerRC/sPlayerRC.yy",},"order":9,},
     {"id":{"name":"sArmShotgunPumpRight","path":"sprites/sArmShotgunPumpRight/sArmShotgunPumpRight.yy",},"order":1,},
     {"id":{"name":"sPlayerRB","path":"sprites/sPlayerRB/sPlayerRB.yy",},"order":7,},
