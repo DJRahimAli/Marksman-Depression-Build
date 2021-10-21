@@ -11,7 +11,7 @@ drawny = 0;
 
 reloadbarcolour = 0;
 reloadbarradius = 14;
-reloadbartransparency = 0.8;
+reloadbartransparency = 1;
 reloadbarwidth = 4;
 
 currentreloadbarradius = reloadbarradius;
