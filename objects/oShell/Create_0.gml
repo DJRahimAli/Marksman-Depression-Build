@@ -2,7 +2,10 @@ life = 0;
 alphalength = 0;
 
 hsp = 0;
-vsp = 0
+vsp = 0;
+
+onground = false;
+onwall = 0;
 
 currentshellbouncevspmin = 0;
 currentshellbouncevspmax = 0;
